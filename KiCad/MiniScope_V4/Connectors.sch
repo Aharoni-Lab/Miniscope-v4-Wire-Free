@@ -1,0 +1,156 @@
+EESchema Schematic File Version 4
+LIBS:MiniScope_V4-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 7 7
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text GLabel 3950 3050 0    50   Input ~ 0
+SWDIO
+Text GLabel 3950 3150 0    50   Input ~ 0
+SWDCLK
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5CA13D29
+P 3900 2950
+F 0 "#PWR?" H 3900 2800 50  0001 C CNN
+F 1 "+1V8" H 3915 3123 50  0000 C CNN
+F 2 "" H 3900 2950 50  0001 C CNN
+F 3 "" H 3900 2950 50  0001 C CNN
+	1    3900 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR?
+U 1 1 5CA13D91
+P 3950 3250
+F 0 "#PWR?" H 3950 3000 50  0001 C CNN
+F 1 "Earth" H 3950 3100 50  0001 C CNN
+F 2 "" H 3950 3250 50  0001 C CNN
+F 3 "~" H 3950 3250 50  0001 C CNN
+	1    3950 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5CA161C4
+P 4450 2950
+F 0 "J?" H 4530 2992 50  0000 L CNN
+F 1 "Conn_01x01" H 4530 2901 50  0000 L CNN
+F 2 "" H 4450 2950 50  0001 C CNN
+F 3 "~" H 4450 2950 50  0001 C CNN
+	1    4450 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5CA16203
+P 4450 3050
+F 0 "J?" H 4530 3092 50  0000 L CNN
+F 1 "Conn_01x01" H 4530 3001 50  0000 L CNN
+F 2 "" H 4450 3050 50  0001 C CNN
+F 3 "~" H 4450 3050 50  0001 C CNN
+	1    4450 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5CA16222
+P 4450 3150
+F 0 "J?" H 4530 3192 50  0000 L CNN
+F 1 "Conn_01x01" H 4530 3101 50  0000 L CNN
+F 2 "" H 4450 3150 50  0001 C CNN
+F 3 "~" H 4450 3150 50  0001 C CNN
+	1    4450 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5CA16277
+P 4450 3250
+F 0 "J?" H 4530 3292 50  0000 L CNN
+F 1 "Conn_01x01" H 4530 3201 50  0000 L CNN
+F 2 "" H 4450 3250 50  0001 C CNN
+F 3 "~" H 4450 3250 50  0001 C CNN
+	1    4450 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 3150 4250 3150
+Wire Wire Line
+	4250 3050 3950 3050
+Wire Wire Line
+	3900 2950 4250 2950
+Wire Wire Line
+	3950 3250 4250 3250
+Text GLabel 3950 3700 0    50   Input ~ 0
+LED+
+Text GLabel 3950 3800 0    50   Input ~ 0
+LED-
+Wire Wire Line
+	3950 3700 4250 3700
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5CA266EE
+P 4450 3700
+F 0 "J?" H 4530 3742 50  0000 L CNN
+F 1 "Conn_01x01" H 4530 3651 50  0000 L CNN
+F 2 "" H 4450 3700 50  0001 C CNN
+F 3 "~" H 4450 3700 50  0001 C CNN
+	1    4450 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5CA26767
+P 4450 4100
+F 0 "J?" H 4530 4142 50  0000 L CNN
+F 1 "Conn_01x01" H 4530 4051 50  0000 L CNN
+F 2 "" H 4450 4100 50  0001 C CNN
+F 3 "~" H 4450 4100 50  0001 C CNN
+	1    4450 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5CA267B7
+P 4450 4200
+F 0 "J?" H 4530 4242 50  0000 L CNN
+F 1 "Conn_01x01" H 4530 4151 50  0000 L CNN
+F 2 "" H 4450 4200 50  0001 C CNN
+F 3 "~" H 4450 4200 50  0001 C CNN
+	1    4450 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+BATT #PWR?
+U 1 1 5CA268F4
+P 4250 4100
+F 0 "#PWR?" H 4250 3950 50  0001 C CNN
+F 1 "+BATT" H 4265 4273 50  0000 C CNN
+F 2 "" H 4250 4100 50  0001 C CNN
+F 3 "" H 4250 4100 50  0001 C CNN
+	1    4250 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR?
+U 1 1 5CA26FF1
+P 4250 4200
+F 0 "#PWR?" H 4250 3950 50  0001 C CNN
+F 1 "Earth" H 4250 4050 50  0001 C CNN
+F 2 "" H 4250 4200 50  0001 C CNN
+F 3 "~" H 4250 4200 50  0001 C CNN
+	1    4250 4200
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
