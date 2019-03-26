@@ -1,0 +1,975 @@
+EESchema Schematic File Version 4
+LIBS:MiniScope_V4-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 7
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MiniScope_V4-rescue:ATSAME70N21A-CN-.MCU U?
+U 1 1 5C92D513
+P 5600 4350
+F 0 "U?" H 5550 1364 50  0000 C CNN
+F 1 "ATSAME70N21A-CN" H 5550 1273 50  0000 C CNN
+F 2 ".Package_BGA:BGA_100_CP80_10X10_900X900X110B40L" H 5500 4250 50  0001 C CNN
+F 3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en589960" H 5600 4350 50  0001 C CNN
+	1    5600 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 1450 4350 1450
+Text GLabel 3500 1450 0    50   Output ~ 0
+LED_PWM
+Text Label 3600 1450 0    50   ~ 0
+PWMC0
+Text Label 3900 1450 0    50   ~ 0
+PWMH0
+NoConn ~ 4350 1550
+NoConn ~ 4350 1650
+NoConn ~ 4350 2050
+NoConn ~ 4350 2150
+Wire Bus Line
+	2950 2100 3500 2100
+Connection ~ 3500 2100
+Text Label 3500 1650 0    50   ~ 0
+d0
+Text Label 3500 1750 0    50   ~ 0
+d1
+Text Label 3500 1850 0    50   ~ 0
+d2
+Text Label 3500 2150 0    50   ~ 0
+d3
+Text Label 3500 2250 0    50   ~ 0
+d4
+Text Label 3500 2350 0    50   ~ 0
+d5
+Text Label 3500 2450 0    50   ~ 0
+d6
+Text Label 3500 2550 0    50   ~ 0
+d7
+Text Label 2950 2100 0    50   ~ 0
+d[0:7]
+Text GLabel 2950 2100 0    50   Input ~ 0
+CMOS_Sensor
+Entry Wire Line
+	3500 1650 3600 1750
+Entry Wire Line
+	3500 1750 3600 1850
+Entry Wire Line
+	3500 1850 3600 1950
+Wire Wire Line
+	3600 1750 4350 1750
+Wire Wire Line
+	3600 1850 4350 1850
+Wire Wire Line
+	4350 1950 3600 1950
+Wire Wire Line
+	4350 2250 3600 2250
+Entry Wire Line
+	3500 2150 3600 2250
+Entry Wire Line
+	3500 2250 3600 2350
+Entry Wire Line
+	3500 2350 3600 2450
+Entry Wire Line
+	3500 2450 3600 2550
+Entry Wire Line
+	3500 2550 3600 2650
+Wire Wire Line
+	3600 2650 4350 2650
+Wire Wire Line
+	4350 2550 3600 2550
+Wire Wire Line
+	3600 2450 4350 2450
+Wire Wire Line
+	4350 2350 3600 2350
+Wire Wire Line
+	4350 2750 3500 2750
+Text GLabel 3500 2750 0    50   Input ~ 0
+FRAME_VALID
+Wire Wire Line
+	4350 3550 3500 3550
+Text GLabel 3500 3550 0    50   Input ~ 0
+CLK_OUT
+Text GLabel 3500 3450 0    50   Input ~ 0
+LINE_VALID
+Wire Wire Line
+	3500 3450 4350 3450
+NoConn ~ 4350 3650
+NoConn ~ 4350 3750
+NoConn ~ 4350 2850
+Wire Wire Line
+	4350 3050 3500 3050
+Text GLabel 3500 3050 0    50   Output ~ 0
+CLOCK
+Wire Wire Line
+	4350 3950 3200 3950
+Wire Wire Line
+	3200 4050 4350 4050
+Wire Wire Line
+	4350 4250 3200 4250
+Wire Wire Line
+	3200 4350 4350 4350
+Text GLabel 3750 3850 0    50   Output ~ 0
+SDCardCLKA
+Text GLabel 3750 4150 0    50   Output ~ 0
+SDCardCMDA
+Entry Wire Line
+	3100 3850 3200 3950
+Entry Wire Line
+	3100 3950 3200 4050
+Entry Wire Line
+	3100 4150 3200 4250
+Entry Wire Line
+	3100 4250 3200 4350
+Connection ~ 3100 4050
+Wire Wire Line
+	3750 3850 4350 3850
+Wire Wire Line
+	3750 4150 4350 4150
+Wire Bus Line
+	2900 4050 3100 4050
+Text GLabel 2900 4050 0    50   Output ~ 0
+SDCard
+Text Label 2900 4050 0    50   ~ 0
+D[0:3]
+Text Label 3200 3950 0    50   ~ 0
+D2
+Text Label 3200 4050 0    50   ~ 0
+D3
+Text Label 3200 4250 0    50   ~ 0
+D0
+Text Label 3200 4350 0    50   ~ 0
+D1
+NoConn ~ 4350 4550
+Wire Wire Line
+	4350 4650 3500 4650
+Wire Wire Line
+	3500 4750 4350 4750
+Text GLabel 3500 4650 0    50   Output ~ 0
+RESET_N
+Text GLabel 3500 4750 0    50   Output ~ 0
+TRIGGER0
+$Comp
+L .Inductor:BLM18PG471SN1D L?
+U 1 1 5C966338
+P 6100 800
+F 0 "L?" V 6148 846 50  0001 L BNN
+F 1 "BLM18PG471SN1D" H 6150 650 50  0001 L CNN
+F 2 ".Inductor:L_0603_1608Metric_L" H 6150 1100 50  0001 C CNN
+F 3 "https://www.murata.com/en-us/products/productdata/8796738650142/ENFA0003.pdf" H 6100 800 50  0001 C CNN
+F 4 "0603" H 6250 550 50  0001 C CNN "Size"
+	1    6100 800 
+	-1   0    0    1   
+$EndComp
+$Comp
+L .Inductor:BLM18PG471SN1D L?
+U 1 1 5C967089
+P 6000 800
+F 0 "L?" V 6048 846 50  0001 L CNN
+F 1 "BLM18PG471SN1D" H 6050 650 50  0001 L CNN
+F 2 ".Inductor:L_0603_1608Metric_L" H 6050 1100 50  0001 C CNN
+F 3 "https://www.murata.com/en-us/products/productdata/8796738650142/ENFA0003.pdf" H 6000 800 50  0001 C CNN
+F 4 "470 Ohms @ 100MHz" V 6048 755 50  0000 L CNN "Note"
+F 5 "0603" H 6150 550 50  0001 C CNN "Size"
+	1    6000 800 
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+1V2 #PWR?
+U 1 1 5C968AF0
+P 4950 700
+F 0 "#PWR?" H 4950 550 50  0001 C CNN
+F 1 "+1V2" H 4965 873 50  0000 C CNN
+F 2 "" H 4950 700 50  0001 C CNN
+F 3 "" H 4950 700 50  0001 C CNN
+	1    4950 700 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 1050 5450 1050
+Connection ~ 5450 1050
+Wire Wire Line
+	5450 1050 5550 1050
+Wire Wire Line
+	5900 1050 5900 950 
+Wire Wire Line
+	5900 950  6200 950 
+Wire Wire Line
+	6200 950  6200 1050
+Wire Wire Line
+	6200 950  6300 950 
+Wire Wire Line
+	6300 950  6300 1050
+Connection ~ 6200 950 
+Wire Wire Line
+	5900 950  5450 950 
+Wire Wire Line
+	5450 950  5450 1050
+Connection ~ 5900 950 
+$Comp
+L .Capacitor:GRM155R60J475ME87D C?
+U 1 1 5C96BD48
+P 6200 750
+F 0 "C?" H 6292 796 50  0000 L CNN
+F 1 "GRM155R60J475ME87D" H 5810 920 50  0001 L CNN
+F 2 ".Capacitor:C_0402_1005Metric_L" H 6310 1020 50  0001 C CNN
+F 3 "" H 6210 820 50  0001 C CNN
+F 4 "4.7uF" H 6292 705 50  0000 L CNN "Note"
+F 5 "0402" H 6310 570 50  0001 C CNN "Size"
+	1    6200 750 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6200 850  6200 950 
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5C96C772
+P 6200 650
+F 0 "#PWR?" H 6200 500 50  0001 C CNN
+F 1 "+1V8" H 6215 823 50  0000 C CNN
+F 2 "" H 6200 650 50  0001 C CNN
+F 3 "" H 6200 650 50  0001 C CNN
+	1    6200 650 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 900  6100 1050
+Wire Wire Line
+	6000 900  6000 1050
+$Comp
+L power:Earth #PWR?
+U 1 1 5C971460
+P 4350 6850
+F 0 "#PWR?" H 4350 6600 50  0001 C CNN
+F 1 "Earth" H 4350 6700 50  0001 C CNN
+F 2 "" H 4350 6850 50  0001 C CNN
+F 3 "~" H 4350 6850 50  0001 C CNN
+	1    4350 6850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 7250 5350 7250
+Connection ~ 5350 7250
+Wire Wire Line
+	5350 7250 5450 7250
+Connection ~ 5450 7250
+Wire Wire Line
+	5450 7250 5550 7250
+Connection ~ 5550 7250
+Wire Wire Line
+	5550 7250 5800 7250
+Connection ~ 5800 7250
+Wire Wire Line
+	5800 7250 5900 7250
+Connection ~ 5900 7250
+Wire Wire Line
+	5900 7250 6000 7250
+Connection ~ 6000 7250
+Wire Wire Line
+	6000 7250 6100 7250
+Wire Wire Line
+	5250 7250 4950 7250
+Connection ~ 5250 7250
+$Comp
+L power:Earth #PWR?
+U 1 1 5C972DC3
+P 4950 7250
+F 0 "#PWR?" H 4950 7000 50  0001 C CNN
+F 1 "Earth" H 4950 7100 50  0001 C CNN
+F 2 "" H 4950 7250 50  0001 C CNN
+F 3 "~" H 4950 7250 50  0001 C CNN
+	1    4950 7250
+	1    0    0    -1  
+$EndComp
+NoConn ~ 4350 6750
+NoConn ~ 4350 6550
+NoConn ~ 4350 6350
+NoConn ~ 4350 5950
+NoConn ~ 4350 5850
+Text Notes 3100 6050 0    50   ~ 0
+Leave floating if not using USB
+NoConn ~ 4350 5650
+NoConn ~ 4350 4850
+Wire Wire Line
+	4350 5150 3500 5150
+Wire Wire Line
+	4350 5250 3500 5250
+Wire Wire Line
+	4350 5550 3500 5550
+Text GLabel 3500 5550 0    50   Output ~ 0
+ENT
+$Comp
+L .Oscillator:ABM8G-12.000MHZ-4Y-T3 Y?
+U 1 1 5C95C252
+P 2500 5400
+F 0 "Y?" V 2546 5566 50  0000 L CNN
+F 1 "ABM8G-12.000MHZ-4Y-T3" V 2350 4600 50  0000 L CNN
+F 2 ".Oscillator:OSCCC320X250X100L80X100" H 2450 5475 50  0001 C CNN
+F 3 "https://abracon.com/Resonators/ABM8G.pdf" H 2500 5400 50  0001 C CNN
+	1    2500 5400
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	2700 5350 2700 5300
+Wire Wire Line
+	2700 5300 2500 5300
+Wire Wire Line
+	2700 5350 2900 5350
+Wire Wire Line
+	2700 5450 2700 5500
+Wire Wire Line
+	2700 5500 2500 5500
+Wire Wire Line
+	2700 5450 3100 5450
+Wire Wire Line
+	2650 5400 2650 5700
+Wire Wire Line
+	2350 5400 2350 5700
+Wire Wire Line
+	2350 5700 2500 5700
+Wire Wire Line
+	2400 5400 2375 5400
+Connection ~ 2375 5400
+Wire Wire Line
+	2375 5400 2350 5400
+Wire Wire Line
+	2600 5400 2625 5400
+Connection ~ 2625 5400
+Wire Wire Line
+	2625 5400 2650 5400
+Text Notes 1350 5350 0    50   ~ 0
+Why is this not connecting
+$Comp
+L power:Earth #PWR?
+U 1 1 5C95D4B7
+P 2500 5700
+F 0 "#PWR?" H 2500 5450 50  0001 C CNN
+F 1 "Earth" H 2500 5550 50  0001 C CNN
+F 2 "" H 2500 5700 50  0001 C CNN
+F 3 "~" H 2500 5700 50  0001 C CNN
+	1    2500 5700
+	1    0    0    -1  
+$EndComp
+Connection ~ 2500 5700
+Wire Wire Line
+	2500 5700 2650 5700
+Text Label 3900 5350 0    50   ~ 0
+XOUT
+Text Label 3900 5450 0    50   ~ 0
+XIN
+Text Label 3900 5250 0    50   ~ 0
+SWDCLK
+Text Label 3900 5150 0    50   ~ 0
+SWDIO
+Text GLabel 3500 5150 0    50   Output ~ 0
+SWDIO
+Text GLabel 3500 5250 0    50   Output ~ 0
+SWDCLK
+Wire Wire Line
+	2900 5350 2900 5650
+Connection ~ 2900 5350
+Wire Wire Line
+	2900 5350 4350 5350
+Wire Wire Line
+	3100 5450 3100 5650
+Connection ~ 3100 5450
+Wire Wire Line
+	3100 5450 4350 5450
+$Comp
+L .Capacitor:GRM1555C1H120JA01D C?
+U 1 1 5C963B09
+P 2900 5750
+F 0 "C?" H 2992 5796 50  0000 L CNN
+F 1 "GRM1555C1H120JA01D" H 2510 5920 50  0001 L CNN
+F 2 ".Capacitor:C_0402_1005Metric_L" H 2960 6020 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM033R61A104ME15-01.pdf" H 2910 5820 50  0001 C CNN
+F 4 "12pF" H 2992 5705 50  0000 L CNN "Note"
+F 5 "0402" H 3010 5570 50  0001 C CNN "Size"
+	1    2900 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Capacitor:GRM1555C1H120JA01D C?
+U 1 1 5C963B41
+P 3100 5750
+F 0 "C?" H 3192 5796 50  0000 L CNN
+F 1 "GRM1555C1H120JA01D" H 2710 5920 50  0001 L CNN
+F 2 ".Capacitor:C_0402_1005Metric_L" H 3160 6020 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM033R61A104ME15-01.pdf" H 3110 5820 50  0001 C CNN
+F 4 "12pF" H 3192 5705 50  0000 L CNN "Note"
+F 5 "0402" H 3210 5570 50  0001 C CNN "Size"
+	1    3100 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR?
+U 1 1 5C963B9F
+P 2900 5850
+F 0 "#PWR?" H 2900 5600 50  0001 C CNN
+F 1 "Earth" H 2900 5700 50  0001 C CNN
+F 2 "" H 2900 5850 50  0001 C CNN
+F 3 "~" H 2900 5850 50  0001 C CNN
+	1    2900 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR?
+U 1 1 5C963BCB
+P 3100 5850
+F 0 "#PWR?" H 3100 5600 50  0001 C CNN
+F 1 "Earth" H 3100 5700 50  0001 C CNN
+F 2 "" H 3100 5850 50  0001 C CNN
+F 3 "~" H 3100 5850 50  0001 C CNN
+	1    3100 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 6250 3500 6250
+Text Label 3500 6250 0    50   ~ 0
+NRESET
+Text Notes 3250 6350 0    50   ~ 0
+100K UNTERNAL PULLUP
+Wire Wire Line
+	6750 2650 7650 2650
+Wire Wire Line
+	6750 2750 7650 2750
+Text Label 7250 2650 0    50   ~ 0
+IR_Reciever
+Text Label 7350 2750 0    50   ~ 0
+RED_LED
+NoConn ~ 6750 2850
+NoConn ~ 6750 2950
+NoConn ~ 6750 3050
+NoConn ~ 6750 3150
+NoConn ~ 6750 3250
+NoConn ~ 6750 3350
+NoConn ~ 6750 3450
+NoConn ~ 6750 3550
+NoConn ~ 6750 3650
+NoConn ~ 6750 3750
+NoConn ~ 6750 3850
+NoConn ~ 6750 3950
+NoConn ~ 6750 4050
+NoConn ~ 6750 4150
+NoConn ~ 6750 4250
+NoConn ~ 6750 4350
+NoConn ~ 6750 4450
+NoConn ~ 6750 4550
+NoConn ~ 6750 4950
+NoConn ~ 6750 5150
+NoConn ~ 6750 5250
+NoConn ~ 6750 5350
+NoConn ~ 6750 5450
+NoConn ~ 6750 5550
+NoConn ~ 6350 2600
+Wire Wire Line
+	6000 700  6100 700 
+Wire Wire Line
+	5800 700  5800 1050
+Wire Wire Line
+	6000 700  5800 700 
+Connection ~ 6000 700 
+Connection ~ 5800 700 
+Wire Wire Line
+	4950 1050 4950 700 
+Wire Wire Line
+	4950 700  5800 700 
+Wire Wire Line
+	5150 1050 5050 1050
+Connection ~ 4950 1050
+Connection ~ 5050 1050
+Wire Wire Line
+	5050 1050 4950 1050
+Connection ~ 4950 700 
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5C9C53A4
+P 7300 750
+F 0 "#PWR?" H 7300 600 50  0001 C CNN
+F 1 "+1V8" H 7315 923 50  0000 C CNN
+F 2 "" H 7300 750 50  0001 C CNN
+F 3 "" H 7300 750 50  0001 C CNN
+	1    7300 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C?
+U 1 1 5C9C5410
+P 7300 850
+F 0 "C?" H 7392 896 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 6910 1020 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 7410 1120 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 7310 920 50  0001 C CNN
+F 4 "0.1uF" H 7392 805 50  0000 L CNN "Note"
+F 5 "0603" H 7410 670 50  0001 C CNN "Size"
+	1    7300 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C?
+U 1 1 5C9C5460
+P 7700 850
+F 0 "C?" H 7792 896 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 7310 1020 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 7810 1120 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 7710 920 50  0001 C CNN
+F 4 "0.1uF" H 7792 805 50  0000 L CNN "Note"
+F 5 "0603" H 7810 670 50  0001 C CNN "Size"
+	1    7700 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C?
+U 1 1 5C9C548C
+P 8100 850
+F 0 "C?" H 8192 896 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 7710 1020 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 8210 1120 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 8110 920 50  0001 C CNN
+F 4 "0.1uF" H 8192 805 50  0000 L CNN "Note"
+F 5 "0603" H 8210 670 50  0001 C CNN "Size"
+	1    8100 850 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7300 750  7700 750 
+Connection ~ 7300 750 
+Connection ~ 7700 750 
+Wire Wire Line
+	7700 750  8100 750 
+Wire Wire Line
+	7300 950  7700 950 
+Connection ~ 7700 950 
+Wire Wire Line
+	7700 950  8100 950 
+Wire Wire Line
+	8100 750  8450 750 
+Connection ~ 8100 750 
+Wire Wire Line
+	8100 950  8450 950 
+Connection ~ 8100 950 
+$Comp
+L power:Earth #PWR?
+U 1 1 5C9CDB6D
+P 8450 950
+F 0 "#PWR?" H 8450 700 50  0001 C CNN
+F 1 "Earth" H 8450 800 50  0001 C CNN
+F 2 "" H 8450 950 50  0001 C CNN
+F 3 "~" H 8450 950 50  0001 C CNN
+	1    8450 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C?
+U 1 1 5C9CDB91
+P 7300 1450
+F 0 "C?" H 7392 1496 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 6910 1620 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 7410 1720 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 7310 1520 50  0001 C CNN
+F 4 "0.1uF" H 7392 1405 50  0000 L CNN "Note"
+F 5 "0603" H 7410 1270 50  0001 C CNN "Size"
+	1    7300 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR?
+U 1 1 5C9CDBC3
+P 7300 1550
+F 0 "#PWR?" H 7300 1300 50  0001 C CNN
+F 1 "Earth" H 7300 1400 50  0001 C CNN
+F 2 "" H 7300 1550 50  0001 C CNN
+F 3 "~" H 7300 1550 50  0001 C CNN
+	1    7300 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7300 1350 7700 1350
+Text Label 7300 1350 0    50   ~ 0
+VDDUTMIC
+Text Label 6100 1050 1    50   ~ 0
+VDDUTMIC
+Text Label 6000 1050 1    50   ~ 0
+VDDPLL
+Text Label 4950 1000 1    50   ~ 0
+VDDCORE
+Text Label 5800 1050 1    50   ~ 0
+VDDOUT
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C?
+U 1 1 5C9D052D
+P 8100 1450
+F 0 "C?" H 8192 1496 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 7710 1620 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 8210 1720 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 8110 1520 50  0001 C CNN
+F 4 "0.1uF" H 8192 1405 50  0000 L CNN "Note"
+F 5 "0603" H 8210 1270 50  0001 C CNN "Size"
+	1    8100 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR?
+U 1 1 5C9D0568
+P 8100 1550
+F 0 "#PWR?" H 8100 1300 50  0001 C CNN
+F 1 "Earth" H 8100 1400 50  0001 C CNN
+F 2 "" H 8100 1550 50  0001 C CNN
+F 3 "~" H 8100 1550 50  0001 C CNN
+	1    8100 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 1350 8450 1350
+Text Label 8100 1350 0    50   ~ 0
+VDDPLL
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C?
+U 1 1 5C9D2C93
+P 8900 850
+F 0 "C?" H 8992 896 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 8510 1020 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 9010 1120 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 8910 920 50  0001 C CNN
+F 4 "0.1uF" H 8992 805 50  0000 L CNN "Note"
+F 5 "0603" H 9010 670 50  0001 C CNN "Size"
+	1    8900 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Capacitor:GCM21BR71E105KA56L C?
+U 1 1 5C9D2D48
+P 9300 850
+F 0 "C?" H 9392 896 50  0000 L CNN
+F 1 "GCM21BR71E105KA56L" H 8910 1020 50  0001 L CNN
+F 2 ".Capacitor:C_0805_2012Metric_L" H 9360 1120 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM21BR71E105KA56-01.pdf" H 9310 920 50  0001 C CNN
+F 4 "1uF" H 9392 805 50  0000 L CNN "Note"
+F 5 "0805" H 9410 670 50  0001 C CNN "Size"
+	1    9300 850 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9300 750  8900 750 
+Wire Wire Line
+	8900 950  9300 950 
+$Comp
+L power:Earth #PWR?
+U 1 1 5C9D7960
+P 9300 950
+F 0 "#PWR?" H 9300 700 50  0001 C CNN
+F 1 "Earth" H 9300 800 50  0001 C CNN
+F 2 "" H 9300 950 50  0001 C CNN
+F 3 "~" H 9300 950 50  0001 C CNN
+	1    9300 950 
+	1    0    0    -1  
+$EndComp
+Connection ~ 9300 950 
+$Comp
+L power:+1V2 #PWR?
+U 1 1 5C9D79A8
+P 8900 750
+F 0 "#PWR?" H 8900 600 50  0001 C CNN
+F 1 "+1V2" H 8915 923 50  0000 C CNN
+F 2 "" H 8900 750 50  0001 C CNN
+F 3 "" H 8900 750 50  0001 C CNN
+	1    8900 750 
+	1    0    0    -1  
+$EndComp
+Connection ~ 8900 750 
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C?
+U 1 1 5C9D79D4
+P 8900 1450
+F 0 "C?" H 8992 1496 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 8510 1620 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 9010 1720 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 8910 1520 50  0001 C CNN
+F 4 "0.1uF" H 8992 1405 50  0000 L CNN "Note"
+F 5 "0603" H 9010 1270 50  0001 C CNN "Size"
+	1    8900 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C?
+U 1 1 5C9D7A12
+P 9300 1450
+F 0 "C?" H 9392 1496 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 8910 1620 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 9410 1720 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 9310 1520 50  0001 C CNN
+F 4 "0.1uF" H 9392 1405 50  0000 L CNN "Note"
+F 5 "0603" H 9410 1270 50  0001 C CNN "Size"
+	1    9300 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8900 1350 9300 1350
+Connection ~ 9300 1350
+Wire Wire Line
+	9300 1350 9700 1350
+Wire Wire Line
+	8900 1550 9300 1550
+$Comp
+L power:Earth #PWR?
+U 1 1 5C9DCA24
+P 9300 1550
+F 0 "#PWR?" H 9300 1300 50  0001 C CNN
+F 1 "Earth" H 9300 1400 50  0001 C CNN
+F 2 "" H 9300 1550 50  0001 C CNN
+F 3 "~" H 9300 1550 50  0001 C CNN
+	1    9300 1550
+	1    0    0    -1  
+$EndComp
+Connection ~ 9300 1550
+Text Label 9350 1350 0    50   ~ 0
+VDDCORE
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5C9DCFA8
+P 8100 2000
+F 0 "#PWR?" H 8100 1850 50  0001 C CNN
+F 1 "+1V8" H 8115 2173 50  0000 C CNN
+F 2 "" H 8100 2000 50  0001 C CNN
+F 3 "" H 8100 2000 50  0001 C CNN
+	1    8100 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5C9DD128
+P 8100 2150
+F 0 "R?" H 8168 2196 50  0000 L CNN
+F 1 "100k" H 8168 2105 50  0000 L CNN
+F 2 "" V 8140 2140 50  0001 C CNN
+F 3 "~" H 8100 2150 50  0001 C CNN
+	1    8100 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 2000 8450 2000
+Connection ~ 8100 2000
+$Comp
+L Device:R_US R?
+U 1 1 5C9DFB21
+P 8450 2150
+F 0 "R?" H 8518 2196 50  0000 L CNN
+F 1 "100k" H 8518 2105 50  0000 L CNN
+F 2 "" V 8490 2140 50  0001 C CNN
+F 3 "~" H 8450 2150 50  0001 C CNN
+	1    8450 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 2300 8100 2500
+Wire Wire Line
+	8100 2500 8900 2500
+Wire Wire Line
+	8450 2300 8450 2400
+Wire Wire Line
+	8450 2400 8900 2400
+Text Label 8650 2400 0    50   ~ 0
+SWDIO
+Text Label 8600 2500 0    50   ~ 0
+SWDCLK
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5C9E5789
+P 9300 1950
+F 0 "#PWR?" H 9300 1800 50  0001 C CNN
+F 1 "+1V8" H 9315 2123 50  0000 C CNN
+F 2 "" H 9300 1950 50  0001 C CNN
+F 3 "" H 9300 1950 50  0001 C CNN
+	1    9300 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5C9E57B4
+P 9300 2100
+F 0 "R?" H 9368 2146 50  0000 L CNN
+F 1 "1k" H 9368 2055 50  0000 L CNN
+F 2 "" V 9340 2090 50  0001 C CNN
+F 3 "~" H 9300 2100 50  0001 C CNN
+	1    9300 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 5C9E5824
+P 9700 2100
+F 0 "R?" H 9768 2146 50  0000 L CNN
+F 1 "1k" H 9768 2055 50  0000 L CNN
+F 2 "" V 9740 2090 50  0001 C CNN
+F 3 "~" H 9700 2100 50  0001 C CNN
+	1    9700 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9700 1950 9300 1950
+Connection ~ 9300 1950
+Wire Wire Line
+	9300 2250 9300 2500
+Wire Wire Line
+	9300 2500 10200 2500
+Wire Wire Line
+	9700 2250 9700 2400
+Wire Wire Line
+	9700 2400 10200 2400
+Text Label 10050 2400 0    50   ~ 0
+SDA
+Text Label 10050 2500 0    50   ~ 0
+SCL
+Text Notes 10000 2250 0    50   ~ 0
+For I2C
+Text Notes 6850 4650 0    50   ~ 0
+SPI0_MISO
+Text Notes 6850 4750 0    50   ~ 0
+SPI0_MOSI
+Text Notes 6850 4850 0    50   ~ 0
+SPI0_SPCK
+Text Notes 6850 5250 0    50   ~ 0
+TWD2
+Text Notes 6850 5350 0    50   ~ 0
+TWCK2
+Text Notes 4150 4950 0    50   ~ 0
+TWD1
+Text Notes 4100 5050 0    50   ~ 0
+TWCK1
+Text Notes 3800 5050 0    50   ~ 0
+(SCL)
+Text Notes 3800 4950 0    50   ~ 0
+(SDA)
+Text Notes 3550 5000 0    50   ~ 0
+(I2C)
+$Comp
+L Device:R_US R?
+U 1 1 5C9F203C
+P 7650 3400
+F 0 "R?" H 7718 3446 50  0000 L CNN
+F 1 "499" H 7718 3355 50  0000 L CNN
+F 2 "" V 7690 3390 50  0001 C CNN
+F 3 "~" H 7650 3400 50  0001 C CNN
+	1    7650 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR?
+U 1 1 5C9F20B7
+P 7650 3550
+F 0 "#PWR?" H 7650 3300 50  0001 C CNN
+F 1 "Earth" H 7650 3400 50  0001 C CNN
+F 2 "" H 7650 3550 50  0001 C CNN
+F 3 "~" H 7650 3550 50  0001 C CNN
+	1    7650 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED_ALT D?
+U 1 1 5C998E3B
+P 7650 3100
+F 0 "D?" V 7688 2982 50  0000 R CNN
+F 1 "Vishay / Lite-On LTST-C191KRKT" V 7597 2982 50  0000 R CNN
+F 2 "" H 7650 3100 50  0001 C CNN
+F 3 "~" H 7650 3100 50  0001 C CNN
+	1    7650 3100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7650 2950 7650 2750
+$Comp
+L MiniScope_V4-rescue:TSOP57438TT1-.Interface U?
+U 1 1 5C9A3C02
+P 9550 3250
+AR Path="/5C9A3C02" Ref="U?"  Part="1" 
+AR Path="/5C92D296/5C9A3C02" Ref="U?"  Part="1" 
+F 0 "U?" H 9550 3700 50  0000 C CNN
+F 1 "TSOP57438TT1" H 9550 3600 50  0000 C CNN
+F 2 "" H 9550 3250 50  0001 C CNN
+F 3 "" H 9550 3250 50  0001 C CNN
+	1    9550 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9900 3450 10200 3450
+$Comp
+L power:Earth #PWR?
+U 1 1 5C9B390C
+P 9900 3250
+F 0 "#PWR?" H 9900 3000 50  0001 C CNN
+F 1 "Earth" H 9900 3100 50  0001 C CNN
+F 2 "" H 9900 3250 50  0001 C CNN
+F 3 "~" H 9900 3250 50  0001 C CNN
+	1    9900 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5C9B39F2
+P 9900 3050
+F 0 "#PWR?" H 9900 2900 50  0001 C CNN
+F 1 "+3V3" H 9915 3223 50  0000 C CNN
+F 2 "" H 9900 3050 50  0001 C CNN
+F 3 "" H 9900 3050 50  0001 C CNN
+	1    9900 3050
+	1    0    0    -1  
+$EndComp
+Text Label 10200 3450 0    50   ~ 0
+IR_Receiver
+Text Notes 6850 5050 0    50   ~ 0
+SPI0_NPCS1
+Wire Wire Line
+	6750 4650 7800 4650
+Text GLabel 7800 4650 2    50   Output ~ 0
+MISO
+Wire Wire Line
+	6750 4750 7800 4750
+Wire Wire Line
+	6750 4850 7800 4850
+Wire Wire Line
+	6750 5050 7800 5050
+Text GLabel 7800 4750 2    50   Output ~ 0
+MOSI
+Text GLabel 7800 4850 2    50   Output ~ 0
+SCK
+Text GLabel 7800 5050 2    50   Output ~ 0
+SS_N
+Wire Wire Line
+	3500 3150 4350 3150
+Wire Wire Line
+	3500 3250 4350 3250
+Wire Wire Line
+	3500 3350 4350 3350
+Text GLabel 3500 3150 0    50   Input ~ 0
+MONITOR0
+Text GLabel 3500 3250 0    50   Input ~ 0
+MONITOR1
+Text GLabel 3500 3350 0    50   Input ~ 0
+MONITOR2
+Text Notes 1700 3300 0    50   ~ 0
+Where to put these? + Lock_Detect
+Wire Wire Line
+	4350 2950 3500 2950
+Text GLabel 3500 2950 0    50   Input ~ 0
+LOCK_DETECT
+Text Notes 3100 6450 0    50   ~ 0
+Not sure why this is hanging
+Wire Bus Line
+	3100 4050 3100 4250
+Wire Bus Line
+	3100 3850 3100 4050
+Wire Bus Line
+	3500 1650 3500 2100
+Wire Bus Line
+	3500 2100 3500 2550
+$EndSCHEMATC
