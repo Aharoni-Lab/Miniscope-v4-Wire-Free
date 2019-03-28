@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:MiniScope_V4-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -15,10 +15,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L MiniScope_V4-rescue:LTC3218-.Driver_LED U?
+L MiniScope_V4-rescue:LTC3218-.Driver_LED U8
 U 1 1 5C9D85B5
 P 6000 3450
-F 0 "U?" H 5750 3800 50  0000 C CNN
+F 0 "U8" H 5750 3800 50  0000 C CNN
 F 1 "LTC3218" H 6300 3800 50  0000 C CNN
 F 2 ".Package_SON:SON_11_P50_300X200X80L40X25T239X64L" H 5550 3700 50  0001 C CNN
 F 3 "http://www.linear.com/docs/19518" H 6000 3450 50  0001 C CNN
@@ -35,10 +35,10 @@ Connection ~ 6650 3850
 Wire Wire Line
 	6650 3850 6650 4100
 $Comp
-L power:Earth #PWR?
+L power:Earth #PWR058
 U 1 1 5C9D8602
 P 6650 4100
-F 0 "#PWR?" H 6650 3850 50  0001 C CNN
+F 0 "#PWR058" H 6650 3850 50  0001 C CNN
 F 1 "Earth" H 6650 3950 50  0001 C CNN
 F 2 "" H 6650 4100 50  0001 C CNN
 F 3 "~" H 6650 4100 50  0001 C CNN
@@ -50,10 +50,10 @@ Wire Wire Line
 Wire Wire Line
 	7550 3300 7550 3500
 $Comp
-L MiniScope_V4-rescue:GRM155R60J475ME87D-.Capacitor C?
+L MiniScope_V4-rescue:GRM155R60J475ME87D-.Capacitor C42
 U 1 1 5C9D8694
 P 7550 3600
-F 0 "C?" H 7642 3646 50  0000 L CNN
+F 0 "C42" H 7642 3646 50  0000 L CNN
 F 1 "GRM155R60J475ME87D" H 7160 3770 50  0001 L CNN
 F 2 ".Capacitor:C_0402_1005Metric_L" H 7660 3870 50  0001 C CNN
 F 3 "" H 7560 3670 50  0001 C CNN
@@ -63,10 +63,10 @@ F 5 "0402" H 7660 3420 50  0001 C CNN "Size"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:Earth #PWR?
+L power:Earth #PWR059
 U 1 1 5C9D86DE
 P 7550 3700
-F 0 "#PWR?" H 7550 3450 50  0001 C CNN
+F 0 "#PWR059" H 7550 3450 50  0001 C CNN
 F 1 "Earth" H 7550 3550 50  0001 C CNN
 F 2 "" H 7550 3700 50  0001 C CNN
 F 3 "~" H 7550 3700 50  0001 C CNN
@@ -76,10 +76,10 @@ $EndComp
 Wire Wire Line
 	5950 3050 5950 2950
 $Comp
-L MiniScope_V4-rescue:GRM033R61A225ME47D-.Capacitor C?
+L MiniScope_V4-rescue:GRM033R61A225ME47D-.Capacitor C41
 U 1 1 5C9D87A4
 P 6000 2800
-F 0 "C?" V 5771 2800 50  0000 C CNN
+F 0 "C41" V 5771 2800 50  0000 C CNN
 F 1 "GRM033R61A225ME47D" H 5610 2970 50  0001 L CNN
 F 2 ".Capacitor:C_0201_0603Metric_L" H 6110 3070 50  0001 C CNN
 F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM033R61A225ME47-01.pdf" H 6010 2870 50  0001 C CNN
@@ -103,10 +103,10 @@ Wire Wire Line
 Wire Wire Line
 	5550 3300 4550 3300
 $Comp
-L MiniScope_V4-rescue:GRM033R61A225ME47D-.Capacitor C?
+L MiniScope_V4-rescue:GRM033R61A225ME47D-.Capacitor C39
 U 1 1 5C9D8B59
 P 4550 3400
-F 0 "C?" H 4642 3446 50  0000 L CNN
+F 0 "C39" H 4642 3446 50  0000 L CNN
 F 1 "GRM033R61A225ME47D" H 4160 3570 50  0001 L CNN
 F 2 ".Capacitor:C_0201_0603Metric_L" H 4660 3670 50  0001 C CNN
 F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM033R61A225ME47-01.pdf" H 4560 3470 50  0001 C CNN
@@ -116,10 +116,10 @@ F 5 "0201" H 4660 3220 50  0001 C CNN "Size"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:Earth #PWR?
+L power:Earth #PWR055
 U 1 1 5C9D8BA7
 P 4550 3500
-F 0 "#PWR?" H 4550 3250 50  0001 C CNN
+F 0 "#PWR055" H 4550 3250 50  0001 C CNN
 F 1 "Earth" H 4550 3350 50  0001 C CNN
 F 2 "" H 4550 3500 50  0001 C CNN
 F 3 "~" H 4550 3500 50  0001 C CNN
@@ -131,10 +131,10 @@ Wire Wire Line
 Wire Wire Line
 	4800 3750 4800 3850
 $Comp
-L power:Earth #PWR?
+L power:Earth #PWR056
 U 1 1 5C9D8D0F
 P 4800 3850
-F 0 "#PWR?" H 4800 3600 50  0001 C CNN
+F 0 "#PWR056" H 4800 3600 50  0001 C CNN
 F 1 "Earth" H 4800 3700 50  0001 C CNN
 F 2 "" H 4800 3850 50  0001 C CNN
 F 3 "~" H 4800 3850 50  0001 C CNN
@@ -151,12 +151,12 @@ Connection ~ 5950 4300
 Wire Wire Line
 	5950 4300 5650 4300
 $Comp
-L MiniScope_V4-rescue:R_Small_US-.Device R?
+L MiniScope_V4-rescue:R_Small_US-.Device R8
 U 1 1 5C9D90C8
 P 5550 4300
-F 0 "R?" V 5755 4300 50  0001 C CNN
+F 0 "R8" V 5755 4300 50  0001 C CNN
 F 1 "2k" V 5663 4300 50  0000 C CNN
-F 2 "" H 5550 4300 50  0001 C CNN
+F 2 ".Resistor:R_0402_1005Metric_ERJ_L" H 5550 4300 50  0001 C CNN
 F 3 "~" H 5550 4300 50  0001 C CNN
 	1    5550 4300
 	0    -1   -1   0   
@@ -166,21 +166,21 @@ Wire Wire Line
 Wire Wire Line
 	5350 4300 5350 4700
 $Comp
-L MiniScope_V4-rescue:R_Small_US-.Device R?
+L MiniScope_V4-rescue:R_Small_US-.Device R7
 U 1 1 5C9D97CD
 P 5050 4550
-F 0 "R?" V 5255 4550 50  0001 C CNN
+F 0 "R7" V 5255 4550 50  0001 C CNN
 F 1 "8.25k" V 5163 4550 50  0000 C CNN
-F 2 "" H 5050 4550 50  0001 C CNN
+F 2 ".Resistor:R_0402_1005Metric_ERJ_L" H 5050 4550 50  0001 C CNN
 F 3 "~" H 5050 4550 50  0001 C CNN
 	1    5050 4550
 	0    -1   -1   0   
 $EndComp
 $Comp
-L MiniScope_V4-rescue:GCM21BR71E105KA56L-.Capacitor C?
+L MiniScope_V4-rescue:GCM21BR71E105KA56L-.Capacitor C40
 U 1 1 5C9D9806
 P 5050 4850
-F 0 "C?" V 4821 4850 50  0000 C CNN
+F 0 "C40" V 4821 4850 50  0000 C CNN
 F 1 "GCM21BR71E105KA56L" H 4660 5020 50  0001 L CNN
 F 2 ".Capacitor:C_0805_2012Metric_L" H 5110 5120 50  0001 C CNN
 F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCM21BR71E105KA56-01.pdf" H 5060 4920 50  0001 C CNN
@@ -190,10 +190,10 @@ F 5 "0805" H 5160 4670 50  0001 C CNN "Size"
 	0    1    1    0   
 $EndComp
 $Comp
-L power:Earth #PWR?
+L power:Earth #PWR057
 U 1 1 5C9D9CAC
 P 4900 4850
-F 0 "#PWR?" H 4900 4600 50  0001 C CNN
+F 0 "#PWR057" H 4900 4600 50  0001 C CNN
 F 1 "Earth" H 4900 4700 50  0001 C CNN
 F 2 "" H 4900 4850 50  0001 C CNN
 F 3 "~" H 4900 4850 50  0001 C CNN
@@ -201,10 +201,10 @@ F 3 "~" H 4900 4850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+BATT #PWR?
+L power:+BATT #PWR054
 U 1 1 5C9DA776
 P 4550 3300
-F 0 "#PWR?" H 4550 3150 50  0001 C CNN
+F 0 "#PWR054" H 4550 3150 50  0001 C CNN
 F 1 "+BATT" H 4565 3473 50  0000 C CNN
 F 2 "" H 4550 3300 50  0001 C CNN
 F 3 "" H 4550 3300 50  0001 C CNN
@@ -219,10 +219,10 @@ L MiniScope_V4-rescue:NTK3134NT1G-,Downloads Q?
 U 1 1 5C8DDE2E
 P 4850 4650
 AR Path="/5C8DDE2E" Ref="Q?"  Part="1" 
-AR Path="/5C92D2A6/5C8DDE2E" Ref="Q?"  Part="1" 
-F 0 "Q?" H 5250 4915 50  0000 C CNN
+AR Path="/5C92D2A6/5C8DDE2E" Ref="Q1"  Part="1" 
+F 0 "Q1" H 5250 4915 50  0000 C CNN
 F 1 "NTK3134NT1G" H 5250 4824 50  0000 C CNN
-F 2 "SOT-723" H 5500 4750 50  0001 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-723" H 5500 4750 50  0001 L CNN
 F 3 "http://www.onsemi.com/pub/Collateral/NTK3134N-D.PDF" H 5500 4650 50  0001 L CNN
 F 4 "Power MOSFET" H 5500 4550 50  0001 L CNN "Description"
 F 5 "" H 5500 4450 50  0001 L CNN "Height"
@@ -237,8 +237,6 @@ F 13 "http://www.alliedelec.com/on-semiconductor-ntk3134nt1g/70341343/" H 5500 3
 	1    4850 4650
 	-1   0    0    -1  
 $EndComp
-Text GLabel 4050 4700 0    50   Input ~ 0
-LED_PWM
 Wire Wire Line
 	6500 3500 6900 3500
 Text Label 6900 3500 0    50   ~ 0
@@ -249,8 +247,6 @@ Wire Wire Line
 	7300 4200 7650 4200
 Text Label 7300 4000 0    50   ~ 0
 ILED
-Text GLabel 7650 4200 2    50   Output ~ 0
-LED-
 $Bitmap
 Pos 5050 2750
 Scale 1.000000
@@ -713,8 +709,6 @@ E8 F8 44 AB C7 54 EA 42 2D 92 42 12 6D BC E8 55 AD 05 39 FD 91 DA 20 25 20 FE 7F
 E6 F3 7F 00 00 00 00 49 45 4E 44 AE 42 60 82 
 EndData
 $EndBitmap
-Text GLabel 5150 3850 0    50   Input ~ 0
-ENT
 Wire Wire Line
 	5150 3850 5550 3850
 Wire Wire Line
@@ -741,6 +735,12 @@ Wire Wire Line
 	4850 4750 4850 4850
 Text Notes 7300 4350 0    50   ~ 0
 LED-?
-Text GLabel 7650 4000 2    50   Output ~ 0
+Text HLabel 4050 4700 0    50   Input ~ 0
+LED_PWM
+Text HLabel 5150 3850 0    50   Input ~ 0
+ENT
+Text HLabel 7650 4000 2    50   Output ~ 0
 LED+
+Text HLabel 7650 4200 2    50   Output ~ 0
+LED-
 $EndSCHEMATC
