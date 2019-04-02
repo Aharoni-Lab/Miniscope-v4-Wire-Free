@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 0)
+    (drawings 12)
     (tracks 0)
     (zones 0)
     (modules 71)
@@ -12,6 +12,10 @@
   (page A4)
   (layers
     (0 F.Cu signal)
+    (1 In1.Cu power)
+    (2 In2.Cu signal)
+    (3 In3.Cu signal)
+    (4 In4.Cu power)
     (31 B.Cu signal)
     (32 B.Adhes user)
     (33 F.Adhes user)
@@ -22,15 +26,15 @@
     (38 B.Mask user)
     (39 F.Mask user)
     (40 Dwgs.User user)
-    (41 Cmts.User user)
-    (42 Eco1.User user)
-    (43 Eco2.User user)
+    (41 Cmts.User user hide)
+    (42 Eco1.User user hide)
+    (43 Eco2.User user hide)
     (44 Edge.Cuts user)
     (45 Margin user)
     (46 B.CrtYd user)
     (47 F.CrtYd user)
-    (48 B.Fab user)
-    (49 F.Fab user)
+    (48 B.Fab user hide)
+    (49 F.Fab user hide)
   )
 
   (setup
@@ -60,7 +64,7 @@
     (pad_to_mask_clearance 0.051)
     (solder_mask_min_width 0.25)
     (aux_axis_origin 0 0)
-    (visible_elements 7FFDF77F)
+    (visible_elements 7FFFF7FF)
     (pcbplotparams
       (layerselection 0x010fc_ffffffff)
       (usegerberextensions false)
@@ -228,7 +232,7 @@
   )
 
   (module .Transistor:TRXSOFL3P40_120X120X55L29X21L (layer F.Cu) (tedit 5C9EA1F5) (tstamp 5CA3E224)
-    (at 179.11 109.51)
+    (at 143.51 81.28)
     (descr "Transistor, Small Outline Flat Lead (SOFL), 0.40 mm pitch; 3 pin, 1.20 mm L X 0.80 mm W X 0.55 mm H body")
     (path /5C92D2A6/5C8DDE2E)
     (attr smd)
@@ -292,7 +296,7 @@
   )
 
   (module .Package_SON:SON_10_P50_300X300X100L40X24L (layer F.Cu) (tedit 5C9E9688) (tstamp 5CA03D9B)
-    (at 208.28 81.28)
+    (at 168.91 77.47)
     (descr "Small Outline No-Lead (SON), 0.50 mm pitch; 10 pin, 3.00 mm L X 3.00 mm W X 1.00 mm H body")
     (path /5C92D29E/5C92E41D)
     (attr smd)
@@ -401,8 +405,8 @@
     )
   )
 
-  (module .Package_BGA:BGA_67_NP50_11X8_613X493X75B25N (layer F.Cu) (tedit 5C9E9792) (tstamp 5C9B3489)
-    (at 175.26 123.19)
+  (module .Package_BGA:BGA_67_NP50_11X8_613X493X75B25N (layer F.Cu) (tedit 5C9E9792) (tstamp 5CA2A660)
+    (at 132.08 93.98)
     (descr "Ball Grid Array (BGA), 0.50 mm pitch, rect.; 67 pin, 6.13 mm L X 4.93 mm W X 0.75 mm H body")
     (path /5C92D293/5C8B463E)
     (attr smd)
@@ -633,7 +637,7 @@
   )
 
   (module .Package_SON:SON_4_P300_395X395X90L55X35L (layer F.Cu) (tedit 5C9EA792) (tstamp 5C9EB764)
-    (at 167.87 89.365)
+    (at 157.48 111.76)
     (descr "Small Outline No-Lead (SON), 3.00 mm pitch; 4 pin, 3.95 mm L X 3.95 mm W X 0.90 mm H body")
     (path /5C92D296/5CAEF739)
     (attr smd)
@@ -707,7 +711,7 @@
   )
 
   (module .Package_SOT:SOT_23-5P65_210X110L36X22L (layer F.Cu) (tedit 5C89D9DA) (tstamp 5CA03B4B)
-    (at 196.85 134.98)
+    (at 121.92 109.58)
     (descr "Small Outline Transistor (SOT23), 0.65 mm pitch; 5 pin, 2.00 mm L X 1.25 mm W X 1.10 mm H body")
     (path /5C92D293/5C88B134)
     (attr smd)
@@ -787,7 +791,7 @@
   )
 
   (module .Resistor:R_0402_1005Metric_ERJ_L (layer F.Cu) (tedit 5C2ED77C) (tstamp 5CA039C8)
-    (at 195.51 102.63)
+    (at 146.05 78.74)
     (descr "Resistor, Chip; 1.00 mm L X 0.50 mm W X 0.40 mm H body")
     (path /5C92D2A6/5C9D90C8)
     (attr smd)
@@ -835,7 +839,7 @@
   )
 
   (module .Resistor:R_0402_1005Metric_ERJ_L (layer F.Cu) (tedit 5C2ED77C) (tstamp 5CA039AA)
-    (at 192.86 104.14)
+    (at 146.05 81.28)
     (descr "Resistor, Chip; 1.00 mm L X 0.50 mm W X 0.40 mm H body")
     (path /5C92D2A6/5C9D97CD)
     (attr smd)
@@ -883,7 +887,7 @@
   )
 
   (module .Resistor:R_0402_1005Metric_ERJ_L (layer F.Cu) (tedit 5C2ED77C) (tstamp 5CA0398C)
-    (at 180.795 90.17)
+    (at 156.21 106.68)
     (descr "Resistor, Chip; 1.00 mm L X 0.50 mm W X 0.40 mm H body")
     (path /5C92D296/5C9DFB21)
     (attr smd)
@@ -931,7 +935,7 @@
   )
 
   (module .Resistor:R_0402_1005Metric_ERJ_L (layer F.Cu) (tedit 5C2ED77C) (tstamp 5CA0396E)
-    (at 177.8 90.17)
+    (at 156.21 104.14)
     (descr "Resistor, Chip; 1.00 mm L X 0.50 mm W X 0.40 mm H body")
     (path /5C92D296/5C9DD128)
     (attr smd)
@@ -979,7 +983,7 @@
   )
 
   (module .Resistor:R_0402_1005Metric_ERJ_L (layer F.Cu) (tedit 5C2ED77C) (tstamp 5CA03950)
-    (at 175.26 90.17)
+    (at 156.21 101.6)
     (descr "Resistor, Chip; 1.00 mm L X 0.50 mm W X 0.40 mm H body")
     (path /5C92D296/5C9F203C)
     (attr smd)
@@ -1027,7 +1031,7 @@
   )
 
   (module .Resistor:R_0402_1005Metric_ERJ_L (layer F.Cu) (tedit 5C2ED77C) (tstamp 5CA03932)
-    (at 177.05 104.21)
+    (at 151.13 110.49)
     (descr "Resistor, Chip; 1.00 mm L X 0.50 mm W X 0.40 mm H body")
     (path /5C92D293/5C8A3090)
     (attr smd)
@@ -1075,7 +1079,7 @@
   )
 
   (module .Connector:Conn_1x1_250x750_Pad (layer F.Cu) (tedit 5C196409) (tstamp 5CA0385C)
-    (at 182.994999 104.179999)
+    (at 185.534999 123.229999)
     (path /5C92D2A9/5CA267B7)
     (fp_text reference J8 (at 0 0.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1088,7 +1092,7 @@
   )
 
   (module .Connector:Conn_1x1_250x750_Pad (layer F.Cu) (tedit 5C196409) (tstamp 5CA03857)
-    (at 182.994999 105.929999)
+    (at 185.534999 124.979999)
     (path /5C92D2A9/5CA26767)
     (fp_text reference J7 (at 0 0.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1101,7 +1105,7 @@
   )
 
   (module .Connector:Conn_1x1_250x750_Pad (layer F.Cu) (tedit 5C196409) (tstamp 5CA03852)
-    (at 184.494999 104.179999)
+    (at 187.034999 123.229999)
     (path /5C92D2A9/5CA266EE)
     (fp_text reference J6 (at 0 0.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1114,7 +1118,7 @@
   )
 
   (module .Connector:Conn_1x1_250x750_Pad (layer F.Cu) (tedit 5C196409) (tstamp 5CA0384D)
-    (at 185.994999 104.179999)
+    (at 188.534999 123.229999)
     (path /5C92D2A9/5CA16277)
     (fp_text reference J5 (at 0 0.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1127,7 +1131,7 @@
   )
 
   (module .Connector:Conn_1x1_250x750_Pad (layer F.Cu) (tedit 5C196409) (tstamp 5CA03848)
-    (at 184.494999 105.929999)
+    (at 187.034999 124.979999)
     (path /5C92D2A9/5CA16222)
     (fp_text reference J4 (at 0 0.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1140,7 +1144,7 @@
   )
 
   (module .Connector:Conn_1x1_250x750_Pad (layer F.Cu) (tedit 5C196409) (tstamp 5CA03843)
-    (at 185.994999 105.929999)
+    (at 188.534999 124.979999)
     (path /5C92D2A9/5CA16203)
     (fp_text reference J3 (at 0 0.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1153,7 +1157,7 @@
   )
 
   (module .Connector:Conn_1x1_250x750_Pad (layer F.Cu) (tedit 5C196409) (tstamp 5CA0383E)
-    (at 187.494999 104.179999)
+    (at 190.034999 123.229999)
     (path /5C92D2A9/5CA161C4)
     (fp_text reference J2 (at 0 0.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1166,7 +1170,7 @@
   )
 
   (module .LED:LED_SC80X160X65L40L (layer F.Cu) (tedit 5C9E99F1) (tstamp 5CA0380F)
-    (at 180.34 91.44)
+    (at 156.21 99.06)
     (descr "LED, Side Lead; 2 pin, 0.80 mm L X 1.60 mm W X 0.65 mm H body")
     (path /5C92D296/5C998E3B)
     (attr smd)
@@ -1224,7 +1228,7 @@
   )
 
   (module .Inductor:L_0603_1608Metric_L (layer F.Cu) (tedit 5C18AC53) (tstamp 5CA02E5D)
-    (at 196.85 132.08)
+    (at 121.92 106.68)
     (descr "Inductor, Chip; 1.60 mm L X 0.80 mm W X 1.00 mm H body")
     (path /5C92D293/5C886764)
     (attr smd)
@@ -1271,8 +1275,8 @@
     )
   )
 
-  (module .Inductor:L_0603_1608Metric_L (layer F.Cu) (tedit 5C18AC53) (tstamp 5CA02E3F)
-    (at 173.99 106.68)
+  (module .Inductor:L_0603_1608Metric_L (layer F.Cu) (tedit 5C18AC53) (tstamp 5CA2A194)
+    (at 113.03 93.98)
     (descr "Inductor, Chip; 1.60 mm L X 0.80 mm W X 1.00 mm H body")
     (path /5C92D293/5C94DC90)
     (attr smd)
@@ -1320,7 +1324,7 @@
   )
 
   (module .Oscillator:OSCCC320X250X100L80X100 (layer F.Cu) (tedit 5C2EE6EE) (tstamp 5C9B367D)
-    (at 149.2898 95.23)
+    (at 140.3998 99.04)
     (descr "Oscillator, Corner Concave; 3.20 mm L X 2.50 mm W X 1.00 mm H body")
     (path /5C92D296/5C95C252)
     (attr smd)
@@ -1382,7 +1386,7 @@
   )
 
   (module .Package_SON:SON_11_P50_300X200X80L40X25T239X64L (layer F.Cu) (tedit 5C18A41E) (tstamp 5C9B3653)
-    (at 191.77 97.79)
+    (at 142.24 77.47)
     (descr "Small Outline No-Lead (SON with Tab), 0.50 mm pitch; 10 pin, 3.00 mm L X 2.00 mm W X 0.80 mm H body")
     (path /5C92D2A6/5C9D85B5)
     (attr smd)
@@ -1502,7 +1506,7 @@
   )
 
   (module .Package_QFN:QFN_17_P65_400X400X80L50X30T210L (layer F.Cu) (tedit 5C207CB1) (tstamp 5C9B35F6)
-    (at 221.775 107.475)
+    (at 182.405 103.665)
     (descr "Quad Flat No-Lead (QFN with Tab), 0.65 mm pitch; square, 4 pin X 4 pin, 4.00 mm L X 4.00 mm W X 0.80 mm H body")
     (path /5C92D2A1/5C99F0B4)
     (attr smd)
@@ -1675,7 +1679,7 @@
   )
 
   (module .Package_BGA:BGA_100_CP80_10X10_900X900X110B40L (layer F.Cu) (tedit 5C20662E) (tstamp 5C9B356D)
-    (at 140.93 98.43)
+    (at 132.04 102.24)
     (descr "Ball Grid Array (BGA), 0.80 mm pitch, square; 100 pin, 9.00 mm L X 9.00 mm W X 1.10 mm H body")
     (path /5C92D296/5C92D513)
     (attr smd)
@@ -1976,7 +1980,7 @@
   )
 
   (module .Inductor:VLS3012HBX-2R2M (layer F.Cu) (tedit 5C55285A) (tstamp 5C9B33CF)
-    (at 218.44 86.36)
+    (at 179.07 82.55)
     (path /5C92D29E/5C92ED5D)
     (fp_text reference L4 (at 0.5 -2.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -1998,7 +2002,7 @@
   )
 
   (module .Inductor:VLS3012HBX-2R2M (layer F.Cu) (tedit 5C55285A) (tstamp 5C9B33C7)
-    (at 218.44 81.28)
+    (at 179.07 77.47)
     (path /5C92D29E/5C92ECFD)
     (fp_text reference L3 (at 0.5 -2.5) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -2020,7 +2024,7 @@
   )
 
   (module .Inductor:L_0603_1608Metric_L (layer F.Cu) (tedit 5C18AC53) (tstamp 5C9B33BF)
-    (at 153.74 93.98)
+    (at 144.85 97.79)
     (descr "Inductor, Chip; 1.60 mm L X 0.80 mm W X 1.00 mm H body")
     (path /5C92D296/5C966338)
     (attr smd)
@@ -2068,7 +2072,7 @@
   )
 
   (module .Inductor:L_0603_1608Metric_L (layer F.Cu) (tedit 5C18AC53) (tstamp 5C9B33A1)
-    (at 148.24 101.4)
+    (at 139.35 105.21)
     (descr "Inductor, Chip; 1.60 mm L X 0.80 mm W X 1.00 mm H body")
     (path /5C92D296/5C967089)
     (attr smd)
@@ -2116,7 +2120,7 @@
   )
 
   (module .Connector:0475710001 (layer F.Cu) (tedit 5C2467EF) (tstamp 5C9B3383)
-    (at 234.95 106.68)
+    (at 195.58 102.87)
     (path /5C92D2A1/5C9D7F96)
     (fp_text reference J1 (at -0.55 -2.7) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -2161,7 +2165,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B336D)
-    (at 174.7 109.96)
+    (at 146.05 73.66)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D2A6/5C9D8694)
     (attr smd)
@@ -2209,7 +2213,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B334F)
-    (at 187.96 113.03)
+    (at 146.05 76.2)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D2A6/5C9D87A4)
     (attr smd)
@@ -2257,7 +2261,7 @@
   )
 
   (module .Capacitor:C_0805_2012Metric_L (layer F.Cu) (tedit 5C566D9A) (tstamp 5C9B3331)
-    (at 179.6 106.76)
+    (at 146.05 83.82)
     (descr "Capacitor, Chip; 2.00 mm L X 1.25 mm W X 1.40 mm H body")
     (path /5C92D2A6/5C9D9806)
     (attr smd)
@@ -2307,7 +2311,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B3311)
-    (at 182.57 107.82)
+    (at 138.43 74.93)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D2A6/5C9D8B59)
     (attr smd)
@@ -2355,7 +2359,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B32F3)
-    (at 225.615 105.41)
+    (at 186.245 101.6)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D2A1/5C8E6BA6)
     (attr smd)
@@ -2403,7 +2407,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B32D5)
-    (at 226.06 107.95)
+    (at 186.69 104.14)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D2A1/5C8E5D17)
     (attr smd)
@@ -2451,7 +2455,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B3299)
-    (at 217.17 105.41)
+    (at 177.8 101.6)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D2A1/5C9A43F2)
     (attr smd)
@@ -2499,7 +2503,7 @@
   )
 
   (module .Capacitor:C_0805_2012Metric_L (layer F.Cu) (tedit 5C566D9A) (tstamp 5C9B327B)
-    (at 213.36 85.09)
+    (at 173.99 81.28)
     (descr "Capacitor, Chip; 2.00 mm L X 1.25 mm W X 1.40 mm H body")
     (path /5C92D29E/5C92F2A0)
     (attr smd)
@@ -2549,7 +2553,7 @@
   )
 
   (module .Capacitor:C_0805_2012Metric_L (layer F.Cu) (tedit 5C566D9A) (tstamp 5C9B325B)
-    (at 213.36 82.55)
+    (at 173.99 78.74)
     (descr "Capacitor, Chip; 2.00 mm L X 1.25 mm W X 1.40 mm H body")
     (path /5C92D29E/5C92EEF9)
     (attr smd)
@@ -2599,7 +2603,7 @@
   )
 
   (module .Capacitor:C_0805_2012Metric_L (layer F.Cu) (tedit 5C566D9A) (tstamp 5C9F289B)
-    (at 213.36 80.01)
+    (at 173.99 76.2)
     (descr "Capacitor, Chip; 2.00 mm L X 1.25 mm W X 1.40 mm H body")
     (path /5C92D29E/5C92E5C8)
     (attr smd)
@@ -2649,7 +2653,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B321B)
-    (at 152.05 98.73)
+    (at 143.16 102.54)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D296/5C9D7A12)
     (attr smd)
@@ -2699,7 +2703,7 @@
   )
 
   (module .Capacitor:C_0805_2012Metric_L (layer F.Cu) (tedit 5C566D9A) (tstamp 5C9B31FB)
-    (at 148.42 98.95)
+    (at 139.53 102.76)
     (descr "Capacitor, Chip; 2.00 mm L X 1.25 mm W X 1.40 mm H body")
     (path /5C92D296/5C9D2D48)
     (attr smd)
@@ -2749,7 +2753,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B31DB)
-    (at 153.72 96.21)
+    (at 144.83 100.02)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D296/5C9D79D4)
     (attr smd)
@@ -2799,7 +2803,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B31BB)
-    (at 151.65 103.63)
+    (at 142.76 107.44)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D296/5C9D2C93)
     (attr smd)
@@ -2849,7 +2853,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B319B)
-    (at 148.22 103.63)
+    (at 139.33 107.44)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D296/5C9D052D)
     (attr smd)
@@ -2899,7 +2903,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B317B)
-    (at 155.12 100.94)
+    (at 146.23 104.75)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D296/5C9C548C)
     (attr smd)
@@ -2949,7 +2953,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B315B)
-    (at 155.08 103.59)
+    (at 146.19 107.4)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D296/5C9C5460)
     (attr smd)
@@ -2999,7 +3003,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B313B)
-    (at 155.48 98.42)
+    (at 146.59 102.23)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D296/5C9CDB91)
     (attr smd)
@@ -3049,7 +3053,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B311B)
-    (at 151.69 101.38)
+    (at 142.8 105.19)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D296/5C9C5410)
     (attr smd)
@@ -3099,7 +3103,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B30FB)
-    (at 139.45 104.96)
+    (at 130.56 108.77)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D296/5C96BD48)
     (attr smd)
@@ -3147,7 +3151,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B30DD)
-    (at 156.84 93.81)
+    (at 147.95 97.62)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D296/5C963B41)
     (attr smd)
@@ -3195,7 +3199,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B30BF)
-    (at 136.72 104.96)
+    (at 127.83 108.77)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D296/5C963B09)
     (attr smd)
@@ -3243,7 +3247,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B30A1)
-    (at 196.26 129.54)
+    (at 121.33 104.14)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D293/5C9D773B)
     (attr smd)
@@ -3293,7 +3297,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B3081)
-    (at 196.26 127)
+    (at 121.33 101.6)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D293/5C9D6B23)
     (attr smd)
@@ -3343,7 +3347,7 @@
   )
 
   (module .Capacitor:C_0603_1608Metric_L (layer F.Cu) (tedit 5C5679DD) (tstamp 5C9B3061)
-    (at 196.17 124.46)
+    (at 121.24 99.06)
     (descr "Capacitor, Chip; 1.60 mm L X 0.80 mm W X 0.95 mm H body")
     (path /5C92D293/5C9D7053)
     (attr smd)
@@ -3393,7 +3397,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B3041)
-    (at 191.77 123.19)
+    (at 116.84 97.79)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA5E20E)
     (attr smd)
@@ -3441,7 +3445,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B3023)
-    (at 187.96 123.19)
+    (at 113.03 97.79)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA5AFEB)
     (attr smd)
@@ -3489,7 +3493,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B3005)
-    (at 191.77 124.46)
+    (at 116.84 99.06)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D293/5CA51DC5)
     (attr smd)
@@ -3537,7 +3541,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B2FE7)
-    (at 187.96 121.92)
+    (at 113.03 96.52)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA5AFAB)
     (attr smd)
@@ -3585,7 +3589,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9EB9D0)
-    (at 187.96 120.65)
+    (at 113.03 95.25)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA5AF59)
     (attr smd)
@@ -3633,7 +3637,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B2FAB)
-    (at 187.96 124.46)
+    (at 113.03 99.06)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D293/5CA4E940)
     (attr smd)
@@ -3681,7 +3685,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B2F8D)
-    (at 184.15 124.46)
+    (at 109.22 99.06)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D293/5CA27CD1)
     (attr smd)
@@ -3729,7 +3733,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B2F6F)
-    (at 184.15 123.19)
+    (at 109.22 97.79)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA447C3)
     (attr smd)
@@ -3777,7 +3781,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B2F51)
-    (at 184.15 121.92)
+    (at 109.22 96.52)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA4478F)
     (attr smd)
@@ -3825,7 +3829,7 @@
   )
 
   (module .Capacitor:C_0402_1005Metric_L (layer F.Cu) (tedit 5C18ACF7) (tstamp 5C9B2F33)
-    (at 180.34 124.46)
+    (at 105.41 99.06)
     (descr "Capacitor, Chip; 1.00 mm L X 0.50 mm W X 0.65 mm H body")
     (path /5C92D293/5CA47D88)
     (attr smd)
@@ -3873,7 +3877,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9EC4FA)
-    (at 184.15 120.65)
+    (at 109.22 95.25)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA4474D)
     (attr smd)
@@ -3921,7 +3925,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B2EF7)
-    (at 180.34 123.19)
+    (at 105.41 97.79)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA3AA5F)
     (attr smd)
@@ -3969,7 +3973,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B2ED9)
-    (at 180.34 121.92)
+    (at 105.41 96.52)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA3AA2D)
     (attr smd)
@@ -4017,7 +4021,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B2EBB)
-    (at 180.34 120.65)
+    (at 105.41 95.25)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA3A9FF)
     (attr smd)
@@ -4065,7 +4069,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B2E9D)
-    (at 180.34 119.38)
+    (at 105.41 93.98)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA3A9D5)
     (attr smd)
@@ -4113,7 +4117,7 @@
   )
 
   (module .Capacitor:C_0201_0603Metric_L (layer F.Cu) (tedit 5C18ACD5) (tstamp 5C9B2E7F)
-    (at 180.34 118.11)
+    (at 105.41 92.71)
     (descr "Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body")
     (path /5C92D293/5CA27C6A)
     (attr smd)
@@ -4159,5 +4163,18 @@
       (rotate (xyz -90 0 0))
     )
   )
+
+  (gr_line (start 186.69 130.81) (end 186.69 71.12) (layer Edge.Cuts) (width 0.1))
+  (gr_line (start 95.25 130.81) (end 186.69 130.81) (layer Edge.Cuts) (width 0.1))
+  (gr_line (start 95.25 71.12) (end 95.25 130.81) (layer Edge.Cuts) (width 0.1))
+  (gr_line (start 186.69 71.12) (end 95.25 71.12) (layer Edge.Cuts) (width 0.1))
+  (gr_line (start 186.69 71.12) (end 95.25 71.12) (layer Edge.Cuts) (width 0.1))
+  (gr_line (start 186.69 130.81) (end 186.69 71.12) (layer Edge.Cuts) (width 0.1))
+  (gr_line (start 95.25 130.81) (end 186.69 130.81) (layer Edge.Cuts) (width 0.1))
+  (gr_line (start 95.25 71.12) (end 95.25 130.81) (layer Edge.Cuts) (width 0.1))
+  (gr_line (start 186.69 71.12) (end 95.25 71.12) (layer Edge.Cuts) (width 0.05) (tstamp 5CA2A159))
+  (gr_line (start 186.69 130.81) (end 186.69 71.12) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 95.25 130.81) (end 186.69 130.81) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 95.25 71.12) (end 95.25 130.81) (layer Edge.Cuts) (width 0.05))
 
 )
