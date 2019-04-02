@@ -204,7 +204,7 @@
   )
 
   (module .Connector:B2B_Flex_20_Dual_Row_38milx24mil_Pad_20mil placed (layer F.Cu) (tedit 5C2C5AC0) (tstamp 5CA42D47)
-    (at 130.6576 92.557604 270)
+    (at 130.8354 100.914203 270)
     (path /5C92D293/5CADAE78)
     (fp_text reference J6 (at -0.0254 -1.6002 270) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -552,7 +552,7 @@
   )
 
   (module .Connector:B2B_Flex_14_Dual_Row_38milx24mil_Pad_20mil placed (layer F.Cu) (tedit 5C2C5AF6) (tstamp 5CA42D69)
-    (at 130.0226 109.727994 90)
+    (at 130.0988 99.694996 90)
     (path /5C92D293/5CADC05E)
     (fp_text reference J9 (at -0.0254 -1.6002 90) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
