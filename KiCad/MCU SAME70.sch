@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 7
+Sheet 5 6
 Title ""
 Date ""
 Rev ""
@@ -78,8 +78,6 @@ Wire Wire Line
 NoConn ~ 4350 3650
 NoConn ~ 4350 3750
 NoConn ~ 4350 2850
-Wire Wire Line
-	4350 3050 3500 3050
 Wire Wire Line
 	4350 3950 3200 3950
 Wire Wire Line
@@ -263,8 +261,6 @@ Wire Wire Line
 	4350 5150 3500 5150
 Wire Wire Line
 	4350 5250 3500 5250
-Wire Wire Line
-	4350 5550 3500 5550
 $Comp
 L .Oscillator:ABM8G-12.000MHZ-4Y-T3 Y1
 U 1 1 5C95C252
@@ -349,7 +345,7 @@ F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM033R61A104ME15
 F 4 "12pF" H 2992 5705 50  0000 L CNN "Note"
 F 5 "0402" H 3010 5570 50  0001 C CNN "Size"
 	1    2900 5750
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 $Comp
 L .Capacitor:GRM1555C1H120JA01D C21
@@ -465,19 +461,6 @@ F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12
 F 4 "0.1uF" H 7392 805 50  0000 L CNN "Note"
 F 5 "0603" H 7410 670 50  0001 C CNN "Size"
 	1    7300 850 
-	1    0    0    -1  
-$EndComp
-$Comp
-L .Capacitor:GCJ188R71E104KA12D C25
-U 1 1 5C9C5460
-P 7700 850
-F 0 "C25" H 7792 896 50  0000 L CNN
-F 1 "GCJ188R71E104KA12D" H 7310 1020 50  0001 L CNN
-F 2 ".Capacitor:C_0603_1608Metric_L" H 7810 1120 50  0001 C CNN
-F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 7710 920 50  0001 C CNN
-F 4 "0.1uF" H 7792 805 50  0000 L CNN "Note"
-F 5 "0603" H 7810 670 50  0001 C CNN "Size"
-	1    7700 850 
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -827,14 +810,6 @@ Wire Wire Line
 	6750 5050 7800 5050
 Wire Wire Line
 	3500 3150 4350 3150
-Wire Wire Line
-	3500 3250 4350 3250
-Wire Wire Line
-	3500 3350 4350 3350
-Text Notes 1700 3300 0    50   ~ 0
-Where to put these? + Lock_Detect
-Wire Wire Line
-	4350 2950 3500 2950
 Text Notes 3100 6450 0    50   ~ 0
 Not sure why this is hanging
 Wire Bus Line
@@ -895,26 +870,16 @@ Text HLabel 7800 4750 2    50   Output ~ 0
 MOSI
 Text HLabel 7800 4650 2    50   Output ~ 0
 MISO
-Text HLabel 3500 3050 0    50   Output ~ 0
-CLOCK
 Text HLabel 3500 4650 0    50   Output ~ 0
 RESET_N
 Text HLabel 3500 4750 0    50   Output ~ 0
 TRIGGER0
-Text HLabel 3500 2950 0    50   Input ~ 0
-LOCK_DETECT
 Text HLabel 3500 3150 0    50   Input ~ 0
 MONITOR0
-Text HLabel 3500 3250 0    50   Input ~ 0
-MONITOR1
-Text HLabel 3500 3350 0    50   Input ~ 0
-MONITOR2
 Text HLabel 3750 3850 0    50   Output ~ 0
 SDCardCLKA
 Text HLabel 3750 4150 0    50   Output ~ 0
 SDCardCMDA
-Text HLabel 3500 5550 0    50   Output ~ 0
-ENT
 Text HLabel 3500 1450 0    50   Output ~ 0
 LED_PWM
 Text HLabel 3500 5150 0    50   Output ~ 0
@@ -925,10 +890,33 @@ Text HLabel 2900 4050 0    50   Output ~ 0
 SD[0..3]
 NoConn ~ 4350 6050
 NoConn ~ 3500 6250
-Wire Bus Line
-	3100 3850 3100 4050
+Text HLabel 3500 3050 0    50   Output ~ 0
+CLOCK
+Wire Wire Line
+	4350 3050 3500 3050
+NoConn ~ 4350 2950
+NoConn ~ 4350 3250
+NoConn ~ 4350 3350
+NoConn ~ 4350 5550
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line
+	3100 3850 3100 4050
+Wire Bus Line
 	3500 1650 3500 2550
+Text Notes 9650 850  0    50   ~ 0
+Why are these here?
+$Comp
+L .Capacitor:GCJ188R71E104KA12D C25
+U 1 1 5C9C5460
+P 7700 850
+F 0 "C25" H 7792 896 50  0000 L CNN
+F 1 "GCJ188R71E104KA12D" H 7310 1020 50  0001 L CNN
+F 2 ".Capacitor:C_0603_1608Metric_L" H 7810 1120 50  0001 C CNN
+F 3 "http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GCJ188R71E104KA12-01.pdf" H 7710 920 50  0001 C CNN
+F 4 "0.1uF" H 7792 805 50  0000 L CNN "Note"
+F 5 "0603" H 7810 670 50  0001 C CNN "Size"
+	1    7700 850 
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
