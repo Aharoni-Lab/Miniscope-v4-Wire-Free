@@ -246,10 +246,6 @@ Wire Wire Line
 Wire Wire Line
 	6900 2900 8200 2900
 Wire Wire Line
-	6900 2800 8200 2800
-Wire Wire Line
-	6900 2700 8200 2700
-Wire Wire Line
 	6900 2600 8200 2600
 Wire Wire Line
 	3550 2450 4750 2450
@@ -321,6 +317,10 @@ Wire Notes Line
 	6550 1450 5450 1450
 Wire Notes Line
 	5400 1450 5400 1000
+Wire Wire Line
+	6900 2700 8200 2700
+Wire Wire Line
+	6900 2800 8200 2800
 Wire Bus Line
 	6300 5350 6300 5700
 Wire Bus Line

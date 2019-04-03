@@ -60,12 +60,6 @@ Wire Wire Line
 Wire Wire Line
 	3900 4650 4800 4650
 Wire Wire Line
-	3900 5250 4800 5250
-Wire Wire Line
-	4800 5250 4800 5150
-Wire Wire Line
-	4800 5150 3900 5150
-Wire Wire Line
 	4800 5900 1150 5900
 Wire Wire Line
 	1600 4900 1150 4900
@@ -132,4 +126,8 @@ Wire Wire Line
 	1300 5050 1300 5750
 Wire Wire Line
 	1300 5750 4800 5750
+Wire Wire Line
+	4800 5150 3900 5150
+Wire Wire Line
+	4800 5250 3900 5250
 $EndSCHEMATC

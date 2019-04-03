@@ -112,10 +112,6 @@ SD0
 Text Label 3800 4350 0    50   ~ 0
 SD1
 NoConn ~ 4350 4550
-Wire Wire Line
-	4350 4650 3500 4650
-Wire Wire Line
-	3500 4750 4350 4750
 $Comp
 L .Inductor:BLM18PG471SN1D L2
 U 1 1 5C966338
@@ -898,12 +894,6 @@ NoConn ~ 4350 2950
 NoConn ~ 4350 3250
 NoConn ~ 4350 3350
 NoConn ~ 4350 5550
-Wire Bus Line
-	3100 4050 3100 4250
-Wire Bus Line
-	3100 3850 3100 4050
-Wire Bus Line
-	3500 1650 3500 2550
 Text Notes 9650 850  0    50   ~ 0
 Why are these here?
 $Comp
@@ -919,8 +909,18 @@ F 5 "0603" H 7810 670 50  0001 C CNN "Size"
 	1    7700 850 
 	1    0    0    -1  
 $EndComp
-Text Label 3850 4750 0    50   ~ 0
-TRIGGER0
 Text Label 3850 4650 0    50   ~ 0
 RESET_N
+Text Label 3850 4750 0    50   ~ 0
+TRIGGER0
+Wire Wire Line
+	3500 4650 4350 4650
+Wire Wire Line
+	3500 4750 4350 4750
+Wire Bus Line
+	3100 4050 3100 4250
+Wire Bus Line
+	3100 3850 3100 4050
+Wire Bus Line
+	3500 1650 3500 2550
 $EndSCHEMATC
