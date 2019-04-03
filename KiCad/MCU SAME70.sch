@@ -919,4 +919,8 @@ F 5 "0603" H 7810 670 50  0001 C CNN "Size"
 	1    7700 850 
 	1    0    0    -1  
 $EndComp
+Text Label 3850 4750 0    50   ~ 0
+TRIGGER0
+Text Label 3850 4650 0    50   ~ 0
+RESET_N
 $EndSCHEMATC
