@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 7 7
+Sheet 4 6
 Title ""
 Date ""
 Rev ""
@@ -88,19 +88,6 @@ Wire Wire Line
 	3900 2950 4250 2950
 Wire Wire Line
 	3950 3250 4250 3250
-Wire Wire Line
-	3950 3700 4250 3700
-$Comp
-L .Connector:Conn_01x01 J6
-U 1 1 5CA266EE
-P 4450 3700
-F 0 "J6" H 4530 3742 50  0000 L CNN
-F 1 "Conn_01x01" H 4530 3651 50  0000 L CNN
-F 2 ".Connector:Conn_1x1_250x750_Pad" H 4450 3700 50  0001 C CNN
-F 3 "~" H 4450 3700 50  0001 C CNN
-	1    4450 3700
-	1    0    0    -1  
-$EndComp
 $Comp
 L .Connector:Conn_01x01 J7
 U 1 1 5CA26767
@@ -145,10 +132,6 @@ F 3 "~" H 4250 4200 50  0001 C CNN
 	1    4250 4200
 	1    0    0    -1  
 $EndComp
-Text HLabel 3950 3700 0    50   Input ~ 0
-LED+
-Text HLabel 3950 3800 0    50   Input ~ 0
-LED-
 Text HLabel 3950 3150 0    50   Input ~ 0
 SWDCLK
 Text HLabel 3950 3050 0    50   Input ~ 0
