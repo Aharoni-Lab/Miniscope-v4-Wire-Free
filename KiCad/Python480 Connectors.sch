@@ -226,17 +226,6 @@ F 3 "" H 7850 3300 50  0001 C CNN
 	1    7850 3300
 	0    -1   -1   0   
 $EndComp
-$Comp
-L power:Earth #PWR0110
-U 1 1 5CA8A424
-P 7850 3400
-F 0 "#PWR0110" H 7850 3150 50  0001 C CNN
-F 1 "Earth" H 7850 3250 50  0001 C CNN
-F 2 "" H 7850 3400 50  0001 C CNN
-F 3 "~" H 7850 3400 50  0001 C CNN
-	1    7850 3400
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	6900 3200 8200 3200
 Wire Wire Line
@@ -321,6 +310,17 @@ Wire Wire Line
 	6900 2700 8200 2700
 Wire Wire Line
 	6900 2800 8200 2800
+$Comp
+L power:Earth #PWR0110
+U 1 1 5CA8A424
+P 7850 3400
+F 0 "#PWR0110" H 7850 3150 50  0001 C CNN
+F 1 "Earth" H 7850 3250 50  0001 C CNN
+F 2 "" H 7850 3400 50  0001 C CNN
+F 3 "~" H 7850 3400 50  0001 C CNN
+	1    7850 3400
+	0    1    1    0   
+$EndComp
 Wire Bus Line
 	6300 5350 6300 5700
 Wire Bus Line

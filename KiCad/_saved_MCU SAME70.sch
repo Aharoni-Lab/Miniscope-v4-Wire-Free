@@ -201,22 +201,9 @@ Connection ~ 5350 7250
 Wire Wire Line
 	5350 7250 5450 7250
 Connection ~ 5450 7250
-Wire Wire Line
-	5450 7250 5550 7250
-Connection ~ 5550 7250
-Wire Wire Line
-	5550 7250 5800 7250
-Connection ~ 5800 7250
-Wire Wire Line
-	5800 7250 5900 7250
-Connection ~ 5900 7250
-Wire Wire Line
-	5900 7250 6000 7250
 Connection ~ 6000 7250
 Wire Wire Line
 	6000 7250 6100 7250
-Wire Wire Line
-	5250 7250 4950 7250
 Connection ~ 5250 7250
 $Comp
 L power:Earth #PWR022
@@ -232,10 +219,6 @@ $EndComp
 NoConn ~ 4350 6750
 NoConn ~ 4350 6550
 NoConn ~ 4350 6350
-NoConn ~ 4350 5950
-NoConn ~ 4350 5850
-Text Notes 3100 6050 0    50   ~ 0
-Leave floating if not using USB
 NoConn ~ 4350 5650
 NoConn ~ 4350 4850
 Wire Wire Line
@@ -378,12 +361,7 @@ IR_Receiver
 Text Label 7350 2750 0    50   ~ 0
 RED_LED
 NoConn ~ 6750 2850
-NoConn ~ 6750 2950
-NoConn ~ 6750 3050
 NoConn ~ 6750 3150
-NoConn ~ 6750 3250
-NoConn ~ 6750 3350
-NoConn ~ 6750 3450
 NoConn ~ 6750 3550
 NoConn ~ 6750 3650
 NoConn ~ 6750 3750
@@ -869,7 +847,6 @@ Text HLabel 3500 5250 0    50   Output ~ 0
 SWDCLK
 Text HLabel 2900 4050 0    50   Output ~ 0
 SD[0..3]
-NoConn ~ 4350 6050
 NoConn ~ 3500 6250
 Text HLabel 3500 3050 0    50   Output ~ 0
 CLOCK
@@ -975,12 +952,6 @@ Wire Wire Line
 	6200 650  6200 950 
 Wire Wire Line
 	6200 650  6650 650 
-Wire Bus Line
-	3100 4050 3100 4250
-Wire Bus Line
-	3100 3850 3100 4050
-Wire Bus Line
-	3500 1650 3500 2550
 $Comp
 L .Capacitor:GRM155R60J475ME87D C3
 U 1 1 5CB132B0
@@ -1006,4 +977,98 @@ F 3 "~" H 6650 850 50  0001 C CNN
 	1    6650 850 
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5450 7250 5550 7250
+Wire Wire Line
+	5900 7250 6000 7250
+Connection ~ 5550 7250
+Wire Wire Line
+	5550 7250 5800 7250
+Connection ~ 5900 7250
+Connection ~ 5800 7250
+Wire Wire Line
+	5800 7250 5900 7250
+Wire Wire Line
+	4350 6050 3500 6050
+Wire Wire Line
+	4350 5950 3500 5950
+Wire Wire Line
+	6750 2950 7500 2950
+Wire Wire Line
+	6750 3050 7500 3050
+Wire Wire Line
+	6750 3250 7500 3250
+Wire Wire Line
+	6750 3350 7500 3350
+Wire Wire Line
+	6750 3450 7500 3450
+Text Label 3500 6050 0    50   ~ 0
+test1
+Text Label 3500 5950 0    50   ~ 0
+test3
+Text Label 7300 3050 0    50   ~ 0
+test5
+Text Label 7300 3350 0    50   ~ 0
+test7
+Wire Wire Line
+	4350 5850 3500 5850
+Text Label 3500 5850 0    50   ~ 0
+test2
+Text Label 7300 2950 0    50   ~ 0
+test4
+Text Label 7300 3250 0    50   ~ 0
+test6
+Text Label 7300 3450 0    50   ~ 0
+test8
+Wire Wire Line
+	9625 4425 8850 4425
+Wire Wire Line
+	9625 4525 8850 4525
+Wire Wire Line
+	9625 4625 8850 4625
+Wire Wire Line
+	9625 4725 8850 4725
+Wire Wire Line
+	9625 4825 8850 4825
+Wire Wire Line
+	9625 4925 8850 4925
+Wire Wire Line
+	9625 5125 8850 5125
+Wire Wire Line
+	9625 5025 8850 5025
+Text Label 8850 4425 0    50   ~ 0
+test1
+Text Label 8850 4525 0    50   ~ 0
+test2
+Text Label 8850 4625 0    50   ~ 0
+test3
+Text Label 8850 4725 0    50   ~ 0
+test4
+Text Label 8850 4825 0    50   ~ 0
+test5
+Text Label 8850 4925 0    50   ~ 0
+test6
+Text Label 8850 5025 0    50   ~ 0
+test7
+Text Label 8850 5125 0    50   ~ 0
+test8
+Wire Bus Line
+	3100 4050 3100 4250
+Wire Bus Line
+	3100 3850 3100 4050
+Wire Bus Line
+	3500 1650 3500 2550
+$Comp
+L Connector_Generic:Conn_01x08 J10
+U 1 1 5CB488F2
+P 9825 4725
+F 0 "J10" H 9905 4717 50  0000 L CNN
+F 1 "Conn_01x08" H 9905 4626 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 9825 4725 50  0001 C CNN
+F 3 "~" H 9825 4725 50  0001 C CNN
+	1    9825 4725
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 7250 4950 7250
 $EndSCHEMATC
