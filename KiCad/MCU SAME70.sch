@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:MiniScope_V4-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -977,21 +978,21 @@ Wire Wire Line
 Text Label 3500 6050 0    50   ~ 0
 test1
 Text Label 3500 5950 0    50   ~ 0
-test2
-Text Label 7300 3050 0    50   ~ 0
 test3
+Text Label 7300 3050 0    50   ~ 0
+test5
 Text Label 7300 3350 0    50   ~ 0
-test4
+test7
 Wire Wire Line
 	4350 5850 3500 5850
 Text Label 3500 5850 0    50   ~ 0
-test5
+test2
 Text Label 7300 2950 0    50   ~ 0
-test6
+test4
 Text Label 7300 3250 0    50   ~ 0
-test7
+test6
 Text Label 7300 3450 0    50   ~ 0
-test7
+test8
 Wire Wire Line
 	9625 4425 8850 4425
 Wire Wire Line
@@ -1037,12 +1038,36 @@ F 3 "~" H 9825 4725 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4950 1050 5150 1050
+Wire Wire Line
+	4950 7250 6100 7250
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line
 	3100 3850 3100 4050
-Wire Wire Line
-	4950 7250 6100 7250
 Wire Bus Line
 	3500 1650 3500 2550
+$Comp
+L .Connector:Conn_01x01 J21
+U 1 1 5CAFC2EE
+P 7850 3550
+F 0 "J21" H 7930 3592 50  0000 L CNN
+F 1 "Conn_01x01" H 7930 3501 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 7850 3550 50  0001 C CNN
+F 3 "~" H 7850 3550 50  0001 C CNN
+	1    7850 3550
+	1    0    0    -1  
+$EndComp
+Connection ~ 7650 3550
+$Comp
+L .Connector:Conn_01x01 J20
+U 1 1 5CB223A2
+P 9200 3450
+F 0 "J20" V 9072 3530 50  0000 L CNN
+F 1 "Conn_01x01" V 9163 3530 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 9200 3450 50  0001 C CNN
+F 3 "~" H 9200 3450 50  0001 C CNN
+	1    9200 3450
+	0    1    1    0   
+$EndComp
+Connection ~ 9200 3250
 $EndSCHEMATC
