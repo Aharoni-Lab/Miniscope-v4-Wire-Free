@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:MiniScope_V4-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -15,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L MiniScope_V4-rescue:0475710001-.Connector J1
+L .Connector:0475710001 J1
 U 1 1 5C9D7F96
 P 8150 3400
 F 0 "J1" H 8477 3390 50  0000 L CNN

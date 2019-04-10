@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:MiniScope_V4-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -15,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L MiniScope_V4-rescue:ATSAME70N21A-CN-.MCU U3
+L .MCU:ATSAME70N21A-CN U3
 U 1 1 5C92D513
 P 5600 4350
 F 0 "U3" H 5550 1364 50  0000 C CNN
@@ -195,18 +194,6 @@ F 3 "~" H 4350 6850 50  0001 C CNN
 	1    4350 6850
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5250 7250 5350 7250
-Connection ~ 5350 7250
-Wire Wire Line
-	5350 7250 5450 7250
-Connection ~ 5450 7250
-Connection ~ 6000 7250
-Wire Wire Line
-	6000 7250 6100 7250
-Wire Wire Line
-	5250 7250 4950 7250
-Connection ~ 5250 7250
 $Comp
 L power:Earth #PWR022
 U 1 1 5C972DC3
@@ -393,12 +380,6 @@ Wire Wire Line
 	4950 1050 4950 700 
 Wire Wire Line
 	4950 700  5800 700 
-Wire Wire Line
-	5150 1050 5050 1050
-Connection ~ 4950 1050
-Connection ~ 5050 1050
-Wire Wire Line
-	5050 1050 4950 1050
 Connection ~ 4950 700 
 $Comp
 L power:+1V8 #PWR024
@@ -980,17 +961,6 @@ F 3 "~" H 6650 850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5450 7250 5550 7250
-Wire Wire Line
-	5900 7250 6000 7250
-Connection ~ 5550 7250
-Wire Wire Line
-	5550 7250 5800 7250
-Connection ~ 5900 7250
-Connection ~ 5800 7250
-Wire Wire Line
-	5800 7250 5900 7250
-Wire Wire Line
 	4350 6050 3500 6050
 Wire Wire Line
 	4350 5950 3500 5950
@@ -1054,12 +1024,6 @@ Text Label 8850 5025 0    50   ~ 0
 test7
 Text Label 8850 5125 0    50   ~ 0
 test8
-Wire Bus Line
-	3100 4050 3100 4250
-Wire Bus Line
-	3100 3850 3100 4050
-Wire Bus Line
-	3500 1650 3500 2550
 $Comp
 L Connector_Generic:Conn_01x08 J10
 U 1 1 5CB488F2
@@ -1071,4 +1035,14 @@ F 3 "~" H 9825 4725 50  0001 C CNN
 	1    9825 4725
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	4950 1050 5150 1050
+Wire Bus Line
+	3100 4050 3100 4250
+Wire Bus Line
+	3100 3850 3100 4050
+Wire Wire Line
+	4950 7250 6100 7250
+Wire Bus Line
+	3500 1650 3500 2550
 $EndSCHEMATC
