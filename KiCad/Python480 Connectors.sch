@@ -321,10 +321,6 @@ F 3 "~" H 7850 3400 50  0001 C CNN
 	1    7850 3400
 	0    1    1    0   
 $EndComp
-Wire Bus Line
-	6300 5350 6300 5700
-Wire Bus Line
-	6300 5000 6300 5350
 $Comp
 L .Connector:Conn_01x01 J18
 U 1 1 5CAF9CA6
@@ -349,4 +345,8 @@ F 3 "~" H 7850 1900 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Connection ~ 7850 2100
+Wire Bus Line
+	6300 5350 6300 5700
+Wire Bus Line
+	6300 5000 6300 5350
 $EndSCHEMATC
