@@ -1,3 +1,2 @@
 (sym_lib_table
-  (lib (name MiniScope_V4-rescue)(type Legacy)(uri ${KIPRJMOD}/MiniScope_V4-rescue.lib)(options "")(descr "")(disabled))
 )

@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L MiniScope_V4-rescue:TPS62402-Q1-.Regulator_Switching U5
+L .Regulator_Switching:TPS62402-Q1 U5
 U 1 1 5C92E41D
 P 5550 3150
 F 0 "U5" H 5250 3750 50  0000 C CNN
@@ -33,7 +33,7 @@ Wire Wire Line
 	4850 3150 5050 3150
 Connection ~ 4850 3150
 $Comp
-L MiniScope_V4-rescue:GRM21BR61E106MA73L-.Capacitor C32
+L .Capacitor:GRM21BR61E106MA73L C32
 U 1 1 5C92E5C8
 P 4600 2450
 F 0 "C32" H 4692 2496 50  0000 L CNN
@@ -45,19 +45,6 @@ F 5 "0805" H 4710 2270 50  0001 C CNN "Size"
 	1    4600 2450
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:Earth #PWR037
-U 1 1 5C92E658
-P 4600 2550
-F 0 "#PWR037" H 4600 2300 50  0001 C CNN
-F 1 "Earth" H 4600 2400 50  0001 C CNN
-F 2 "" H 4600 2550 50  0001 C CNN
-F 3 "~" H 4600 2550 50  0001 C CNN
-	1    4600 2550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4600 2350 4850 2350
 Connection ~ 4850 2350
 $Comp
 L power:Earth #PWR038
@@ -93,7 +80,7 @@ Connection ~ 4850 2850
 Wire Wire Line
 	4850 2850 4850 3150
 $Comp
-L MiniScope_V4-rescue:VLS3012HBX-2R2M-.Inductor L3
+L .Inductor:VLS3012HBX-2R2M L3
 U 1 1 5C92ECFD
 P 6150 3050
 F 0 "L3" V 6335 3050 50  0000 C CNN
@@ -106,7 +93,7 @@ F 5 "3mmx3mm" H 6300 2800 50  0001 C CNN "Size"
 	0    -1   -1   0   
 $EndComp
 $Comp
-L MiniScope_V4-rescue:VLS3012HBX-2R2M-.Inductor L4
+L .Inductor:VLS3012HBX-2R2M L4
 U 1 1 5C92ED5D
 P 6150 3450
 F 0 "L4" V 6335 3450 50  0000 C CNN
@@ -118,9 +105,8 @@ F 5 "3mmx3mm" H 6300 3200 50  0001 C CNN "Size"
 	1    6150 3450
 	0    -1   -1   0   
 $EndComp
-Connection ~ 6250 3050
 $Comp
-L MiniScope_V4-rescue:GRM21BR61C226ME44L-.Capacitor C33
+L .Capacitor:GRM21BR61C226ME44L C33
 U 1 1 5C92EEF9
 P 6500 3150
 F 0 "C33" H 6592 3196 50  0000 L CNN
@@ -143,24 +129,16 @@ F 3 "~" H 6500 3250 50  0001 C CNN
 	1    6500 3250
 	1    0    0    -1  
 $EndComp
-Connection ~ 6500 3050
-Wire Wire Line
-	6500 3050 6750 3050
 Wire Wire Line
 	6050 2850 6250 2850
 Wire Wire Line
 	6250 2850 6250 3050
 Wire Wire Line
-	6250 3050 6500 3050
-Wire Wire Line
 	6050 3250 6250 3250
 Wire Wire Line
 	6250 3250 6250 3450
-Wire Wire Line
-	6250 3450 6500 3450
-Connection ~ 6250 3450
 $Comp
-L MiniScope_V4-rescue:GRM21BR61C226ME44L-.Capacitor C34
+L .Capacitor:GRM21BR61C226ME44L C34
 U 1 1 5C92F2A0
 P 6500 3550
 F 0 "C34" H 6592 3596 50  0000 L CNN
@@ -172,9 +150,6 @@ F 5 "0805" H 6610 3370 50  0001 C CNN "Size"
 	1    6500 3550
 	1    0    0    -1  
 $EndComp
-Connection ~ 6500 3450
-Wire Wire Line
-	6500 3450 6750 3450
 $Comp
 L power:Earth #PWR041
 U 1 1 5C92F2D8
@@ -186,9 +161,6 @@ F 3 "~" H 6500 3650 50  0001 C CNN
 	1    6500 3650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4600 2350 4350 2350
-Connection ~ 4600 2350
 Text Notes 4550 2200 0    50   ~ 0
 LiPo Battery here (2.5V-6V)
 $Comp
@@ -224,4 +196,71 @@ F 3 "" H 4350 2350 50  0001 C CNN
 	1    4350 2350
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:Earth #PWR037
+U 1 1 5C92E658
+P 4600 2550
+F 0 "#PWR037" H 4600 2300 50  0001 C CNN
+F 1 "Earth" H 4600 2400 50  0001 C CNN
+F 2 "" H 4600 2550 50  0001 C CNN
+F 3 "~" H 4600 2550 50  0001 C CNN
+	1    4600 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 2350 4850 2350
+Wire Wire Line
+	6250 3050 6750 3050
+Wire Wire Line
+	6250 3450 6750 3450
+Wire Wire Line
+	5450 3800 4900 3800
+Connection ~ 5450 3800
+$Comp
+L .Connector:Conn_01x01 J15
+U 1 1 5CAF1C6F
+P 4700 3800
+F 0 "J15" H 4618 3575 50  0000 C CNN
+F 1 "Conn_01x01" H 4618 3666 50  0000 C CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 4700 3800 50  0001 C CNN
+F 3 "~" H 4700 3800 50  0001 C CNN
+	1    4700 3800
+	-1   0    0    1   
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J16
+U 1 1 5CAF2734
+P 6950 3050
+F 0 "J16" H 7030 3092 50  0000 L CNN
+F 1 "Conn_01x01" H 7030 3001 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 6950 3050 50  0001 C CNN
+F 3 "~" H 6950 3050 50  0001 C CNN
+	1    6950 3050
+	1    0    0    -1  
+$EndComp
+Connection ~ 6750 3050
+$Comp
+L .Connector:Conn_01x01 J17
+U 1 1 5CAF2EC1
+P 6950 3450
+F 0 "J17" H 7030 3492 50  0000 L CNN
+F 1 "Conn_01x01" H 7030 3401 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 6950 3450 50  0001 C CNN
+F 3 "~" H 6950 3450 50  0001 C CNN
+	1    6950 3450
+	1    0    0    -1  
+$EndComp
+Connection ~ 6750 3450
+$Comp
+L .Connector:Conn_01x01 J14
+U 1 1 5CAF334F
+P 4350 2550
+F 0 "J14" V 4222 2630 50  0000 L CNN
+F 1 "Conn_01x01" V 4313 2630 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 4350 2550 50  0001 C CNN
+F 3 "~" H 4350 2550 50  0001 C CNN
+	1    4350 2550
+	0    1    1    0   
+$EndComp
+Connection ~ 4350 2350
 $EndSCHEMATC

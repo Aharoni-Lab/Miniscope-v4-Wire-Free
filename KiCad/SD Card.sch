@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L MiniScope_V4-rescue:0475710001-.Connector J1
+L .Connector:0475710001 J1
 U 1 1 5C9D7F96
 P 8150 3400
 F 0 "J1" H 8477 3390 50  0000 L CNN
@@ -56,7 +56,7 @@ F 3 "~" H 8350 4200 50  0001 C CNN
 $EndComp
 Connection ~ 8350 4200
 Wire Wire Line
-	5500 2850 5950 2850
+	5500 2850 5850 2850
 Wire Wire Line
 	5500 2950 5950 2950
 Wire Wire Line
@@ -307,7 +307,37 @@ Connection ~ 3450 2900
 Wire Wire Line
 	4850 2300 4850 2200
 Wire Wire Line
-	4850 2200 6200 2200
+	4850 2200 5300 2200
+Wire Wire Line
+	9100 2900 9550 2900
+$Comp
+L .Connector:Conn_01x01 J13
+U 1 1 5CAEA819
+P 9750 2900
+F 0 "J13" H 9830 2942 50  0000 L CNN
+F 1 "Conn_01x01" H 9830 2851 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 9750 2900 50  0001 C CNN
+F 3 "~" H 9750 2900 50  0001 C CNN
+	1    9750 2900
+	1    0    0    -1  
+$EndComp
+Text Label 9100 2900 0    50   ~ 0
+DAT1
+$Comp
+L .Connector:Conn_01x01 J11
+U 1 1 5CAEB25B
+P 3450 2200
+F 0 "J11" H 3368 1975 50  0000 C CNN
+F 1 "Conn_01x01" H 3368 2066 50  0000 C CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 3450 2200 50  0001 C CNN
+F 3 "~" H 3450 2200 50  0001 C CNN
+	1    3450 2200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3650 2200 3900 2200
+Wire Wire Line
+	5300 2200 5300 1900
 Wire Bus Line
 	3450 2900 3450 3050
 Wire Bus Line
@@ -320,4 +350,32 @@ Wire Bus Line
 	7150 3100 7150 3250
 Wire Bus Line
 	7150 2950 7150 3100
+Connection ~ 5300 2200
+Wire Wire Line
+	5300 2200 6200 2200
+$Comp
+L .Connector:Conn_01x01 J12
+U 1 1 5CAED108
+P 5300 1700
+F 0 "J12" V 5264 1612 50  0000 R CNN
+F 1 "Conn_01x01" V 5173 1612 50  0000 R CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 5300 1700 50  0001 C CNN
+F 3 "~" H 5300 1700 50  0001 C CNN
+	1    5300 1700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J22
+U 1 1 5CB2578C
+P 5850 2650
+F 0 "J22" V 5814 2562 50  0000 R CNN
+F 1 "Conn_01x01" V 5723 2562 50  0000 R CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 5850 2650 50  0001 C CNN
+F 3 "~" H 5850 2650 50  0001 C CNN
+	1    5850 2650
+	0    -1   -1   0   
+$EndComp
+Connection ~ 5850 2850
+Wire Wire Line
+	5850 2850 5950 2850
 $EndSCHEMATC

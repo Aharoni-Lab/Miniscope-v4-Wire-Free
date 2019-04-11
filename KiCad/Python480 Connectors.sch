@@ -226,17 +226,6 @@ F 3 "" H 7850 3300 50  0001 C CNN
 	1    7850 3300
 	0    -1   -1   0   
 $EndComp
-$Comp
-L power:Earth #PWR0110
-U 1 1 5CA8A424
-P 7850 3400
-F 0 "#PWR0110" H 7850 3150 50  0001 C CNN
-F 1 "Earth" H 7850 3250 50  0001 C CNN
-F 2 "" H 7850 3400 50  0001 C CNN
-F 3 "~" H 7850 3400 50  0001 C CNN
-	1    7850 3400
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	6900 3200 8200 3200
 Wire Wire Line
@@ -321,8 +310,43 @@ Wire Wire Line
 	6900 2700 8200 2700
 Wire Wire Line
 	6900 2800 8200 2800
+$Comp
+L power:Earth #PWR0110
+U 1 1 5CA8A424
+P 7850 3400
+F 0 "#PWR0110" H 7850 3150 50  0001 C CNN
+F 1 "Earth" H 7850 3250 50  0001 C CNN
+F 2 "" H 7850 3400 50  0001 C CNN
+F 3 "~" H 7850 3400 50  0001 C CNN
+	1    7850 3400
+	0    1    1    0   
+$EndComp
 Wire Bus Line
 	6300 5350 6300 5700
 Wire Bus Line
 	6300 5000 6300 5350
+$Comp
+L .Connector:Conn_01x01 J18
+U 1 1 5CAF9CA6
+P 4400 1650
+F 0 "J18" V 4364 1562 50  0000 R CNN
+F 1 "Conn_01x01" V 4273 1562 50  0000 R CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 4400 1650 50  0001 C CNN
+F 3 "~" H 4400 1650 50  0001 C CNN
+	1    4400 1650
+	0    -1   -1   0   
+$EndComp
+Connection ~ 4400 1850
+$Comp
+L .Connector:Conn_01x01 J19
+U 1 1 5CAFA288
+P 7850 1900
+F 0 "J19" V 7814 1812 50  0000 R CNN
+F 1 "Conn_01x01" V 7723 1812 50  0000 R CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 7850 1900 50  0001 C CNN
+F 3 "~" H 7850 1900 50  0001 C CNN
+	1    7850 1900
+	0    -1   -1   0   
+$EndComp
+Connection ~ 7850 2100
 $EndSCHEMATC
