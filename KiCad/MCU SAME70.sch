@@ -1037,15 +1037,9 @@ F 3 "~" H 9825 4725 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 1050 5150 1050
+	4950 1050 5050 1050
 Wire Wire Line
-	4950 7250 6100 7250
-Wire Bus Line
-	3100 4050 3100 4250
-Wire Bus Line
-	3100 3850 3100 4050
-Wire Bus Line
-	3500 1650 3500 2550
+	4950 7250 5250 7250
 $Comp
 L .Connector:Conn_01x01 J21
 U 1 1 5CAFC2EE
@@ -1070,4 +1064,35 @@ F 3 "~" H 9200 3450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Connection ~ 9200 3250
+Wire Bus Line
+	3100 4050 3100 4250
+Wire Bus Line
+	3100 3850 3100 4050
+Wire Bus Line
+	3500 1650 3500 2550
+Connection ~ 5250 7250
+Wire Wire Line
+	5250 7250 5350 7250
+Connection ~ 5350 7250
+Wire Wire Line
+	5350 7250 5450 7250
+Connection ~ 5450 7250
+Wire Wire Line
+	5450 7250 5550 7250
+Connection ~ 5550 7250
+Wire Wire Line
+	5550 7250 5800 7250
+Connection ~ 5800 7250
+Wire Wire Line
+	5800 7250 5900 7250
+Connection ~ 5900 7250
+Wire Wire Line
+	5900 7250 6000 7250
+Connection ~ 6000 7250
+Wire Wire Line
+	6000 7250 6100 7250
+Connection ~ 5050 1050
+Wire Wire Line
+	5050 1050 5150 1050
+Connection ~ 4950 1050
 $EndSCHEMATC
