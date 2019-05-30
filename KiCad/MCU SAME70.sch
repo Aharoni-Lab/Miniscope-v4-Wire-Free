@@ -341,7 +341,7 @@ Wire Wire Line
 Text Label 3500 6250 0    50   ~ 0
 NRESET
 Text Notes 3250 6350 0    50   ~ 0
-100K UNTERNAL PULLUP
+100K INTERNAL PULLUP
 Wire Wire Line
 	6750 2650 7650 2650
 Wire Wire Line
@@ -1064,12 +1064,6 @@ F 3 "~" H 9200 3450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Connection ~ 9200 3250
-Wire Bus Line
-	3100 4050 3100 4250
-Wire Bus Line
-	3100 3850 3100 4050
-Wire Bus Line
-	3500 1650 3500 2550
 Connection ~ 5250 7250
 Wire Wire Line
 	5250 7250 5350 7250
@@ -1095,4 +1089,21 @@ Connection ~ 5050 1050
 Wire Wire Line
 	5050 1050 5150 1050
 Connection ~ 4950 1050
+$Comp
+L .Connector:Conn_01x01 J23
+U 1 1 5CC7F8A9
+P 6000 500
+F 0 "J23" H 6080 542 50  0000 L CNN
+F 1 "Conn_01x01" H 6080 451 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 6000 500 50  0001 C CNN
+F 3 "~" H 6000 500 50  0001 C CNN
+	1    6000 500 
+	0    -1   -1   0   
+$EndComp
+Wire Bus Line
+	3100 4050 3100 4250
+Wire Bus Line
+	3100 3850 3100 4050
+Wire Bus Line
+	3500 1650 3500 2550
 $EndSCHEMATC
