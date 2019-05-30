@@ -31,7 +31,7 @@
 //#define MT9V032
 //#define EV76C454
 //#define EV76C454_SUBSAMP
-#define EV76C541
+//#define EV76C541
 
 //CMOS imaging sensor definitions
 #ifdef  EV76C541
@@ -53,7 +53,7 @@
 	#define HALFS					0
 	#define FRSTS					0
 
-	#define PIXELS_PER_WORD			1<<D_SIZE
+	#define PIXELS_PER_WORD			1<<D_SIZE // 1 * 2^D_SIZE = 4
 	#define FRAME_RATE				20
 	#define IMAGE_WIDTH				704 //Full sensor is 752 //Will be subsampled by 2x
 	#define IMAGE_HEIGHT			480 //Will be subsampled by 2x
@@ -229,7 +229,7 @@
  COMPILER_ALIGNED(8)
 
  #ifdef EV76C454
-	static uint32_t imageBuffer[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
+	static uint32_t imageBuffer[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH]; // static --> all initialize to zero (But this doesn't work in other compilers..)
 #endif
 
  #ifdef EV76C454_SUBSAMP
@@ -301,8 +301,8 @@ void fillBuffer() {
 	uint32_t i;
 	for (i = 0; i < NUM_PIXEL_WORDS; i += 1) { //Fills buffer with data
 		
-		pBuf = (&imageBuffer[i]);//
-		*pBuf = 0x11003344;//0;//TEST_FILL_VALUE_U32;
+		pBuf = (&imageBuffer[i]); // these are all zero --> the pointer points at the address of each of these zeroes
+		*pBuf = 0x11003344;//0;//TEST_FILL_VALUE_U32; --> Each of these locations is filled with 0x11003344
 	}
 	#endif
 }

@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief Time tick functions
+ * \brief Time tick funct
  *
  * Copyright (c) 2014-2015 Atmel Corporation. All rights reserved.
  *
