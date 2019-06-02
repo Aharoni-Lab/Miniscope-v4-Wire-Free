@@ -94,7 +94,7 @@ U 1 1 5CA26767
 P 4450 4100
 F 0 "J7" H 4530 4142 50  0000 L CNN
 F 1 "Conn_01x01" H 4530 4051 50  0000 L CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical" H 4450 4100 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x01_P2.54mm_Vertical" H 4450 4100 50  0001 C CNN
 F 3 "~" H 4450 4100 50  0001 C CNN
 	1    4450 4100
 	1    0    0    -1  
@@ -105,7 +105,7 @@ U 1 1 5CA267B7
 P 4450 4200
 F 0 "J8" H 4530 4242 50  0000 L CNN
 F 1 "Conn_01x01" H 4530 4151 50  0000 L CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical" H 4450 4200 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x01_P2.54mm_Vertical" H 4450 4200 50  0001 C CNN
 F 3 "~" H 4450 4200 50  0001 C CNN
 	1    4450 4200
 	1    0    0    -1  
