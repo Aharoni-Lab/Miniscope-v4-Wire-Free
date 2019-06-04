@@ -915,8 +915,6 @@ NoConn ~ 7450 3250
 NoConn ~ 7450 3350
 NoConn ~ 7450 3450
 NoConn ~ 7450 3550
-Wire Bus Line
-	4350 3100 4350 3500
 $Comp
 L Connector:Conn_Coaxial J1
 U 1 1 5D07F118
@@ -939,4 +937,6 @@ F 3 "~" H 8700 2950 50  0001 C CNN
 	1    8700 2950
 	1    0    0    -1  
 $EndComp
+Wire Bus Line
+	4350 3100 4350 3500
 $EndSCHEMATC
