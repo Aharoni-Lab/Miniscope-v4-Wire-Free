@@ -1,0 +1,28 @@
+Drill report for C:\Users\raymond\Documents\Aharoni Lab\Miniscope-v4-Wire-Free\SDCard-PCB\KiCad\SDCard-PCB.kicad_pcb
+Created on 6/3/2019 7:38:50 PM
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  In1.Cu                    in1
+    L3 :  In2.Cu                    in2
+    L4 :  In3.Cu                    in3
+    L5 :  In4.Cu                    in4
+    L6 :  B.Cu                      back
+
+
+Drill file 'SDCard-PCB-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.20mm  0.008"  (99 holes)
+    T2  1.00mm  0.039"  (14 holes)
+    T3  1.60mm  0.063"  (5 holes)
+
+    Total plated holes count 118
+
+
+Drill file 'SDCard-PCB-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0

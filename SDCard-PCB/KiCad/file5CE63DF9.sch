@@ -26,8 +26,6 @@ F 3 "~" H 8350 4000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5500 2850 5850 2850
-Wire Wire Line
 	5500 2950 5950 2950
 Wire Wire Line
 	5500 3050 5950 3050
@@ -270,20 +268,6 @@ F 3 "~" H 5300 1700 50  0001 C CNN
 	1    5300 1700
 	0    -1   -1   0   
 $EndComp
-$Comp
-L .Connector:Conn_01x01 J14
-U 1 1 5CB2578C
-P 5850 2650
-F 0 "J14" V 5814 2562 50  0000 R CNN
-F 1 "Conn_01x01" V 5723 2562 50  0000 R CNN
-F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 5850 2650 50  0001 C CNN
-F 3 "~" H 5850 2650 50  0001 C CNN
-	1    5850 2650
-	0    -1   -1   0   
-$EndComp
-Connection ~ 5850 2850
-Wire Wire Line
-	5850 2850 5950 2850
 Wire Wire Line
 	7550 4000 8350 4000
 Text Label 3550 2950 0    50   ~ 0
@@ -343,6 +327,9 @@ Wire Wire Line
 	7700 3250 7550 3250
 Wire Wire Line
 	7550 3250 7550 2200
+Connection ~ 7550 2200
+Wire Wire Line
+	7550 2200 7900 2200
 Wire Bus Line
 	7150 2950 7150 3100
 Wire Bus Line
@@ -357,7 +344,6 @@ Wire Bus Line
 	6050 2950 6050 3100
 Wire Bus Line
 	7150 3100 7150 3550
-Connection ~ 7550 2200
 Wire Wire Line
-	7550 2200 7900 2200
+	5500 2850 5950 2850
 $EndSCHEMATC

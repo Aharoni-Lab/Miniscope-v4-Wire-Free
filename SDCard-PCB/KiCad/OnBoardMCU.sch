@@ -1032,4 +1032,15 @@ Wire Bus Line
 	3100 3850 3100 4050
 Wire Bus Line
 	3500 1650 3500 2150
+$Comp
+L .Connector:Conn_01x01 J14
+U 1 1 5D003D2A
+P 4750 700
+F 0 "J14" H 4668 475 50  0000 C CNN
+F 1 "Conn_01x01" H 4668 566 50  0000 C CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 4750 700 50  0001 C CNN
+F 3 "~" H 4750 700 50  0001 C CNN
+	1    4750 700 
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
