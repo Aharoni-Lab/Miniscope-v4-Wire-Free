@@ -670,15 +670,7 @@ Text Notes 6850 5250 0    50   ~ 0
 TWD2
 Text Notes 6850 5350 0    50   ~ 0
 TWCK2
-Text Notes 4150 4950 0    50   ~ 0
-TWD1
-Text Notes 4100 5050 0    50   ~ 0
-TWCK1
-Text Notes 3800 5050 0    50   ~ 0
-(SCL)
-Text Notes 3800 4950 0    50   ~ 0
-(SDA)
-Text Notes 3550 5000 0    50   ~ 0
+Text Notes 2150 4950 0    50   ~ 0
 (I2C)
 $Comp
 L Device:R_US R2
@@ -779,8 +771,6 @@ F 3 "~" H 9400 3650 50  0001 C CNN
 	1    9400 3650
 	1    0    0    -1  
 $EndComp
-NoConn ~ 4350 4950
-NoConn ~ 4350 5050
 Text HLabel 2950 1650 0    50   Input ~ 0
 img_d[0..7]
 Text Label 3700 1750 0    50   ~ 0
@@ -823,8 +813,6 @@ Text HLabel 3750 3850 0    50   Output ~ 0
 SDCardCLKA
 Text HLabel 3750 4150 0    50   Output ~ 0
 SDCardCMDA
-Text HLabel 3500 1450 0    50   Output ~ 0
-LED_PWM
 Text HLabel 3500 5150 0    50   Output ~ 0
 SWDIO
 Text HLabel 3500 5250 0    50   Output ~ 0
@@ -839,7 +827,6 @@ Wire Wire Line
 NoConn ~ 4350 2950
 NoConn ~ 4350 3250
 NoConn ~ 4350 3350
-NoConn ~ 4350 5550
 $Comp
 L .Capacitor:GCJ188R71E104KA12D C25
 U 1 1 5C9C5460
@@ -1036,10 +1023,6 @@ F 3 "~" H 9825 4725 50  0001 C CNN
 	1    9825 4725
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4950 1050 5050 1050
-Wire Wire Line
-	4950 7250 5250 7250
 $Comp
 L .Connector:Conn_01x01 J21
 U 1 1 5CAFC2EE
@@ -1064,9 +1047,32 @@ F 3 "~" H 9200 3450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Connection ~ 9200 3250
-Connection ~ 5250 7250
+$Comp
+L .Connector:Conn_01x01 J23
+U 1 1 5CC7F8A9
+P 6000 500
+F 0 "J23" H 6080 542 50  0000 L CNN
+F 1 "Conn_01x01" H 6080 451 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 6000 500 50  0001 C CNN
+F 3 "~" H 6000 500 50  0001 C CNN
+	1    6000 500 
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4950 1050 5050 1050
+Wire Wire Line
+	4950 7250 5250 7250
+Wire Wire Line
+	6000 7250 6100 7250
+Connection ~ 4950 1050
+Text HLabel 2650 4850 0    50   Output ~ 0
+SDA
+Text HLabel 2650 4950 0    50   Output ~ 0
+SCL
 Wire Wire Line
 	5250 7250 5350 7250
+Connection ~ 5250 7250
+Connection ~ 6000 7250
 Connection ~ 5350 7250
 Wire Wire Line
 	5350 7250 5450 7250
@@ -1082,24 +1088,79 @@ Wire Wire Line
 Connection ~ 5900 7250
 Wire Wire Line
 	5900 7250 6000 7250
-Connection ~ 6000 7250
-Wire Wire Line
-	6000 7250 6100 7250
-Connection ~ 5050 1050
-Wire Wire Line
-	5050 1050 5150 1050
-Connection ~ 4950 1050
 $Comp
-L .Connector:Conn_01x01 J23
-U 1 1 5CC7F8A9
-P 6000 500
-F 0 "J23" H 6080 542 50  0000 L CNN
-F 1 "Conn_01x01" H 6080 451 50  0000 L CNN
-F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 6000 500 50  0001 C CNN
-F 3 "~" H 6000 500 50  0001 C CNN
-	1    6000 500 
-	0    -1   -1   0   
+L Device:R_Small_US R1
+U 1 1 5CFAD39A
+P 2750 4950
+F 0 "R1" H 2818 4996 50  0000 L CNN
+F 1 "4.7k" H 2818 4905 50  0000 L CNN
+F 2 ".Resistor:R_0402_1005Metric_ERJ_L" H 2750 4950 50  0001 C CNN
+F 3 "~" H 2750 4950 50  0001 C CNN
+	1    2750 4950
+	1    0    0    -1  
 $EndComp
+$Comp
+L Device:R_Small_US R5
+U 1 1 5CFADA4D
+P 3000 5050
+F 0 "R5" H 3068 5096 50  0000 L CNN
+F 1 "4.7k" H 3068 5005 50  0000 L CNN
+F 2 ".Resistor:R_0402_1005Metric_ERJ_L" H 3000 5050 50  0001 C CNN
+F 3 "~" H 3000 5050 50  0001 C CNN
+	1    3000 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR03
+U 1 1 5CFCD2D2
+P 3000 5150
+F 0 "#PWR03" H 3000 4900 50  0001 C CNN
+F 1 "Earth" H 3000 5000 50  0001 C CNN
+F 2 "" H 3000 5150 50  0001 C CNN
+F 3 "~" H 3000 5150 50  0001 C CNN
+	1    3000 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR02
+U 1 1 5CFCD722
+P 2750 5050
+F 0 "#PWR02" H 2750 4800 50  0001 C CNN
+F 1 "Earth" H 2750 4900 50  0001 C CNN
+F 2 "" H 2750 5050 50  0001 C CNN
+F 3 "~" H 2750 5050 50  0001 C CNN
+	1    2750 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2750 4850 2650 4850
+Wire Wire Line
+	2750 4850 3500 4850
+Wire Wire Line
+	3500 4950 4350 4950
+Connection ~ 2750 4850
+Wire Wire Line
+	3000 4950 3400 4950
+Wire Wire Line
+	3400 5050 4350 5050
+Wire Wire Line
+	2650 4950 3000 4950
+Connection ~ 3000 4950
+Wire Wire Line
+	3400 4950 3400 5050
+Wire Wire Line
+	3500 4850 3500 4950
+Text Notes 2200 4800 0    50   ~ 0
+adjust these R's down
+Wire Wire Line
+	4350 5550 3400 5550
+Wire Wire Line
+	3400 5550 3400 6150
+Wire Wire Line
+	3400 6150 2650 6150
+Text HLabel 2650 6150 0    50   Output ~ 0
+LED_ENT
+NoConn ~ 3500 1450
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line

@@ -1,4 +1,4 @@
-15910764855827300
+15913897839314860
 .Capacitor
 C_0201_0603Metric_L
 Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body
@@ -49,6 +49,13 @@ Capacitor, Polarized, Chip; 7.30 mm L X 4.30 mm W X 4.30 mm H body
 2
 2
 .Connector
+1x8_microSD
+
+
+0
+8
+8
+.Connector
 0475710001
 
 
@@ -77,7 +84,14 @@ ASP-134604-01X
 160
 160
 .Connector
-B2B_Flex_05_Dual_Row_38milx24mil_Pad_20mil
+B2B_Flex_05_Dual_Row_38milx24mil_Hole_20mil
+
+
+0
+5
+5
+.Connector
+B2B_Flex_05_Dual_Row_38milx24mil_Pad_20mil_copy
 
 
 0

@@ -316,7 +316,7 @@ U 1 1 5CAEA819
 P 9750 2900
 F 0 "J13" H 9830 2942 50  0000 L CNN
 F 1 "Conn_01x01" H 9830 2851 50  0000 L CNN
-F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 9750 2900 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 9750 2900 50  0001 C CNN
 F 3 "~" H 9750 2900 50  0001 C CNN
 	1    9750 2900
 	1    0    0    -1  
