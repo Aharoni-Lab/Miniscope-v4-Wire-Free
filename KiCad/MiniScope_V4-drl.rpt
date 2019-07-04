@@ -1,5 +1,5 @@
-Drill report for C:\Users\raymond\Documents\KiCad\Miniscope-v4-Wire-Free\KiCad\MiniScope_V4.kicad_pcb
-Created on 4/11/2019 3:43:45 PM
+Drill report for C:\Users\raymond\Documents\Aharoni Lab\Miniscope-v4-Wire-Free\KiCad\MiniScope_V4.kicad_pcb
+Created on 7/3/2019 6:49:20 PM
 
 Copper Layer Stackup:
     =============================================================
@@ -14,10 +14,11 @@ Copper Layer Stackup:
 Drill file 'MiniScope_V4-PTH.drl' contains
     plated through holes:
     =============================================================
-    T1  0.20mm  0.008"  (85 holes)
-    T2  1.00mm  0.039"  (8 holes)
+    T1  0.20mm  0.008"  (98 holes)
+    T2  0.65mm  0.026"  (4 holes)
+    T3  1.00mm  0.039"  (16 holes)
 
-    Total plated holes count 93
+    Total plated holes count 118
 
 
 Drill file 'MiniScope_V4-NPTH.drl' contains

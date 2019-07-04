@@ -14,10 +14,7 @@
 
 //Which CMOS imaging sensor are we using. Defined in conf_clock.h and sdImaging.h
 #define NOIP1SN0480A
-//#define MT9V032
 //#define EV76C454_SUBSAMP
-// #define EV76C541
-// #define EV76C454
 
 
 // ===== System Clock (MCK) Source Options
@@ -51,14 +48,6 @@
 
 #ifdef NOIP1SN0480A
 	#define CONFIG_PLL0_MUL				12
-#endif
-
-#ifdef EV76C454
-	#define CONFIG_PLL0_MUL             24 // This was decreased from 25 to make CMOS clk = 48MHz. This means ARM is running at 144MHz not 150MHz
-#endif
-
-#ifdef EV76C541
-	#define CONFIG_PLL0_MUL             12 // This was decreased from 25 to make CMOS clk = 48MHz. This means ARM is running at 72MHz not 150MHz
 #endif
 
 // #ifdef EV76C454_SUBSAMP

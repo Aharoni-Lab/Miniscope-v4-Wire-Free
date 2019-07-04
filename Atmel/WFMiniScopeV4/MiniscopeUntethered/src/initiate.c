@@ -36,6 +36,8 @@ void SPI_BitBang_init()
 	ioport_set_pin_level(SPI_BB_SS, 1);
 }
 
+
+
 // ========== NOT IN USE ========= //
 void PWM_Init()
 {
@@ -91,8 +93,6 @@ void PWM_Init()
 	pwm_channel_enable(PWM0, PWM_LED_CHANNEL);
 }
 
-
-// ========== NOT IN USE ========== //
 /**
 	SPI_master_init: Initialize SPI as master.
  */
