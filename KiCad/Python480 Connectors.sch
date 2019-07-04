@@ -250,8 +250,6 @@ Wire Wire Line
 	6900 3000 8200 3000
 Wire Wire Line
 	6900 2200 8200 2200
-Text HLabel 6900 2200 0    50   Input ~ 0
-LED
 $Comp
 L Connector_Generic:Conn_01x20 J6
 U 1 1 5CADAE78
@@ -294,18 +292,6 @@ Wire Wire Line
 NoConn ~ 4750 3350
 NoConn ~ 4750 3450
 NoConn ~ 8200 3100
-Text Notes 5700 1200 0    50   ~ 0
-Hole or Pad?
-Text Notes 5550 1300 0    50   ~ 0
-Choosing pad for now
-Wire Notes Line
-	5400 1000 6500 1000
-Wire Notes Line
-	6550 1000 6550 1450
-Wire Notes Line
-	6550 1450 5450 1450
-Wire Notes Line
-	5400 1450 5400 1000
 Wire Wire Line
 	6900 2700 8200 2700
 Wire Wire Line
@@ -345,8 +331,13 @@ F 3 "~" H 7850 1900 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Connection ~ 7850 2100
+NoConn ~ 6900 2200
 Wire Bus Line
 	6300 5350 6300 5700
 Wire Bus Line
 	6300 5000 6300 5350
+Text Label 6900 2200 0    50   ~ 0
+PythonBoardLED
+Text Notes 5900 2100 0    50   ~ 0
+Python board has its own status LED - \noverlap with MCU board status LED
 $EndSCHEMATC
