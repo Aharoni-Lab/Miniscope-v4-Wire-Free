@@ -1,4 +1,13 @@
-#include <asf.h>
+/*
+ *  sdImaging.c
+ *
+ *  Created: 5/11/2016 9:02:14 PM
+ *  Author: Daniel Aharoni
+ *	Edits: Raymond Chang
+ */
+ 
+ 
+ #include <asf.h>
 #include "sdImaging.h"
 #include "definitions.h"
 #include "SPI_BB_PYTHON480.h"
@@ -33,23 +42,38 @@ volatile	uint32_t	sdImageWriteFrameNum= 0;
 /************************************************************************/
 /*                         Function Definitions                         */
 /************************************************************************/
-// Fills buffer with data
-void fillBuffer()
+
+// ========== Interrupt Handlers: Overwrite the Stock Functions ========== //
+void PIOA_Handler(void)
 {
-	#ifdef NOIP1SN0480A
-		uint32_t* pBuf;
-		uint32_t i;
-		for (i = 0; i < NUM_PIXEL_WORDS; ++i)
+	pcISR = PIOA->PIO_ISR;
+	if (pcISR & HSYNC_MASK)
+	{
+		if (captureEnabled == 1)
 		{
-			// &var: address to the var
-			// *: the value of the pointer
-			pBuf = (&imageBuffer[i]);	// these are all zero --> the pointer points at the address of each of these zeroes
-			*pBuf = 0x11223344;			// Each of these locations is filled with 0x11223344
+			lineCount++;
 		}
-	#endif
+	}
+	checkVSync();
 }
 
-void enableSourceClk() 
+
+void XDMAC_Handler(void)
+{
+	uint32_t dma_status;
+
+	dma_status = XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CIS;
+
+	if (dma_status & XDMAC_CIS_BIS)
+	{
+		xferDMAComplete = 1;
+	}
+}
+
+
+
+// ========== Set up the Clock Speed for CMOS Sensor ========== //
+void Enable_Source_Clock()				// Turns on SCK1 from MCU to drive CMOS sensor	
 {
 	// Sets PCK1 as clock output using Main Clocks
 	// PMC: Power Management Controller
@@ -61,44 +85,58 @@ void enableSourceClk()
 
 	PMC->PMC_SCER = (PMC_SCER_PCK1);
 	
-	#ifdef EV76C454
-		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(5); //Should make output = 48MHz
+	#ifdef EV76C454_SUBSAMP		// Trying to run MCU slower
+		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk) | (PMC_PCK_CSS_PLLA_CLK) | PMC_PCK_PRES(2); // Should make output = 300 MHz / 2^2 = 48 MHz. Sensor divides by 4
 	#endif
-	#ifdef EV76C454_SUBSAMP //Trying to run MCU slower
-		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(2); //Should make output = 48MHz
-	#endif
-	#ifdef EV76C541 //Trying to run MCU slower
-		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(5); //Should make output = 24MHz. Sensor divides by 4
-	#endif
-	#ifdef NOIP1SN0480A //Trying to run MCU slower
-		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(5); //Should make output = 24MHz. Sensor divides by 2^5 = 32
+	
+	#ifdef NOIP1SN0480A			// Trying to run MCU slower
+		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk) | (PMC_PCK_CSS_PLLA_CLK) | PMC_PCK_PRES(5); // Should make output = 300 MHz / 2^5 = 24 MHz. Sensor divides by 2^5 = 32
 	#endif
 }
 
+
+
+// ========== Load In Custom Settings ========== //
+void imagingSensorLoadHeader()
+{
+	uint8_t headerTemp[SDMMC_BLOCK_SIZE] = {0};
+	uint32_t* header = (uint32_t*) headerTemp;
+
+	uint32_t writeKey[4] = {0};
+	sd_mmc_init_read_blocks(SD_SLOT_NB, HEADER_SECTOR, 1);
+	sd_mmc_start_read_blocks(headerTemp, 1);
+	sd_mmc_wait_end_of_read_blocks(false);
+
+	gain				= header[HEADER_GAIN_POS];
+	// ledValue			= ((100 - header[HEADER_LED_POS]) * 0x0FFF) / 100;		// Header should be between 0 and 100; Used for DAC
+	ledValue			= header[HEADER_LED_POS];								// Header should be between 0 and 255;
+	numFramesToRecord	= header[HEADER_NUM_FRAMES_POS];
+}
+
+
+
+// ========== Set up the Microcontroller to Handle Imaging Sensor ========== //
 void imagingSensorSetup() 
 {
+	Disable_Imaging_Sensor_Capture();		// Makes sure PIo Capture is disabled
 	
-	imagingSensorCaptureDisable(); // makes sure PIo Capture is disabled
+	pmc_enable_periph_clk(ID_PIOA);		// Sets PIO clock
 	
-	pmc_enable_periph_clk(ID_PIOA); //Sets PIO clock
-	
-	//NVIC_DisableIRQ( PIOA_IRQn );
+	// NVIC_DisableIRQ(PIOA_IRQn);
 	NVIC_ClearPendingIRQ(PIOA_IRQn);
 	NVIC_SetPriority(PIOA_IRQn, 2);
 	NVIC_EnableIRQ(PIOA_IRQn);
 
-	imagingSensorItInit(); // Sets up interrupts //Might need to change interrupts for DMA transfer
-	imagingSensorDMAInit();
-	imagingSensorParamInit(); // Configures PIO Capture settings
-	imageSensorVSyncItInit(); // Sets up VSync interrupt to detect end of frame
+	imagingSensorParamInit();			// Configure PIO Capture settings
+	imagingSensorItInit();				// Set up sensor interrupts	// Might need to change interrupts for DMA transfer
+	imagingSensorDMAInit();				// Initialize direct memory access
+	imageSensorVSyncItInit();			// Set up VSync interrupt to detect end of frame
 	imageSensorHSyncItInit();
-	
 	
 	packetCMOS.chip = IMAGING_SENSOR_ADR;
 	packetCMOS.addr_length = 1;
-
-	
 }
+
 
 void imagingSensorParamInit() 
 {
@@ -120,186 +158,70 @@ void imagingSensorParamInit()
 
 void imagingSensorDMAInit() 
 {
-	//Single Block With Single Microblock Transfer
+	// Single Block With Single Micro-block Transfer
 	uint32_t channelStatus = 0;
-	/* Initialize and enable DMA controller */
+	
+	// Initialize and enable DMA controller
 	pmc_enable_periph_clk(ID_XDMAC);
 
-	/*Enable XDMA interrupt */
+	// Enable XDMA interrupt
 	NVIC_ClearPendingIRQ(XDMAC_IRQn);
 	NVIC_SetPriority( XDMAC_IRQn ,1);
 	NVIC_EnableIRQ(XDMAC_IRQn);
 }
 
-void imagingSensorStartDMA() 
-{
-	
-	uint32_t channelStatus = 0;
 
-	XDMAC->XDMAC_GD =(XDMAC_GD_DI0 << IMAGING_SENSOR_XDMAC_CH); //disables DMA channel
 
-	channelStatus = XDMAC->XDMAC_GS; //Global status of XDMAC channels. Should make sure IMAGING_SENSOR_XDMAC_CH is available
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CIS;//clears interrupt status bit
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CSA = (uint32_t)&(PIOA->PIO_PCRHR); //source address
-
-	#ifdef EV76C454
-		XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer;
-	#endif
-
-	#ifdef EV76C454_SUBSAMP
-	switch(frameNumber%3)
-	{
-		case (0):
-			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer0;
-		break;
-		case (1):
-			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer1;
-		break;
-		case(2):
-			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer2;
-		break;
-	}
-	#endif
-
-	#ifdef EV76C541
-	switch(frameNumber%3)
-	{
-		case (0):
-			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer0;
-		break;
-		case (1):
-			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer1;
-		break;
-		case(2):
-			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer2;
-		break;
-	}
-	#endif
-
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CUBC = XDMAC_CUBC_UBLEN(NUM_PIXEL_WORDS);
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CC = XDMAC_CC_TYPE_PER_TRAN |
-	XDMAC_CC_MBSIZE_SINGLE | //might be able to make burst size larger along with chunk size
-	XDMAC_CC_DSYNC_PER2MEM |
-	XDMAC_CC_SWREQ_HWR_CONNECTED |
-	XDMAC_CC_MEMSET_NORMAL_MODE | //Could be wrong
-	XDMAC_CC_CSIZE_CHK_1 | //might be able to make chunk size larger for faster writing
-	XDMAC_CC_DWIDTH_WORD |
-	XDMAC_CC_SIF_AHB_IF1 | //not sure about this
-	XDMAC_CC_DIF_AHB_IF0 | //not sure about this
-	XDMAC_CC_SAM_FIXED_AM | //fixed source memory
-	XDMAC_CC_DAM_INCREMENTED_AM | //increment destination memory
-	XDMAC_CC_PERID(XDAMC_CHANNEL_HWID_PIOA); // Peripheral ID for Parallel Capture
-
-	//Clearing the following registers indicates that the linked list is disabled and that there is only 1 block
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CNDC = 0;
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CBC = 0;
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDS_MSP = 0;
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CSUS = 0;
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDUS = 0;
-
-	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CIE |= XDMAC_CIE_BIE; //Enables end of block interrupt
-	XDMAC->XDMAC_GIE |= (XDMAC_GIE_IE0 <<IMAGING_SENSOR_XDMAC_CH); //Enables channel interrupt
-	XDMAC->XDMAC_GE |= (XDMAC_GE_EN0 << IMAGING_SENSOR_XDMAC_CH); //Enables DMA channel
-}
+// ========== Imaging Sensor Interrupts ========== //
 void imagingSensorItInit() 
 {
-	//PIOA->PIO_PCIER = PIO_PCISR_DRDY; //Enable Data Ready Interrupt
-	//PIOA->PIO_PCIDR |= (PIO_PCIDR_RXBUFF)|(PIO_PCIDR_ENDRX)|(PIO_PCIDR_OVRE); //Makes sure other interrupts are disabled
+	//PIOA->PIO_PCIER = PIO_PCISR_DRDY;												// Enable Data Ready Interrupt
+	//PIOA->PIO_PCIDR |= (PIO_PCIDR_RXBUFF)|(PIO_PCIDR_ENDRX)|(PIO_PCIDR_OVRE);		// Makes sure other interrupts are disabled
 
-	//PIOA->PIO_PCIER = (PIO_PCIDR_OVRE); //Enable Data Ready Interrupt
-	PIOA->PIO_PCIDR |= (PIO_PCIDR_DRDY)|(PIO_PCIDR_RXBUFF)|(PIO_PCIDR_ENDRX)|(PIO_PCIDR_OVRE); //Makes sure other interrupts are disabled
+	//PIOA->PIO_PCIER = (PIO_PCIDR_OVRE);														// Enable Overrun Error Interrupt
+	PIOA->PIO_PCIDR |= (PIO_PCIDR_DRDY)|(PIO_PCIDR_OVRE)|(PIO_PCIDR_ENDRX)|(PIO_PCIDR_RXBUFF);	// Makes sure other interrupts are disabled
 }
 
 void imageSensorVSyncItInit() 
 {
-	PIOA->PIO_PER		|= VSYNC_MASK; //PIO Enable. Takes control away from peripheral (is this OK?)
-	PIOA->PIO_ODR		|= VSYNC_MASK; //Disables output on this pin.
-	PIOA->PIO_PPDER		|= VSYNC_MASK; //Enables pulldown resistor
+	PIOA->PIO_PER		|= VSYNC_MASK; // PIO Enable. Takes control away from peripheral (is this OK?)
+	PIOA->PIO_ODR		|= VSYNC_MASK; // Disables output on this pin.
+	PIOA->PIO_PPDER		|= VSYNC_MASK; // Enables pull-down resistor
 	
-	PIOA->PIO_IER		|= VSYNC_MASK; //Enables the input change interrupt
-	PIOA->PIO_AIMER		|= VSYNC_MASK; //Enables additional Interrupt modes
-	PIOA->PIO_ESR		|= VSYNC_MASK; //Enables edge detect. (Edge detect is on by default)
-	PIOA->PIO_FELLSR	|= VSYNC_MASK; //Edge detect is for falling edge (Falling edge is on by default)
-	
-	//	if((PIOA->PIO_OSR&VSYNC_MASK) == VSYNC_MASK)
-	//		printf("VSync is set as input");
-	
+	PIOA->PIO_IER		|= VSYNC_MASK; // Enables the input change interrupt
+	PIOA->PIO_AIMER		|= VSYNC_MASK; // Enables additional Interrupt modes
+	PIOA->PIO_ESR		|= VSYNC_MASK; // Enables edge detect. (Edge detect is on by default)
+	PIOA->PIO_FELLSR	|= VSYNC_MASK; // Edge detect is for falling edge (Falling edge is on by default)
 }
 
 void imageSensorHSyncItInit() 
 {
-	PIOA->PIO_PER		|= HSYNC_MASK; //PIO Enable. Takes control away from peripheral (is this OK?)
-	PIOA->PIO_ODR		|= HSYNC_MASK; //Disables output on this pin.
-	PIOA->PIO_PPDER		|= HSYNC_MASK; //Enables pulldown resistor
-	
-	PIOA->PIO_IER		|= HSYNC_MASK; //Enables the input change interrupt
-	PIOA->PIO_AIMER		|= HSYNC_MASK; //Enables additional Interrupt modes
-	PIOA->PIO_ESR		|= HSYNC_MASK; //Enables edge detect. (Edge detect is on by default)
-	PIOA->PIO_FELLSR	|= HSYNC_MASK; //Edge detect is for falling edge (Falling edge is on by default)
-	
-	
+	PIOA->PIO_PER		|= HSYNC_MASK; // PIO Enable. Takes control away from peripheral (is this OK?)
+	PIOA->PIO_ODR		|= HSYNC_MASK; // Disables output on this pin.
+	PIOA->PIO_PPDER		|= HSYNC_MASK; // Enables pull-down resistor
+
+	PIOA->PIO_IER		|= HSYNC_MASK; // Enables the input change interrupt
+	PIOA->PIO_AIMER		|= HSYNC_MASK; // Enables additional Interrupt modes
+	PIOA->PIO_ESR		|= HSYNC_MASK; // Enables edge detect. (Edge detect is on by default)
+	PIOA->PIO_FELLSR	|= HSYNC_MASK; // Edge detect is for falling edge (Falling edge is on by default)	
 }
 
-void imagingSensorLoadHeader()
-{
-	uint8_t headerTemp[SDMMC_BLOCK_SIZE] = {0};
-	uint32_t *header = (uint32_t *)headerTemp;
 
-	uint32_t writeKey[4] = {0};
-	sd_mmc_init_read_blocks(SD_SLOT_NB,HEADER_SECTOR,1);
-	sd_mmc_start_read_blocks(headerTemp,1);
-	sd_mmc_wait_end_of_read_blocks(false);
 
-	gain				= header[HEADER_GAIN_POS];
-	//ledValue			= ((100- header[HEADER_LED_POS])*0x0FFF)/100; //header should be between 0 and 100; Used for DAC
-	ledValue			= header[HEADER_LED_POS]; //header should be between 0 and 255;
-	numFramesToRecord	= header[HEADER_NUM_FRAMES_POS];
-}
-
-void imagingSensorCaptureEnable() 
-{
-	PIOA->PIO_PCMR |= PIO_PCMR_PCEN ;
-}
-
-void imagingSensorCaptureDisable()
-{
-	PIOA->PIO_PCMR &= (uint32_t)(~PIO_PCMR_PCEN) ;
-}
-
+// ========== Begin Direct Memory Access ========== //
 void checkVSync() 
 {
-	if (pcISR & VSYNC_MASK)
-	 { //VSync signal is detected. End of frame capture
-		//printf("VSYNC!\n");
-		//while(pcISR & VSYNC_MASK) {}
-		
-		//frameNumber++;
-		//if (frameNumber%10==1)
-		//	ioport_toggle_pin_level(PIO_PD1_IDX);
-
+	if (pcISR & VSYNC_MASK)			// VSync signal is detected. End of frame capture
+	 { 
 		if (captureEnabled && startRecording) 
 		{
-			
-			// -------------- For initial testing ------------
+			// For initial testing
 			captureEnabled = 0;
 			startRecording = 0;
-			imagingSensorCaptureDisable();
+			Disable_Imaging_Sensor_Capture();
 			
-			#ifdef EV76C454
-				imageBuffer[buffSize-1] = frameNumber;
-				imageBuffer[buffSize-3] = lineCount;
-				imageBuffer[buffSize-4] = xferDMAComplete; //Overflow flag
-			#endif
-			
-			// ========== Try this =========== /
 			#ifdef NOIP1SN0480A
-				imageBuffer[buffSize-1] = frameNumber;
-				imageBuffer[buffSize-3] = lineCount;
-				imageBuffer[buffSize-4] = xferDMAComplete; //Overflow flag
-			#endif
-
-			#ifdef EV76C454_SUBSAMP
-			switch (frameNumber%3)
+			switch (frameNumber % 3)
 			{
 				case (0):
 					imageBuffer0[buffSize-1] = frameNumber;
@@ -319,23 +241,23 @@ void checkVSync()
 			}
 			#endif
 
-			#ifdef EV76C541
-			switch (frameNumber%3)
+			#ifdef EV76C454_SUBSAMP
+			switch (frameNumber % 3)
 			{
 				case (0):
-				imageBuffer0[buffSize-1] = frameNumber;
-				imageBuffer0[buffSize-3] = lineCount;
-				imageBuffer0[buffSize-4] = xferDMAComplete; //Overflow flag
+					imageBuffer0[buffSize-1] = frameNumber;
+					imageBuffer0[buffSize-3] = lineCount;
+					imageBuffer0[buffSize-4] = xferDMAComplete; //Overflow flag
 				break;
 				case (1):
-				imageBuffer1[buffSize-1] = frameNumber;
-				imageBuffer1[buffSize-3] = lineCount;
-				imageBuffer1[buffSize-4] = xferDMAComplete; //Overflow flag
+					imageBuffer1[buffSize-1] = frameNumber;
+					imageBuffer1[buffSize-3] = lineCount;
+					imageBuffer1[buffSize-4] = xferDMAComplete; //Overflow flag
 				break;
 				case (2):
-				imageBuffer2[buffSize-1] = frameNumber;
-				imageBuffer2[buffSize-3] = lineCount;
-				imageBuffer2[buffSize-4] = xferDMAComplete; //Overflow flag
+					imageBuffer2[buffSize-1] = frameNumber;
+					imageBuffer2[buffSize-3] = lineCount;
+					imageBuffer2[buffSize-4] = xferDMAComplete; //Overflow flag
 				break;
 			}
 			#endif
@@ -345,98 +267,155 @@ void checkVSync()
 			overflowCount = 0;
 			xferDMAComplete = 0;
 			
-			#ifdef EV76C541 //immediately start recording of next frame
-			if (frameNumber<=sdImageWriteFrameNum +2) 
-			{
-				startRecording = 1;
-				captureEnabled = 1;
-				imagingSensorStartDMA();
-				imagingSensorCaptureEnable();
-			}
+			#ifdef NOIP1SN0480A // Immediately start recording of next frame
+				if (frameNumber <= sdImageWriteFrameNum + 2)
+				{
+					startRecording = 1;
+					captureEnabled = 1;
+					imagingSensorStartDMA();
+					Enable_Imaging_Sensor_Capture();
+				}
 			#endif
-
-			#ifdef EV76C454_SUBSAMP //immediately start recording of next frame
-			if (frameNumber<=sdImageWriteFrameNum +2)
-			{
-				startRecording = 1;
-				captureEnabled = 1;
-				imagingSensorStartDMA();
-				imagingSensorCaptureEnable();
-			}
-
-			#endif
-			//testPoint = 1;
-			//------------------------------------------------
-		}
-		else if(startRecording) 
-		{ //waits for the first VSync to start capture. This makes sure we capture a full first frame
-			captureEnabled = 1;
 			
-			//frameNumber = 0;
+			#ifdef EV76C454_SUBSAMP // Immediately start recording of next frame
+				if (frameNumber <= sdImageWriteFrameNum + 2)
+				{
+					startRecording = 1;
+					captureEnabled = 1;
+					imagingSensorStartDMA();
+					Enable_Imaging_Sensor_Capture();
+				}
+			#endif
+		}
+		else if(startRecording)		// Waits for the first VSync to start capture. This makes sure we capture a full first frame
+		{ 
+			captureEnabled = 1;
 			lineCount = 0;
 			overflowCount = 0;
 			imagingSensorStartDMA();
-			imagingSensorCaptureEnable();
+			Enable_Imaging_Sensor_Capture();
 		}
-
-
-		//Need to add an overflow check.
-		//Added a check to make sure pixelWordCount == NUM_PIXEL/4
-		//Consider adding HSync to label each row in case missing pixels is an issue
-	}
-}
-
-/************************************************************************/
-/*	         Overwrites the Stock Functions in pio_handler.h            */
-/************************************************************************/
-void PIOA_Handler(void) 
-{
-	pcISR = PIOA->PIO_ISR;
-	if (pcISR & HSYNC_MASK) 
-	{
-		if (captureEnabled == 1)
-		{
-			lineCount++;
-		}
-	}
-	checkVSync();
-}
-
-void XDMAC_Handler(void)
-{
-	uint32_t dma_status;
-
-	dma_status = XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CIS;
-
-	if (dma_status & XDMAC_CIS_BIS) 
-	{
-		xferDMAComplete = 1;
+		// Need to add an overflow check.
+		// Added a check to make sure pixelWordCount == NUM_PIXEL/4
+		// Consider adding HSync to label each row in case missing pixels is an issue
 	}
 }
 
 
-/************************************************************************/
-/*                           No Longer In Use                           */
-/************************************************************************/
-void imagingSensorConfigure()
+void imagingSensorStartDMA()
 {
-	//------- Synchro Reg -----------
-	//bit 6,7: Master clock div
-	//bit 5: Data clock polarity, 1 Data are output on falling edge
-	//bit 4: Flash polarity FLO
-	//bit 3: Frame Enable Polarity, 0->FEN is active low
-	//bit 2: Line Enable Polarity, 0->LEN is active low
-	//bit 1: Data activity when FEN or LEN are inactive, 1->No activity
-	//bit 0: LEN activity when FEN is inactive, 0->passes all calced LEN
-	//default->0b00100010
-	packetCMOS.addr[0] = 0x0A; //Synchro
 	
-	#ifdef EV76C454
-	i2cbuf[0] = 0b01101111;
+	uint32_t channelStatus = 0;
+
+	XDMAC->XDMAC_GD =(XDMAC_GD_DI0 << IMAGING_SENSOR_XDMAC_CH);		// Disables DMA channel
+
+	channelStatus = XDMAC->XDMAC_GS;								// Global status of XDMAC channels. Should make sure IMAGING_SENSOR_XDMAC_CH is available
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CIS;			// Clears interrupt status bit
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CSA = (uint32_t)&(PIOA->PIO_PCRHR);	// Source address
+	#ifdef NOIP1SN0480A
+		switch(frameNumber % 3)
+		{
+			case (0):
+			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer0;
+			break;
+			case (1):
+			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer1;
+			break;
+			case(2):
+			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer2;
+			break;
+		}
 	#endif
+	#ifdef EV76C454_SUBSAMP
+		switch(frameNumber % 3)
+		{
+			case (0):
+			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer0;
+			break;
+			case (1):
+			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer1;
+			break;
+			case(2):
+			XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDA = (uint32_t)imageBuffer2;
+			break;
+		}
+	#endif
+
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CUBC = XDMAC_CUBC_UBLEN(NUM_PIXEL_WORDS);
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CC = XDMAC_CC_TYPE_PER_TRAN |
+	XDMAC_CC_MBSIZE_SINGLE |					// Might be able to make burst size larger along with chunk size
+	XDMAC_CC_DSYNC_PER2MEM |
+	XDMAC_CC_SWREQ_HWR_CONNECTED |
+	XDMAC_CC_MEMSET_NORMAL_MODE |				// Could be wrong
+	XDMAC_CC_CSIZE_CHK_1 |						// Might be able to make chunk size larger for faster writing
+	XDMAC_CC_DWIDTH_WORD |
+	XDMAC_CC_SIF_AHB_IF1 |						// Not sure about this
+	XDMAC_CC_DIF_AHB_IF0 |						// Not sure about this
+	XDMAC_CC_SAM_FIXED_AM |						// Fixed source memory
+	XDMAC_CC_DAM_INCREMENTED_AM |				// Increment destination memory
+	XDMAC_CC_PERID(XDAMC_CHANNEL_HWID_PIOA);	// Peripheral ID for Parallel Capture
+
+	// Clearing the following registers indicates that the linked list is disabled and that there is only 1 block
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CNDC		= 0;
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CBC		= 0;
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDS_MSP	= 0;
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CSUS		= 0;
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CDUS		= 0;
+
+	XDMAC->XDMAC_CHID[IMAGING_SENSOR_XDMAC_CH].XDMAC_CIE |= XDMAC_CIE_BIE;	// Enables end of block interrupt
+	XDMAC->XDMAC_GIE |= (XDMAC_GIE_IE0 <<IMAGING_SENSOR_XDMAC_CH);			// Enables channel interrupt
+	XDMAC->XDMAC_GE |= (XDMAC_GE_EN0 << IMAGING_SENSOR_XDMAC_CH);			// Enables DMA channel
+}
+
+
+
+// ========== Parallel Capture Enable/Disable ========== //
+void Enable_Imaging_Sensor_Capture()
+{
+	PIOA->PIO_PCMR |= PIO_PCMR_PCEN;					// Value 1: The parallel capture mode is enabled
+}
+
+void Disable_Imaging_Sensor_Capture()
+{
+	PIOA->PIO_PCMR &= (uint32_t)(~PIO_PCMR_PCEN);		// Value 0: The parallel capture mode is disabled
+}
+
+
+
+// ========== Micro SD Card Test ========== //
+// Fills buffer with data
+void Fill_Buffer()
+{
+	#ifdef NOIP1SN0480A
+		uint32_t* pBuf;
+		uint32_t i;
+		for (i = 0; i < NUM_PIXEL_WORDS; ++i)
+		{
+			// &var: address to the var
+			// *: the value of the pointer
+			pBuf = (&imageBuffer0[i]);	// These are all zero --> The pointer points at the address of each of these zeroes
+			*pBuf = 0x11223344;			// Each of these locations is filled with 0x11223344
+		}
+	#endif
+}
+
+
+// ========== NO LONGER IN USE ========== //
+void imaging_Sensor_Configure()
+{
+	//------- Synchro Register -----------
+	// bit 6,7: Master clock div
+	// bit 5: Data clock polarity, 1 Data are output on falling edge
+	// bit 4: Flash polarity FLO
+	// bit 3: Frame Enable Polarity, 0->FEN is active low
+	// bit 2: Line Enable Polarity, 0->LEN is active low
+	// bit 1: Data activity when FEN or LEN are inactive, 1->No activity
+	// bit 0: LEN activity when FEN is inactive, 0->passes all calced LEN
+	// default->0b00100010
+	packetCMOS.addr[0] = 0x0A; // Synchro
 	
 	#ifdef EV76C454_SUBSAMP
-	i2cbuf[0] = 0b10101111; //clock div by 4
+		i2cbuf[0] = 0b10101111; //clock div by 4
 	#endif
 	
 	packetCMOS.buffer = (uint8_t *) i2cbuf;
@@ -450,12 +429,12 @@ void imagingSensorConfigure()
 	////default->0x00;
 
 	#ifdef EV76C454_SUBSAMP
-	packetCMOS.addr[0] = 0x0B; //frame_config
-	i2cbuf[0] = 0x01; //Subsamp by 2
-	packetCMOS.buffer = (uint8_t *) i2cbuf;
-	packetCMOS.length = 1;
-	while (twihs_master_write(TWIHS1,&packetCMOS) != TWIHS_SUCCESS)
-	{}
+		packetCMOS.addr[0] = 0x0B; //frame_config
+		i2cbuf[0] = 0x01; //Subsamp by 2
+		packetCMOS.buffer = (uint8_t *) i2cbuf;
+		packetCMOS.length = 1;
+		while (twihs_master_write(TWIHS1,&packetCMOS) != TWIHS_SUCCESS)
+		{}
 	#endif
 	
 	////----- frame_line_log ----------- ?????
@@ -475,14 +454,12 @@ void imagingSensorConfigure()
 	//number of lines above the programmed time.
 	//default:0x012C (d300) -> I think this is ~5ms, I think 2000 should be 30FPS
 	packetCMOS.addr[0] = 0x80;//frame_tint
-	#ifdef EV76C454
-	i2cbuf[0] = (2000>>8)&0x00FF;
-	i2cbuf[1] = (2000)&0x00FF;
-	#endif
+
 	#ifdef EV76C454_SUBSAMP
-	i2cbuf[0] = (3000>>8)&0x00FF; //Clock div shouldn't effect total value here
-	i2cbuf[1] = (3000)&0x00FF;		//3000 should result in about 20FPS
+		i2cbuf[0] = (3000>>8)&0x00FF; //Clock div shouldn't effect total value here
+		i2cbuf[1] = (3000)&0x00FF;		//3000 should result in about 20FPS
 	#endif
+	
 	packetCMOS.buffer = (uint8_t *) i2cbuf;
 	packetCMOS.length = 2;
 	while (twihs_master_write(TWIHS1,&packetCMOS)  != TWIHS_SUCCESS)
@@ -509,25 +486,25 @@ void imagingSensorConfigure()
 	switch (gain)
 	{
 		case (1):
-		i2cbuf[0] = (0x0000>>8)&0x00FF;
-		i2cbuf[1] = (0x0000)&0x00FF;
-		break;
+			i2cbuf[0] = (0x0000>>8)&0x00FF;
+			i2cbuf[1] = (0x0000)&0x00FF;
+			break;
 		case (2):
-		i2cbuf[0] = (0x0100>>8)&0x00FF;
-		i2cbuf[1] = (0x0100)&0x00FF;
-		break;
+			i2cbuf[0] = (0x0100>>8)&0x00FF;
+			i2cbuf[1] = (0x0100)&0x00FF;
+			break;
 		case (4):
-		i2cbuf[0] = (0x0200>>8)&0x00FF;
-		i2cbuf[1] = (0x0200)&0x00FF;
-		break;
+			i2cbuf[0] = (0x0200>>8)&0x00FF;
+			i2cbuf[1] = (0x0200)&0x00FF;
+			break;
 		case (8):
-		i2cbuf[0] = (0x0300>>8)&0x00FF;
-		i2cbuf[1] = (0x0300)&0x00FF;
-		break;
+			i2cbuf[0] = (0x0300>>8)&0x00FF;
+			i2cbuf[1] = (0x0300)&0x00FF;
+			break;
 		default:
-		i2cbuf[0] = (0x0000>>8)&0x00FF;
-		i2cbuf[1] = (0x0000)&0x00FF;
-		break;
+			i2cbuf[0] = (0x0000>>8)&0x00FF;
+			i2cbuf[1] = (0x0000)&0x00FF;
+			break;
 	}
 	packetCMOS.buffer = (uint8_t *) i2cbuf;
 	packetCMOS.length = 2;
@@ -537,13 +514,10 @@ void imagingSensorConfigure()
 	//pixel of first column to read
 	//default 0x0006, range (d0 to d875)
 	packetCMOS.addr[0] = 0x83;//frame_roi_0c
-	#ifdef EV76C454
-	i2cbuf[0] = ((32+50)>>8)&0x00FF;
-	i2cbuf[1] = (32+50)&0x00FF;
-	#endif
+
 	#ifdef EV76C454_SUBSAMP
-	i2cbuf[0] = ((32+50+56)>>8)&0x00FF;
-	i2cbuf[1] = (32+50+56)&0x00FF;
+		i2cbuf[0] = ((32+50+56)>>8)&0x00FF;
+		i2cbuf[1] = (32+50+56)&0x00FF;
 	#endif
 	packetCMOS.buffer = (uint8_t *) i2cbuf;
 	packetCMOS.length = 2;
@@ -554,12 +528,12 @@ void imagingSensorConfigure()
 	//default 0x0006, range (d0 to d651)
 	packetCMOS.addr[0] = 0x84;//frame_roi_0l
 	#ifdef EV76C454
-	i2cbuf[0] = ((6+100)>>8)&0x00FF;
-	i2cbuf[1] = (6+100)&0x00FF;
+		i2cbuf[0] = ((6+100)>>8)&0x00FF;
+		i2cbuf[1] = (6+100)&0x00FF;
 	#endif
 	#ifdef EV76C454_SUBSAMP
-	i2cbuf[0] = ((6)>>8)&0x00FF;
-	i2cbuf[1] = (6)&0x00FF;
+		i2cbuf[0] = ((6)>>8)&0x00FF;
+		i2cbuf[1] = (6)&0x00FF;
 	#endif
 	packetCMOS.buffer = (uint8_t *) i2cbuf;
 	packetCMOS.length = 2;
@@ -592,7 +566,7 @@ void imagingSensorConfigure()
 	//01->Moving test pattern
 	//10->Fixed test pattern
 	//11->Functional test pattern
-	packetCMOS.addr[0] = 0x13; //Synchro
+	packetCMOS.addr[0] = 0x13; // Synchro
 	i2cbuf[0] = 0b00000000;
 	packetCMOS.buffer = (uint8_t *) i2cbuf;
 	packetCMOS.length = 1;
@@ -613,7 +587,7 @@ void imagingSensorConfigure()
 	{}
 }
 
-void imagingSensorConfigureEV76C541()
+void imaging_Sensor_Configure_EV76C541()
 { //SPI configuration of sensor
 	uint16_t value = 0x0000;
 	uint8_t reg = 0x00;
@@ -635,7 +609,9 @@ void imagingSensorConfigureEV76C541()
 	0x2000,0x308A,0x0101,0x9922,0x4300,0x516E};
 
 	for (uint8_t i = 0; i < 42; ++i)
-	SPI_Write(initReg[i], initValue[i]);
+	{
+		SPI_Write(initReg[i], initValue[i]);
+	}
 	//---------------------------------------------------
 
 	//reg-miscel1
@@ -692,22 +668,23 @@ void imagingSensorConfigureEV76C541()
 	//Analog and digital Gain
 	reg = 0x11;
 	value = 0; //Default gain of 1. Top 8 are analog, bottom 8 are digital
-	switch (gain){
+	switch (gain)
+	{
 		case (1):
-		value = 0;
-		break;
+			value = 0;
+			break;
 		case (2):
-		value = (2 << 8);
-		break;
+			value = (2 << 8);
+			break;
 		case (4):
-		value = (4 << 8);
-		break;
+			value = (4 << 8);
+			break;
 		case (8):
-		value = (6 << 8);
-		break;
+			value = (6 << 8);
+			break;
 		default:
-		value = 0;
-		break;
+			value = 0;
+			break;
 	}
 	//value |= 0x0040; //Add some digital gain (2x)
 	SPI_Write(reg, value);

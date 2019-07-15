@@ -242,12 +242,6 @@ Wire Wire Line
 	3550 3150 4750 3150
 Wire Wire Line
 	3550 3250 4750 3250
-Text HLabel 6900 3000 0    50   Input ~ 0
-CLOCK
-Text Notes 5550 3050 0    50   ~ 0
-Connect to a 68Mhz clock
-Wire Wire Line
-	6900 3000 8200 3000
 Wire Wire Line
 	6900 2200 8200 2200
 $Comp
@@ -289,9 +283,6 @@ F 3 "" H 4400 3550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4400 3550 4750 3550
-NoConn ~ 4750 3350
-NoConn ~ 4750 3450
-NoConn ~ 8200 3100
 Wire Wire Line
 	6900 2700 8200 2700
 Wire Wire Line
@@ -332,12 +323,32 @@ F 3 "~" H 7850 1900 50  0001 C CNN
 $EndComp
 Connection ~ 7850 2100
 NoConn ~ 6900 2200
-Wire Bus Line
-	6300 5350 6300 5700
-Wire Bus Line
-	6300 5000 6300 5350
 Text Label 6900 2200 0    50   ~ 0
 PythonBoardLED
 Text Notes 5900 2100 0    50   ~ 0
 Python board has its own status LED - \noverlap with MCU board status LED
+Wire Wire Line
+	4750 3450 4400 3450
+Wire Wire Line
+	4750 3350 4400 3350
+NoConn ~ 4400 3350
+NoConn ~ 4400 3450
+Wire Wire Line
+	8200 3000 6900 3000
+Wire Wire Line
+	8200 3100 6900 3100
+NoConn ~ 6900 3000
+NoConn ~ 6900 3100
+Wire Bus Line
+	6300 5350 6300 5700
+Wire Bus Line
+	6300 5000 6300 5350
+Text Label 6900 3000 0    50   ~ 0
+I2C_SCL
+Text Label 6900 3100 0    50   ~ 0
+I2C_SDA
+Text Label 4400 3350 0    50   ~ 0
+I2C_SDA
+Text Label 4400 3450 0    50   ~ 0
+I2C_SCL
 $EndSCHEMATC

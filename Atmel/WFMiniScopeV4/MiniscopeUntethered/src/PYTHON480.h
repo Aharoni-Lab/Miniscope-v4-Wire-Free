@@ -1,8 +1,9 @@
 /*
- * PYTHON480.h
+ *  PYTHON480.h
  *
- * Created: 7/21/2018 7:51:30 PM
+ *  Created: 7/21/2018 7:51:30 PM
  *  Author: DBAharoni
+ *  Edits: RWChang
  */ 
 
 
@@ -14,38 +15,48 @@
 
 #define DISABLE_PLL
 
+
+/************************************************************************/
+/*                         Power Up Sequence                            */
+/************************************************************************/
+
 // Power off --> low-power standby --> standby1 --> intermediate standby --> standby2 -->idle --> running
 //		power up seq	  enable clk mgmt1	enable clk mgmt2	req reg uploads	  softpower  enable seq
 
+
 // configure clock management blocks, activate clock generation and distribution circuits
-void EnableClockMngmnt1();
+void Enable_Clock_Management1();
 
 
 // Enable all internal clock distribution
-void EnableClockMngmnt2();
+void Enable_Clock_Management2();
 
 
 // Reserved register settings uploads
-void RequiredUploads();
+void Required_Uploads();
 
 
-// internal blocks are enabled and prepared to start processing the image data stream
-void SoftPowerUp();
+// Internal blocks are enabled and prepared to start processing the image data stream
+void Soft_PowerUp();
 
 
 // Idle state to running state
-void EnableSeq();
+void Enable_Seq();
 
 
 // Running state to idle state
-void DisableSeq();
+void Disable_Seq();
+
+
+// Enable sub-sampling (only take every other pixel)
+void Enable_Subsample();
 
 
 
 /************************************************************************/
 /*                              NOT IN USE                              */
 /************************************************************************/
-void NoTransfer();
+void No_Transfer();
 
 
 void Transfer();
@@ -53,12 +64,12 @@ void Transfer();
 
 // function to enable E-black calibration images
 // enables electrical black image
-void Eblack();
+void Enable_Black();
 
 
 // function to enable E-gray calibration images
 // enables electrical gray image
-void Egray();
+void Enable_Gray();
 
 
 // function to (re)enable normal image mode

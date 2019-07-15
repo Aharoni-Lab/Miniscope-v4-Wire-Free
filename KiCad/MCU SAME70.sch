@@ -1161,6 +1161,9 @@ Wire Wire Line
 Text HLabel 2650 6150 0    50   Output ~ 0
 LED_ENT
 NoConn ~ 3500 1450
+Wire Wire Line
+	5050 1050 5150 1050
+Connection ~ 5050 1050
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line

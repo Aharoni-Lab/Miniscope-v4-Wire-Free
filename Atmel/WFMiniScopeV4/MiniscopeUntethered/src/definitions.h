@@ -9,8 +9,17 @@
 #ifndef DEFINITIONS_H_
 #define DEFINITIONS_H_
 
-// ATSAME SPI package sucks
-// =========== BIT-BANGING SPI (ATSAME70N21) =========== //
+
+
+// =========== PYTHON480 =========== //
+#define RESET_N_PIN			PIO_PB1_IDX
+
+#define MONITOR0_PIN		PIO_PA18_IDX
+
+#define TRIGGER0_PIN		PIO_PB2_IDX
+
+
+// =========== BIT-BANGING SPI (ATSAME70N21) =========== //		// For PYTHON480. ATSAME SPI package sucks
 #define SPI_BB_MOSI		PIO_PD21_IDX
 #define SPI_BB_MISO		PIO_PD20_IDX
 #define SPI_BB_SCK		PIO_PD22_IDX
@@ -19,38 +28,16 @@
 
 
 // =========== OTHER =========== //
-// #define LED_PORT			IOPORT_PIOD
-// #define LED_DDR			DDRD
-#define LED_PIN				PIO_PD1_IDX
+#define LED_PIN				PIO_PD1_IDX		// Status LED
 
-// #define LED_ENT_PORT		IOPORT_PIOA		// This just turns the excitation LED on and off
-// #define LED_ENT_DDR		DDRA			// I2C below decides the light intensity
-#define LED_ENT_PIN			PIO_PA0_IDX
-// #define LED_ENT2_PIN		PB1
+#define LED_ENT_PIN			PIO_PA0_IDX		// Excitation LED power on and off. I2C below decides the actual light intensity
 
 
-// =========== I2C =========== //
-// #define TWC_PORT		IOPORT_PIOB			// I2C goes to the LED driver and electro-wetting lens
-// #define TWC_DDR		DDRB				// Talks through I2C (So that it can add more components later)
+// =========== I2C =========== //			
 #define TWCK_PIN		PIO_PB5_IDX			// This is SCK
-#define TWCK_MODE		IOPORT_MODE_MUX_A
-#define TWD_PIN			PIO_PB4_IDX			// This is SDA		// PYTHON480 is SPI
-#define TWD_MODE		IOPORT_MODE_MUX_A
-
-
-
-// =========== PYTHON480 =========== //
-// #define RESET_N_PORT		IOPORT_PIOB
-// #define RESET_N_DDR		DDRB
-#define RESET_N_PIN			PIO_PB1_IDX
-
-// #define MONITOR_PORT		IOPORT_PIOA
-// #define MONITOR_DDR		DDRA
-#define MONITOR0_PIN		PIO_PA18_IDX
-
-// #define TRIGGER0_PORT	IOPORT_PIOB
-// #define TRIGGER0_DDR		DDRB
-#define TRIGGER0_PIN		PIO_PB2_IDX
+#define TWCK_MODE		IOPORT_MODE_MUX_A	// I2C goes to the LED driver and electro-wetting lens
+#define TWD_PIN			PIO_PB4_IDX			// This is SDA
+#define TWD_MODE		IOPORT_MODE_MUX_A	// Talks through I2C (So that it can add more components later)
 
 
 // =========== I2C COMMANDS =========== //
@@ -70,7 +57,7 @@
 #define TEST_PIN_8	PIO_PB7_IDX
 
 
-// =========== PLUG-IN BITBANG PINS =========== //
+// =========== WIRED EXPANSION BOARD BITBANG PINS =========== //
 #define SD_CLK		PIO_PA25_IDX
 #define SD_PIN_1	PIO_PA31_IDX
 #define SD_PIN_2	PIO_PA26_IDX
@@ -79,9 +66,11 @@
 #define SD_CONFIG	PIO_PA28_IDX
 
 
+
 /************************************************************************/
 /*                           Not Used Anymore                           */
 /************************************************************************/
+
 // =========== SOURCE CLOCK =========== //
 #define SCK1_PIN		IOPORT_CREATE_PIN(PIOA, 17)
 
@@ -95,17 +84,6 @@
 #define PWM_PERIOD_VALUE 255
 #define INIT_DUTY_VALUE  5					// Percentage high per period
 
-/*
-// =========== SPI BITBANG (ATmega328P) =========== //		// This talks to PYTHON480
-#define SPI_PORT        PORTD			// Determines default val when input & unconnected. When output, PIN = PORT
-#define SPI_SS_PORT		PORTD			// Does this have to be separate?
-#define SPI_DDR         DDRD			// DDR (data direction register) determines input(0)/output(1) for each of the 32 pin in the port.
-#define SPI_SS_DDR		DDRD			// DDRD is 32 bit but wouldn't the pin direction be 1 bit?
-#define MOSI            PIO_PD21		// IDX = index (...)
-#define MISO            PIO_PD20		// can I write on the pin register?
-#define SCK             PIO_PD22
-#define SS              PIO_PD25
-*/
 
 
 #endif /* DEFINITIONS_H_ */

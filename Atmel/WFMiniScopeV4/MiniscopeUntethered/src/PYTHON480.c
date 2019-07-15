@@ -1,52 +1,63 @@
+/*
+ *  PYTHON480.h
+ *
+ *  Created: 7/21/2018 7:51:30 PM
+ *  Author: DBAharoni
+ *  Edits: RWChang
+ */ 
+
+
 #include "PYTHON480.h"
 
 
-void EnableClockMngmnt1() 
+// Configure clock management blocks, activate clock generation and distribution circuits
+void Enable_Clock_Management1() 
 {
-	// configure clock management blocks, activate clock generation and distribution circuits
-	SPI_Write(2, 0x0000);// Monochrome sensor
-	SPI_Write(17, 0x2113);// Configure PLL
-	SPI_Write(20, 0x0000);// Configure clock management
-	SPI_Write(26, 0x2280);// Configure PLL lock detector
-	SPI_Write(27, 0x3D2D);// Configure PLL lock detector
+	SPI_Write(2, 0x0000);	// Monochrome sensor
+	SPI_Write(17, 0x2113);	// Configure PLL
+	SPI_Write(20, 0x0000);	// Configure clock management
+	SPI_Write(26, 0x2280);	// Configure PLL lock detector
+	SPI_Write(27, 0x3D2D);	// Configure PLL lock detector
 	
 	#ifdef DISABLE_PLL
-		SPI_Write(32, 0x7014|0x0008);// SPI_Write(32, 0x2004);PLL input clock
+		SPI_Write(32, 0x7014|0x0008);	// SPI_Write(32, 0x2004);PLL input clock
 	#else
-		SPI_Write(32, 0x7014);// SPI_Write(32, 0x2004);PLL input clock
+		SPI_Write(32, 0x7014);			// SPI_Write(32, 0x2004);PLL input clock
 	#endif
 	
-	SPI_Write(8, 0x0000);// Release PLL soft reset
+	SPI_Write(8, 0x0000);	// Release PLL soft reset
 	
 	#ifdef DISABLE_PLL
-		SPI_Write(16,0x0007);// Disable PLL
+		SPI_Write(16,0x0007);			// Disable PLL
 	#else
-		SPI_Write(16, 0x0003);// Enable PLL Andres says to make this 0x0007. I originally had it at 0x0004. Try 0x0003
+		SPI_Write(16, 0x0003);			// Enable PLL Andres says to make this 0x0007. I originally had it at 0x0004. Try 0x0003
 	#endif
 }
 
-void EnableClockMngmnt2() 
-{// Enable internal clock distribution
-	SPI_Write(9, 0x0000);// Release clock generator Soft Reset
+// Enable internal clock distribution
+void Enable_Clock_Management2() 
+{
+	SPI_Write(9, 0x0000);	// Release clock generator Soft Reset
 
-	//Why is it 0x7006 instead of 0x2006??
+	// Why is it 0x7006 instead of 0x2006??
 	#ifdef DISABLE_PLL
-		SPI_Write(32, 0x7006|0x0008);// SPI_Write(32, 0x7006); Enable logic clock. Changed this to 7006 to try
+		SPI_Write(32, 0x7006|0x0008);		// SPI_Write(32, 0x7006); Enable logic clock. Changed this to 7006 to try
 	#else
-		SPI_Write(32, 0x7006);// SPI_Write(32, 0x7006); Enable logic clock. Changed this to 7006 to try
+		SPI_Write(32, 0x7006);				// SPI_Write(32, 0x7006); Enable logic clock. Changed this to 7006 to try
 	#endif
 
-	SPI_Write(34, 0x0001);// Enable logic blocks
+	SPI_Write(34, 0x0001);	// Enable logic blocks
 }
 
-void RequiredUploads() 
-{// Reserved register settings uploads
+// Reserved register settings uploads
+void Required_Uploads() 
+{
 	SPI_Write(2, 0x0000);
 	SPI_Write(8, 0x0000);
 	SPI_Write(9, 0x0000);
 	SPI_Write(10, 0x0000);
 	SPI_Write(20, 0x0000);
-	//SPI_Write(24, 0x0001);
+	// SPI_Write(24, 0x0001);
 	SPI_Write(26, 0x2280);
 	SPI_Write(27, 0x3D2D);
 	
@@ -57,13 +68,13 @@ void RequiredUploads()
 	#endif
 	
 	SPI_Write(34, 0x0001);
-	SPI_Write(40, 0x0007); // 3rd bit enables bias. This was set to 0 (0x003).
+	SPI_Write(40, 0x0007);		// 3rd bit enables bias. This was set to 0 (0x003).
 	SPI_Write(41, 0x085F);
 	SPI_Write(42, 0x4103);
 	SPI_Write(43, 0x0518);
 	SPI_Write(48, 0x0001);
 	SPI_Write(64, 0x0001);
-	SPI_Write(65, 0x382A); //Bias block. SPI_Write(65, 0x382B)
+	SPI_Write(65, 0x382A);		// Bias block. SPI_Write(65, 0x382B)
 	SPI_Write(66, 0x53C8);
 	SPI_Write(67, 0x0665);
 	SPI_Write(68, 0x0085);
@@ -71,28 +82,28 @@ void RequiredUploads()
 	SPI_Write(70, 0x4800);
 	SPI_Write(71, 0x8888);
 	SPI_Write(72, 0x0117);
-	//SPI_Write(112, 0x0007);
-	SPI_Write(112, 0x0000); // LVDS power-down config
-	SPI_Write(128, 0x470A); //SPI_Write(128, 0x470A); SPI_Write(128, 0x4714); black offset
+	// SPI_Write(112, 0x0007);
+	SPI_Write(112, 0x0000);		// LVDS power-down config
+	SPI_Write(128, 0x470A);		//SPI_Write(128, 0x470A); SPI_Write(128, 0x4714); black offset
 	SPI_Write(129, 0x8001);
-	//SPI_Write(130, 0x0001); // Handles phase of pixel clock changed from 0x0001 to 0x0015
+	// SPI_Write(130, 0x0001);	// Handles phase of pixel clock changed from 0x0001 to 0x0015
 
 	// Test Pattern
-	//SPI_Write(144,0x0003);
+	// SPI_Write(144,0x0003);
 
 	SPI_Write(130, 0x0015);
-	SPI_Write(192, 0x0801); // Monitor select function
-	SPI_Write(194, 0x03E4);	// reverse x and y enabled for demo kit compatibility
-	SPI_Write(197, 0x0380); // Num black lines SPI_Write(197, 0x030A);
+	SPI_Write(192, 0x0801);		// Monitor select function
+	SPI_Write(194, 0x03E4);		// reverse x and y enabled for demo kit compatibility
+	SPI_Write(197, 0x0380);		// Num black lines SPI_Write(197, 0x030A);
 	
 	#ifdef DISABLE_PLL
-		SPI_Write(199, 167); // Exposure/Frame rate config, SPI_Write(199, 0x0299);
-		SPI_Write(200, 5000); // Frame length, SPI_Write(200, 0x0350);
-		SPI_Write(201, 4900); // SPI_Write(201, 2900); // Exposure time SPI_Write(201, 0x01F4);
+		SPI_Write(199, 167);	// Exposure/Frame rate config, SPI_Write(199, 0x0299);
+		SPI_Write(200, 5000);	// Frame length, SPI_Write(200, 0x0350);
+		SPI_Write(201, 4900);	// SPI_Write(201, 2900); // Exposure time SPI_Write(201, 0x01F4);
 	#else
-		SPI_Write(199, 666); // Exposure/Frame rate config, SPI_Write(199, 0x0299);
-		SPI_Write(200, 3000); // Frame length, SPI_Write(200, 0x0350);
-		SPI_Write(201, 2900); // SPI_Write(201, 2900); // Exposure time SPI_Write(201, 0x01F4);
+		SPI_Write(199, 666);	// Exposure/Frame rate config, SPI_Write(199, 0x0299);
+		SPI_Write(200, 3000);	// Frame length, SPI_Write(200, 0x0350);
+		SPI_Write(201, 2900);	// SPI_Write(201, 2900); // Exposure time SPI_Write(201, 0x01F4);
 	#endif
 	
 	SPI_Write(204, 0x0024); 	// (gain 1x : 0x00E1 // gain 2x : 0x00E4 // gain 3.5x : 0x0024)
@@ -115,9 +126,8 @@ void RequiredUploads()
 	SPI_Write(235, 0x00E1);
 
 
-	//////////////////////////////////////////
-	////// PROGRAM SPACE //////
-	//////////////////////////////////////////
+	
+	// PROGRAM SPACE //
 	SPI_Write(384, 0xC800);
 	SPI_Write(385, 0xFB1F);
 	SPI_Write(386, 0xFB1F);
@@ -209,28 +219,37 @@ void RequiredUploads()
 	SPI_Write(476, 0x0030);
 }
 
-void SoftPowerUp() 
+// Internal blocks are enabled and prepared to start processing the image data stream
+void Soft_PowerUp() 
 {
-	SPI_Write(10, 0x0000);	// Release soft reset state
+	SPI_Write(10, 0x0000);		// Release soft reset state
 	
 	#ifdef DISABLE_PLL
 		SPI_Write(32, 0x7007|0x0008);	// Enable analog clock
 	#else
-		SPI_Write(32, 0x7007);	// Enable analog clock
+		SPI_Write(32, 0x7007);			// Enable analog clock
 	#endif
 	
-	SPI_Write(40, 0x0007);	// Enable column multiplexer // 3rd bit endables bias. This was set to 0 (0x003).
-	SPI_Write(42, 0x4113);	// SPI_Write(42, 0x4103); Configure image core
-	SPI_Write(48, 0x0001);	// Enable AFE
-	SPI_Write(64, 0x0001);	// Enable biasing block
-	SPI_Write(72, 0x0127);	// SPI_Write(72, 0x0117); Enable charge pump.
+	SPI_Write(40, 0x0007);		// Enable column multiplexer // 3rd bit endables bias. This was set to 0 (0x003).
+	SPI_Write(42, 0x4113);		// SPI_Write(42, 0x4103); Configure image core
+	SPI_Write(48, 0x0001);		// Enable AFE
+	SPI_Write(64, 0x0001);		// Enable biasing block
+	SPI_Write(72, 0x0127);		// SPI_Write(72, 0x0117); Enable charge pump.
 	//SPI_Write(112, 0x0007);	// Enable LVDS transmitters
-	SPI_Write(112, 0x0000);	// Enable LVDS transmitters
+	SPI_Write(112, 0x0000);		// Enable LVDS transmitters
+}
+
+// Enable subsampling by taking every other pixel
+void Enable_Subsample()
+{
+	SPI_Write(192, 0x0002 | 0x0080);
 }
 
 
+
+
 // ========== NOT IN USE ========== //
-void NoTransfer() 
+void No_Transfer() 
 {
 	SPI_Write(402, 0xF002);
 }
@@ -240,40 +259,36 @@ void Transfer()
 	SPI_Write(402, 0xF402);
 }
 
-//////////////////////////////////////////////////////////////////////////
-// function to enable E-black calibration images
-//////////////////////////////////////////////////////////////////////////
-void Eblack() 
-{			// enables electrical black image
+// Enable E-black calibration images. Enables electrical black image
+void Enable_Black() 
+{			
 	SPI_Write(220, 0x3C2B);
-	NoTransfer();
+	No_Transfer();
 
 }
-//////////////////////////////////////////////////////////////////////////
-// function to enable E-gray calibration images
-//////////////////////////////////////////////////////////////////////////
-void Egray()
-{				// enables electrical gray image
-	NoTransfer();
+
+// Enable E-gray calibration images. Enables electrical gray image
+void Enable_Gray()
+{				
+	No_Transfer();
 	SPI_Write(220, 0x3C4D);
 }
 
-
-//////////////////////////////////////////////////////////////////////////
-// function to (re)enable normal image mode
-//////////////////////////////////////////////////////////////////////////
+// (Re)enable normal image mode. (Re-)enables 'normal' image capture
 void DisableE()
-{				// (re-)enables 'normal' image capture
+{				
 	Transfer();
 	SPI_Write(220, 0x3C2B);
 }
 
+// Power on sequencer and accepting/outputting pixel values
 void EnableSeq () 
 {
 	SPI_Write(192,0x0803);
 }
 
-void DisableSeq () 
+// Power off sequencer and accepting/outputting pixel values
+void Disable_Seq () 
 {
 	SPI_Write(192,0x0802);
 }
