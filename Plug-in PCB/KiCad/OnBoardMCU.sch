@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 6
+Sheet 5 6
 Title ""
 Date ""
 Rev ""
@@ -14,85 +14,45 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L .MCU:ATSAME70N21A-CN U4
-U 1 1 5C92D513
-P 5600 4350
-F 0 "U4" H 5550 1364 50  0000 C CNN
-F 1 "ATSAME70N21A-CN" H 5550 1273 50  0000 C CNN
-F 2 ".Package_BGA:BGA_100_CP80_10X10_900X900X110B40L" H 5500 4250 50  0001 C CNN
-F 3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en589960" H 5600 4350 50  0001 C CNN
-	1    5600 4350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3500 1450 4350 1450
 NoConn ~ 4350 1550
 NoConn ~ 4350 1650
-NoConn ~ 4350 2050
-NoConn ~ 4350 2150
-Text Label 3050 1650 0    50   ~ 0
-SD_in[0..3]
-Entry Wire Line
-	3500 1650 3600 1750
-Entry Wire Line
-	3500 1750 3600 1850
-Entry Wire Line
-	3500 1850 3600 1950
 Wire Wire Line
-	3600 1750 4350 1750
+	7500 4550 6750 4550
 Wire Wire Line
-	3600 1850 4350 1850
+	7500 4450 6750 4450
 Wire Wire Line
-	4350 1950 3600 1950
+	6750 4350 7500 4350
 Wire Wire Line
-	4350 2250 3600 2250
-Entry Wire Line
-	3500 2150 3600 2250
+	6750 4250 7500 4250
 Wire Wire Line
-	3600 2650 4350 2650
+	7500 3850 6750 3850
 Wire Wire Line
-	4350 2550 3600 2550
-Wire Wire Line
-	4350 2750 3500 2750
-Wire Wire Line
-	3500 3450 4350 3450
+	6750 3950 7500 3950
 NoConn ~ 4350 3650
 NoConn ~ 4350 3750
 NoConn ~ 4350 2850
 Wire Wire Line
-	4350 3950 3200 3950
+	4350 1950 3200 1950
 Wire Wire Line
-	3200 4050 4350 4050
+	3200 2250 4350 2250
 Wire Wire Line
-	4350 4250 3200 4250
+	4350 1750 3200 1750
 Wire Wire Line
-	3200 4350 4350 4350
+	3200 1850 4350 1850
 Entry Wire Line
-	3100 3850 3200 3950
+	3100 1650 3200 1750
 Entry Wire Line
-	3100 3950 3200 4050
+	3100 1750 3200 1850
 Entry Wire Line
-	3100 4150 3200 4250
-Entry Wire Line
-	3100 4250 3200 4350
-Connection ~ 3100 4050
-Wire Wire Line
-	3750 3850 4350 3850
-Wire Wire Line
-	3750 4150 4350 4150
-Wire Bus Line
-	2900 4050 3100 4050
-Text Label 2900 4050 0    50   ~ 0
-SD_out[0:3]
-Text Label 3800 3950 0    50   ~ 0
-SD_out2
-Text Label 3800 4050 0    50   ~ 0
-SD_out3
-Text Label 3800 4250 0    50   ~ 0
-SD_out0
-Text Label 3800 4350 0    50   ~ 0
-SD_out1
+	3100 2150 3200 2250
+Text Label 3800 1950 0    50   ~ 0
+SD_in2
+Text Label 3800 2250 0    50   ~ 0
+SD_in3
+Text Label 3800 1750 0    50   ~ 0
+SD_in0
+Text Label 3800 1850 0    50   ~ 0
+SD_in1
 NoConn ~ 4350 4550
 $Comp
 L .Inductor:BLM18PG471SN1D L8
@@ -317,17 +277,7 @@ F 3 "~" H 3100 5850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4350 6250 3500 6250
-Text Label 3500 6250 0    50   ~ 0
-NRESET
-Text Notes 3250 6350 0    50   ~ 0
-100K INTERNAL PULLUP
-Wire Wire Line
-	6750 2650 7650 2650
-Wire Wire Line
 	6750 2750 7650 2750
-Text Label 7250 2650 0    50   ~ 0
-IR_Receiver
 Text Label 7350 2750 0    50   ~ 0
 RED_LED
 NoConn ~ 6750 2850
@@ -335,15 +285,6 @@ NoConn ~ 6750 3150
 NoConn ~ 6750 3550
 NoConn ~ 6750 3650
 NoConn ~ 6750 3750
-NoConn ~ 6750 3850
-NoConn ~ 6750 3950
-NoConn ~ 6750 4050
-NoConn ~ 6750 4150
-NoConn ~ 6750 4250
-NoConn ~ 6750 4350
-NoConn ~ 6750 4450
-NoConn ~ 6750 4550
-NoConn ~ 6750 4950
 NoConn ~ 6750 5150
 NoConn ~ 6750 5250
 NoConn ~ 6750 5350
@@ -640,12 +581,6 @@ Text Label 8650 2400 0    50   ~ 0
 SWDIO
 Text Label 8600 2500 0    50   ~ 0
 SWDCLK
-Text Notes 6850 4650 0    50   ~ 0
-SPI0_MISO
-Text Notes 6850 4750 0    50   ~ 0
-SPI0_MOSI
-Text Notes 6850 4850 0    50   ~ 0
-SPI0_SPCK
 Text Notes 6850 5250 0    50   ~ 0
 TWD2
 Text Notes 6850 5350 0    50   ~ 0
@@ -695,45 +630,12 @@ F 3 "~" H 7650 3100 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 2950 7650 2750
-Text Notes 6850 5050 0    50   ~ 0
-SPI0_NPCS1
-Wire Wire Line
-	6750 4650 7800 4650
-Wire Wire Line
-	6750 4750 7800 4750
-Wire Wire Line
-	6750 4850 7800 4850
-Wire Wire Line
-	6750 5050 7800 5050
-Wire Wire Line
-	3500 3150 4350 3150
-Text Notes 3100 6450 0    50   ~ 0
-Not sure why this is hanging
-Wire Bus Line
-	3500 1650 2950 1650
-Text Label 3700 1750 0    50   ~ 0
-SD_in0
-Text Label 3700 1850 0    50   ~ 0
-SD_in1
-Text Label 3700 1950 0    50   ~ 0
-SD_in2
-Text Label 3700 2250 0    50   ~ 0
-SD_in3
-Text Label 3700 2550 0    50   ~ 0
-img_d6
-Text Label 3700 2650 0    50   ~ 0
-img_d7
-Text HLabel 3750 3850 0    50   Output ~ 0
-SD_CLK
-Text HLabel 3750 4150 0    50   Output ~ 0
-SD_CMD
-Text HLabel 3500 5150 0    50   Output ~ 0
+Text HLabel 3500 2750 0    50   Input ~ 0
+WXB_inCLK
+Text HLabel 3500 5150 0    50   Input ~ 0
 SWDIO-Rec
-Text HLabel 3500 5250 0    50   Output ~ 0
+Text HLabel 3500 5250 0    50   Input ~ 0
 SWDCLK-Rec
-Text HLabel 2900 4050 0    50   Output ~ 0
-SD_out[0..3]
-NoConn ~ 3500 6250
 Wire Wire Line
 	4350 3050 3500 3050
 NoConn ~ 4350 2950
@@ -854,10 +756,6 @@ F 3 "~" H 6650 850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4350 6050 3500 6050
-Wire Wire Line
-	4350 5950 3500 5950
-Wire Wire Line
 	6750 2950 7500 2950
 Wire Wire Line
 	6750 3050 7500 3050
@@ -867,141 +765,15 @@ Wire Wire Line
 	6750 3350 7500 3350
 Wire Wire Line
 	6750 3450 7500 3450
-Text Label 3500 6050 0    50   ~ 0
-test1
-Text Label 3500 5950 0    50   ~ 0
-test3
-Text Label 7300 3050 0    50   ~ 0
-test5
-Text Label 7300 3350 0    50   ~ 0
-test7
-Wire Wire Line
-	4350 5850 3500 5850
-Text Label 3500 5850 0    50   ~ 0
-test2
 Text Label 7300 2950 0    50   ~ 0
-test4
-Text Label 7300 3250 0    50   ~ 0
-test6
-Text Label 7300 3450 0    50   ~ 0
-test8
-Wire Wire Line
-	9625 4425 8850 4425
-Wire Wire Line
-	9625 4525 8850 4525
-Wire Wire Line
-	9625 4625 8850 4625
-Wire Wire Line
-	9625 4725 8850 4725
-Wire Wire Line
-	9625 4825 8850 4825
-Wire Wire Line
-	9625 4925 8850 4925
-Wire Wire Line
-	9625 5125 8850 5125
-Wire Wire Line
-	9625 5025 8850 5025
-Text Label 8850 4425 0    50   ~ 0
 test1
-Text Label 8850 4525 0    50   ~ 0
-test2
-Text Label 8850 4625 0    50   ~ 0
-test3
-Text Label 8850 4725 0    50   ~ 0
+Text Label 8850 5000 0    50   ~ 0
 test4
-Text Label 8850 4825 0    50   ~ 0
+Text Label 8850 5100 0    50   ~ 0
 test5
-Text Label 8850 4925 0    50   ~ 0
-test6
-Text Label 8850 5025 0    50   ~ 0
-test7
-Text Label 8850 5125 0    50   ~ 0
-test8
-$Comp
-L Connector_Generic:Conn_01x08 J18
-U 1 1 5CC27975
-P 9825 4725
-F 0 "J18" H 9905 4717 50  0000 L CNN
-F 1 "Conn_01x08" H 9905 4626 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 9825 4725 50  0001 C CNN
-F 3 "~" H 9825 4725 50  0001 C CNN
-	1    9825 4725
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4950 1050 5050 1050
-Wire Wire Line
-	4950 7250 5250 7250
-$Comp
-L .Connector:Conn_01x01 J16
-U 1 1 5CC27971
-P 7850 3550
-F 0 "J16" H 7930 3592 50  0000 L CNN
-F 1 "Conn_01x01" H 7930 3501 50  0000 L CNN
-F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 7850 3550 50  0001 C CNN
-F 3 "~" H 7850 3550 50  0001 C CNN
-	1    7850 3550
-	1    0    0    -1  
-$EndComp
-Connection ~ 7650 3550
-Connection ~ 5250 7250
-Wire Wire Line
-	5250 7250 5350 7250
-Connection ~ 5350 7250
-Wire Wire Line
-	5350 7250 5450 7250
-Connection ~ 5450 7250
-Wire Wire Line
-	5450 7250 5550 7250
-Connection ~ 5550 7250
-Wire Wire Line
-	5550 7250 5800 7250
-Connection ~ 5800 7250
-Wire Wire Line
-	5800 7250 5900 7250
-Connection ~ 5900 7250
-Wire Wire Line
-	5900 7250 6000 7250
-Connection ~ 6000 7250
-Wire Wire Line
-	6000 7250 6100 7250
-Connection ~ 5050 1050
-Wire Wire Line
-	5050 1050 5150 1050
-Connection ~ 4950 1050
-Text HLabel 3500 3450 0    50   Input ~ 0
-LINE_VALID
-Text HLabel 3500 2750 0    50   Input ~ 0
-FRAME_VALID
-Text HLabel 2950 1650 0    50   Input ~ 0
-SD_in[0..3]
-NoConn ~ 7800 5050
-NoConn ~ 7800 4850
-NoConn ~ 7800 4750
-NoConn ~ 7800 4650
-Text Label 3700 2350 0    50   ~ 0
-SD_inCLK
-Text Label 3700 2450 0    50   ~ 0
-SD_inCMD
-Wire Wire Line
-	3500 2350 4350 2350
-NoConn ~ 3600 2550
-NoConn ~ 3600 2650
-Wire Wire Line
-	3500 2450 4350 2450
-Text HLabel 3500 2350 0    50   Input ~ 0
-SD_inCLK
-Text HLabel 3500 2450 0    50   Input ~ 0
-SD_inCMD
-NoConn ~ 3500 3150
-Text Label 3500 3150 0    50   ~ 0
-MONITOR0
-NoConn ~ 3500 1450
-Text Label 3500 1450 0    50   ~ 0
-LED_PWM
-Text Label 3500 3050 0    50   ~ 0
-CLOCK
-NoConn ~ 3500 3050
+Text HLabel 7850 4300 2    50   Output ~ 0
+IMG_out[0..7]
+NoConn ~ 4350 3150
 Wire Wire Line
 	4350 4950 3500 4950
 Wire Wire Line
@@ -1010,7 +782,6 @@ Text HLabel 3500 4950 0    50   Output ~ 0
 SDA
 Text HLabel 3500 5050 0    50   Output ~ 0
 SCL
-NoConn ~ 7650 2650
 $Comp
 L .Connector:Conn_01x01 J14
 U 1 1 5D003D2A
@@ -1024,15 +795,169 @@ F 3 "~" H 4750 700 50  0001 C CNN
 $EndComp
 Text Notes 6650 350  0    50   ~ 0
 change to 3.3v to run at 3.3 (same with serializer)
-NoConn ~ 3500 3550
-Text Label 3500 3550 0    50   ~ 0
-CLK_OUT
 Wire Wire Line
-	4350 3550 3500 3550
+	6750 4950 7600 4950
+Text HLabel 7600 4950 2    50   Output ~ 0
+PXL_CLK
+Text Label 7150 3850 0    50   ~ 0
+img_out0
+Text Label 7150 3950 0    50   ~ 0
+img_out1
+Text Label 7150 4050 0    50   ~ 0
+img_out2
+Text Label 7150 4150 0    50   ~ 0
+img_out3
+Text Label 7150 4250 0    50   ~ 0
+img_out4
+Text Label 7150 4350 0    50   ~ 0
+img_out5
+Text Label 7150 4450 0    50   ~ 0
+img_out6
+Text Label 7150 4550 0    50   ~ 0
+img_out7
+NoConn ~ 4350 1450
+Wire Wire Line
+	7500 4150 6750 4150
+Wire Wire Line
+	7500 4050 6750 4050
+NoConn ~ 4350 2050
+NoConn ~ 4350 2150
+Text HLabel 3500 3050 0    50   Output ~ 0
+SER_CLK
+NoConn ~ 6750 5050
+NoConn ~ 4350 6250
+NoConn ~ 6750 2650
+NoConn ~ 4350 5850
+NoConn ~ 4350 5950
+NoConn ~ 4350 6050
+Text Label 7300 3050 0    50   ~ 0
+test2
+Text Label 7300 3250 0    50   ~ 0
+test3
+Text Label 7300 3350 0    50   ~ 0
+test4
+Text Label 7300 3450 0    50   ~ 0
+test5
+Wire Wire Line
+	8850 5100 9250 5100
+Wire Wire Line
+	8850 5000 9250 5000
+Wire Wire Line
+	8850 4900 9250 4900
+Wire Wire Line
+	8850 4800 9250 4800
+Wire Wire Line
+	8850 4700 9250 4700
+Text Label 8850 4700 0    50   ~ 0
+test1
+Text Label 8850 4800 0    50   ~ 0
+test2
+Text Label 8850 4900 0    50   ~ 0
+test3
+$Comp
+L Connector_Generic:Conn_01x05 J9
+U 1 1 5D333965
+P 9450 4900
+F 0 "J9" H 9530 4942 50  0000 L CNN
+F 1 "Conn_01x05" H 9530 4851 50  0000 L CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x05_P1.27mm_Vertical" H 9450 4900 50  0001 C CNN
+F 3 "~" H 9450 4900 50  0001 C CNN
+	1    9450 4900
+	1    0    0    -1  
+$EndComp
+Text HLabel 7600 4850 2    50   Output ~ 0
+FRAME_VALID
+Text HLabel 7600 4750 2    50   Output ~ 0
+LINE_VALID
+Wire Wire Line
+	7600 4750 6750 4750
+Wire Wire Line
+	6750 4850 7600 4850
+Connection ~ 4950 1050
+Connection ~ 5350 7250
+Wire Wire Line
+	5350 7250 5450 7250
+Connection ~ 5450 7250
+Wire Wire Line
+	5250 7250 5350 7250
+Wire Wire Line
+	4950 7250 5250 7250
+Connection ~ 5250 7250
+Wire Wire Line
+	5450 7250 5550 7250
+Connection ~ 5550 7250
+Wire Wire Line
+	5050 1050 5150 1050
+Wire Wire Line
+	4950 1050 5050 1050
+Connection ~ 5050 1050
+Wire Wire Line
+	5550 7250 5800 7250
+Connection ~ 5800 7250
+Wire Wire Line
+	6000 7250 6100 7250
+Connection ~ 6000 7250
+Wire Wire Line
+	5900 7250 6000 7250
+Wire Wire Line
+	5800 7250 5900 7250
+Connection ~ 5900 7250
+$Comp
+L .MCU:ATSAME70N21A-CN U4
+U 1 1 5C92D513
+P 5600 4350
+F 0 "U4" H 5550 1364 50  0000 C CNN
+F 1 "ATSAME70N21A-CN" H 5550 1273 50  0000 C CNN
+F 2 ".Package_BGA:BGA_100_CP80_10X10_900X900X110B40L" H 5500 4250 50  0001 C CNN
+F 3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en589960" H 5600 4350 50  0001 C CNN
+	1    5600 4350
+	1    0    0    -1  
+$EndComp
+Entry Wire Line
+	7500 3850 7600 3950
+Entry Wire Line
+	7500 3950 7600 4050
+Entry Wire Line
+	7500 4050 7600 4150
+Entry Wire Line
+	7500 4150 7600 4250
+Entry Wire Line
+	7500 4250 7600 4350
+Entry Wire Line
+	7500 4350 7600 4450
+Entry Wire Line
+	7500 4450 7600 4550
+Entry Wire Line
+	7500 4550 7600 4650
 Wire Bus Line
-	3100 4050 3100 4250
+	7850 4300 7600 4300
+Connection ~ 7600 4300
+NoConn ~ 4350 3450
+NoConn ~ 4350 2650
+NoConn ~ 4350 2550
+NoConn ~ 4350 2450
+NoConn ~ 4350 3850
+Wire Wire Line
+	3500 2750 4350 2750
+Text Notes 1500 2775 0    50   ~ 0
+Use this like LINE_VALID for interrupt
+Entry Wire Line
+	3100 1850 3200 1950
+Connection ~ 3100 1850
+Text HLabel 2900 1850 0    50   Input ~ 0
+WXB_in[0..3]
 Wire Bus Line
-	3100 3850 3100 4050
+	2900 1850 3100 1850
 Wire Bus Line
-	3500 1650 3500 2150
+	3100 1850 3100 2150
+Wire Wire Line
+	3500 2350 4350 2350
+Wire Bus Line
+	3100 1650 3100 1850
+Wire Bus Line
+	7600 4300 7600 4650
+Wire Bus Line
+	7600 3950 7600 4300
+Text HLabel 3500 2350 0    50   Output ~ 0
+WXB_inCMD
 $EndSCHEMATC

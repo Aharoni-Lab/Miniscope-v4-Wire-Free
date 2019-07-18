@@ -339,10 +339,6 @@ Wire Wire Line
 	8200 3100 6900 3100
 NoConn ~ 6900 3000
 NoConn ~ 6900 3100
-Wire Bus Line
-	6300 5350 6300 5700
-Wire Bus Line
-	6300 5000 6300 5350
 Text Label 6900 3000 0    50   ~ 0
 I2C_SCL
 Text Label 6900 3100 0    50   ~ 0
@@ -351,4 +347,8 @@ Text Label 4400 3350 0    50   ~ 0
 I2C_SDA
 Text Label 4400 3450 0    50   ~ 0
 I2C_SCL
+Wire Bus Line
+	6300 5350 6300 5700
+Wire Bus Line
+	6300 5000 6300 5350
 $EndSCHEMATC

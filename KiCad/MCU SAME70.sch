@@ -820,10 +820,6 @@ SWDCLK
 Text HLabel 2900 4050 0    50   Output ~ 0
 SD[0..3]
 NoConn ~ 3500 6250
-Text HLabel 3500 3050 0    50   Output ~ 0
-CLOCK
-Wire Wire Line
-	4350 3050 3500 3050
 NoConn ~ 4350 2950
 NoConn ~ 4350 3250
 NoConn ~ 4350 3350
@@ -1164,6 +1160,7 @@ NoConn ~ 3500 1450
 Wire Wire Line
 	5050 1050 5150 1050
 Connection ~ 5050 1050
+NoConn ~ 4350 3050
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line
