@@ -210,132 +210,154 @@ LINKER_SCRIPT_DEP+=  \
 
 
 # AVR32/GNU C Compiler
-src/ASF/common/components/memory/sd_mmc/sd_mmc.o: ../src/ASF/common/components/memory/sd_mmc/sd_mmc.c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+src/ASF/common/components/memory/sd_mmc/%.o: ../src/ASF/common/components/memory/sd_mmc/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/drivers/hsmci/hsmci.o: ../src/ASF/sam/drivers/hsmci/hsmci.c
+src/ASF/sam/drivers/hsmci/%.o: ../src/ASF/sam/drivers/hsmci/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/drivers/matrix/matrix.o: ../src/ASF/sam/drivers/matrix/matrix.c
+src/ASF/sam/drivers/matrix/%.o: ../src/ASF/sam/drivers/matrix/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/drivers/pwm/pwm.o: ../src/ASF/sam/drivers/pwm/pwm.c
+src/ASF/sam/drivers/pwm/%.o: ../src/ASF/sam/drivers/pwm/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/drivers/wdt/wdt.o: ../src/ASF/sam/drivers/wdt/wdt.c
+src/ASF/sam/drivers/wdt/%.o: ../src/ASF/sam/drivers/wdt/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/time_tick_sam.o: ../src/time_tick_sam.c
+src/%.o: ../src/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/common/services/delay/sam/cycle_counter.o: ../src/ASF/common/services/delay/sam/cycle_counter.c
+src/ASF/common/services/delay/sam/%.o: ../src/ASF/common/services/delay/sam/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/common/services/clock/same70/sysclk.o: ../src/ASF/common/services/clock/same70/sysclk.c
+src/ASF/common/services/clock/same70/%.o: ../src/ASF/common/services/clock/same70/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/drivers/pmc/pmc.o: ../src/ASF/sam/drivers/pmc/pmc.c
+src/ASF/sam/drivers/pmc/%.o: ../src/ASF/sam/drivers/pmc/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/drivers/twihs/twihs.o: ../src/ASF/sam/drivers/twihs/twihs.c
+src/ASF/sam/drivers/twihs/%.o: ../src/ASF/sam/drivers/twihs/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/drivers/xdmac/xdmac.o: ../src/ASF/sam/drivers/xdmac/xdmac.c
+src/ASF/sam/drivers/xdmac/%.o: ../src/ASF/sam/drivers/xdmac/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/drivers/pmc/sleep.o: ../src/ASF/sam/drivers/pmc/sleep.c
+src/ASF/common/boards/user_board/%.o: ../src/ASF/common/boards/user_board/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/common/boards/user_board/init.o: ../src/ASF/common/boards/user_board/init.c
+src/ASF/common/utils/interrupt/%.o: ../src/ASF/common/utils/interrupt/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/common/utils/interrupt/interrupt_sam_nvic.o: ../src/ASF/common/utils/interrupt/interrupt_sam_nvic.c
+src/ASF/sam/utils/cmsis/same70/source/templates/gcc/%.o: ../src/ASF/sam/utils/cmsis/same70/source/templates/gcc/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o: ../src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.c
+src/ASF/sam/utils/cmsis/same70/source/templates/%.o: ../src/ASF/sam/utils/cmsis/same70/source/templates/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o: ../src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.c
+src/ASF/sam/utils/syscalls/gcc/%.o: ../src/ASF/sam/utils/syscalls/gcc/%.c
 	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
+	@echo Invoking: ARM/GNU C Compiler : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
-
-src/ASF/sam/utils/syscalls/gcc/syscalls.o: ../src/ASF/sam/utils/syscalls/gcc/syscalls.c
-	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-src/main.o: ../src/main.c
-	@echo Building file: $<
-	@echo Invoking: ARM/GNU C Compiler : 6.3.1
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE)  -x c -mthumb -D__SAME70N21__ -DNDEBUG -Dscanf=iscanf -DBOARD=USER_BOARD -DARM_MATH_CM7=true -Dprintf=iprintf  -I"../common/applications/user_application/user_board/config" -I"../src/config" -I"../src/ASF/thirdparty/CMSIS/Lib/GCC" -I"../src/ASF/common/utils" -I"../src" -I"../src/ASF/sam/utils/fpu" -I"../src/ASF/sam/utils/cmsis/same70/source/templates" -I"../src/ASF/sam/utils" -I"../src/ASF/sam/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/sam/utils/header_files" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/thirdparty/CMSIS/Include" -I"../src/ASF/sam/utils/cmsis/same70/include" -I"../src/ASF/sam/drivers/pmc" -I"../src/ASF/sam/drivers/twihs" -I"../src/ASF/sam/drivers/xdmac" -I"../src/ASF/common/components/memory/sd_mmc" -I"../src/ASF/common/services/clock" -I"../src/ASF/common/services/delay" -I"../src/ASF/common/services/ioport" -I"../src/ASF/sam/drivers/hsmci" -I"../src/ASF/sam/drivers/wdt" -I"../src/ASF/sam/drivers/matrix" -I"../src/ASF/sam/drivers/pwm"  -Os -fdata-sections -ffunction-sections -mlong-calls -Wall -mcpu=cortex-m7 -c -pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
 
 
 
@@ -361,7 +383,7 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
-	@echo Invoking: ARM/GNU Linker : 6.3.1
+	@echo Invoking: ARM/GNU Linker : 5.3.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mthumb -Wl,-Map="MiniscopeUntethered.map" -Wl,--start-group -larm_cortexM7lfsp_math_softfp -lm  -Wl,--end-group -L"../src/ASF/thirdparty/CMSIS/Lib/GCC"  -Wl,--gc-sections -mcpu=cortex-m7 -Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/same70/same70j21/gcc/flash.ld  
 	@echo Finished building target: $@
 	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\arm\arm-gnu-toolchain\bin\arm-none-eabi-objcopy.exe" -O binary "MiniscopeUntethered.elf" "MiniscopeUntethered.bin"

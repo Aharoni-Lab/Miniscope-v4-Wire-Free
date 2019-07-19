@@ -1,4 +1,4 @@
-15912328820429790
+15915461261367331
 .Capacitor
 C_0201_0603Metric_L
 Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body
@@ -84,7 +84,14 @@ ASP-134604-01X
 160
 160
 .Connector
-B2B_Flex_05_Dual_Row_38milx24mil_Pad_20mil
+B2B_Flex_05_Dual_Row_38milx24mil_Hole_20mil
+
+
+0
+5
+5
+.Connector
+B2B_Flex_05_Dual_Row_38milx24mil_Pad_20mil_copy
 
 
 0
@@ -173,6 +180,13 @@ SMA-J-P-H-RA-TH1
 
 0
 5
+2
+.Connector
+U_FL-R-SMT_10_
+
+
+0
+3
 2
 .Diode
 SOD_323_250X125X110L30X32L
