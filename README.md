@@ -9,9 +9,10 @@ The communication happens in the following steps:
 2. Pin directions are configured (data pins are configured to output data in sync).
 3. Pull clock pin high, wait 10 microseconds.
 4. For each 32-bit word in the image buffer..
-    (a) The first 4 bits of the word are placed onto an empty 32-bit port mask at corresponding data pin locations.
+    (a) The 4 most significant bits of the word are placed onto an empty 32-bit port mask at corresponding data pin locations.
     (b) Pull clock pin low.
     (c) The 32-bit mask is written onto the data pins and sent.
     (d) Wait 10 microseconds.
     (e) Pull clock pin high.
     (f) Wait 10 microseconds.
+    (g) the word is moved up by 4 bits.
