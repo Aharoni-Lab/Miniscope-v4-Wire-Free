@@ -207,96 +207,99 @@ void BitBang_Write_WXB()
 	uint32_t Write_Frame_Num = 0;
 	#define SD_BUS_SIZE = 4;
 	
-	if (frameNumber > Write_Frame_Num)			// If there are more frames to write..
+	while(1)
 	{
-		#ifdef NOIP1SN0480A
-		
-		ioport_set_pin_level(WXB_CLK, 1);		// Pull clock pin high
-		delay_us(10);
-		
-		switch (Write_Frame_Num % 3)				// Three different buffers
+		if (frameNumber > Write_Frame_Num)			// If there are more frames to write..
 		{
-			case (0):
-			uint32_t i;
-			for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH); ++i)		// For each 32-bit word in the buffer...
-			{
-				uint32_t four_pxs = imageBuffer0[i];
-				uint8_t j;
-				for (j = 0; j < (32 / SD_BUS_SIZE); ++j)					// Each word needs to be bussed 8 times
-				{
-					uint32_t four_bits = 0;
-					four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1)))					// MSB of four_pxs goes to WXB_PIN_1 location
-								 | (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2)))			// Next bit of four_pxs goes to WXB_PIN_2 location
-								 | (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3))) 
-								 | (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
-
-					ioport_set_pin_level(WXB_CLK, 0);							// Pull clock pin low
-					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);			// Send four bits on the SD but simultaneously
-					delay_us(10);
-					
-					ioport_set_pin_level(WXB_CLK, 1);							// Pull clock pin high
-					delay_us(10);
-			
-					four_pxs = (four_pxs << SD_BUS_SIZE);						// Move the word up bitwise by the bus size (4 data pins)
-				}
-			}
-			
-			case (1):
-			uint32_t i;
-			for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH) * 32 / 4; ++i)
-			{
-				uint32_t four_pxs = imageBuffer1[i];
-				uint8_t j;
-				for (j = 0; j < (32 / SD_BUS_SIZE); ++j)		// Each word needs to be bussed 8 times
-				{
-					uint32_t four_bits = 0;
-					four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1)))
-							| (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2)))
-							| (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3)))
-							| (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
-					
-					ioport_set_pin_level(WXB_CLK, 0);
-					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);
-					delay_us(10);
-					
-					ioport_set_pin_level(WXB_CLK, 0);
-					delay_us(10);
-					
-					four_pxs = (four_pxs << SD_BUS_SIZE);
-				}
-			}
-			
-			case (2):
-			uint32_t i;
-			for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH) * 32 / 4; ++i)
-			{
-				uint32_t four_pxs = imageBuffer2[i];
-				uint8_t j;
-				for (j = 0; j < (32 / SD_BUS_SIZE); ++j)		// Each word needs to be bussed 8 times
-				{
-					uint32_t four_bits = 0;
-					four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1)))
-							| (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2)))
-							| (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3)))
-							| (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
-					
-					ioport_set_pin_level(WXB_CLK, 0);
-					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);
-					delay_us(10);
-					
-					ioport_set_pin_level(WXB_CLK, 0);
-					delay_us(10);
-					
-					four_pxs = (four_pxs << SD_BUS_SIZE);
-				}
-			}
-		}
-		#endif // NOIP1SN0480A
-		Write_Frame_Num++;
+			#ifdef NOIP1SN0480A
 		
-		#ifdef NOIP1SN0480A
-		startRecording = 1;
-		#endif
+			ioport_set_pin_level(WXB_CLK, 1);		// Pull clock pin high
+			delay_us(10);
+		
+			switch (Write_Frame_Num % 3)				// Three different buffers
+			{
+				case (0):
+				uint32_t i;
+				for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH); ++i)		// For each 32-bit word in the buffer...
+				{
+					uint32_t four_pxs = imageBuffer0[i];
+					uint8_t j;
+					for (j = 0; j < (32 / SD_BUS_SIZE); ++j)					// Each word needs to be bussed 8 times
+					{
+						uint32_t four_bits = 0;
+						four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1)))					// MSB of four_pxs goes to WXB_PIN_1 location
+									 | (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2)))			// Next bit of four_pxs goes to WXB_PIN_2 location
+									 | (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3))) 
+									 | (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
+
+						ioport_set_pin_level(WXB_CLK, 0);							// Pull clock pin low
+						arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);			// Send four bits on the SD but simultaneously
+						delay_us(10);
+					
+						ioport_set_pin_level(WXB_CLK, 1);							// Pull clock pin high
+						delay_us(10);
+			
+						four_pxs = (four_pxs << SD_BUS_SIZE);						// Move the word up bitwise by the bus size (4 data pins)
+					}
+				}
+			
+				case (1):
+				uint32_t i;
+				for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH); ++i)		// For each 32-bit word in the buffer...
+				{
+					uint32_t four_pxs = imageBuffer1[i];
+					uint8_t j;
+					for (j = 0; j < (32 / SD_BUS_SIZE); ++j)					// Each word needs to be bussed 8 times
+					{
+						uint32_t four_bits = 0;
+						four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1)))					// MSB of four_pxs goes to WXB_PIN_1 location
+						| (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2)))			// Next bit of four_pxs goes to WXB_PIN_2 location
+						| (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3)))
+						| (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
+
+						ioport_set_pin_level(WXB_CLK, 0);							// Pull clock pin low
+						arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);			// Send four bits on the SD but simultaneously
+						delay_us(10);
+					
+						ioport_set_pin_level(WXB_CLK, 1);							// Pull clock pin high
+						delay_us(10);
+					
+						four_pxs = (four_pxs << SD_BUS_SIZE);						// Move the word up bitwise by the bus size (4 data pins)
+					}
+				}
+			
+				case (2):
+				uint32_t i;
+				for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH); ++i)		// For each 32-bit word in the buffer...
+				{
+					uint32_t four_pxs = imageBuffer2[i];
+					uint8_t j;
+					for (j = 0; j < (32 / SD_BUS_SIZE); ++j)					// Each word needs to be bussed 8 times
+					{
+						uint32_t four_bits = 0;
+						four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1)))					// MSB of four_pxs goes to WXB_PIN_1 location
+						| (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2)))			// Next bit of four_pxs goes to WXB_PIN_2 location
+						| (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3)))
+						| (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
+
+						ioport_set_pin_level(WXB_CLK, 0);							// Pull clock pin low
+						arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);			// Send four bits on the SD but simultaneously
+						delay_us(10);
+					
+						ioport_set_pin_level(WXB_CLK, 1);							// Pull clock pin high
+						delay_us(10);
+					
+						four_pxs = (four_pxs << SD_BUS_SIZE);						// Move the word up bitwise by the bus size (4 data pins)
+					}
+				}
+			}
+			#endif // NOIP1SN0480A
+			Write_Frame_Num++;
+		
+			#ifdef NOIP1SN0480A
+			startRecording = 1;
+			#endif
+		}
 	}
 }
 
