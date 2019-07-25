@@ -203,9 +203,6 @@ void BitBang_Write_WXB()
 
 	// 2. Send a complete buffer, 4 bits at a time.
 	// imageBuffer size = (NUM_PIXEL_WORDS + FRAME_FOOTER_LENGTH) * 32 bits per word
-	ioport_set_pin_level(WXB_CLK, 1);
-	delay_us(10);
-	ioport_set_pin_level(WXB_CLK, 0);
 	
 	uint32_t Write_Frame_Num = 0;
 	#define SD_BUS_SIZE = 4;
@@ -213,6 +210,10 @@ void BitBang_Write_WXB()
 	if (frameNumber > Write_Frame_Num)
 	{
 		#ifdef NOIP1SN0480A
+		
+		ioport_set_pin_level(WXB_CLK, 1);
+		delay_us(10);
+		
 		switch (Write_Frame_Num % 3)
 		{
 			case (0):
@@ -228,8 +229,13 @@ void BitBang_Write_WXB()
 								 | (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2))) 
 								 | (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3))) 
 								 | (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
-						 
+
+					ioport_set_pin_level(WXB_CLK, 0);
 					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);	
+					delay_us(10);
+					
+					ioport_set_pin_level(WXB_CLK, 0);
+					delay_us(10);
 			
 					four_pxs = (four_pxs << SD_BUS_SIZE);
 				}
@@ -249,7 +255,12 @@ void BitBang_Write_WXB()
 							| (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3)))
 							| (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
 					
+					ioport_set_pin_level(WXB_CLK, 0);
 					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);
+					delay_us(10);
+					
+					ioport_set_pin_level(WXB_CLK, 0);
+					delay_us(10);
 					
 					four_pxs = (four_pxs << SD_BUS_SIZE);
 				}
@@ -269,7 +280,12 @@ void BitBang_Write_WXB()
 							| (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3)))
 							| (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
 					
+					ioport_set_pin_level(WXB_CLK, 0);
 					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);
+					delay_us(10);
+					
+					ioport_set_pin_level(WXB_CLK, 0);
+					delay_us(10);
 					
 					four_pxs = (four_pxs << SD_BUS_SIZE);
 				}
