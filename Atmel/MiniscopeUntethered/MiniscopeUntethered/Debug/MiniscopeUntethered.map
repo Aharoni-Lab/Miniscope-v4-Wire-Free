@@ -2446,7 +2446,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x4c src/SPI_BB_PYTHON480.o
  .debug_macro   0x00000000       0x10 src/SPI_BB_PYTHON480.o
  .debug_macro   0x00000000      0x1ad src/SPI_BB_PYTHON480.o
- .debug_macro   0x00000000       0xbe src/SPI_BB_PYTHON480.o
+ .debug_macro   0x00000000       0xe2 src/SPI_BB_PYTHON480.o
  .group         0x00000000        0x8 src/time_tick_sam.o
  .group         0x00000000        0x8 src/time_tick_sam.o
  .group         0x00000000        0x8 src/time_tick_sam.o
@@ -5882,6 +5882,10 @@ Discarded input sections
                 0x00000000        0xc src/main.o
  .text.SD_Card_Write_Test
                 0x00000000       0xd8 src/main.o
+ .text.Wired_Expansion_Board_Init
+                0x00000000       0x50 src/main.o
+ .text.BitBang_Write_WXB
+                0x00000000        0x2 src/main.o
  .rodata        0x00000000       0x80 src/main.o
  .bss.SDWriteNum
                 0x00000000        0x4 src/main.o
@@ -6048,7 +6052,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x4c src/main.o
  .debug_macro   0x00000000       0x10 src/main.o
  .debug_macro   0x00000000      0x1ad src/main.o
- .debug_macro   0x00000000       0xbe src/main.o
+ .debug_macro   0x00000000       0xe2 src/main.o
  .debug_macro   0x00000000       0x2e src/main.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-exit.o)
@@ -7182,7 +7186,7 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .comment       0x00000059       0x5a src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
  .comment       0x00000059       0x5a src/main.o
 
-.debug_info     0x00000000    0x1c2b2
+.debug_info     0x00000000    0x1c424
  .debug_info    0x00000000     0x1f51 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_info    0x00001f51     0x1884 src/ASF/sam/drivers/hsmci/hsmci.o
  .debug_info    0x000037d5     0x1326 src/ASF/sam/drivers/matrix/matrix.o
@@ -7200,9 +7204,9 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .debug_info    0x000153cd      0xb01 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_info    0x00015ece     0x1562 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_info    0x00017430      0x55b src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_info    0x0001798b     0x4927 src/main.o
+ .debug_info    0x0001798b     0x4a99 src/main.o
 
-.debug_abbrev   0x00000000     0x3596
+.debug_abbrev   0x00000000     0x35ac
  .debug_abbrev  0x00000000      0x3d3 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_abbrev  0x000003d3      0x488 src/ASF/sam/drivers/hsmci/hsmci.o
  .debug_abbrev  0x0000085b      0x2d0 src/ASF/sam/drivers/matrix/matrix.o
@@ -7220,9 +7224,9 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .debug_abbrev  0x00002a5b      0x212 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_abbrev  0x00002c6d      0x2db src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_abbrev  0x00002f48      0x102 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_abbrev  0x0000304a      0x54c src/main.o
+ .debug_abbrev  0x0000304a      0x562 src/main.o
 
-.debug_loc      0x00000000     0x6767
+.debug_loc      0x00000000     0x67bb
  .debug_loc     0x00000000     0x111a src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_loc     0x0000111a      0xc38 src/ASF/sam/drivers/hsmci/hsmci.o
  .debug_loc     0x00001d52      0x49e src/ASF/sam/drivers/matrix/matrix.o
@@ -7237,9 +7241,9 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .debug_loc     0x00005610      0x239 src/ASF/sam/drivers/xdmac/xdmac.o
  .debug_loc     0x00005849      0x168 src/ASF/common/boards/user_board/init.o
  .debug_loc     0x000059b1       0x6b src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
- .debug_loc     0x00005a1c      0xd4b src/main.o
+ .debug_loc     0x00005a1c      0xd9f src/main.o
 
-.debug_aranges  0x00000000      0x9b8
+.debug_aranges  0x00000000      0x9c8
  .debug_aranges
                 0x00000000       0xa0 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_aranges
@@ -7275,9 +7279,9 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .debug_aranges
                 0x000008b0       0x30 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
  .debug_aranges
-                0x000008e0       0xd8 src/main.o
+                0x000008e0       0xe8 src/main.o
 
-.debug_ranges   0x00000000      0xb60
+.debug_ranges   0x00000000      0xb70
  .debug_ranges  0x00000000      0x1f8 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_ranges  0x000001f8       0xe8 src/ASF/sam/drivers/hsmci/hsmci.o
  .debug_ranges  0x000002e0       0xb8 src/ASF/sam/drivers/matrix/matrix.o
@@ -7295,9 +7299,9 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .debug_ranges  0x000009c0       0x18 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_ranges  0x000009d8       0x18 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_ranges  0x000009f0       0x20 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_ranges  0x00000a10      0x150 src/main.o
+ .debug_ranges  0x00000a10      0x160 src/main.o
 
-.debug_macro    0x00000000    0x1faf6
+.debug_macro    0x00000000    0x1fb1a
  .debug_macro   0x00000000      0x7a8 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_macro   0x000007a8      0x8c8 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_macro   0x00001070       0x22 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
@@ -7461,28 +7465,28 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .debug_macro   0x00019578      0x61a src/ASF/sam/drivers/pwm/pwm.o
  .debug_macro   0x00019b92      0x750 src/initiate.o
  .debug_macro   0x0001a2e2       0x2e src/initiate.o
- .debug_macro   0x0001a310       0xbe src/initiate.o
- .debug_macro   0x0001a3ce      0x758 src/PYTHON480.o
- .debug_macro   0x0001ab26      0x751 src/SPI_BB_PYTHON480.o
- .debug_macro   0x0001b277      0x74d src/time_tick_sam.o
- .debug_macro   0x0001b9c4      0x60d src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_macro   0x0001bfd1       0x22 src/ASF/common/services/delay/sam/cycle_counter.o
- .debug_macro   0x0001bff3      0x687 src/ASF/common/services/clock/same70/sysclk.o
- .debug_macro   0x0001c67a      0x613 src/ASF/sam/drivers/pmc/pmc.o
- .debug_macro   0x0001cc8d       0x52 src/ASF/sam/drivers/pmc/pmc.o
- .debug_macro   0x0001ccdf      0x62b src/ASF/sam/drivers/twihs/twihs.o
- .debug_macro   0x0001d30a       0x46 src/ASF/sam/drivers/twihs/twihs.o
- .debug_macro   0x0001d350      0x618 src/ASF/sam/drivers/xdmac/xdmac.o
- .debug_macro   0x0001d968      0x1a7 src/ASF/sam/drivers/xdmac/xdmac.o
- .debug_macro   0x0001db0f      0x742 src/ASF/common/boards/user_board/init.o
- .debug_macro   0x0001e251      0x5fd src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
- .debug_macro   0x0001e84e      0x60c src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
- .debug_macro   0x0001ee5a       0x10 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
- .debug_macro   0x0001ee6a      0x405 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_macro   0x0001f26f      0x783 src/main.o
- .debug_macro   0x0001f9f2      0x104 src/main.o
+ .debug_macro   0x0001a310       0xe2 src/initiate.o
+ .debug_macro   0x0001a3f2      0x758 src/PYTHON480.o
+ .debug_macro   0x0001ab4a      0x751 src/SPI_BB_PYTHON480.o
+ .debug_macro   0x0001b29b      0x74d src/time_tick_sam.o
+ .debug_macro   0x0001b9e8      0x60d src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_macro   0x0001bff5       0x22 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_macro   0x0001c017      0x687 src/ASF/common/services/clock/same70/sysclk.o
+ .debug_macro   0x0001c69e      0x613 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_macro   0x0001ccb1       0x52 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_macro   0x0001cd03      0x62b src/ASF/sam/drivers/twihs/twihs.o
+ .debug_macro   0x0001d32e       0x46 src/ASF/sam/drivers/twihs/twihs.o
+ .debug_macro   0x0001d374      0x618 src/ASF/sam/drivers/xdmac/xdmac.o
+ .debug_macro   0x0001d98c      0x1a7 src/ASF/sam/drivers/xdmac/xdmac.o
+ .debug_macro   0x0001db33      0x742 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x0001e275      0x5fd src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_macro   0x0001e872      0x60c src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
+ .debug_macro   0x0001ee7e       0x10 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
+ .debug_macro   0x0001ee8e      0x405 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
+ .debug_macro   0x0001f293      0x783 src/main.o
+ .debug_macro   0x0001fa16      0x104 src/main.o
 
-.debug_line     0x00000000     0xe5e4
+.debug_line     0x00000000     0xe61a
  .debug_line    0x00000000      0xf83 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_line    0x00000f83      0xfc3 src/ASF/sam/drivers/hsmci/hsmci.o
  .debug_line    0x00001f46      0xb17 src/ASF/sam/drivers/matrix/matrix.o
@@ -7500,9 +7504,9 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .debug_line    0x0000b806      0x9b1 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_line    0x0000c1b7      0xa1a src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_line    0x0000cbd1      0x797 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_line    0x0000d368     0x127c src/main.o
+ .debug_line    0x0000d368     0x12b2 src/main.o
 
-.debug_str      0x00000000    0x88929
+.debug_str      0x00000000    0x88a51
  .debug_str     0x00000000    0x835b8 src/ASF/common/components/memory/sd_mmc/sd_mmc.o
                               0x83ccd (size before relaxing)
  .debug_str     0x000835b8     0x1005 src/ASF/sam/drivers/hsmci/hsmci.o
@@ -7511,36 +7515,36 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
                               0x7d4a1 (size before relaxing)
  .debug_str     0x00084b4f      0xe94 src/ASF/sam/drivers/pwm/pwm.o
                               0x7de10 (size before relaxing)
- .debug_str     0x000859e3      0x8ab src/initiate.o
-                              0x84edb (size before relaxing)
- .debug_str     0x0008628e       0xf6 src/PYTHON480.o
-                              0x83d2a (size before relaxing)
- .debug_str     0x00086384       0x48 src/SPI_BB_PYTHON480.o
-                              0x84442 (size before relaxing)
- .debug_str     0x000863cc      0x4d0 src/time_tick_sam.o
-                              0x841f1 (size before relaxing)
- .debug_str     0x0008689c       0x35 src/ASF/common/services/delay/sam/cycle_counter.o
+ .debug_str     0x000859e3      0x9a6 src/initiate.o
+                              0x84f86 (size before relaxing)
+ .debug_str     0x00086389       0xf6 src/PYTHON480.o
+                              0x83d4c (size before relaxing)
+ .debug_str     0x0008647f       0x48 src/SPI_BB_PYTHON480.o
+                              0x844ed (size before relaxing)
+ .debug_str     0x000864c7      0x4d0 src/time_tick_sam.o
+                              0x84213 (size before relaxing)
+ .debug_str     0x00086997       0x35 src/ASF/common/services/delay/sam/cycle_counter.o
                               0x7d062 (size before relaxing)
- .debug_str     0x000868d1      0x3e4 src/ASF/common/services/clock/same70/sysclk.o
+ .debug_str     0x000869cc      0x3e4 src/ASF/common/services/clock/same70/sysclk.o
                               0x7e90e (size before relaxing)
- .debug_str     0x00086cb5      0x6a1 src/ASF/sam/drivers/pmc/pmc.o
+ .debug_str     0x00086db0      0x6a1 src/ASF/sam/drivers/pmc/pmc.o
                               0x7dbad (size before relaxing)
- .debug_str     0x00087356      0x3b9 src/ASF/sam/drivers/twihs/twihs.o
+ .debug_str     0x00087451      0x3b9 src/ASF/sam/drivers/twihs/twihs.o
                               0x7d4be (size before relaxing)
- .debug_str     0x0008770f      0x171 src/ASF/sam/drivers/xdmac/xdmac.o
+ .debug_str     0x0008780a      0x171 src/ASF/sam/drivers/xdmac/xdmac.o
                               0x7da28 (size before relaxing)
- .debug_str     0x00087880       0xa8 src/ASF/common/boards/user_board/init.o
+ .debug_str     0x0008797b       0xa8 src/ASF/common/boards/user_board/init.o
                               0x840db (size before relaxing)
- .debug_str     0x00087928       0x94 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
+ .debug_str     0x00087a23       0x94 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
                               0x7cf32 (size before relaxing)
- .debug_str     0x000879bc      0x641 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
+ .debug_str     0x00087ab7      0x641 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
                               0x7d6e8 (size before relaxing)
- .debug_str     0x00087ffd      0x172 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
+ .debug_str     0x000880f8      0x172 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
                               0x6d4ac (size before relaxing)
- .debug_str     0x0008816f      0x7ba src/main.o
-                              0x85f3b (size before relaxing)
+ .debug_str     0x0008826a      0x7e7 src/main.o
+                              0x86013 (size before relaxing)
 
-.debug_frame    0x00000000     0x1764
+.debug_frame    0x00000000     0x1784
  .debug_frame   0x00000000      0x1cc src/ASF/common/components/memory/sd_mmc/sd_mmc.o
  .debug_frame   0x000001cc      0x1d8 src/ASF/sam/drivers/hsmci/hsmci.o
  .debug_frame   0x000003a4      0x1b8 src/ASF/sam/drivers/matrix/matrix.o
@@ -7558,14 +7562,14 @@ OUTPUT(MiniscopeUntethered.elf elf32-littlearm)
  .debug_frame   0x0000128c       0x30 src/ASF/common/utils/interrupt/interrupt_sam_nvic.o
  .debug_frame   0x000012bc       0x38 src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
  .debug_frame   0x000012f4       0x40 src/ASF/sam/utils/cmsis/same70/source/templates/system_same70.o
- .debug_frame   0x00001334      0x23c src/main.o
- .debug_frame   0x00001570       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
- .debug_frame   0x0000159c       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
- .debug_frame   0x000015d0       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x0000162c       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
- .debug_frame   0x0000164c       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
- .debug_frame   0x00001680       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
- .debug_frame   0x00001730       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00001334      0x25c src/main.o
+ .debug_frame   0x00001590       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-init.o)
+ .debug_frame   0x000015bc       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-memset.o)
+ .debug_frame   0x000015f0       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x0000164c       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x0000166c       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x000016a0       0xb0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-lock.o)
+ .debug_frame   0x00001750       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc.a(lib_a-__atexit.o)
 
 Cross Reference Table
 
@@ -7574,6 +7578,7 @@ ACC_Handler                                       src/ASF/sam/utils/cmsis/same70
 AES_Handler                                       src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
 AFEC0_Handler                                     src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
 AFEC1_Handler                                     src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
+BitBang_Write_WXB                                 src/main.o
 BusFault_Handler                                  src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
 DACC_Handler                                      src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
 DebugMon_Handler                                  src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
@@ -7668,6 +7673,7 @@ USART2_Handler                                    src/ASF/sam/utils/cmsis/same70
 USBHS_Handler                                     src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
 UsageFault_Handler                                src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
 WDT_Handler                                       src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
+Wired_Expansion_Board_Init                        src/main.o
 XDMAC_Handler                                     src/main.o
                                                   src/ASF/sam/utils/cmsis/same70/source/templates/gcc/startup_same70.o
 _Jv_RegisterClasses                               c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o

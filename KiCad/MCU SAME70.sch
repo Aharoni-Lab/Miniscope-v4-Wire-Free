@@ -346,8 +346,6 @@ Wire Wire Line
 	6750 2650 7650 2650
 Wire Wire Line
 	6750 2750 7650 2750
-Text Label 7250 2650 0    50   ~ 0
-IR_Receiver
 Text Label 7350 2750 0    50   ~ 0
 RED_LED
 NoConn ~ 6750 2850
@@ -707,32 +705,6 @@ F 3 "~" H 7650 3100 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7650 2950 7650 2750
-Wire Wire Line
-	9900 3250 10200 3250
-$Comp
-L power:Earth #PWR035
-U 1 1 5C9B390C
-P 9700 3650
-F 0 "#PWR035" H 9700 3400 50  0001 C CNN
-F 1 "Earth" H 9700 3500 50  0001 C CNN
-F 2 "" H 9700 3650 50  0001 C CNN
-F 3 "~" H 9700 3650 50  0001 C CNN
-	1    9700 3650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR034
-U 1 1 5C9B39F2
-P 9200 3250
-F 0 "#PWR034" H 9200 3100 50  0001 C CNN
-F 1 "+3V3" H 9215 3423 50  0000 C CNN
-F 2 "" H 9200 3250 50  0001 C CNN
-F 3 "" H 9200 3250 50  0001 C CNN
-	1    9200 3250
-	1    0    0    -1  
-$EndComp
-Text Label 9950 3250 0    50   ~ 0
-IR_Receiver
 Text Notes 6850 5050 0    50   ~ 0
 SPI0_NPCS1
 Wire Wire Line
@@ -749,28 +721,6 @@ Text Notes 3100 6450 0    50   ~ 0
 Not sure why this is hanging
 Wire Bus Line
 	3500 1650 2950 1650
-$Comp
-L .IR_Receiver:TSOP57438TT1 U4
-U 1 1 5CAEF739
-P 9550 3250
-F 0 "U4" H 9606 3715 50  0000 C CNN
-F 1 "TSOP57438TT1" H 9606 3624 50  0000 C CNN
-F 2 ".Package_SON:SON_4_P300_395X395X90L55X35L" H 9550 3250 50  0001 C CNN
-F 3 "" H 9550 3250 50  0001 C CNN
-	1    9550 3250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:Earth #PWR0101
-U 1 1 5CAEF7CC
-P 9400 3650
-F 0 "#PWR0101" H 9400 3400 50  0001 C CNN
-F 1 "Earth" H 9400 3500 50  0001 C CNN
-F 2 "" H 9400 3650 50  0001 C CNN
-F 3 "~" H 9400 3650 50  0001 C CNN
-	1    9400 3650
-	1    0    0    -1  
-$EndComp
 Text HLabel 2950 1650 0    50   Input ~ 0
 img_d[0..7]
 Text Label 3700 1750 0    50   ~ 0
@@ -1032,18 +982,6 @@ F 3 "~" H 7850 3550 50  0001 C CNN
 $EndComp
 Connection ~ 7650 3550
 $Comp
-L .Connector:Conn_01x01 J20
-U 1 1 5CB223A2
-P 9200 3450
-F 0 "J20" V 9072 3530 50  0000 L CNN
-F 1 "Conn_01x01" V 9163 3530 50  0000 L CNN
-F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 9200 3450 50  0001 C CNN
-F 3 "~" H 9200 3450 50  0001 C CNN
-	1    9200 3450
-	0    1    1    0   
-$EndComp
-Connection ~ 9200 3250
-$Comp
 L .Connector:Conn_01x01 J23
 U 1 1 5CC7F8A9
 P 6000 500
@@ -1161,6 +1099,9 @@ Wire Wire Line
 	5050 1050 5150 1050
 Connection ~ 5050 1050
 NoConn ~ 4350 3050
+Text Label 7250 2650 0    50   ~ 0
+IR_Receiver
+NoConn ~ 7650 2650
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line

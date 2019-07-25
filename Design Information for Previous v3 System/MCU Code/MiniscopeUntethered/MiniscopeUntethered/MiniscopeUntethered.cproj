@@ -231,14 +231,14 @@
         <documentation help="http://asf.atmel.com/docs/3.30.1/common.applications.user_application.user_board.same70j21/html/index.html" />
         <offline-documentation help="" />
         <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.38.0" />
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.32.0" />
         </dependencies>
         <project id="common.applications.user_application.user_board.same70j21" value="Add" config="" content-id="Atmel.ASF" />
         <board id="board.user_board.same70j21" value="Add" config="" content-id="Atmel.ASF" />
       </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
-    <avrtoolserialnumber>J41800115347</avrtoolserialnumber>
+    <avrtoolserialnumber>J41800115732</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0xA1020E00</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_atmelice>
       <ToolOptions>
@@ -248,7 +248,7 @@
         <InterfaceName>SWD</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
-      <ToolNumber>J41800115347</ToolNumber>
+      <ToolNumber>J41800115732</ToolNumber>
       <ToolName>Atmel-ICE</ToolName>
     </com_atmel_avrdbg_tool_atmelice>
     <avrtoolinterface>SWD</avrtoolinterface>

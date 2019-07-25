@@ -30,8 +30,8 @@
 //Which CMOS imaging sensor are we using. Defined in conf_clock.h and sdImaging.h
 //#define MT9V032
 //#define EV76C454
-//#define EV76C454_SUBSAMP
-#define EV76C541
+#define EV76C454_SUBSAMP
+//#define EV76C541
 
 //CMOS imaging sensor definitions
 #ifdef  EV76C541
@@ -321,6 +321,8 @@ void enableSourceClk() {
 	#endif
 	#ifdef EV76C454_SUBSAMP //Trying to run MCU slower
 		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(2); //Should make output = 48MHz
+		//PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(5); //Should make output = 48MHz
+		
 	#endif
 	#ifdef EV76C541 //Trying to run MCU slower
 		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(5); //Should make output = 24MHz. Sensor divids by 4

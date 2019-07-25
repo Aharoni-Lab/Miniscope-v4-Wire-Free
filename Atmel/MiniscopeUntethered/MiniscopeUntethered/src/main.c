@@ -194,12 +194,12 @@ void BitBang_Write_WXB()
 	// The mask bits in PIO_OWSR are set by writing to the PIO_OWER (Output Write Enable Register)
 	// and cleared by writing to the PIO_OWDR (Output Write Disable Register)
 	// After reset, the synchronous data output is disabled on all the I/O lines as PIO_OWSR resets at 0x0.
-	// arch_ioport_pin_to_base(WXB_CLK)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_CLK);			// Should I include the clock?
-	arch_ioport_pin_to_base(WXB_PIN_1)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_PIN_1);
-	arch_ioport_pin_to_base(WXB_PIN_2)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_PIN_2);
-	arch_ioport_pin_to_base(WXB_PIN_3)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_PIN_3);
-	arch_ioport_pin_to_base(WXB_PIN_4)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_PIN_4);
-//	arch_ioport_pin_to_base(WXB_CONFIG)->PIO_OWDR |= arch_ioport_pin_to_mask(WXB_CONFIG);	// Unnecessary?
+//	arch_ioport_pin_to_base(WXB_CLK)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_CLK);			// Should I include the clock?
+	arch_ioport_pin_to_base(WXB_PIN_1)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_PIN_1);			// pin 31
+	arch_ioport_pin_to_base(WXB_PIN_2)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_PIN_2);			// pin 26
+	arch_ioport_pin_to_base(WXB_PIN_3)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_PIN_3);			// pin 27
+	arch_ioport_pin_to_base(WXB_PIN_4)->PIO_OWER |= arch_ioport_pin_to_mask(WXB_PIN_4);			// pin 30
+//	arch_ioport_pin_to_base(WXB_CONFIG)->PIO_OWDR |= arch_ioport_pin_to_mask(WXB_CONFIG);		// Unnecessary?
 
 	// 2. Send a complete buffer, 4 bits at a time.
 	// imageBuffer size = (NUM_PIXEL_WORDS + FRAME_FOOTER_LENGTH) * 32 bits per word
@@ -207,10 +207,80 @@ void BitBang_Write_WXB()
 	delay_us(10);
 	ioport_set_pin_level(WXB_CLK, 0);
 	
-	int32_t i;
-	for (i = 0; i < (NUM_PIXELS FRAME_FOOTER_LENGTH) * 32 / 4; ++i)
+	uint32_t Write_Frame_Num = 0;
+	#define SD_BUS_SIZE = 4;
+	
+	if (frameNumber > Write_Frame_Num)
 	{
-		arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= // imageBuffer0[i]: 32 bit element. Chop it up into 8 pieces so it fits onto the 4 bit bus.
+		#ifdef NOIP1SN0480A
+		switch (Write_Frame_Num % 3)
+		{
+			case (0):
+			uint32_t i;
+			for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH) * 32 / 4; ++i)
+			{
+				uint32_t four_pxs = imageBuffer0[i];
+				uint8_t j;
+				for (j = 0; j < (32 / SD_BUS_SIZE); ++j)		// Each word needs to be bussed 8 times
+				{
+					uint32_t four_bits = 0;
+					four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1))) 
+								 | (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2))) 
+								 | (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3))) 
+								 | (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
+						 
+					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);	
+			
+					four_pxs = (four_pxs << SD_BUS_SIZE);
+				}
+			}
+			
+			case (1):
+			uint32_t i;
+			for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH) * 32 / 4; ++i)
+			{
+				uint32_t four_pxs = imageBuffer1[i];
+				uint8_t j;
+				for (j = 0; j < (32 / SD_BUS_SIZE); ++j)		// Each word needs to be bussed 8 times
+				{
+					uint32_t four_bits = 0;
+					four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1)))
+							| (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2)))
+							| (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3)))
+							| (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
+					
+					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);
+					
+					four_pxs = (four_pxs << SD_BUS_SIZE);
+				}
+			}
+			
+			case (2):
+			uint32_t i;
+			for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH) * 32 / 4; ++i)
+			{
+				uint32_t four_pxs = imageBuffer2[i];
+				uint8_t j;
+				for (j = 0; j < (32 / SD_BUS_SIZE); ++j)		// Each word needs to be bussed 8 times
+				{
+					uint32_t four_bits = 0;
+					four_bits |= (((four_pxs & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_1)))
+							| (((four_pxs << 1) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_2)))
+							| (((four_pxs << 2) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_3)))
+							| (((four_pxs << 3) & 0x80000000) >> (31 - arch_ioport_pin_to_mask(WXB_PIN_4))));		// check if the four_pxs itself gets moved
+					
+					arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);
+					
+					four_pxs = (four_pxs << SD_BUS_SIZE);
+				}
+			}
+		}
+		#endif // NOIP1SN0480A
+		Write_Frame_Num++;
+		
+		#ifdef NOIP1SN0480A
+		startRecording = 1;
+		#endif
 	}
 }
 
@@ -285,14 +355,16 @@ int main (void)
 	// Micro SD card slot connection check
 	uint32_t SD_Check;
 	
+// 	while (sd_mmc_check(SD_SLOT_NB) != SD_MMC_OK)
+// 	{}
 	SD_Check = sd_mmc_check(SD_SLOT_NB);
 	while (SD_Check != SD_MMC_OK) 
-	{
+ 	{
 		ioport_toggle_pin_level(LED_PIN);					// while the SD connection is NOT okay.. wait
 		delay_ms(100);										// delete later when expansion PCB
 		SD_Check = sd_mmc_check(SD_SLOT_NB);
 	}
-		
+	
 	if (sd_mmc_get_type(SD_SLOT_NB) == (CARD_TYPE_SD|CARD_TYPE_HC))
 	{
 		ioport_set_pin_level(LED_PIN, 1);					// If SDHC, turn on status LED
@@ -308,7 +380,7 @@ int main (void)
 	#ifdef MSD
 	// ========== Micro SD Card Data Transfer ========== //
 	uint32_t sdCapacity = sd_mmc_get_capacity(SD_SLOT_NB);	// in KB
-	// SD_Card_Write_Test();
+//	SD_Card_Write_Test();
 
 	// ========== Stream Data from Imaging Sensor to SD Card ========= //
 	imagingSensorLoadHeader();
@@ -318,7 +390,7 @@ int main (void)
 	pwm_channel_update_duty(PWM0, &g_pwm_channel_led, ledValue);
 	
 	// ========== Try This ========== //
-	numFramesToRecord = 300;		// More like number of seconds to record.. so # frames = numFramesToRecord * fps (20)
+	numFramesToRecord = 1;		// More like number of seconds to record.. so # frames = numFramesToRecord * fps (20)
 
 	imagingSensorSetup(); //sets interrupts, configures IO pins for DMA CMOS sensor
 
@@ -492,6 +564,30 @@ int main (void)
 	#endif	// MSD
 	
 	#ifdef WXB
+	// ========== Stream Data from Imaging Sensor to SD Card ========= //
+	imagingSensorLoadHeader();
+		
+	if (ledValue >= PWM_PERIOD_VALUE)
+	ledValue = 0;
+	pwm_channel_update_duty(PWM0, &g_pwm_channel_led, ledValue);
+	
+	imagingSensorSetup(); //sets interrupts, configures IO pins for DMA CMOS sensor
+
+	tick_start = time_tick_get();
+	while (time_tick_calc_delay(tick_start, time_tick_get()) < 5000)
+	{}
+			
+	uint32_t curBlock = STARTING_BLOCK;
+	uint32_t writeLineCount = 0;
+	uint32_t writeCount = 0;
+		
+	tick_start = time_tick_get();
+		
+	startRecording = 1;
+	ioport_set_pin_level(TRIGGER0_PIN, 1);	// Starts acquisition of imaging sensor
+	ioport_set_pin_level(LED_ENT_PIN, 1);	// Enable PWM LED Control Driver
+	ioport_set_pin_level(LED_PIN, 1);
+	
 	Wired_Expansion_Board_Init();
 	BitBang_Write_WXB();
 	#endif	//WXB

@@ -384,7 +384,7 @@ void enableSourceClk() {
 	#endif
 	
 	#ifdef NOIP1SN0480A //Trying to run MCU slower
-	//	PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(2); //Should make output = 48MHz
+		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(2); //Should make output = 48MHz	// divided by value + 1
 	#endif
 	
 	#ifdef EV76C541 //Trying to run MCU slower
@@ -880,7 +880,7 @@ void imageSensorVSyncItInit() {
 	PIOA->PIO_IER		|= VSYNC_MASK; //Enables the input change interrupt
 	PIOA->PIO_AIMER		|= VSYNC_MASK; //Enables additional Interrupt modes
 	PIOA->PIO_ESR		|= VSYNC_MASK; //Enables edge detect. (Edge detect is on by default)
-	PIOA->PIO_FELLSR	|= VSYNC_MASK; //Edge detect is for falling edge (Falling edge is on by default)
+	PIOA->PIO_FELLSR		|= VSYNC_MASK; //Edge detect is for falling edge (Falling edge is on by default)
 	
 	//	if((PIOA->PIO_OSR&VSYNC_MASK) == VSYNC_MASK)
 	//		printf("VSync is set as input");
@@ -895,7 +895,7 @@ void imageSensorHSyncItInit() {
 	PIOA->PIO_IER		|= HSYNC_MASK; //Enables the input change interrupt
 	PIOA->PIO_AIMER		|= HSYNC_MASK; //Enables additional Interrupt modes
 	PIOA->PIO_ESR		|= HSYNC_MASK; //Enables edge detect. (Edge detect is on by default)
-	PIOA->PIO_FELLSR	|= HSYNC_MASK; //Edge detect is for falling edge (Falling edge is on by default)
+	PIOA->PIO_FELLSR		|= HSYNC_MASK; //Edge detect is for falling edge (Falling edge is on by default)
 	
 	
 }

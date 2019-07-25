@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 6
+Sheet 6 6
 Title ""
 Date ""
 Rev ""
@@ -46,13 +46,13 @@ Entry Wire Line
 Entry Wire Line
 	3100 2150 3200 2250
 Text Label 3800 1950 0    50   ~ 0
-SD_in2
+WXB_in2
 Text Label 3800 2250 0    50   ~ 0
-SD_in3
+WXB_in3
 Text Label 3800 1750 0    50   ~ 0
-SD_in0
+WXB_in0
 Text Label 3800 1850 0    50   ~ 0
-SD_in1
+WXB_in1
 NoConn ~ 4350 4550
 $Comp
 L .Inductor:BLM18PG471SN1D L8
@@ -152,7 +152,6 @@ NoConn ~ 4350 6750
 NoConn ~ 4350 6550
 NoConn ~ 4350 6350
 NoConn ~ 4350 5650
-NoConn ~ 4350 4850
 Wire Wire Line
 	4350 5150 3500 5150
 Wire Wire Line
@@ -288,7 +287,6 @@ NoConn ~ 6750 3750
 NoConn ~ 6750 5150
 NoConn ~ 6750 5250
 NoConn ~ 6750 5350
-NoConn ~ 6750 5450
 NoConn ~ 6750 5550
 Wire Wire Line
 	6000 700  6100 700 
@@ -631,7 +629,7 @@ $EndComp
 Wire Wire Line
 	7650 2950 7650 2750
 Text HLabel 3500 2750 0    50   Input ~ 0
-WXB_inCLK
+WXB_CLK
 Text HLabel 3500 5150 0    50   Input ~ 0
 SWDIO-Rec
 Text HLabel 3500 5250 0    50   Input ~ 0
@@ -756,16 +754,16 @@ F 3 "~" H 6650 850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6750 2950 7500 2950
+	6750 5450 7500 5450
 Wire Wire Line
-	6750 3050 7500 3050
+	6750 4650 7500 4650
 Wire Wire Line
-	6750 3250 7500 3250
+	6750 5050 7500 5050
 Wire Wire Line
-	6750 3350 7500 3350
+	4350 4750 3600 4750
 Wire Wire Line
-	6750 3450 7500 3450
-Text Label 7300 2950 0    50   ~ 0
+	4350 4850 3600 4850
+Text Label 7300 5450 0    50   ~ 0
 test1
 Text Label 8850 5000 0    50   ~ 0
 test4
@@ -799,22 +797,6 @@ Wire Wire Line
 	6750 4950 7600 4950
 Text HLabel 7600 4950 2    50   Output ~ 0
 PXL_CLK
-Text Label 7150 3850 0    50   ~ 0
-img_out0
-Text Label 7150 3950 0    50   ~ 0
-img_out1
-Text Label 7150 4050 0    50   ~ 0
-img_out2
-Text Label 7150 4150 0    50   ~ 0
-img_out3
-Text Label 7150 4250 0    50   ~ 0
-img_out4
-Text Label 7150 4350 0    50   ~ 0
-img_out5
-Text Label 7150 4450 0    50   ~ 0
-img_out6
-Text Label 7150 4550 0    50   ~ 0
-img_out7
 NoConn ~ 4350 1450
 Wire Wire Line
 	7500 4150 6750 4150
@@ -824,19 +806,18 @@ NoConn ~ 4350 2050
 NoConn ~ 4350 2150
 Text HLabel 3500 3050 0    50   Output ~ 0
 SER_CLK
-NoConn ~ 6750 5050
 NoConn ~ 4350 6250
 NoConn ~ 6750 2650
 NoConn ~ 4350 5850
 NoConn ~ 4350 5950
 NoConn ~ 4350 6050
-Text Label 7300 3050 0    50   ~ 0
+Text Label 7300 4650 0    50   ~ 0
 test2
-Text Label 7300 3250 0    50   ~ 0
+Text Label 7300 5050 0    50   ~ 0
 test3
-Text Label 7300 3350 0    50   ~ 0
+Text Label 3800 4750 2    50   ~ 0
 test4
-Text Label 7300 3450 0    50   ~ 0
+Text Label 3800 4850 2    50   ~ 0
 test5
 Wire Wire Line
 	8850 5100 9250 5100
@@ -952,12 +933,157 @@ Wire Bus Line
 	3100 1850 3100 2150
 Wire Wire Line
 	3500 2350 4350 2350
+Text HLabel 3500 2350 0    50   Output ~ 0
+WXB_CMD
+Text Label 7150 3850 0    50   ~ 0
+IMG_out0
+Text Label 7150 3950 0    50   ~ 0
+IMG_out1
+Text Label 7150 4050 0    50   ~ 0
+IMG_out2
+Text Label 7150 4150 0    50   ~ 0
+IMG_out3
+Text Label 7150 4250 0    50   ~ 0
+IMG_out4
+Text Label 7150 4350 0    50   ~ 0
+IMG_out5
+Text Label 7150 4450 0    50   ~ 0
+IMG_out6
+Text Label 7150 4550 0    50   ~ 0
+IMG_out7
+NoConn ~ 6750 2950
+NoConn ~ 6750 3050
+NoConn ~ 4350 4650
+NoConn ~ 6750 3250
+NoConn ~ 6750 3350
+NoConn ~ 6750 3450
+NoConn ~ 4350 3950
+NoConn ~ 4350 4050
+NoConn ~ 4350 4150
+NoConn ~ 4350 4250
+NoConn ~ 4350 4350
+NoConn ~ 4350 3550
+$Comp
+L .Connector:Conn_01x01 J11
+U 1 1 5D3867A6
+P 1400 5225
+F 0 "J11" H 1318 5000 50  0000 C CNN
+F 1 "Conn_01x01" H 1318 5091 50  0000 C CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 1400 5225 50  0001 C CNN
+F 3 "~" H 1400 5225 50  0001 C CNN
+	1    1400 5225
+	-1   0    0    1   
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J10
+U 1 1 5D387447
+P 1400 5125
+F 0 "J10" H 1318 4900 50  0000 C CNN
+F 1 "Conn_01x01" H 1318 4991 50  0000 C CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 1400 5125 50  0001 C CNN
+F 3 "~" H 1400 5125 50  0001 C CNN
+	1    1400 5125
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1600 5125 1900 5125
+Wire Wire Line
+	1600 5225 1900 5225
+Text Label 1600 5125 0    50   ~ 0
+SDA
+Text Label 1600 5225 0    50   ~ 0
+SCL
+$Comp
+L .Connector:Conn_01x01 J12
+U 1 1 5D390F27
+P 8900 3850
+F 0 "J12" H 8980 3892 50  0000 L CNN
+F 1 "Conn_01x01" H 8980 3801 50  0000 L CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 8900 3850 50  0001 C CNN
+F 3 "~" H 8900 3850 50  0001 C CNN
+	1    8900 3850
+	1    0    0    -1  
+$EndComp
+Text Label 8375 3850 0    50   ~ 0
+IMG_out0
+Wire Wire Line
+	8375 3850 8700 3850
+$Comp
+L .Connector:Conn_01x01 J13
+U 1 1 5D39AD49
+P 8900 3950
+F 0 "J13" H 8980 3992 50  0000 L CNN
+F 1 "Conn_01x01" H 8980 3901 50  0000 L CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 8900 3950 50  0001 C CNN
+F 3 "~" H 8900 3950 50  0001 C CNN
+	1    8900 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J16
+U 1 1 5D39AFB3
+P 8900 4050
+F 0 "J16" H 8980 4092 50  0000 L CNN
+F 1 "Conn_01x01" H 8980 4001 50  0000 L CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 8900 4050 50  0001 C CNN
+F 3 "~" H 8900 4050 50  0001 C CNN
+	1    8900 4050
+	1    0    0    -1  
+$EndComp
+Text Label 8375 3950 0    50   ~ 0
+LINE_VAL
+Text Label 8300 4050 0    50   ~ 0
+FRAME_VAL
+$Comp
+L .Connector:Conn_01x01 J17
+U 1 1 5D3AE3FD
+P 8900 4150
+F 0 "J17" H 8980 4192 50  0000 L CNN
+F 1 "Conn_01x01" H 8980 4101 50  0000 L CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 8900 4150 50  0001 C CNN
+F 3 "~" H 8900 4150 50  0001 C CNN
+	1    8900 4150
+	1    0    0    -1  
+$EndComp
+Text Label 8325 4150 0    50   ~ 0
+PIXEL_CLK
+Text Label 7075 4750 0    50   ~ 0
+LINE_VAL
+Text Label 7075 4850 0    50   ~ 0
+FRAME_VAL
+Text Label 7075 4950 0    50   ~ 0
+PIXEL_CLK
+Wire Wire Line
+	8325 4150 8700 4150
+Wire Wire Line
+	8300 4050 8700 4050
+Wire Wire Line
+	8375 3950 8700 3950
+$Comp
+L .Connector:Conn_01x01 J3
+U 1 1 5D3CB757
+P 1375 2650
+F 0 "J3" H 1293 2425 50  0000 C CNN
+F 1 "Conn_01x01" H 1293 2516 50  0000 C CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 1375 2650 50  0001 C CNN
+F 3 "~" H 1375 2650 50  0001 C CNN
+	1    1375 2650
+	-1   0    0    1   
+$EndComp
+Text Label 1575 2650 0    50   ~ 0
+WXB_CLK
+Wire Wire Line
+	1575 2650 1900 2650
 Wire Bus Line
 	3100 1650 3100 1850
 Wire Bus Line
 	7600 4300 7600 4650
 Wire Bus Line
 	7600 3950 7600 4300
-Text HLabel 3500 2350 0    50   Output ~ 0
-WXB_inCMD
+Text Label 3800 2750 0    50   ~ 0
+WXB_CLK
+Text Label 3550 4950 0    50   ~ 0
+SDA
+Text Label 3550 5050 0    50   ~ 0
+SCL
 $EndSCHEMATC

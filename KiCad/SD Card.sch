@@ -271,10 +271,6 @@ Wire Wire Line
 	7250 3250 7700 3250
 Wire Wire Line
 	7700 3350 7250 3350
-Wire Bus Line
-	7150 3100 6050 3100
-Connection ~ 7150 3100
-Connection ~ 6050 3100
 Text Label 7250 3050 0    50   ~ 0
 DAT0
 Text Label 7250 3150 0    50   ~ 0
@@ -366,16 +362,16 @@ $EndComp
 Connection ~ 5850 2850
 Wire Wire Line
 	5850 2850 5950 2850
+Wire Wire Line
+	7150 2950 6050 2950
+Wire Wire Line
+	6050 3050 7150 3050
+Wire Wire Line
+	7150 3150 6050 3150
+Wire Wire Line
+	6050 3250 7150 3250
 Wire Bus Line
 	3450 2900 3450 3050
 Wire Bus Line
 	3450 2750 3450 2900
-Wire Bus Line
-	6050 3100 6050 3250
-Wire Bus Line
-	6050 2950 6050 3100
-Wire Bus Line
-	7150 3100 7150 3250
-Wire Bus Line
-	7150 2950 7150 3100
 $EndSCHEMATC

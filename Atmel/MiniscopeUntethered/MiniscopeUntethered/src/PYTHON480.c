@@ -22,7 +22,8 @@ void Enable_Clock_Management1()
 	#ifdef DISABLE_PLL
 		SPI_Write(32, 0x7014|0x0008);	// SPI_Write(32, 0x2004); PLL input clock
 	#else
-		SPI_Write(32, 0x7014);			// SPI_Write(32, 0x2004); PLL input clock
+//		SPI_Write(32, 0x7014);			// SPI_Write(32, 0x2004); PLL input clock
+		SPI_Write(32, 0x7014|0x0008);			// SPI_Write(32, 0x2004); PLL input clock
 	#endif
 	
 	SPI_Write(8, 0x0000);	// Release PLL soft reset
@@ -43,7 +44,8 @@ void Enable_Clock_Management2()
 	#ifdef DISABLE_PLL
 		SPI_Write(32, 0x7006|0x0008);		// SPI_Write(32, 0x7006); Enable logic clock. Changed this to 7006 to try
 	#else
-		SPI_Write(32, 0x7006);				// SPI_Write(32, 0x7006); Enable logic clock. Changed this to 7006 to try
+//		SPI_Write(32, 0x7006);				// SPI_Write(32, 0x7006); Enable logic clock. Changed this to 7006 to try
+		SPI_Write(32, 0x7006|0x0008);				// SPI_Write(32, 0x7006); Enable logic clock. Changed this to 7006 to try
 	#endif
 
 	SPI_Write(34, 0x0001);	// Enable logic blocks
@@ -64,7 +66,8 @@ void Required_Uploads()
 	#ifdef DISABLE_PLL
 		SPI_Write(32, 0x7007|0x0008);
 	#else
-		SPI_Write(32, 0x7007);
+//		SPI_Write(32, 0x7007);
+		SPI_Write(32, 0x7007|0x0008);
 	#endif
 	
 	SPI_Write(34, 0x0001);
@@ -97,11 +100,11 @@ void Required_Uploads()
 	SPI_Write(197, 0x0380);		// Num black lines SPI_Write(197, 0x030A);
 	
 	#ifdef DISABLE_PLL
-		SPI_Write(199, 167);	// Exposure/Frame rate config, SPI_Write(199, 0x0299);
+		SPI_Write(199, 167);		// Exposure/Frame rate config, SPI_Write(199, 0x0299);	// Why is this not 666?? --> Python divides input clock by 4 and then uses PLL to multiply by 4 again
 		SPI_Write(200, 5000);	// Frame length, SPI_Write(200, 0x0350);
 		SPI_Write(201, 4900);	// SPI_Write(201, 2900); // Exposure time SPI_Write(201, 0x01F4);
 	#else
-		SPI_Write(199, 666);	// Exposure/Frame rate config, SPI_Write(199, 0x0299);
+		SPI_Write(199, 666);		// Exposure/Frame rate config, SPI_Write(199, 0x0299);
 		SPI_Write(200, 3000);	// Frame length, SPI_Write(200, 0x0350);
 		SPI_Write(201, 2900);	// SPI_Write(201, 2900); // Exposure time SPI_Write(201, 0x01F4);
 	#endif
@@ -262,6 +265,9 @@ void ROI_Configuration()
 		// goes from 0 - 151
 		// mind the subsampling
 		SPI_Write(257, 0x9502);		// take 8 pixels off from each side (each bit = 4 pxs)
+		
+		// Test on Oscilloscope:
+		// SPI_Write(257, 0x5250);
 		
 		// RIO0 config_lsb0
 		// The least significant configuration bits for x and y parameters are located in separate registers
