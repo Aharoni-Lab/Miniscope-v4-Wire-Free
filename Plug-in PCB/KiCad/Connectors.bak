@@ -15,50 +15,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L .Connector:Conn_01x01 J2
-U 1 1 5CA26767
-P 4450 4100
-F 0 "J2" H 4530 4142 50  0000 L CNN
-F 1 "Conn_01x01" H 4530 4051 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4450 4100 50  0001 C CNN
-F 3 "~" H 4450 4100 50  0001 C CNN
-	1    4450 4100
-	1    0    0    -1  
-$EndComp
-$Comp
-L .Connector:Conn_01x01 J3
-U 1 1 5CA267B7
-P 4450 4200
-F 0 "J3" H 4530 4242 50  0000 L CNN
-F 1 "Conn_01x01" H 4530 4151 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4450 4200 50  0001 C CNN
-F 3 "~" H 4450 4200 50  0001 C CNN
-	1    4450 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+BATT #PWR032
-U 1 1 5CA268F4
-P 4250 4100
-F 0 "#PWR032" H 4250 3950 50  0001 C CNN
-F 1 "+BATT" H 4265 4273 50  0000 C CNN
-F 2 "" H 4250 4100 50  0001 C CNN
-F 3 "" H 4250 4100 50  0001 C CNN
-	1    4250 4100
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:Earth #PWR033
-U 1 1 5CA26FF1
-P 4250 4200
-F 0 "#PWR033" H 4250 3950 50  0001 C CNN
-F 1 "Earth" H 4250 4050 50  0001 C CNN
-F 2 "" H 4250 4200 50  0001 C CNN
-F 3 "~" H 4250 4200 50  0001 C CNN
-	1    4250 4200
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+1V8 #PWR034
 U 1 1 5CC8E5DF
 P 6850 2850
@@ -136,4 +92,48 @@ Text HLabel 6900 3050 0    50   Input ~ 0
 SWDCLK-Rec
 Text HLabel 6900 2950 0    50   Input ~ 0
 SWDIO-Rec
+$Comp
+L power:+3V3 #PWR01
+U 1 1 5D5EEA1B
+P 4675 4025
+F 0 "#PWR01" H 4675 3875 50  0001 C CNN
+F 1 "+3V3" H 4690 4198 50  0000 C CNN
+F 2 "" H 4675 4025 50  0001 C CNN
+F 3 "" H 4675 4025 50  0001 C CNN
+	1    4675 4025
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR02
+U 1 1 5D5EEDA1
+P 4675 4275
+F 0 "#PWR02" H 4675 4125 50  0001 C CNN
+F 1 "+1V8" H 4690 4448 50  0000 C CNN
+F 2 "" H 4675 4275 50  0001 C CNN
+F 3 "" H 4675 4275 50  0001 C CNN
+	1    4675 4275
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J1
+U 1 1 5D5EF97F
+P 4875 4025
+F 0 "J1" H 4955 4067 50  0000 L CNN
+F 1 "Conn_01x01" H 4955 3976 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4875 4025 50  0001 C CNN
+F 3 "~" H 4875 4025 50  0001 C CNN
+	1    4875 4025
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J2
+U 1 1 5D5F04EA
+P 4875 4275
+F 0 "J2" H 4955 4317 50  0000 L CNN
+F 1 "Conn_01x01" H 4955 4226 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4875 4275 50  0001 C CNN
+F 3 "~" H 4875 4275 50  0001 C CNN
+	1    4875 4275
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

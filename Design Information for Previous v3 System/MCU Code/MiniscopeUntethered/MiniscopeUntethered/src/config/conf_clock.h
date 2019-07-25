@@ -50,8 +50,8 @@
 //Which CMOS imaging sensor are we using. Defined in conf_clock.h and sdImaging.h
 //#define MT9V032
 //#define EV76C454
-//#define EV76C454_SUBSAMP
-#define EV76C541
+#define EV76C454_SUBSAMP
+//#define EV76C541
 
 // ===== System Clock (MCK) Source Options
 //#define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_SLCK_RC

@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 6
+Sheet 5 6
 Title ""
 Date ""
 Rev ""
@@ -28,13 +28,13 @@ $EndComp
 Entry Wire Line
 	3800 3250 3700 3350
 Text Label 3700 3850 2    50   ~ 0
-SD_in0
+WXB_in0
 Text Label 3700 3950 2    50   ~ 0
-SD_in1
+WXB_in1
 Text Label 3700 3250 2    50   ~ 0
-SD_in2
+WXB_in2
 Text Label 3700 3350 2    50   ~ 0
-SD_in3
+WXB_in3
 Text HLabel 4050 3650 2    50   Output ~ 0
 WXB_CLK
 Text HLabel 4050 3250 2    50   Output ~ 0
@@ -76,10 +76,10 @@ Wire Bus Line
 	3800 3250 4050 3250
 Connection ~ 3800 3250
 NoConn ~ 3250 3550
-Wire Bus Line
-	3800 3250 3800 3850
 Wire Wire Line
 	4050 3450 3250 3450
 Text HLabel 4050 3450 2    50   Input ~ 0
 WXB_CMD
+Wire Bus Line
+	3800 3250 3800 3850
 $EndSCHEMATC

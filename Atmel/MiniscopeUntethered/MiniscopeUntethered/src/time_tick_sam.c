@@ -52,7 +52,7 @@ volatile uint32_t g_ms_ticks = 0;
 
 #define TICK_US 1000
 /**
- * \brief Handler for Sytem Tick interrupt.
+ * \brief Handler for System Tick interrupt.
  *
  * Process System Tick Event
  * Increments the g_ms_ticks counter.
