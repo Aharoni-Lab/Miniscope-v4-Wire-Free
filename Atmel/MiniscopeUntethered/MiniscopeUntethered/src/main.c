@@ -205,7 +205,7 @@ void BitBang_Write_WXB()
 	// imageBuffer size = (NUM_PIXEL_WORDS + FRAME_FOOTER_LENGTH) * 32 bits per word
 	
 	uint32_t Write_Frame_Num = 0;
-	#define SD_BUS_SIZE = 4;
+	#define SD_BUS_SIZE		4
 	
 	while(1)
 	{
@@ -216,10 +216,11 @@ void BitBang_Write_WXB()
 			ioport_set_pin_level(WXB_CLK, 1);		// Pull clock pin high
 			delay_us(10);
 		
+			uint32_t i = 0;
+			
 			switch (Write_Frame_Num % 3)				// Three different buffers
 			{
 				case (0):
-				uint32_t i;
 				for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH); ++i)		// For each 32-bit word in the buffer...
 				{
 					uint32_t four_pxs = imageBuffer0[i];
@@ -244,7 +245,6 @@ void BitBang_Write_WXB()
 				}
 			
 				case (1):
-				uint32_t i;
 				for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH); ++i)		// For each 32-bit word in the buffer...
 				{
 					uint32_t four_pxs = imageBuffer1[i];
@@ -269,7 +269,6 @@ void BitBang_Write_WXB()
 				}
 			
 				case (2):
-				uint32_t i;
 				for (i = 0; i < (NUM_PIXELS + FRAME_FOOTER_LENGTH); ++i)		// For each 32-bit word in the buffer...
 				{
 					uint32_t four_pxs = imageBuffer2[i];
@@ -395,6 +394,9 @@ int main (void)
 		#define WXB											// set WXB. Go to: Wired Expansion PCB Data Transfer.
 	}
 	
+	uint32_t curBlock = STARTING_BLOCK;
+	uint32_t writeLineCount = 0;
+	uint32_t writeCount = 0;
 	
 	#ifdef MSD
 	// ========== Micro SD Card Data Transfer ========== //
@@ -419,9 +421,9 @@ int main (void)
 	
 	sd_mmc_init_write_blocks(SD_SLOT_NB, STARTING_BLOCK, 50 * NB_BLOCKS_PER_FRAME);	
 	
-	uint32_t curBlock = STARTING_BLOCK;
-	uint32_t writeLineCount = 0;
-	uint32_t writeCount = 0;
+//	uint32_t curBlock = STARTING_BLOCK;
+//	uint32_t writeLineCount = 0;
+//	uint32_t writeCount = 0;
 	
 	tick_start = time_tick_get();
 	
@@ -596,9 +598,9 @@ int main (void)
 	while (time_tick_calc_delay(tick_start, time_tick_get()) < 5000)
 	{}
 			
-	uint32_t curBlock = STARTING_BLOCK;
-	uint32_t writeLineCount = 0;
-	uint32_t writeCount = 0;
+// 	uint32_t curBlock = STARTING_BLOCK;
+// 	uint32_t writeLineCount = 0;
+// 	uint32_t writeCount = 0;
 		
 	tick_start = time_tick_get();
 		
