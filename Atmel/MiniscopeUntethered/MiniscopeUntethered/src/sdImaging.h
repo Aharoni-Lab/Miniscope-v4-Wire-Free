@@ -161,7 +161,7 @@
 	#define PIXELS_PER_WORD			1 << D_SIZE		// inside a word (32-bit) how many pixels fit in? --> 4 pixels
 	#define FRAME_RATE				20
 	#define IMAGE_WIDTH				768 //Will be subsampled by 2x
-	#define IMAGE_HEIGHT			592 //Will be subsampled by 2x
+	#define IMAGE_HEIGHT				592 //Will be subsampled by 2x
 	#define IMAGE_SUBSAMPLE			2
 	#define NUM_PIXELS				(IMAGE_HEIGHT*IMAGE_WIDTH)/(IMAGE_SUBSAMPLE*IMAGE_SUBSAMPLE) //Currently needs to be a multiple of PIXELS_PER_WORD and SDMMC_BLOCK_SIZE
 	#define FRAME_FOOTER_LENGTH		0 //Last 32bit of footer is frame number. The rest is used to fill up sdCard multi block write. Has units of WORDS

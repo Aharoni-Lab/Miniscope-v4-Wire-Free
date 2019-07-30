@@ -235,10 +235,10 @@ void BitBang_Write_WXB()
 
 						ioport_set_pin_level(WXB_CLK, 0);							// Pull clock pin low
 						arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);			// Send four bits on the SD but simultaneously
-						delay_us(10);
+						delay_us(1);
 					
 						ioport_set_pin_level(WXB_CLK, 1);							// Pull clock pin high
-						delay_us(10);
+						delay_us(1);
 			
 						four_pxs = (four_pxs << SD_BUS_SIZE);						// Move the word up bitwise by the bus size (4 data pins)
 					}
@@ -259,10 +259,10 @@ void BitBang_Write_WXB()
 
 						ioport_set_pin_level(WXB_CLK, 0);							// Pull clock pin low
 						arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);			// Send four bits on the SD but simultaneously
-						delay_us(10);
+						delay_us(1);
 					
 						ioport_set_pin_level(WXB_CLK, 1);							// Pull clock pin high
-						delay_us(10);
+						delay_us(1);
 					
 						four_pxs = (four_pxs << SD_BUS_SIZE);						// Move the word up bitwise by the bus size (4 data pins)
 					}
@@ -283,10 +283,10 @@ void BitBang_Write_WXB()
 
 						ioport_set_pin_level(WXB_CLK, 0);							// Pull clock pin low
 						arch_ioport_pin_to_base(WXB_PIN_1)->PIO_ODSR |= (four_bits);			// Send four bits on the SD but simultaneously
-						delay_us(10);
+						delay_us(1);
 					
 						ioport_set_pin_level(WXB_CLK, 1);							// Pull clock pin high
-						delay_us(10);
+						delay_us(1);
 					
 						four_pxs = (four_pxs << SD_BUS_SIZE);						// Move the word up bitwise by the bus size (4 data pins)
 					}
@@ -585,7 +585,7 @@ int main (void)
 	#endif	// MSD
 	
 	#ifdef WXB
-	// ========== Stream Data from Imaging Sensor to SD Card ========= //
+	// ========== Stream Data from Imaging Sensor to Wired Expansion Board ========= //
 	imagingSensorLoadHeader();
 		
 	if (ledValue >= PWM_PERIOD_VALUE)
@@ -602,7 +602,7 @@ int main (void)
 // 	uint32_t writeLineCount = 0;
 // 	uint32_t writeCount = 0;
 		
-	tick_start = time_tick_get();
+//	tick_start = time_tick_get();
 		
 	startRecording = 1;
 	ioport_set_pin_level(TRIGGER0_PIN, 1);	// Starts acquisition of imaging sensor
