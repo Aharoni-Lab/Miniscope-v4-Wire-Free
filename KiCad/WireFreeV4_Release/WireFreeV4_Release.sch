@@ -1,5 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:MiniScope_V4-cache
+LIBS:WireFreeV4_Release-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
