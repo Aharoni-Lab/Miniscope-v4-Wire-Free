@@ -1,14 +1,12 @@
 Drill report for C:\Users\raymond\Documents\Aharoni Lab\Miniscope-v4-Wire-Free\Plug-in PCB\KiCad\SDCard-PCB.kicad_pcb
-Created on 7/24/2019 2:42:50 AM
+Created on 8/27/2019 2:04:19 PM
 
 Copper Layer Stackup:
     =============================================================
     L1 :  F.Cu                      front
     L2 :  In1.Cu                    in1
     L3 :  In2.Cu                    in2
-    L4 :  In3.Cu                    in3
-    L5 :  In4.Cu                    in4
-    L6 :  B.Cu                      back
+    L4 :  B.Cu                      back
 
 
 Drill file 'SDCard-PCB-PTH.drl' contains
