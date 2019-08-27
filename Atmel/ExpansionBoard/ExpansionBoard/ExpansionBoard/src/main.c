@@ -31,9 +31,12 @@
 #include <asf.h>
 #include "expansion.h"
 #include "definitions.h"
+#include "serializer.h"
+
 
 int main (void)
 {
+	uint32_t D_In = 0;
 	WDT->WDT_MR = WDT_MR_WDDIS;
 	irq_initialize_vectors();
 	cpu_irq_enable();
@@ -41,26 +44,19 @@ int main (void)
 	sysclk_init();
 	board_init();
 	ioport_init();
+	TWIHS_init();
 	
+	twihs_packet_t Ser_Packet;
 	// SDA and SCL to communicate with the serializer and set it up.
-	// define object.addr, .buffer, .length
-	// while (twihs_master_write(TWIHS?, twihs_packet_t object) != TWIHS_SUCESS)
-	// {}
+	// define object.addr[0], .buffer, .length
+	Ser_Packet.addr[0]		 = 0x01;
+	Ser_Packet.buffer[0] 	|= 0x10;		// VDDIO = 1.8V
+	Ser_Packet.length		 = 1;
+	while (twihs_master_write(TWIHS1, Ser_Packet) != TWIHS_SUCCESS)
+	{}
 	
 	// something about starting to accept data = 1 (include it in the interrupt function)
+	D_In = 1;
 	
-	// bit bang sending the data to serializer... is there a way to expedite this?
-	// Send data to serializer
-	// line, frame valids up
-		// pixel clock up
-		// send 8 bit data (use the PIOD module)
-		// pixel clock down
-	// repeat until line sent
-	// line valid down
-	// line valid up
-	// repeat for number of lines
-	// .. line valid down
-	// frame valid down
-	
-	// repeat for the number of frames in the buffer
+	BB_Serializer();	
 }

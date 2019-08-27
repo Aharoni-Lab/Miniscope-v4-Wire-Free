@@ -214,7 +214,7 @@ void BitBang_Write_WXB()
 			#ifdef NOIP1SN0480A
 		
 			ioport_set_pin_level(WXB_CLK, 1);		// Pull clock pin high
-			delay_us(10);
+			delay_us(1);	
 		
 			uint32_t i = 0;
 			

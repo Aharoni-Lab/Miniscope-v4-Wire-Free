@@ -241,3 +241,6 @@ void Clk_Capture_Disable()
 {
 	PIOA->PIO_PCMR &= (uint32_t)(~PIO_PCMR_PCEN) ;
 }
+
+
+#endif	// EXPANSION_H_
