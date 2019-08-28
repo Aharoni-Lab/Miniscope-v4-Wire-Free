@@ -185,7 +185,7 @@ U 1 1 5D3DB94D
 P 6325 2750
 F 0 "J18" V 6289 2662 50  0000 R CNN
 F 1 "Conn_01x01" V 6198 2662 50  0000 R CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 6325 2750 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 6325 2750 50  0001 C CNN
 F 3 "~" H 6325 2750 50  0001 C CNN
 	1    6325 2750
 	0    -1   -1   0   
@@ -199,7 +199,7 @@ U 1 1 5D3DC2A8
 P 6325 3250
 F 0 "J19" V 6197 3330 50  0000 L CNN
 F 1 "Conn_01x01" V 6288 3330 50  0000 L CNN
-F 2 "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical" H 6325 3250 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 6325 3250 50  0001 C CNN
 F 3 "~" H 6325 3250 50  0001 C CNN
 	1    6325 3250
 	0    1    1    0   
