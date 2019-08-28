@@ -211,17 +211,6 @@ Wire Wire Line
 	10250 5175 9775 5175
 Wire Wire Line
 	9775 5225 9775 5175
-$Comp
-L power:+1V8 #PWR0118
-U 1 1 5CD64A59
-P 10250 4800
-F 0 "#PWR0118" H 10250 4650 50  0001 C CNN
-F 1 "+1V8" H 10265 4973 50  0000 C CNN
-F 2 "" H 10250 4800 50  0001 C CNN
-F 3 "" H 10250 4800 50  0001 C CNN
-	1    10250 4800
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	10250 4800 10250 4875
 $Comp
@@ -270,17 +259,6 @@ Wire Wire Line
 Connection ~ 6750 2175
 Wire Wire Line
 	6750 2175 6750 2250
-$Comp
-L power:+1V8 #PWR0121
-U 1 1 5CDF8F09
-P 6775 3275
-F 0 "#PWR0121" H 6775 3125 50  0001 C CNN
-F 1 "+1V8" H 6790 3448 50  0000 C CNN
-F 2 "" H 6775 3275 50  0001 C CNN
-F 3 "" H 6775 3275 50  0001 C CNN
-	1    6775 3275
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:R R5
 U 1 1 5CDF8F0F
@@ -706,15 +684,13 @@ F 5 "0201" V 9175 1250 50  0001 C CNN "Size"
 	1    9175 1250
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	5700 2500 5700 2550
 $Comp
 L .Connector:Conn_01x01 J_coax_gnd1
 U 1 1 5CD10A6F
 P 5625 4775
 F 0 "J_coax_gnd1" H 5705 4817 50  0000 L CNN
 F 1 "Conn_01x01" H 5705 4726 50  0000 L CNN
-F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 5625 4775 50  0001 C CNN
+F 2 ".Connector:Conn_1x1_100x100_Pad" H 5625 4775 50  0001 C CNN
 F 3 "~" H 5625 4775 50  0001 C CNN
 	1    5625 4775
 	1    0    0    -1  
@@ -847,10 +823,8 @@ Text Label 4250 2525 1    50   ~ 0
 DOUT_P
 Wire Wire Line
 	4250 2250 4250 2600
-Text Label 6025 2300 0    50   ~ 0
+Text Label 5700 2800 1    50   ~ 0
 DOUT_P
-Wire Wire Line
-	5900 2300 6300 2300
 Text Label 7875 950  0    50   ~ 0
 DOUT_P
 Wire Wire Line
@@ -937,17 +911,6 @@ F 1 "Earth" H 5200 2950 50  0001 C CNN
 F 2 "" H 5200 3100 50  0001 C CNN
 F 3 "~" H 5200 3100 50  0001 C CNN
 	1    5200 3100
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:Earth #PWR0106
-U 1 1 5D5F562A
-P 5700 2550
-F 0 "#PWR0106" H 5700 2300 50  0001 C CNN
-F 1 "Earth" H 5700 2400 50  0001 C CNN
-F 2 "" H 5700 2550 50  0001 C CNN
-F 3 "~" H 5700 2550 50  0001 C CNN
-	1    5700 2550
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1039,8 +1002,43 @@ F 3 "~" H 9775 6075 50  0001 C CNN
 	1    9775 6075
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5700 2800 5700 2500
 Wire Bus Line
 	1450 3250 1450 3600
 Wire Bus Line
 	1450 3600 1450 3950
+$Comp
+L power:Earth #PWR0106
+U 1 1 5D67C474
+P 5900 2300
+F 0 "#PWR0106" H 5900 2050 50  0001 C CNN
+F 1 "Earth" H 5900 2150 50  0001 C CNN
+F 2 "" H 5900 2300 50  0001 C CNN
+F 3 "~" H 5900 2300 50  0001 C CNN
+	1    5900 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5D6CA288
+P 10250 4800
+F 0 "#PWR?" H 10250 4650 50  0001 C CNN
+F 1 "+3V3" H 10265 4973 50  0000 C CNN
+F 2 "" H 10250 4800 50  0001 C CNN
+F 3 "" H 10250 4800 50  0001 C CNN
+	1    10250 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5D6CA936
+P 6775 3275
+F 0 "#PWR?" H 6775 3125 50  0001 C CNN
+F 1 "+3V3" H 6790 3448 50  0000 C CNN
+F 2 "" H 6775 3275 50  0001 C CNN
+F 3 "" H 6775 3275 50  0001 C CNN
+	1    6775 3275
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

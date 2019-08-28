@@ -15,17 +15,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L power:+1V8 #PWR034
-U 1 1 5CC8E5DF
-P 6850 2850
-F 0 "#PWR034" H 6850 2700 50  0001 C CNN
-F 1 "+1V8" H 6865 3023 50  0000 C CNN
-F 2 "" H 6850 2850 50  0001 C CNN
-F 3 "" H 6850 2850 50  0001 C CNN
-	1    6850 2850
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:Earth #PWR035
 U 1 1 5CC8E5E5
 P 6900 3150
@@ -134,6 +123,17 @@ F 1 "Conn_01x01" H 4955 4226 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4875 4275 50  0001 C CNN
 F 3 "~" H 4875 4275 50  0001 C CNN
 	1    4875 4275
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0128
+U 1 1 5D68DC19
+P 6850 2850
+F 0 "#PWR0128" H 6850 2700 50  0001 C CNN
+F 1 "+3V3" H 6865 3023 50  0000 C CNN
+F 2 "" H 6850 2850 50  0001 C CNN
+F 3 "" H 6850 2850 50  0001 C CNN
+	1    6850 2850
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
