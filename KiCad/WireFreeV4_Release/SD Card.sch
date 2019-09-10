@@ -263,10 +263,6 @@ Wire Wire Line
 	6050 3250 7150 3250
 Wire Wire Line
 	5500 2850 5950 2850
-Wire Bus Line
-	3450 2900 3450 3050
-Wire Bus Line
-	3450 2750 3450 2900
 $Comp
 L .Capacitor:GRM033R61A104ME15D C6
 U 1 1 5D3E4D12
@@ -316,4 +312,8 @@ Wire Wire Line
 Connection ~ 6200 2200
 Wire Wire Line
 	6200 2200 6950 2200
+Wire Bus Line
+	3450 2900 3450 3050
+Wire Bus Line
+	3450 2750 3450 2900
 $EndSCHEMATC

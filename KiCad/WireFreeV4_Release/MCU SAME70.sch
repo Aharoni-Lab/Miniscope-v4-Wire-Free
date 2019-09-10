@@ -1050,14 +1050,47 @@ F 3 "~" H 9750 3850 50  0001 C CNN
 	1    9750 3850
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	9950 3450 10400 3450
+Text Label 9975 3450 0    50   ~ 0
+IR_Receiver
+$Comp
+L .Device:C_Small C21
+U 1 1 5D787749
+P 9500 4800
+F 0 "C21" V 9271 4800 50  0000 C CNN
+F 1 "C_Small" V 9362 4800 50  0000 C CNN
+F 2 ".Capacitor:C_0805_2012Metric_L" H 9500 4800 50  0001 C CNN
+F 3 "~" H 9500 4800 50  0001 C CNN
+	1    9500 4800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:Earth #PWR0101
+U 1 1 5D787C2B
+P 9400 4800
+F 0 "#PWR0101" H 9400 4550 50  0001 C CNN
+F 1 "Earth" H 9400 4650 50  0001 C CNN
+F 2 "" H 9400 4800 50  0001 C CNN
+F 3 "~" H 9400 4800 50  0001 C CNN
+	1    9400 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR0102
+U 1 1 5D788300
+P 9600 4800
+F 0 "#PWR0102" H 9600 4650 50  0001 C CNN
+F 1 "+3V3" V 9615 4928 50  0000 L CNN
+F 2 "" H 9600 4800 50  0001 C CNN
+F 3 "" H 9600 4800 50  0001 C CNN
+	1    9600 4800
+	0    1    1    0   
+$EndComp
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line
 	3100 3850 3100 4050
-Wire Wire Line
-	9950 3450 10400 3450
 Wire Bus Line
 	3500 1650 3500 2550
-Text Label 9975 3450 0    50   ~ 0
-IR_Receiver
 $EndSCHEMATC
