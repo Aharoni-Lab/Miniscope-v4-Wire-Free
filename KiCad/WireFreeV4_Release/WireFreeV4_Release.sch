@@ -32,13 +32,14 @@ $EndSheet
 $Sheet
 S 8450 5650 2200 650 
 U 5C92D2A9
-F0 "Connectors" 50
-F1 "Connectors.sch" 50
+F0 "External Connectors" 50
+F1 "External Connectors.sch" 50
 F2 "SWDCLK" I L 8450 5850 50 
 F3 "SWDIO" I L 8450 5950 50 
 F4 "SDA" I L 8450 6100 50 
 F5 "SCL" I L 8450 6200 50 
 F6 "LED_ENT" I L 8450 5700 50 
+F7 "IR_Receiver" I R 10650 6150 50 
 $EndSheet
 Text Notes 7000 2500 0    50   ~ 0
 DONE
@@ -103,6 +104,7 @@ F18 "SDA" O R 7250 6100 50
 F19 "SCL" O R 7250 6200 50 
 F20 "LED_ENT" O R 7250 5700 50 
 F21 "Status_LED" O L 4800 3825 50 
+F22 "IR_Receiver" O R 7250 6450 50 
 $EndSheet
 Wire Wire Line
 	4800 5150 3900 5150
@@ -134,4 +136,10 @@ Wire Wire Line
 	8450 5700 7250 5700
 Wire Wire Line
 	3900 3825 4800 3825
+Wire Wire Line
+	7250 6450 10825 6450
+Wire Wire Line
+	10825 6450 10825 6150
+Wire Wire Line
+	10825 6150 10650 6150
 $EndSCHEMATC
