@@ -202,30 +202,6 @@ Wire Wire Line
 	6250 3050 6500 3050
 Wire Wire Line
 	6250 3450 6500 3450
-$Comp
-L .Connector:Conn_01x01 J3
-U 1 1 5CAF2734
-P 6950 3050
-F 0 "J3" H 7030 3092 50  0000 L CNN
-F 1 "Conn_01x01" H 7030 3001 50  0000 L CNN
-F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 6950 3050 50  0001 C CNN
-F 3 "~" H 6950 3050 50  0001 C CNN
-	1    6950 3050
-	1    0    0    -1  
-$EndComp
-Connection ~ 6750 3050
-$Comp
-L .Connector:Conn_01x01 J4
-U 1 1 5CAF2EC1
-P 6950 3450
-F 0 "J4" H 7030 3492 50  0000 L CNN
-F 1 "Conn_01x01" H 7030 3401 50  0000 L CNN
-F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 6950 3450 50  0001 C CNN
-F 3 "~" H 6950 3450 50  0001 C CNN
-	1    6950 3450
-	1    0    0    -1  
-$EndComp
-Connection ~ 6750 3450
 Connection ~ 6500 3450
 Wire Wire Line
 	6500 3450 6750 3450
