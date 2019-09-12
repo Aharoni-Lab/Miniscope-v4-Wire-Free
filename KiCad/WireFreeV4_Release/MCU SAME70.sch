@@ -1037,12 +1037,12 @@ F 3 "" H 9600 4800 50  0001 C CNN
 	1    9600 4800
 	0    1    1    0   
 $EndComp
+Text HLabel 7650 2650 2    50   Output ~ 0
+IR_Receiver
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line
 	3100 3850 3100 4050
 Wire Bus Line
 	3500 1650 3500 2550
-Text HLabel 7650 2650 2    50   Output ~ 0
-IR_Receiver
 $EndSCHEMATC

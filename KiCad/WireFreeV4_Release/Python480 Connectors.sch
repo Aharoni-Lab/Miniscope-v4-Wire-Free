@@ -75,180 +75,157 @@ Text Label 5850 5600 0    50   ~ 0
 img_d7
 Wire Bus Line
 	6300 5350 6800 5350
-Text HLabel 1975 4775 0    50   Output ~ 0
+Text HLabel 3425 4750 0    50   Output ~ 0
 CLK_OUT
-Text HLabel 1975 5475 0    50   Output ~ 0
+Text HLabel 3425 5450 0    50   Output ~ 0
 FRAME_VALID
-Text HLabel 1975 5575 0    50   Output ~ 0
+Text HLabel 3425 5550 0    50   Output ~ 0
 LINE_VALID
 Wire Wire Line
-	2825 4175 3175 4175
+	4275 4150 4625 4150
 $Comp
 L power:Earth #PWR043
 U 1 1 5CA4EDF4
-P 2825 4175
-F 0 "#PWR043" H 2825 3925 50  0001 C CNN
-F 1 "Earth" H 2825 4025 50  0001 C CNN
-F 2 "" H 2825 4175 50  0001 C CNN
-F 3 "~" H 2825 4175 50  0001 C CNN
-	1    2825 4175
+P 4275 4150
+F 0 "#PWR043" H 4275 3900 50  0001 C CNN
+F 1 "Earth" H 4275 4000 50  0001 C CNN
+F 2 "" H 4275 4150 50  0001 C CNN
+F 3 "~" H 4275 4150 50  0001 C CNN
+	1    4275 4150
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2825 4275 3175 4275
+	4275 4250 4625 4250
 $Comp
 L power:+1V8 #PWR044
 U 1 1 5CA4FD6F
-P 2825 4275
-F 0 "#PWR044" H 2825 4125 50  0001 C CNN
-F 1 "+1V8" V 2840 4403 50  0000 L CNN
-F 2 "" H 2825 4275 50  0001 C CNN
-F 3 "" H 2825 4275 50  0001 C CNN
-	1    2825 4275
+P 4275 4250
+F 0 "#PWR044" H 4275 4100 50  0001 C CNN
+F 1 "+1V8" V 4290 4378 50  0000 L CNN
+F 2 "" H 4275 4250 50  0001 C CNN
+F 3 "" H 4275 4250 50  0001 C CNN
+	1    4275 4250
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	3175 4375 2825 4375
-Text Label 2825 4375 0    50   ~ 0
+	4625 4350 4275 4350
+Text Label 4275 4350 0    50   ~ 0
 img_d0
 Wire Wire Line
-	2825 4575 3175 4575
+	4275 4550 4625 4550
 Wire Wire Line
-	2825 4675 3175 4675
+	4275 4650 4625 4650
 Wire Wire Line
-	3175 5975 2825 5975
+	4625 5650 4275 5650
 Wire Wire Line
-	3175 6075 2825 6075
+	4625 5750 4275 5750
 Wire Wire Line
-	2825 4875 3175 4875
+	4275 4850 4625 4850
 Wire Wire Line
-	2825 4975 3175 4975
+	4275 4950 4625 4950
 Wire Wire Line
-	3175 5075 2825 5075
+	4625 5050 4275 5050
 Wire Wire Line
-	3175 5375 2825 5375
+	4625 5350 4275 5350
 Wire Wire Line
-	2825 5275 3175 5275
+	4275 5250 4625 5250
 Wire Wire Line
-	2825 5175 3175 5175
-Text Label 2825 4575 0    50   ~ 0
+	4275 5150 4625 5150
+Text Label 4275 4550 0    50   ~ 0
 img_d1
-Text Label 2825 4675 0    50   ~ 0
+Text Label 4275 4650 0    50   ~ 0
 img_d3
-Text Label 2825 4875 0    50   ~ 0
+Text Label 4275 4850 0    50   ~ 0
 img_d4
-Text Label 2825 4975 0    50   ~ 0
+Text Label 4275 4950 0    50   ~ 0
 img_d5
-Text Label 2825 5075 0    50   ~ 0
+Text Label 4275 5050 0    50   ~ 0
 img_d7
-Text Label 2825 5175 0    50   ~ 0
+Text Label 4275 5150 0    50   ~ 0
 img_d6
-Text Label 2825 5275 0    50   ~ 0
+Text Label 4275 5250 0    50   ~ 0
 img_d8
-Text Label 2825 5375 0    50   ~ 0
+Text Label 4275 5350 0    50   ~ 0
 img_d9
-NoConn ~ 2825 5375
-NoConn ~ 2825 5275
+NoConn ~ 4275 5350
+NoConn ~ 4275 5250
 $Comp
 L power:+3V3 #PWR046
 U 1 1 5CA68D90
-P 2825 5975
-F 0 "#PWR046" H 2825 5825 50  0001 C CNN
-F 1 "+3V3" V 2840 6103 50  0000 L CNN
-F 2 "" H 2825 5975 50  0001 C CNN
-F 3 "" H 2825 5975 50  0001 C CNN
-	1    2825 5975
+P 4275 5650
+F 0 "#PWR046" H 4275 5500 50  0001 C CNN
+F 1 "+3V3" V 4290 5778 50  0000 L CNN
+F 2 "" H 4275 5650 50  0001 C CNN
+F 3 "" H 4275 5650 50  0001 C CNN
+	1    4275 5650
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:Earth #PWR047
 U 1 1 5CA69189
-P 2825 6075
-F 0 "#PWR047" H 2825 5825 50  0001 C CNN
-F 1 "Earth" H 2825 5925 50  0001 C CNN
-F 2 "" H 2825 6075 50  0001 C CNN
-F 3 "~" H 2825 6075 50  0001 C CNN
-	1    2825 6075
+P 4275 5750
+F 0 "#PWR047" H 4275 5500 50  0001 C CNN
+F 1 "Earth" H 4275 5600 50  0001 C CNN
+F 2 "" H 4275 5750 50  0001 C CNN
+F 3 "~" H 4275 5750 50  0001 C CNN
+	1    4275 5750
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	1975 4775 3175 4775
+	3425 4750 4625 4750
 Wire Wire Line
-	1975 5475 3175 5475
+	3425 5450 4625 5450
 Wire Wire Line
-	1975 5575 3175 5575
+	3425 5550 4625 5550
 Wire Wire Line
-	2825 4475 3175 4475
-Text Label 2825 4475 0    50   ~ 0
+	4275 4450 4625 4450
+Text Label 4275 4450 0    50   ~ 0
 img_d2
-$Comp
-L power:+BATT #PWR045
-U 1 1 5CA68C2B
-P 2825 5875
-F 0 "#PWR045" H 2825 5725 50  0001 C CNN
-F 1 "+BATT" V 2840 6002 50  0000 L CNN
-F 2 "" H 2825 5875 50  0001 C CNN
-F 3 "" H 2825 5875 50  0001 C CNN
-	1    2825 5875
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	2825 5875 3175 5875
-Wire Wire Line
-	3175 5775 2825 5775
-Wire Wire Line
-	3175 5675 2825 5675
-NoConn ~ 2825 5675
-NoConn ~ 2825 5775
-Text Label 2825 5675 0    50   ~ 0
-I2C_SDA1
-Text Label 2825 5775 0    50   ~ 0
-I2C_SCL1
-$Comp
-L Connector_Generic:Conn_01x28 J2
-U 1 1 5D422865
-P 3375 5475
-F 0 "J2" H 3455 5467 50  0000 L CNN
-F 1 "Conn_01x28" H 3455 5376 50  0000 L CNN
-F 2 ".Connector:B2B_Flex_28_Dual_Row_38milx24mil_Pad_20mil" H 3375 5475 50  0001 C CNN
-F 3 "~" H 3375 5475 50  0001 C CNN
-	1    3375 5475
-	1    0    0    -1  
-$EndComp
-Text HLabel 1875 6175 0    50   Input ~ 0
+Text HLabel 3325 5850 0    50   Input ~ 0
 Status_LED
 Text Notes 5900 2100 0    50   ~ 0
 Python board has its own status LED - \noverlap with MCU board status LED
 Wire Wire Line
-	1875 6675 3175 6675
+	3325 6350 4625 6350
 Wire Wire Line
-	1875 6575 3175 6575
+	3325 6250 4625 6250
 Wire Wire Line
-	1875 6175 3175 6175
+	3325 5850 4625 5850
 Wire Wire Line
-	1875 6475 3175 6475
+	3325 6150 4625 6150
 Wire Wire Line
-	1875 6775 3175 6775
+	3325 6450 4625 6450
 Wire Wire Line
-	1875 6275 3175 6275
+	3325 5950 4625 5950
 Wire Wire Line
-	1875 6375 3175 6375
+	3325 6050 4625 6050
 Wire Wire Line
-	1875 6875 3175 6875
-Text HLabel 1875 6475 0    50   Output ~ 0
+	3325 6550 4625 6550
+Text HLabel 3325 6150 0    50   Output ~ 0
 MONITOR0
-Text HLabel 1875 6875 0    50   Input ~ 0
+Text HLabel 3325 6550 0    50   Input ~ 0
 SS_N
-Text HLabel 1875 6375 0    50   Input ~ 0
+Text HLabel 3325 6050 0    50   Input ~ 0
 MISO
-Text HLabel 1875 6275 0    50   Input ~ 0
+Text HLabel 3325 5950 0    50   Input ~ 0
 MOSI
-Text HLabel 1875 6775 0    50   Input ~ 0
+Text HLabel 3325 6450 0    50   Input ~ 0
 SCK
-Text HLabel 1875 6575 0    50   Input ~ 0
+Text HLabel 3325 6250 0    50   Input ~ 0
 TRIGGER0
-Text HLabel 1875 6675 0    50   Input ~ 0
+Text HLabel 3325 6350 0    50   Input ~ 0
 RESET_N
+$Comp
+L Connector_Generic:Conn_01x25 J2
+U 1 1 5D8A5F91
+P 4825 5350
+F 0 "J2" H 4905 5392 50  0000 L CNN
+F 1 "Conn_01x25" H 4905 5301 50  0000 L CNN
+F 2 ".Connector:B2B_Flex_25_Dual_Row_38milx24mil_Pad_20mil" H 4825 5350 50  0001 C CNN
+F 3 "~" H 4825 5350 50  0001 C CNN
+	1    4825 5350
+	1    0    0    -1  
+$EndComp
 Wire Bus Line
 	6300 5350 6300 5700
 Wire Bus Line
