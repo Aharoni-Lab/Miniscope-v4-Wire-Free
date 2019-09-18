@@ -1,5 +1,5 @@
 Drill report for C:\Users\raymond\Documents\Aharoni Lab\Miniscope-v4-Wire-Free\KiCad\WireFreeV4_Release\WireFreeV4_Release.kicad_pcb
-Created on 7/29/2019 11:07:20 PM
+Created on 9/17/2019 6:40:34 PM
 
 Copper Layer Stackup:
     =============================================================
@@ -14,7 +14,7 @@ Copper Layer Stackup:
 Drill file 'WireFreeV4_Release-PTH.drl' contains
     plated through holes:
     =============================================================
-    T1  0.10mm  0.004"  (110 holes)
+    T1  0.20mm  0.008"  (110 holes)
 
     Total plated holes count 110
 

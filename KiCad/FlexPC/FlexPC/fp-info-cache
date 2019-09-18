@@ -1,4 +1,4 @@
-15923294285292980
+15931146299189466
 .Capacitor
 C_0201_0603Metric_L
 Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body
@@ -84,6 +84,20 @@ ASP-134604-01X
 160
 160
 .Connector
+B2B_Flex_03_Dual_Row_38milx24mil_Hole_20mil
+
+
+0
+3
+3
+.Connector
+B2B_Flex_03_Dual_Row_38milx24mil_Pad_20mil_copy
+
+
+0
+3
+3
+.Connector
 B2B_Flex_05_Dual_Row_38milx24mil_Hole_20mil
 
 
@@ -109,15 +123,8 @@ B2B_Flex_08_Dual_Row_38milx24mil_Hole_10milx20mil
 
 
 0
-14
-14
-.Connector
-B2B_Flex_09_Dual_Row_38milx24mil_Hole_10milx20mil
-
-
-0
-9
-9
+8
+8
 .Connector
 B2B_Flex_14_Dual_Row_38milx24mil_Hole_10milx20mil
 
@@ -154,6 +161,27 @@ B2B_Flex_20_Dual_Row_38milx24mil_Pad_20mil
 20
 20
 .Connector
+B2B_Flex_22_Dual_Row_38milx24mil_Hole_10milx20mil
+
+
+0
+22
+22
+.Connector
+B2B_Flex_22_Dual_Row_38milx24mil_Pad_20mil
+
+
+0
+22
+22
+.Connector
+B2B_Flex_23_Dual_Row_38milx24mil_Pad_20mil
+
+
+0
+23
+23
+.Connector
 B2B_Flex_28_Dual_Row_38milx24mil_Hole_10milx20mil
 
 
@@ -174,6 +202,13 @@ BTE-040-01-L-D-A
 0
 80
 80
+.Connector
+Conn_1x1_1mmx1mm_Pad
+
+
+0
+1
+1
 .Connector
 Conn_1x1_100x100_Pad
 
