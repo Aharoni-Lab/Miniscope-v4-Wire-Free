@@ -1,0 +1,375 @@
+EESchema Schematic File Version 4
+LIBS:Miniscope-v4-FlexPC-cache
+LIBS:Miniscope-v4-PYTHON480-cache
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_01x14 J2
+U 1 1 5CC847F7
+P 5450 3225
+F 0 "J2" H 5650 3325 50  0000 C CNN
+F 1 "Conn_01x14" H 5775 3200 50  0000 C CNN
+F 2 ".Connector:B2B_Flex_14_Dual_Row_38milx24mil_Hole_10milx20mil_small_hole" H 5450 3225 50  0001 C CNN
+F 3 "~" H 5450 3225 50  0001 C CNN
+	1    5450 3225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x20 J1
+U 1 1 5C4237CC
+P 4250 3150
+F 0 "J1" H 4330 3142 50  0000 L CNN
+F 1 "Conn_01x20" H 4330 3051 50  0000 L CNN
+F 2 ".Connector:B2B_Flex_20_Dual_Row_38milx24mil_Hole_10milx20mil_small_hole" H 4250 3150 50  0001 C CNN
+F 3 "~" H 4250 3150 50  0001 C CNN
+	1    4250 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x20 J3
+U 1 1 5D86AFFB
+P 2700 3200
+F 0 "J3" H 2780 3192 50  0000 L CNN
+F 1 "Conn_01x20" H 2780 3101 50  0000 L CNN
+F 2 ".Connector:B2B_Flex_20_Dual_Row_38milx24mil_Hole_10milx20mil_small_hole" H 2700 3200 50  0001 C CNN
+F 3 "~" H 2700 3200 50  0001 C CNN
+	1    2700 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 2250 4050 2250
+Wire Wire Line
+	3600 2350 4050 2350
+Wire Wire Line
+	3600 2450 4050 2450
+Wire Wire Line
+	3600 2550 4050 2550
+Wire Wire Line
+	3600 2650 4050 2650
+Wire Wire Line
+	3600 2750 4050 2750
+Wire Wire Line
+	3600 2850 4050 2850
+Wire Wire Line
+	3600 2950 4050 2950
+Wire Wire Line
+	3600 3050 4050 3050
+Wire Wire Line
+	3600 3150 4050 3150
+Wire Wire Line
+	3600 3250 4050 3250
+Wire Wire Line
+	3600 3350 4050 3350
+Wire Wire Line
+	3600 3450 4050 3450
+Wire Wire Line
+	3600 3550 4050 3550
+Wire Wire Line
+	3600 3650 4050 3650
+Wire Wire Line
+	3600 3750 4050 3750
+Wire Wire Line
+	3600 3850 4050 3850
+Wire Wire Line
+	3600 3950 4050 3950
+Wire Wire Line
+	3600 4050 4050 4050
+Wire Wire Line
+	3600 4150 4050 4150
+Text Label 3600 2450 0    50   ~ 0
+DOUT0
+Text Label 3600 2650 0    50   ~ 0
+DOUT1
+Text Label 3600 2550 0    50   ~ 0
+DOUT2
+Text Label 3600 2750 0    50   ~ 0
+DOUT3
+Text Label 3600 2950 0    50   ~ 0
+DOUT4
+Text Label 3600 3050 0    50   ~ 0
+DOUT5
+Text Label 3600 3250 0    50   ~ 0
+DOUT6
+Text Label 3600 3150 0    50   ~ 0
+DOUT7
+Text Label 3600 3350 0    50   ~ 0
+DOUT8
+Text Label 3600 3450 0    50   ~ 0
+DOUT9
+Text Label 3600 2850 0    50   ~ 0
+CLK_OUT
+Text Label 3600 3550 0    50   ~ 0
+FV
+Text Label 3600 3650 0    50   ~ 0
+LV
+$Comp
+L power:+3V3 #PWR0101
+U 1 1 5C99C4BD
+P 3600 4050
+F 0 "#PWR0101" H 3600 3900 50  0001 C CNN
+F 1 "+3V3" H 3615 4223 50  0000 C CNN
+F 2 "" H 3600 4050 50  0001 C CNN
+F 3 "" H 3600 4050 50  0001 C CNN
+	1    3600 4050
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 5C99C85C
+P 3600 4150
+F 0 "#PWR0102" H 3600 3900 50  0001 C CNN
+F 1 "GND" H 3605 3977 50  0000 C CNN
+F 2 "" H 3600 4150 50  0001 C CNN
+F 3 "" H 3600 4150 50  0001 C CNN
+	1    3600 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 5C99CB71
+P 3600 2250
+F 0 "#PWR0103" H 3600 2000 50  0001 C CNN
+F 1 "GND" H 3605 2077 50  0000 C CNN
+F 2 "" H 3600 2250 50  0001 C CNN
+F 3 "" H 3600 2250 50  0001 C CNN
+	1    3600 2250
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+1V8 #PWR0104
+U 1 1 5C99D3DF
+P 3600 2350
+F 0 "#PWR0104" H 3600 2200 50  0001 C CNN
+F 1 "+1V8" H 3615 2523 50  0000 C CNN
+F 2 "" H 3600 2350 50  0001 C CNN
+F 3 "" H 3600 2350 50  0001 C CNN
+	1    3600 2350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR0105
+U 1 1 5C99D8F5
+P 3600 3950
+F 0 "#PWR0105" H 3600 3800 50  0001 C CNN
+F 1 "+5V" H 3615 4123 50  0000 C CNN
+F 2 "" H 3600 3950 50  0001 C CNN
+F 3 "" H 3600 3950 50  0001 C CNN
+	1    3600 3950
+	0    -1   -1   0   
+$EndComp
+Text Label 3600 3750 0    50   ~ 0
+I2C_SDA
+Text Label 3600 3850 0    50   ~ 0
+I2C_SCL
+Wire Wire Line
+	4800 3925 5250 3925
+$Comp
+L power:GND #PWR0106
+U 1 1 5CA394D4
+P 4800 3925
+F 0 "#PWR0106" H 4800 3675 50  0001 C CNN
+F 1 "GND" H 4805 3752 50  0000 C CNN
+F 2 "" H 4800 3925 50  0001 C CNN
+F 3 "" H 4800 3925 50  0001 C CNN
+	1    4800 3925
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+1V8 #PWR0107
+U 1 1 5CA394DA
+P 4800 3825
+F 0 "#PWR0107" H 4800 3675 50  0001 C CNN
+F 1 "+1V8" H 4815 3998 50  0000 C CNN
+F 2 "" H 4800 3825 50  0001 C CNN
+F 3 "" H 4800 3825 50  0001 C CNN
+	1    4800 3825
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4800 3825 5250 3825
+Wire Wire Line
+	4800 3725 5250 3725
+Wire Wire Line
+	4800 3625 5250 3625
+Wire Wire Line
+	4800 3525 5250 3525
+Wire Wire Line
+	4800 3425 5250 3425
+Wire Wire Line
+	4800 3325 5250 3325
+Wire Wire Line
+	4800 3225 5250 3225
+Wire Wire Line
+	4800 3125 5250 3125
+Wire Wire Line
+	4800 3025 5250 3025
+Wire Wire Line
+	4800 2925 5250 2925
+Wire Wire Line
+	4800 2825 5250 2825
+Wire Wire Line
+	4800 2725 5250 2725
+Wire Wire Line
+	4800 2625 5250 2625
+$Comp
+L power:+3V3 #PWR0108
+U 1 1 5CAAD28D
+P 4800 2825
+F 0 "#PWR0108" H 4800 2675 50  0001 C CNN
+F 1 "+3V3" H 4815 2998 50  0000 C CNN
+F 2 "" H 4800 2825 50  0001 C CNN
+F 3 "" H 4800 2825 50  0001 C CNN
+	1    4800 2825
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+5V #PWR0109
+U 1 1 5CAADBF2
+P 4800 2625
+F 0 "#PWR0109" H 4800 2475 50  0001 C CNN
+F 1 "+5V" H 4815 2798 50  0000 C CNN
+F 2 "" H 4800 2625 50  0001 C CNN
+F 3 "" H 4800 2625 50  0001 C CNN
+	1    4800 2625
+	0    -1   -1   0   
+$EndComp
+Text Label 4800 2725 0    50   ~ 0
+LED
+Text Label 4800 3725 0    50   ~ 0
+SS_N
+Text Label 4800 3025 0    50   ~ 0
+MISO
+Text Label 4800 2925 0    50   ~ 0
+MOSI
+Text Label 4800 3425 0    50   ~ 0
+SCK
+Text Label 4800 3525 0    50   ~ 0
+I2C_SCL
+Text Label 4800 3625 0    50   ~ 0
+I2C_SDA
+Text Label 4800 3125 0    50   ~ 0
+MONITOR0
+Text Label 4800 3325 0    50   ~ 0
+RESET_N
+Text Label 4800 3225 0    50   ~ 0
+TRIGGER0
+Wire Wire Line
+	2050 2300 2500 2300
+Wire Wire Line
+	2050 2400 2500 2400
+Wire Wire Line
+	2050 2500 2500 2500
+Wire Wire Line
+	2050 2600 2500 2600
+Wire Wire Line
+	2050 2700 2500 2700
+Wire Wire Line
+	2050 2800 2500 2800
+Wire Wire Line
+	2050 2900 2500 2900
+Wire Wire Line
+	2050 3000 2500 3000
+Wire Wire Line
+	2050 3100 2500 3100
+Wire Wire Line
+	2050 3200 2500 3200
+Wire Wire Line
+	2050 3300 2500 3300
+Wire Wire Line
+	2050 3400 2500 3400
+Wire Wire Line
+	2050 3500 2500 3500
+Wire Wire Line
+	2050 3600 2500 3600
+Wire Wire Line
+	2050 3700 2500 3700
+Wire Wire Line
+	2050 3800 2500 3800
+Wire Wire Line
+	2050 3900 2500 3900
+Wire Wire Line
+	2050 4000 2500 4000
+Wire Wire Line
+	2050 4100 2500 4100
+Wire Wire Line
+	2050 4200 2500 4200
+Text Label 2050 3100 0    50   ~ 0
+DOUT3
+Text Label 2050 3300 0    50   ~ 0
+DOUT4
+Text Label 2050 3400 0    50   ~ 0
+DOUT5
+Text Label 2050 3600 0    50   ~ 0
+DOUT6
+Text Label 2050 3500 0    50   ~ 0
+DOUT7
+Text Label 2050 3700 0    50   ~ 0
+DOUT8
+Text Label 2050 3800 0    50   ~ 0
+DOUT9
+Text Label 2050 3200 0    50   ~ 0
+CLK_OUT
+Text Label 2050 3900 0    50   ~ 0
+FV
+Text Label 2050 4000 0    50   ~ 0
+LV
+$Comp
+L power:+3V3 #PWR0110
+U 1 1 5D898B72
+P 2050 4200
+F 0 "#PWR0110" H 2050 4050 50  0001 C CNN
+F 1 "+3V3" H 2065 4373 50  0000 C CNN
+F 2 "" H 2050 4200 50  0001 C CNN
+F 3 "" H 2050 4200 50  0001 C CNN
+	1    2050 4200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0111
+U 1 1 5D898B78
+P 2050 4100
+F 0 "#PWR0111" H 2050 3850 50  0001 C CNN
+F 1 "GND" H 2055 3927 50  0000 C CNN
+F 2 "" H 2050 4100 50  0001 C CNN
+F 3 "" H 2050 4100 50  0001 C CNN
+	1    2050 4100
+	0    1    1    0   
+$EndComp
+Text Label 2050 2900 0    50   ~ 0
+SS_N
+$Comp
+L power:+1V8 #PWR0112
+U 1 1 5D89AB4E
+P 2050 2800
+F 0 "#PWR0112" H 2050 2650 50  0001 C CNN
+F 1 "+1V8" H 2065 2973 50  0000 C CNN
+F 2 "" H 2050 2800 50  0001 C CNN
+F 3 "" H 2050 2800 50  0001 C CNN
+	1    2050 2800
+	0    -1   -1   0   
+$EndComp
+Text Label 2050 3000 0    50   ~ 0
+DOUT2
+Text Label 2050 2700 0    50   ~ 0
+SCK
+Text Label 2050 2600 0    50   ~ 0
+RESET_N
+Text Label 2050 2500 0    50   ~ 0
+MONITOR0
+Text Label 2050 2400 0    50   ~ 0
+MISO
+Text Label 2050 2300 0    50   ~ 0
+MOSI
+$EndSCHEMATC
