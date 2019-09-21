@@ -69,7 +69,7 @@ Text Label 2000 5550 0    50   ~ 0
 XOUT
 Text Label 2000 5650 0    50   ~ 0
 XIN
-Text Label 2000 5750 0    50   ~ 0
+Text Label 2000 3450 0    50   ~ 0
 LED_ENT
 Wire Wire Line
 	3500 7450 3500 7525
@@ -1733,4 +1733,6 @@ F 3 "" H 9775 5550 50  0001 C CNN
 	1    9775 5550
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	2850 3450 2000 3450
 $EndSCHEMATC
