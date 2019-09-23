@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:Miniscope-v4-wire-free-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -101,12 +102,12 @@ SCK
 Text Label 6100 5250 2    50   ~ 0
 SS_N
 Wire Wire Line
-	6100 2850 5250 2850
+	6100 4650 5250 4650
 Wire Wire Line
-	6100 2950 5250 2950
-Text Label 6100 2850 2    50   ~ 0
+	6100 4750 5250 4750
+Text Label 6100 4650 2    50   ~ 0
 IR_REV
-Text Label 6100 2950 2    50   ~ 0
+Text Label 6100 4750 2    50   ~ 0
 STATUS_LED
 Wire Wire Line
 	3450 1250 3450 750 
@@ -1536,42 +1537,6 @@ Wire Wire Line
 Wire Wire Line
 	10300 5650 9775 5650
 $Comp
-L Connector_Generic:Conn_01x03 J?
-U 1 1 5DA3FB98
-P 10475 6250
-AR Path="/5C92D2A9/5DA3FB98" Ref="J?"  Part="1" 
-AR Path="/5DA3FB98" Ref="J7"  Part="1" 
-F 0 "J7" H 10555 6292 50  0000 L CNN
-F 1 "Conn_01x03" H 10555 6201 50  0000 L CNN
-F 2 ".Connector:B2B_Flex_03_Dual_Row_38milx24mil_Pad_20mil_copy" H 10475 6250 50  0001 C CNN
-F 3 "~" H 10475 6250 50  0001 C CNN
-	1    10475 6250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10275 6150 9700 6150
-Wire Wire Line
-	10275 6350 9700 6350
-$Comp
-L power:+3V3 #PWR?
-U 1 1 5DA3FBA0
-P 9700 6350
-AR Path="/5C92D2A9/5DA3FBA0" Ref="#PWR?"  Part="1" 
-AR Path="/5DA3FBA0" Ref="#PWR038"  Part="1" 
-F 0 "#PWR038" H 9700 6200 50  0001 C CNN
-F 1 "+3V3" V 9715 6478 50  0000 L CNN
-F 2 "" H 9700 6350 50  0001 C CNN
-F 3 "" H 9700 6350 50  0001 C CNN
-	1    9700 6350
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	10275 6250 9700 6250
-Text HLabel 9700 6250 0    50   Input ~ 0
-IR_Receiver
-Text Notes 9550 5950 0    50   ~ 0
-To IR Receiver Board
-$Comp
 L Connector_Generic:Conn_01x20 J10
 U 1 1 5DA69BAD
 P 1825 1600
@@ -1712,17 +1677,6 @@ F 3 "" H 7325 6375 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0106
-U 1 1 5DB47550
-P 9700 6150
-F 0 "#PWR0106" H 9700 5900 50  0001 C CNN
-F 1 "GND" V 9705 6022 50  0000 R CNN
-F 2 "" H 9700 6150 50  0001 C CNN
-F 3 "" H 9700 6150 50  0001 C CNN
-	1    9700 6150
-	0    1    1    0   
-$EndComp
-$Comp
 L power:GND #PWR0107
 U 1 1 5DB47B8C
 P 9775 5550
@@ -1735,4 +1689,88 @@ F 3 "" H 9775 5550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2850 3450 2000 3450
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5D8D7D05
+P 9575 6075
+AR Path="/5C92D2A9/5D8D7D05" Ref="J?"  Part="1" 
+AR Path="/5D8D7D05" Ref="J7"  Part="1" 
+F 0 "J7" H 9655 6117 50  0000 L CNN
+F 1 "Conn_01x01" H 9655 6026 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 9575 6075 50  0001 C CNN
+F 3 "~" H 9575 6075 50  0001 C CNN
+	1    9575 6075
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5D8D814C
+P 9575 6175
+AR Path="/5C92D2A9/5D8D814C" Ref="J?"  Part="1" 
+AR Path="/5D8D814C" Ref="J11"  Part="1" 
+F 0 "J11" H 9655 6217 50  0000 L CNN
+F 1 "Conn_01x01" H 9655 6126 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 9575 6175 50  0001 C CNN
+F 3 "~" H 9575 6175 50  0001 C CNN
+	1    9575 6175
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9075 6175 9375 6175
+Wire Wire Line
+	9375 6075 9075 6075
+Text Label 9075 6075 0    50   ~ 0
+IR_REV
+Text Label 9075 6175 0    50   ~ 0
+STATUS_LED
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5D902060
+P 9575 6275
+AR Path="/5C92D2A9/5D902060" Ref="J?"  Part="1" 
+AR Path="/5D902060" Ref="J12"  Part="1" 
+F 0 "J12" H 9655 6317 50  0000 L CNN
+F 1 "Conn_01x01" H 9655 6226 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 9575 6275 50  0001 C CNN
+F 3 "~" H 9575 6275 50  0001 C CNN
+	1    9575 6275
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:Conn_01x01 J?
+U 1 1 5D902328
+P 9575 6375
+AR Path="/5C92D2A9/5D902328" Ref="J?"  Part="1" 
+AR Path="/5D902328" Ref="J13"  Part="1" 
+F 0 "J13" H 9655 6417 50  0000 L CNN
+F 1 "Conn_01x01" H 9655 6326 50  0000 L CNN
+F 2 ".Connector:Conn_1x1_700_Circular_Pad" H 9575 6375 50  0001 C CNN
+F 3 "~" H 9575 6375 50  0001 C CNN
+	1    9575 6375
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR035
+U 1 1 5D902476
+P 9375 6375
+F 0 "#PWR035" H 9375 6125 50  0001 C CNN
+F 1 "GND" V 9380 6247 50  0000 R CNN
+F 2 "" H 9375 6375 50  0001 C CNN
+F 3 "" H 9375 6375 50  0001 C CNN
+	1    9375 6375
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5D90282E
+P 9375 6275
+AR Path="/5C92D2A9/5D90282E" Ref="#PWR?"  Part="1" 
+AR Path="/5D90282E" Ref="#PWR032"  Part="1" 
+F 0 "#PWR032" H 9375 6125 50  0001 C CNN
+F 1 "+3V3" H 9390 6448 50  0000 C CNN
+F 2 "" H 9375 6275 50  0001 C CNN
+F 3 "" H 9375 6275 50  0001 C CNN
+	1    9375 6275
+	0    -1   -1   0   
+$EndComp
 $EndSCHEMATC
