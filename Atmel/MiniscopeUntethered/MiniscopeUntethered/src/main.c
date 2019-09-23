@@ -379,7 +379,9 @@ int main (void)
 	while (SD_Check != SD_MMC_OK) 
  	{
 		ioport_toggle_pin_level(LED_PIN);					// while the SD connection is NOT okay.. wait
-		delay_ms(100);										// delete later when expansion PCB
+		tick_start = time_tick_get();
+		while (time_tick_calc_delay(tick_start, time_tick_get()) < 100)
+		{}													// delete later when expansion PCB
 		SD_Check = sd_mmc_check(SD_SLOT_NB);
 	}
 	
@@ -431,6 +433,8 @@ int main (void)
 	ioport_set_pin_level(TRIGGER0_PIN, 1);	// Starts acquisition of imaging sensor
 	ioport_set_pin_level(LED_ENT_PIN, 1);	// Enable PWM LED Control Driver
 	ioport_set_pin_level(LED_PIN, 1);
+	
+	
 	
 	while (1)
 	{	
@@ -580,7 +584,7 @@ int main (void)
 			{}
 		}
 //		startRecording = 1;
-		testPoint = 0;				
+		testPoint = 0;
 	}
 	#endif	// MSD
 	

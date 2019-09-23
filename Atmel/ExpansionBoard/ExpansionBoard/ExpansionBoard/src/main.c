@@ -1,33 +1,33 @@
 /**
  * \file
  *
- * \brief Empty user application template
+ * Code for the Wired Expansion Board that can be plugged into the Wireless Miniscope Microcontroller Board.
  *
  */
 
 /**
- * \mainpage User Application template doxygen documentation
+ * 1. The WXB MCU grabs data from WF MCU through interrupts.
+ *    (a) Uses 4 data-in lines, 1 clock-in line, and 1 command-out line
+ *    (b) Clock-in line is used as an interrupt signal, where every drop triggers a data grab from the 4 data-in lines
+ *    (c) The data are saved into ImageBuffer.
  *
- * \par Empty user application template
+ * 2. The WXB MCU programs the serializer through I2C.
+ *    (a) Find the correct data output rates, etc.
+ *    (b) Uses SDA and SCL lines
+ * 
+ * 3. The WXB MCU sends data to the serializer.
+ *    (a) Uses 8 data-out lines, 1 pixel-clock line
+ *    (b) With every clock-down, 8 bits (a pixel) is sent.
  *
- * Bare minimum empty user application template
- *
- * \par Content
- *
- * -# Include the ASF header files (through asf.h)
- * -# "Insert system clock initialization code here" comment
- * -# Minimal main function that starts with a call to board_init()
- * -# "Insert application code here" comment
- *
+ * 4. The WXB MCU sends commands to the WF MCU.
+ *    (a) Not sure how this will be implemented, since the coax cable leads to the DOUT of the serializer
+ *    (b) Maybe can program the serializer to take in data through DOUT and relay it to DIN?
  */
 
 /*
- * Include header files for all drivers that have been imported from
- * Atmel Software Framework (ASF).
- */
-/*
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
+
 #include <asf.h>
 #include "expansion.h"
 #include "definitions.h"
