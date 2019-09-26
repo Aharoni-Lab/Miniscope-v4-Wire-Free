@@ -314,28 +314,6 @@ F 5 "0402" H 3210 5570 50  0001 C CNN "Size"
 	1    3100 5750
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:Earth #PWR024
-U 1 1 5C963B9F
-P 2900 5850
-F 0 "#PWR024" H 2900 5600 50  0001 C CNN
-F 1 "Earth" H 2900 5700 50  0001 C CNN
-F 2 "" H 2900 5850 50  0001 C CNN
-F 3 "~" H 2900 5850 50  0001 C CNN
-	1    2900 5850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:Earth #PWR026
-U 1 1 5C963BCB
-P 3100 5850
-F 0 "#PWR026" H 3100 5600 50  0001 C CNN
-F 1 "Earth" H 3100 5700 50  0001 C CNN
-F 2 "" H 3100 5850 50  0001 C CNN
-F 3 "~" H 3100 5850 50  0001 C CNN
-	1    3100 5850
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4350 6250 3500 6250
 Text Notes 3250 6350 0    50   ~ 0
@@ -762,28 +740,6 @@ F 3 "~" H 3000 5050 50  0001 C CNN
 	1    3000 5050
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:Earth #PWR025
-U 1 1 5CFCD2D2
-P 3000 5150
-F 0 "#PWR025" H 3000 4900 50  0001 C CNN
-F 1 "Earth" H 3000 5000 50  0001 C CNN
-F 2 "" H 3000 5150 50  0001 C CNN
-F 3 "~" H 3000 5150 50  0001 C CNN
-	1    3000 5150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:Earth #PWR023
-U 1 1 5CFCD722
-P 2750 5050
-F 0 "#PWR023" H 2750 4800 50  0001 C CNN
-F 1 "Earth" H 2750 4900 50  0001 C CNN
-F 2 "" H 2750 5050 50  0001 C CNN
-F 3 "~" H 2750 5050 50  0001 C CNN
-	1    2750 5050
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2750 4850 2650 4850
 Wire Wire Line
@@ -1050,14 +1006,58 @@ F 3 "~" H 9750 3850 50  0001 C CNN
 	1    9750 3850
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	9950 3450 10400 3450
+Text Label 9975 3450 0    50   ~ 0
+IR_Receiver
 Wire Bus Line
 	3100 4050 3100 4250
 Wire Bus Line
 	3100 3850 3100 4050
-Wire Wire Line
-	9950 3450 10400 3450
 Wire Bus Line
 	3500 1650 3500 2550
-Text Label 9975 3450 0    50   ~ 0
-IR_Receiver
+$Comp
+L power:Earth #PWR026
+U 1 1 5C963BCB
+P 3100 5850
+F 0 "#PWR026" H 3100 5600 50  0001 C CNN
+F 1 "Earth" H 3100 5700 50  0001 C CNN
+F 2 "" H 3100 5850 50  0001 C CNN
+F 3 "~" H 3100 5850 50  0001 C CNN
+	1    3100 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:Earth #PWR024
+U 1 1 5C963B9F
+P 2900 5850
+F 0 "#PWR024" H 2900 5600 50  0001 C CNN
+F 1 "Earth" H 2900 5700 50  0001 C CNN
+F 2 "" H 2900 5850 50  0001 C CNN
+F 3 "~" H 2900 5850 50  0001 C CNN
+	1    2900 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5D8C42AB
+P 2750 5050
+F 0 "#PWR?" H 2750 4900 50  0001 C CNN
+F 1 "+1V8" H 2765 5223 50  0000 C CNN
+F 2 "" H 2750 5050 50  0001 C CNN
+F 3 "" H 2750 5050 50  0001 C CNN
+	1    2750 5050
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5D8C473F
+P 3000 5150
+F 0 "#PWR?" H 3000 5000 50  0001 C CNN
+F 1 "+1V8" H 3015 5323 50  0000 C CNN
+F 2 "" H 3000 5150 50  0001 C CNN
+F 3 "" H 3000 5150 50  0001 C CNN
+	1    3000 5150
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC
