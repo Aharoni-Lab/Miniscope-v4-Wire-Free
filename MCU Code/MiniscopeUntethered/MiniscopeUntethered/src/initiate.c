@@ -6,7 +6,7 @@
 
 void TWIHS_init()
 {	
-	//Make sure you have the correct TWIHS
+	//Make sure you have the correct TWIHS#
 	twihs_options_t twihsOpt;
 	twihsOpt.master_clk = sysclk_get_cpu_hz()/2; //make sure this is the correct clock to be checking
 	twihsOpt.speed = 100000; //100kHz
