@@ -109,7 +109,7 @@ void Required_Uploads()
 		SPI_Write(201, 2900);	// SPI_Write(201, 2900); // Exposure time SPI_Write(201, 0x01F4);
 	#endif
 	
-	SPI_Write(204, 0x0024); 	// (gain 1x : 0x00E1 // gain 2x : 0x00E4 // gain 3.5x : 0x0024)
+	SPI_Write(204, 0x00E1); 	// (gain 1x : 0x00E1 // gain 2x : 0x00E4 // gain 3.5x : 0x0024)
 	SPI_Write(207, 0x0014);
 	SPI_Write(214, 0x0100);
 	SPI_Write(215, 0x101F);
