@@ -6,15 +6,15 @@
  */
 
 /**
- * 1. The WXB MCU grabs data from WF MCU through interrupts.
+ * 1. The WXB MCU programs the serializer through I2C.
+ *    (a) Find the correct data output rates, etc.
+ *    (b) Uses SDA and SCL lines
+ *
+ * 2. The WXB MCU grabs data from WF MCU through interrupts.
  *    (a) Uses 4 data-in lines, 1 clock-in line, and 1 command-out line
  *    (b) Clock-in line is used as an interrupt signal, where every drop triggers a data grab from the 4 data-in lines
  *    (c) The data are saved into ImageBuffer.
  *
- * 2. The WXB MCU programs the serializer through I2C.
- *    (a) Find the correct data output rates, etc.
- *    (b) Uses SDA and SCL lines
- * 
  * 3. The WXB MCU sends data to the serializer.
  *    (a) Uses 8 data-out lines, 1 pixel-clock line
  *    (b) With every clock-down, 8 bits (a pixel) is sent.
@@ -49,8 +49,12 @@ int main (void)
 	twihs_packet_t Ser_Packet;
 	// SDA and SCL to communicate with the serializer and set it up.
 	// define object.addr[0], .buffer, .length
+	uint8_t Ser_Buff[2];
+	Ser_Packet.chip =		 = ;
 	Ser_Packet.addr[0]		 = 0x01;
-	Ser_Packet.buffer[0] 	|= 0x10;		// VDDIO = 1.8V
+	Ser_Packet.addr_length	 = ;
+	Ser_Buff[0]				|= 0x10;
+	Ser_Packet.buffer 		|= (uint8_t *) Ser_Buff;		// VDDIO = 1.8V
 	Ser_Packet.length		 = 1;
 	while (twihs_master_write(TWIHS1, Ser_Packet) != TWIHS_SUCCESS)
 	{}
