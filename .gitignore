@@ -272,12 +272,7 @@ MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/ASF/thirdparty/CMSIS/Lib/li
 MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/ASF/thirdparty/CMSIS/README.txt
 MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/config/conf_board.h
 MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/config/conf_clock.h
-MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/config/conf_sd_mmc.h
-MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/main.c
-MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/sdImaging.h
-MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/time_tick.h
-MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/time_tick_sam.c
-Plug-in PCB/KiCad/SDCard-PCB-top-pos.csv
+MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/config/conf_sd_mmc.hPlug-in PCB/KiCad/SDCard-PCB-top-pos.csv
 Plug-in PCB/KiCad/SDCard-PCB-top-pos-NEODEN.csv
 Plug-in PCB/KiCad/SDCard-PCB-bottom-pos.csv
 Plug-in PCB/KiCad/bom/ibom.html
@@ -288,3 +283,4 @@ DAQ Software/KingstonSDC4-output.avi
 Plug-in PCB/KiCad/bom/ibom.html
 Plug-in PCB/KiCad/bom/ibom.html
 *.avi
+MCU Code/MiniscopeUntethered/MiniscopeUntethered/src/config/conf_sd_mmc.h
