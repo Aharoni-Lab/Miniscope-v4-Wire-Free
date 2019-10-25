@@ -165,7 +165,7 @@ void Wired_Expansion_Board_Init()
 	ioport_set_pin_dir(WXB_CONFIG, IOPORT_DIR_INPUT);		// To configure WF while WXB is plugged in
 	ioport_set_pin_level(WXB_CONFIG, 0);
 }
-
+/*
 // Write buffers into the wired expansion board
 void BitBang_Write_WXB()
 {
@@ -282,7 +282,7 @@ void BitBang_Write_WXB()
 		}
 	}
 }
-
+*/
 void testLEDBoardSetup()
 {
 	uint32_t testLED = 2;
@@ -332,7 +332,7 @@ int main (void)
 {
 
 	uint32_t writeNum = 0;
-//	uint32_t writeFrameNum = 0;
+	uint32_t writeFrameNum = 0;
 	WDT->WDT_MR = WDT_MR_WDDIS; //Disables WDT
 
 	//SCB_EnableICache();
@@ -476,13 +476,13 @@ int main (void)
 	
 	if (sd_mmc_check(SD_SLOT_NB) != SD_MMC_OK)
 	{
-		imagingSensorSetup();
-		testLEDBoardSetup();
-		startRecording = 1;
+//		imagingSensorSetup();
+//		testLEDBoardSetup();
+//		startRecording = 1;
 		// writeLineCount and writeCount... declare at the beginning of main and set = 0 here?
-		ioport_set_pin_level(TRIGGER0_PIN, 1);
-		ioport_set_pin_level(LED_ENT_PIN, 1);
-		ioport_set_pin_level(LED_PIN, 1);
+//		ioport_set_pin_level(TRIGGER0_PIN, 1);
+//		ioport_set_pin_level(LED_ENT_PIN, 1);
+//		ioport_set_pin_level(LED_PIN, 1);
 		// Maybe this is where I should send the pixel values to the WXB? Would WXB give SD_MMC_OK?
 		// 1. Start grabbing data with DMA
 		// 2. Set up LED and EWL drive via I2C (Maybe try to get the config from WXB)
@@ -495,11 +495,11 @@ int main (void)
 		// Loop from here...
 		// 5. Unhook the SD card pins
 		// 6. Set up pins as pin-outs, maybe I can change the clock speed here?
-		Wired_Expansion_Board_Init();
+//		Wired_Expansion_Board_Init();
 		// 7. Send a frame to WXB (a downgraded frame, maybe?)
-		BitBang_Write_WXB();
+//		BitBang_Write_WXB();
 		// 8. Should I invoke sd_mmc_init() again to set up the pins? Can I even do that?
-		sd_mmc_init();
+//		sd_mmc_init();
 		
 		ioport_toggle_pin_level(LED_PIN);
 		// delay_us(100);							// Definitely don't delay if we're doing this

@@ -60,6 +60,7 @@ int main (void)
 	{}
 	
 	// something about starting to accept data = 1 (include it in the interrupt function)
+	// power on LED?
 	D_In = 1;
 	
 	BB_Serializer();	

@@ -19,7 +19,7 @@ void TWIHS_init()
 
 	pmc_enable_periph_clk(ID_TWIHS1);
 
-	twihs_master_init(TWIHS1,&twihsOpt);
+	twihs_master_init(TWIHS1, &twihsOpt);
 }
 
 
