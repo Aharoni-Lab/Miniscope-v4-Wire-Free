@@ -15,6 +15,10 @@
 
 
 
+#define DEBUG_MODE
+
+
+
 volatile uint32_t time_ms;
 volatile uint32_t tick_start;
 volatile uint32_t sdCount = 0;
@@ -285,8 +289,8 @@ void BitBang_Write_WXB()
 */
 void testLEDBoardSetup()
 {
-	uint32_t testLED = 2;
-	uint32_t testFocalLength = 10;
+	uint32_t testLED = 10;
+	uint32_t testFocalLength = 200;
 	
 	twihs_packet_t packetTestLED;
 	uint8_t TestLEDBuff[2];
@@ -397,34 +401,7 @@ int main (void)
 	ioport_set_pin_dir(LED_ENT_PIN, IOPORT_DIR_OUTPUT);
 	ioport_set_pin_level(LED_ENT_PIN, 1);
 
-/*	// Move this to after reading the sd card/getting the LED intensity ledValue (goes into excLEDBuff[1] = 0xFF - ledValue)
-	twihs_packet_t packetExcLED;
-	uint8_t ExcLEDBuff[2];
-	packetExcLED.chip = POTENTIOMETER_ADR;	// This is the slave address
-	packetExcLED.addr[0] = 0x00;	 // This is register address for potentiometer A.
-//	packetExcLED.addr[1] = 0x01;	 // This is register address for potentiometer B.
-	packetExcLED.addr_length = 1;	// The register value didn't use to get sent without this..but now it does
-	ExcLEDBuff[0] = 114;
-	ExcLEDBuff[1] = 0xFF - 0x2; // Make sure the LED value makes sense/between 0 and 255
-	packetExcLED.buffer = (uint8_t *) ExcLEDBuff; // Location of the value to send
-	packetExcLED.length = 2;
-//	while(1)
-//	{
-	while (twihs_master_write(TWIHS1, &packetExcLED)  != TWIHS_SUCCESS)
-	{}
-		
-	twihs_packet_t packetEWLDrive;
-	uint8_t EWLBuff[2];
-	packetEWLDrive.chip = 0x77;// 0b 0111 0111
-	packetEWLDrive.addr[0] = 0x08;
-	packetEWLDrive.addr_length = 1;
-	EWLBuff[0] = 50;
-	EWLBuff[1] = 0x02;
-	packetEWLDrive.buffer = (uint8_t *) EWLBuff;
-	packetEWLDrive.length = 2;
-	while (twihs_master_write(TWIHS1, &packetEWLDrive)  != TWIHS_SUCCESS)
-	{}
-*/
+
 	// 	----- Enable control of LED
 // 	pmc_enable_periph_clk(ID_PIOD);	
 // 	ioport_set_pin_dir(LED_PIN, IOPORT_DIR_OUTPUT);
@@ -469,6 +446,44 @@ int main (void)
 	sd_mmc_init();
 	//
 
+	#ifdef DEBUG_MODE
+	testLEDBoardSetup();
+// 	twihs_packet_t packetI2CLED;
+// 	uint8_t I2CLEDBuff[2];
+// 	packetI2CLED.chip = POTENTIOMETER_ADR;	// This is the slave address
+// 	packetI2CLED.addr[0] = 0x00;	 // This is register address for potentiometer A.
+// 	//	packetExcLED.addr[1] = 0x01;	 // This is register address for potentiometer B.
+// 	packetI2CLED.addr_length = 1;	// The register value didn't use to get sent without this..but now it does
+// 	ExcLEDBuff[0] = 114;
+// 	ExcLEDBuff[1] = 0xFF - 0x0A; // Make sure the LED value makes sense/between 0 and 255
+// 	packetI2CLED.buffer = (uint8_t *) I2CLEDBuff; // Location of the value to send
+// 	packetI2CLED.length = 2;
+// 	while (twihs_master_write(TWIHS1, &packetI2CLED)  != TWIHS_SUCCESS)
+// 	{}
+// 		
+// 	twihs_packet_t packetI2cDriveInit;
+// 	uint8_t EWLi2cBuff[2];
+// 	packetI2cDriveInit.chip = EWL_DRIVER_ADR;// 0b 0111 0111
+// 	packetI2cDriveInit.addr[0] = 0x03;
+// 	packetI2cDriveInit.addr_length = 1;
+// 	EWLi2cBuff[0] = 0x03;
+// 	packetI2cDriveInit.buffer = (uint8_t *) EWLi2cBuff;
+// 	packetI2cDriveInit.length = 1;
+// 	while (twihs_master_write(TWIHS1, &packetI2cDriveInit)  != TWIHS_SUCCESS)
+// 	{}
+// 	
+// 	twihs_packet_t packetI2cTest;
+// 	uint8_t i2cBuff[2];
+// 	packetI2cTest.chip = EWL_DRIVER_ADR;// 0b 0111 0111
+// 	packetI2cTest.addr[0] = 0x08;
+// 	packetI2cTest.addr_length = 1;
+// 	i2cBuff[0] = 0x00; // focalLength;
+// 	i2cBuff[1] = 0x02;
+// 	packetI2cTest.buffer = (uint8_t *) EWLBuff;
+// 	packetI2cTest.length = 2;
+// 	while (twihs_master_write(TWIHS1, &packetI2cTest)  != TWIHS_SUCCESS)
+// 	{}
+	#endif // DEBUG_MODE
 	//--------------------------------------------Remove comments below after debugging I2C
 	
 	uint32_t SD_Check;
@@ -502,7 +517,11 @@ int main (void)
 //		sd_mmc_init();
 		
 		ioport_toggle_pin_level(LED_PIN);
-		// delay_us(100);							// Definitely don't delay if we're doing this
+		uint32_t tick_start = 0;
+		
+		tick_start = time_tick_get();
+		while (time_tick_calc_delay(tick_start, time_tick_get()) < 100)
+		{}							// Definitely don't delay if we're doing this
 		SD_Check = sd_mmc_check(SD_SLOT_NB);
 	}
 
@@ -566,17 +585,19 @@ int main (void)
 	packetEWLDrive.chip = EWL_DRIVER_ADR;// 0b 0111 0111
 	packetEWLDrive.addr[0] = 0x08;
 	packetEWLDrive.addr_length = 1;
-	EWLBuff[0] = focalLength;
+	EWLBuff[0] = 0x00; // focalLength;
 	EWLBuff[1] = 0x02;
 	packetEWLDrive.buffer = (uint8_t *) EWLBuff;
 	packetEWLDrive.length = 2;
 	while (twihs_master_write(TWIHS1, &packetEWLDrive)  != TWIHS_SUCCESS)
 	{}
-	
+
 	
 //	if (ledValue >= PWM_PERIOD_VALUE)
 //		ledValue = 0;
 //	pwm_channel_update_duty(PWM0, &g_pwm_channel_led, ledValue);
+
+
 
 	imagingSensorSetup(); //sets interrupts, configs IO pins for DMA CMOS sensor
 
@@ -599,6 +620,7 @@ int main (void)
 	uint32_t curBlock = STARTING_BLOCK;
 	uint32_t writeLineCount = 0;
 	uint32_t writeCount = 0;
+	
 	writeFrameNum = 0;
 	tick_start = time_tick_get();
 	start_time = tick_start;
@@ -606,26 +628,70 @@ int main (void)
 	ioport_set_pin_level(TRIGGER0_PIN, 1); //Starts acq of imaging sensor
 	//Enable PWM LED COntroll Driver
 	ioport_set_pin_level(LED_ENT_PIN, 1);
-	ioport_set_pin_level(LED_PIN,1);
-	while (1) {
-		
-		if (frameNumber > writeFrameNum) {
+	ioport_set_pin_level(LED_PIN, 1);
+	
+	#ifdef DEBUG_MODE
+	uint8_t voltageStep = 0;		// VLL_4RMS = 44.5mV_RMS x N + 24.4V_RMS, where N = code 0x000 to 0x3FF in decimal (0-1023), voltageStep is the 8 MSBs (0-255)
+	uint32_t numSteps = 16;
+	uint32_t voltageRange = 255;
+	
+	//
+	twihs_packet_t packetEWLTest;
+	uint8_t EWLTestBuff[2];
+	packetEWLTest.chip = EWL_DRIVER_ADR;		// 0b 0111 0111
+	packetEWLTest.addr[0] = 0x08;
+	packetEWLTest.addr_length = 1;
+	packetEWLTest.buffer = (uint8_t *) EWLTestBuff;
+	EWLTestBuff[1] = 0x02;
+	packetEWLTest.length = 2;
+	#endif // DEBUG_MODE
+
+	while (1) 
+	{	
+		if (frameNumber > writeFrameNum) 
+		{
+			#ifdef DEBUG_MODE
+			// Testing EWL distance by changing calibration every 100 frames (5 seconds)
+			if (writeFrameNum % 100 == 0)
+			{
+				// Send different number to EWL Drive
+				EWLTestBuff[0] = voltageStep;
+//				while (twihs_master_write(TWIHS1, &packetEWLTest) != TWIHS_SUCCESS)
+//				{}
+				twihs_master_write(TWIHS1, &packetEWLTest);
+				
+				if (voltageStep <= voltageRange)
+				{
+					voltageStep += ((voltageRange + 1) / numSteps);
+				}
+			}
+			#endif // DEBUG_MODE
+			
 			#ifdef PYTHON480
 			switch (writeFrameNum % 3)
 			{
 				case (0):
+				#ifdef DEBUG_MODE
+				imageBuffer0[buffSize - 5] = voltageStep;
+				#endif // DEBUG_MODE
 				imageBuffer0[buffSize - 6] = time_tick_calc_delay(tick_start, time_tick_get());
 				imageBuffer0[buffSize - 7] = frameNumber - writeFrameNum;
 				sd_mmc_start_write_blocks(&imageBuffer0[0], NB_BLOCKS_PER_WRITE);
 				break;
 				
 				case (1):
+				#ifdef DEBUG_MODE
+				imageBuffer1[buffSize - 5] = voltageStep;
+				#endif // DEBUG_MODE
 				imageBuffer1[buffSize - 6] = time_tick_calc_delay(tick_start, time_tick_get());		// time when beginning to write to SD
 				imageBuffer1[buffSize - 7] = frameNumber - writeFrameNum;
 				sd_mmc_start_write_blocks(&imageBuffer1[0], NB_BLOCKS_PER_WRITE);
 				break;
 				
 				case (2):
+				#ifdef DEBUG_MODE
+				imageBuffer2[buffSize - 5] = voltageStep;
+				#endif // DEBUG_MODE
 				imageBuffer2[buffSize - 6] = time_tick_calc_delay(tick_start, time_tick_get());
 				imageBuffer2[buffSize - 7] = frameNumber - writeFrameNum;
 				sd_mmc_start_write_blocks(&imageBuffer2[0], NB_BLOCKS_PER_WRITE);
@@ -750,8 +816,8 @@ int main (void)
 			while(1){}
 		}
 //			startRecording = 1;
-
-
+	
+		
 		testPoint = 0;	
 					
 	}

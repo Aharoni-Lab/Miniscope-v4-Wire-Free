@@ -949,7 +949,7 @@ void imagingSensorLoadHeader(){
 	sd_mmc_start_read_blocks(headerTemp,1);
 	sd_mmc_wait_end_of_read_blocks(false);
 
-	gain				= header[HEADER_GAIN_POS];
+	gain				= header[HEADER_GAIN_POS];		// Not used in V4 WF
 	//ledValue			= ((100- header[HEADER_LED_POS])*0x0FFF)/100; //header should be between 0 and 100; Used for DAC
 	ledValue			= header[HEADER_LED_POS]; //header should be between 0 and 255;
 	numFramesToRecord	= header[HEADER_NUM_FRAMES_POS];
@@ -1016,7 +1016,7 @@ void checkVSync() {
 				imageBuffer0[buffSize-2] = time_tick_calc_delay(start_time, time_tick_get());	// time when frame arrives to MCU
 				imageBuffer0[buffSize-3] = lineCount;
 				imageBuffer0[buffSize-4] = xferDMAComplete; //Overflow flag
-				imageBuffer0[buffSize-5] = imageBuffer1[buffSize-1];
+//				imageBuffer0[buffSize-5] = imageBuffer1[buffSize-1];
 				imageBuffer0[buffSize-8] = frameNumber-sdImageWriteFrameNum;
 				break;
 				case (1):
@@ -1024,7 +1024,7 @@ void checkVSync() {
 				imageBuffer1[buffSize-2] = time_tick_calc_delay(start_time, time_tick_get());
 				imageBuffer1[buffSize-3] = lineCount;
 				imageBuffer1[buffSize-4] = xferDMAComplete; //Overflow flag
-				imageBuffer1[buffSize-5] = imageBuffer2[buffSize-1];
+//				imageBuffer1[buffSize-5] = imageBuffer2[buffSize-1];
 				imageBuffer1[buffSize-8] = frameNumber-sdImageWriteFrameNum;
 				break;
 				case (2):
@@ -1032,7 +1032,7 @@ void checkVSync() {
 				imageBuffer2[buffSize-2] = time_tick_calc_delay(start_time, time_tick_get());
 				imageBuffer2[buffSize-3] = lineCount;
 				imageBuffer2[buffSize-4] = xferDMAComplete; //Overflow flag
-				imageBuffer2[buffSize-5] = imageBuffer0[buffSize-1];
+//				imageBuffer2[buffSize-5] = imageBuffer0[buffSize-1];
 				imageBuffer2[buffSize-8] = frameNumber-sdImageWriteFrameNum;
 				break;
 			}
