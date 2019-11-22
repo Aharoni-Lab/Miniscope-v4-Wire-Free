@@ -59,7 +59,7 @@
 	#define PIXELS_PER_WORD			1<<D_SIZE
 	#define FRAME_RATE				20
 	#define IMAGE_WIDTH				768 //Will be subsampled by 2x
-	#define IMAGE_HEIGHT			592 //Will be subsampled by 2x
+	#define IMAGE_HEIGHT				592 //Will be subsampled by 2x
 	#define IMAGE_SUBSAMPLE			2
 	#define NUM_PIXELS				(IMAGE_HEIGHT*IMAGE_WIDTH)/(IMAGE_SUBSAMPLE*IMAGE_SUBSAMPLE) //Currently needs to be a multiple of PIXELS_PER_WORD and SDMMC_BLOCK_SIZE
 	#define FRAME_FOOTER_LENGTH		0 //Last 32bit of footer is frame number. The rest is used to fill up sdCard multi block write. Has units of WORDS
@@ -429,10 +429,14 @@ void enableSourceClk() {
 		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(2); //Should make output = 48MHz
 	#endif
 	#ifdef PYTHON480 //Trying to run MCU slower
-		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(2); //Should make output = 48MHz
+		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(5); //Should make output = 12MHz
+//		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(2); //Should make output = 24MHz
+	
 	#endif
+	// PCM_PCK--> bits 4-11: Selected clock is divided by PRES+1.
+	
 	#ifdef EV76C541 //Trying to run MCU slower
-		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(5); //Should make output = 24MHz. Sensor divids by 4
+		PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_PLLA_CLK)|PMC_PCK_PRES(5); //Should make output = 24MHz. Sensor divides by 4
 	#endif
 	//PMC->PMC_PCK[1] = (PMC->PMC_PCK[1] & ~(uint32_t)PMC_PCK_CSS_Msk)|(PMC_PCK_CSS_MAIN_CLK)|PMC_PCK_PRES(0); //Originally prescaler was (3)
 

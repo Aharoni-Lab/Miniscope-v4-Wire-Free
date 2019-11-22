@@ -15,7 +15,7 @@
 
 
 
-#define DEBUG_MODE
+// #define DEBUG_MODE
 
 
 
@@ -355,36 +355,24 @@ int main (void)
 
 	time_tick_init();
 	PWM_Init();
-	//DACC_init(); //The DAC cannot run at 1.8V. This needs to be replaced with PWM to drive the LED current source
-	//DACC_updateOutput(0x0FFF,1);
 	#ifdef PYTHON480
 		PYTHON480_Pin_Setup();
 		
 		SPI_BitBang_init();
 		TWIHS_init();
-//		SPI_BitBag_init();
-//	#else
-//		TWIHS_init();
+	#else
+		TWIHS_init();
 	#endif
-	//tick_start = time_tick_get();
-	//time_ms = time_tick_calc_delay(tick_start, time_tick_get());
-//	ioport_set_pin_dir(PIO_PD6_IDX, IOPORT_DIR_OUTPUT);
-//	ioport_set_pin_dir(PIO_PD7_IDX, IOPORT_DIR_OUTPUT);
-//	ioport_set_pin_dir(PIO_PD8_IDX, IOPORT_DIR_OUTPUT);
-//	ioport_set_pin_level(PIO_PD6_IDX, 0);
-//	ioport_set_pin_level(PIO_PD6_IDX, 1);
+
 	
 	ioport_set_pin_level(LED_PIN, 0);
 	
-//	ioport_set_pin_dir(LED_ENT_PIN, IOPORT_DIR_OUTPUT);
-//	ioport_set_pin_level(LED_ENT_PIN, 0);
-
 	PYTHON480_Init();
 	
 	uint16_t Python_Check;
-	Python_Check = SPI_Read(474);
+	Python_Check = SPI_Read(200);
 	
-	if (Python_Check = 0x003F)
+	if (Python_Check == 5000)
 	{
 		ioport_set_pin_level(LED_PIN, 1);
 		tick_start = time_tick_get();
@@ -448,42 +436,8 @@ int main (void)
 
 	#ifdef DEBUG_MODE
 	testLEDBoardSetup();
-// 	twihs_packet_t packetI2CLED;
-// 	uint8_t I2CLEDBuff[2];
-// 	packetI2CLED.chip = POTENTIOMETER_ADR;	// This is the slave address
-// 	packetI2CLED.addr[0] = 0x00;	 // This is register address for potentiometer A.
-// 	//	packetExcLED.addr[1] = 0x01;	 // This is register address for potentiometer B.
-// 	packetI2CLED.addr_length = 1;	// The register value didn't use to get sent without this..but now it does
-// 	ExcLEDBuff[0] = 114;
-// 	ExcLEDBuff[1] = 0xFF - 0x0A; // Make sure the LED value makes sense/between 0 and 255
-// 	packetI2CLED.buffer = (uint8_t *) I2CLEDBuff; // Location of the value to send
-// 	packetI2CLED.length = 2;
-// 	while (twihs_master_write(TWIHS1, &packetI2CLED)  != TWIHS_SUCCESS)
-// 	{}
-// 		
-// 	twihs_packet_t packetI2cDriveInit;
-// 	uint8_t EWLi2cBuff[2];
-// 	packetI2cDriveInit.chip = EWL_DRIVER_ADR;// 0b 0111 0111
-// 	packetI2cDriveInit.addr[0] = 0x03;
-// 	packetI2cDriveInit.addr_length = 1;
-// 	EWLi2cBuff[0] = 0x03;
-// 	packetI2cDriveInit.buffer = (uint8_t *) EWLi2cBuff;
-// 	packetI2cDriveInit.length = 1;
-// 	while (twihs_master_write(TWIHS1, &packetI2cDriveInit)  != TWIHS_SUCCESS)
-// 	{}
-// 	
-// 	twihs_packet_t packetI2cTest;
-// 	uint8_t i2cBuff[2];
-// 	packetI2cTest.chip = EWL_DRIVER_ADR;// 0b 0111 0111
-// 	packetI2cTest.addr[0] = 0x08;
-// 	packetI2cTest.addr_length = 1;
-// 	i2cBuff[0] = 0x00; // focalLength;
-// 	i2cBuff[1] = 0x02;
-// 	packetI2cTest.buffer = (uint8_t *) EWLBuff;
-// 	packetI2cTest.length = 2;
-// 	while (twihs_master_write(TWIHS1, &packetI2cTest)  != TWIHS_SUCCESS)
-// 	{}
 	#endif // DEBUG_MODE
+	
 	//--------------------------------------------Remove comments below after debugging I2C
 	
 	uint32_t SD_Check;
@@ -585,7 +539,7 @@ int main (void)
 	packetEWLDrive.chip = EWL_DRIVER_ADR;// 0b 0111 0111
 	packetEWLDrive.addr[0] = 0x08;
 	packetEWLDrive.addr_length = 1;
-	EWLBuff[0] = 0x00; // focalLength;
+	EWLBuff[0] = focalLength;
 	EWLBuff[1] = 0x02;
 	packetEWLDrive.buffer = (uint8_t *) EWLBuff;
 	packetEWLDrive.length = 2;
@@ -631,9 +585,10 @@ int main (void)
 	ioport_set_pin_level(LED_PIN, 1);
 	
 	#ifdef DEBUG_MODE
-	uint8_t voltageStep = 0;		// VLL_4RMS = 44.5mV_RMS x N + 24.4V_RMS, where N = code 0x000 to 0x3FF in decimal (0-1023), voltageStep is the 8 MSBs (0-255)
+	uint32_t voltageMin = 0;
+	uint8_t voltageStep = voltageMin;		// VLL_4RMS = 44.5mV_RMS x N + 24.4V_RMS, where N = code 0x000 to 0x3FF in decimal (0-1023), voltageStep is the 8 MSBs (0-255)
 	uint32_t numSteps = 16;
-	uint32_t voltageRange = 255;
+	uint32_t voltageMax = 255;		// 255;
 	
 	//
 	twihs_packet_t packetEWLTest;
@@ -660,9 +615,9 @@ int main (void)
 //				{}
 				twihs_master_write(TWIHS1, &packetEWLTest);
 				
-				if (voltageStep <= voltageRange)
+				if (voltageStep <= voltageMax)
 				{
-					voltageStep += ((voltageRange + 1) / numSteps);
+					voltageStep += ((voltageMax + 1 - voltageMin) / numSteps);
 				}
 			}
 			#endif // DEBUG_MODE
