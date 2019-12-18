@@ -5,13 +5,13 @@ Initial attempt at making a wire-free expansion board for the v4 Miniscope. This
 Header Position: Block 2097151
 
 | Write Key     | Write Key     | Write Key     | Write Key     |
-|:-------------:|:-------------:| :----:|:----:|
+|:----:|:----:|:----:|:----:|
 | Gain(1: x1, 2: x2, 3: x3.5) | LED Brightness (0-255) | Record Length (s) | Focal Plane (0-255) |
 | Record Mode (1: Normal Mode, 2: Sweep Mode) | Sweep Mode*: Focal Plane Minimum | Sweep Mode*: Focal Plane Maximum | Sweep Mode*: Number of Focal Planes |
 | Sweep Mode*: Time in Each Focal Plane (s) |  |  |  |
 
 * Each cell represents a word (4 bytes).
-* *Only applicable in sweep mode. Will be ignored in normal mode
+* *Only applicable in sweep mode. They will be ignored in normal mode.
 
 ### Communication Protocol to the Wired Expansion Board (WXB)
 The wire-free board can talk to the wired-expansion board using the SD card slot.

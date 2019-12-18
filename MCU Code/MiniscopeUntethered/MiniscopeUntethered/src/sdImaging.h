@@ -953,7 +953,8 @@ void imageSensorHSyncItInit() {
 	
 	
 }
-void imagingSensorLoadHeader(){
+void imagingSensorLoadHeader()
+{
 	uint8_t headerTemp[SDMMC_BLOCK_SIZE] = {0};
 	uint32_t *header = (uint32_t *)headerTemp;
 
@@ -963,7 +964,7 @@ void imagingSensorLoadHeader(){
 	sd_mmc_wait_end_of_read_blocks(false);
 
 	gain				= header[HEADER_GAIN_POS];		// Not used in V4 WF
-	ledValue			= header[HEADER_LED_POS]; //header should be between 0 and 255;
+	ledValue			= header[HEADER_LED_POS];		// header should be between 0 and 255;
 	numFramesToRecord	= header[HEADER_NUM_FRAMES_POS];
 	focalLength			= header[HEADER_EWL_FOCUS_POS];
 	recMode				= header[HEADER_REC_MODE_POS];
@@ -971,8 +972,8 @@ void imagingSensorLoadHeader(){
 	focusMax			= header[HEADER_FOC_MAX_POS];
 	focusSteps			= header[HEADER_FOC_STEPS_POS];
 	focusStepLen		= header[HEADER_FOC_PL_LEN_POS];
-
 }
+
 void imagingSensorCaptureEnable() {
 	PIOA->PIO_PCMR |= PIO_PCMR_PCEN ;
 	
