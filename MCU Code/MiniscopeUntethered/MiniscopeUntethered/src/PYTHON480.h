@@ -51,9 +51,11 @@ void Disable_Seq();
 // Enable sub-sampling (only take every other pixel)
 void Enable_Subsample();
 
-
 // Determine Region of Interest (Configure the window to sample from)
 void ROI_Configuration();
+
+// Debug mode ROI
+void NO_Subsample_ROI();
 
 
 /************************************************************************/

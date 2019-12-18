@@ -14,17 +14,15 @@
 #include "PYTHON480.h"
 
 
-
-// #define DEBUG_MODE
-
+// #define SWEEP_MODE
+// #define LED_BOARD_TEST_MODE
 
 
 volatile uint32_t time_ms;
 volatile uint32_t tick_start;
 volatile uint32_t sdCount = 0;
 volatile uint32_t sdCount2 = 0;
-volatile uint32_t valueLED = 0; //PWM duty value
-volatile uint32_t test[128];
+volatile uint32_t valueLED = 0;
 
 /************************************************************************/
 /*                           LOCAL FUNCTIONS                            */
@@ -289,8 +287,8 @@ void BitBang_Write_WXB()
 */
 void testLEDBoardSetup()
 {
-	uint32_t testLED = 10;
-	uint32_t testFocalLength = 200;
+	uint32_t testLED = 30;
+	uint32_t testFocalLength = 100;
 	
 	twihs_packet_t packetTestLED;
 	uint8_t TestLEDBuff[2];
@@ -381,14 +379,23 @@ int main (void)
 		ioport_set_pin_level(LED_PIN, 0);
 	}
 		
-	ROI_Configuration();
+	
+	#ifdef DEBUG_MODE
+//	NO_Subsample_ROI();
+	#else
 	Enable_Subsample();
+	ROI_Configuration();
+	#endif
+	
 	
 		
 	// Set up EXCITATION LED
 	ioport_set_pin_dir(LED_ENT_PIN, IOPORT_DIR_OUTPUT);
 	ioport_set_pin_level(LED_ENT_PIN, 1);
-
+	#ifdef DEBUG_MODE
+	ioport_set_pin_level(LED_ENT_PIN, 0);
+	ioport_set_pin_level(LED_ENT_PIN, 1);
+	#endif
 
 	// 	----- Enable control of LED
 // 	pmc_enable_periph_clk(ID_PIOD);	
@@ -434,9 +441,9 @@ int main (void)
 	sd_mmc_init();
 	//
 
-	#ifdef DEBUG_MODE
+	#ifdef LED_BOARD_TEST_MODE
 	testLEDBoardSetup();
-	#endif // DEBUG_MODE
+	#endif // LED_BOARD_TEST_MODE
 	
 	//--------------------------------------------Remove comments below after debugging I2C
 	
@@ -476,7 +483,7 @@ int main (void)
 		tick_start = time_tick_get();
 		while (time_tick_calc_delay(tick_start, time_tick_get()) < 100)
 		{}							// Definitely don't delay if we're doing this
-		SD_Check = sd_mmc_check(SD_SLOT_NB);
+//		SD_Check = sd_mmc_check(SD_SLOT_NB);
 	}
 
 
@@ -546,29 +553,26 @@ int main (void)
 	while (twihs_master_write(TWIHS1, &packetEWLDrive)  != TWIHS_SUCCESS)
 	{}
 
-	
-//	if (ledValue >= PWM_PERIOD_VALUE)
-//		ledValue = 0;
-//	pwm_channel_update_duty(PWM0, &g_pwm_channel_led, ledValue);
-
-
+	if (gain == 1)
+	{
+		SPI_Write(204, 0x00E1); 	// (gain 1x : 0x00E1 // gain 2x : 0x00E4 // gain 3.5x : 0x0024)
+	}
+	else if (gain == 2)
+	{
+		SPI_Write(204, 0x00E4); 	// (gain 1x : 0x00E1 // gain 2x : 0x00E4 // gain 3.5x : 0x0024)
+	}
+	else if (gain == 3)
+	{
+		SPI_Write(204, 0x0024); 	// (gain 1x : 0x00E1 // gain 2x : 0x00E4 // gain 3.5x : 0x0024)
+	}
+	else
+	{}
 
 	imagingSensorSetup(); //sets interrupts, configs IO pins for DMA CMOS sensor
-
-	
-
-// 	#ifdef EV76C541
-// 		imagingSensorConfigureEV76C541();
-// 	#else
-// 		imagingSensorConfigure(); //I2C config sensor
-// 	#endif
 
 	tick_start = time_tick_get();
 	while (time_tick_calc_delay(tick_start, time_tick_get()) <5000) {}
 
-	
-	//DACC_updateOutput(ledValue,1);
-//
 	
 	sd_mmc_init_write_blocks(SD_SLOT_NB,STARTING_BLOCK,50*NB_BLOCKS_PER_FRAME);	
 	uint32_t curBlock = STARTING_BLOCK;
@@ -584,13 +588,9 @@ int main (void)
 	ioport_set_pin_level(LED_ENT_PIN, 1);
 	ioport_set_pin_level(LED_PIN, 1);
 	
-	#ifdef DEBUG_MODE
-	uint32_t voltageMin = 0;
-	uint8_t voltageStep = voltageMin;		// VLL_4RMS = 44.5mV_RMS x N + 24.4V_RMS, where N = code 0x000 to 0x3FF in decimal (0-1023), voltageStep is the 8 MSBs (0-255)
-	uint32_t numSteps = 16;
-	uint32_t voltageMax = 255;		// 255;
 	
-	//
+	uint8_t voltageStep = focusMin;		// VLL_4RMS = 44.5mV_RMS x N + 24.4V_RMS, where N = code 0x000 to 0x3FF in decimal (0-1023), voltageStep is the 8 MSBs (0-255)
+	
 	twihs_packet_t packetEWLTest;
 	uint8_t EWLTestBuff[2];
 	packetEWLTest.chip = EWL_DRIVER_ADR;		// 0b 0111 0111
@@ -599,54 +599,69 @@ int main (void)
 	packetEWLTest.buffer = (uint8_t *) EWLTestBuff;
 	EWLTestBuff[1] = 0x02;
 	packetEWLTest.length = 2;
-	#endif // DEBUG_MODE
 
 	while (1) 
 	{	
 		if (frameNumber > writeFrameNum) 
 		{
-			#ifdef DEBUG_MODE
-			// Testing EWL distance by changing calibration every 100 frames (5 seconds)
-			if (writeFrameNum % 100 == 0)
+			if (recMode == 2)
 			{
-				// Send different number to EWL Drive
-				EWLTestBuff[0] = voltageStep;
-//				while (twihs_master_write(TWIHS1, &packetEWLTest) != TWIHS_SUCCESS)
-//				{}
-				twihs_master_write(TWIHS1, &packetEWLTest);
-				
-				if (voltageStep <= voltageMax)
+				// Testing EWL distance by changing calibration every (20fps * plane-duration(s)) frames
+				if (writeFrameNum % (20 * focusStepLen)  == 0)
 				{
-					voltageStep += ((voltageMax + 1 - voltageMin) / numSteps);
+					// Send different number to EWL Drive
+					EWLTestBuff[0] = voltageStep;
+	//				while (twihs_master_write(TWIHS1, &packetEWLTest) != TWIHS_SUCCESS)
+	//				{}
+					twihs_master_write(TWIHS1, &packetEWLTest);
+				
+					if (voltageStep <= focusMax)
+					{
+						voltageStep += ((focusMax + 1 - focusMin) / focusSteps);
+					}
 				}
 			}
-			#endif // DEBUG_MODE
 			
 			#ifdef PYTHON480
 			switch (writeFrameNum % 3)
 			{
 				case (0):
-				#ifdef DEBUG_MODE
-				imageBuffer0[buffSize - 5] = voltageStep;
-				#endif // DEBUG_MODE
+				if (recMode == 2)
+				{
+					imageBuffer0[buffSize - 5] = voltageStep;
+				}
+				else
+				{
+					imageBuffer0[buffSize - 5] = focalLength;
+				}
 				imageBuffer0[buffSize - 6] = time_tick_calc_delay(tick_start, time_tick_get());
 				imageBuffer0[buffSize - 7] = frameNumber - writeFrameNum;
 				sd_mmc_start_write_blocks(&imageBuffer0[0], NB_BLOCKS_PER_WRITE);
 				break;
 				
 				case (1):
-				#ifdef DEBUG_MODE
-				imageBuffer1[buffSize - 5] = voltageStep;
-				#endif // DEBUG_MODE
+				if (recMode == 2)
+				{
+					imageBuffer1[buffSize - 5] = voltageStep;
+				}
+				else
+				{
+					imageBuffer1[buffSize - 5] = focalLength;
+				}
 				imageBuffer1[buffSize - 6] = time_tick_calc_delay(tick_start, time_tick_get());		// time when beginning to write to SD
 				imageBuffer1[buffSize - 7] = frameNumber - writeFrameNum;
 				sd_mmc_start_write_blocks(&imageBuffer1[0], NB_BLOCKS_PER_WRITE);
 				break;
 				
 				case (2):
-				#ifdef DEBUG_MODE
-				imageBuffer2[buffSize - 5] = voltageStep;
-				#endif // DEBUG_MODE
+				if (recMode == 2)
+				{
+					imageBuffer2[buffSize - 5] = voltageStep;
+				}
+				else
+				{
+					imageBuffer2[buffSize - 5] = focalLength;
+				}
 				imageBuffer2[buffSize - 6] = time_tick_calc_delay(tick_start, time_tick_get());
 				imageBuffer2[buffSize - 7] = frameNumber - writeFrameNum;
 				sd_mmc_start_write_blocks(&imageBuffer2[0], NB_BLOCKS_PER_WRITE);
