@@ -59,7 +59,7 @@
 	#define PIXELS_PER_WORD			1<<D_SIZE
 	#define FRAME_RATE				20
 	#define IMAGE_WIDTH				768 //Will be subsampled by 2x
-	#define IMAGE_HEIGHT				592 //Will be subsampled by 2x
+	#define IMAGE_HEIGHT			592 //Will be subsampled by 2x
 	#define IMAGE_SUBSAMPLE			2
 	#define NUM_PIXELS				(IMAGE_HEIGHT*IMAGE_WIDTH)/(IMAGE_SUBSAMPLE*IMAGE_SUBSAMPLE) //Currently needs to be a multiple of PIXELS_PER_WORD and SDMMC_BLOCK_SIZE
 	#define FRAME_FOOTER_LENGTH		0 //Last 32bit of footer is frame number. The rest is used to fill up sdCard multi block write. Has units of WORDS
@@ -299,7 +299,13 @@
 #define HEADER_GAIN_POS			4
 #define HEADER_LED_POS			5
 #define HEADER_NUM_FRAMES_POS	6
-#define HEADER_EWL_FOCUS_POS		7
+#define HEADER_EWL_FOCUS_POS	7
+#define HEADER_REC_MODE_POS		8
+#define HEADER_FOC_MIN_POS		9
+#define HEADER_FOC_MAX_POS		10
+#define HEADER_FOC_STEPS_POS	11
+#define HEADER_FOC_PL_LEN_POS	12
+
 
 /* ------------------------ DMA    ------------------------------------------*/
 #define IMAGING_SENSOR_XDMAC_CH		1
@@ -338,31 +344,34 @@
 volatile uint32_t numWritesPerFrame = ((NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH)*4)/(SDMMC_BLOCK_SIZE*NB_BLOCKS_PER_WRITE); //This should be an integer
 
 volatile uint8_t i2cbuf[2];
- volatile uint32_t blockNum			= 0;
- volatile uint32_t SDWriteNum			= 0;
+volatile uint32_t blockNum				= 0;
+volatile uint32_t SDWriteNum			= 0;
 volatile  uint8_t captureEnabled		= 0;
- volatile uint8_t startRecording		= 0;
- volatile uint32_t pixelWordCounter	= 0;
- volatile uint32_t frameNumber		= 0;
- volatile uint32_t overflowCount		= 0;
- volatile uint32_t pcISR				= 0;
- volatile uint32_t lineCount			= 0;
-volatile uint32_t start_time = 0;
+volatile uint8_t startRecording			= 0;
+volatile uint32_t pixelWordCounter		= 0;
+volatile uint32_t frameNumber			= 0;
+volatile uint32_t overflowCount			= 0;
+volatile uint32_t pcISR					= 0;
+volatile uint32_t lineCount				= 0;
+volatile uint32_t start_time			= 0;
 
- volatile uint32_t gain					= 1;
- volatile uint32_t ledValue				= 0;
- volatile uint32_t numFramesToRecord	= 0;
- volatile uint32_t focalLength = 0;
+volatile uint32_t gain					= 1;
+volatile uint32_t ledValue				= 0;
+volatile uint32_t numFramesToRecord		= 0;
+volatile uint32_t focalLength			= 0;
+volatile uint32_t recMode				= 0;
+volatile uint32_t focusMin				= 0;
+volatile uint32_t focusMax				= 255;
+volatile uint32_t focusSteps			= 16;
+volatile uint32_t focusStepLen			= 5;
 
- volatile uint32_t testPoint			= 0;
 
- volatile uint32_t sdImageWriteFrameNum = 0;
+volatile uint32_t testPoint				= 0;
+
+volatile uint32_t sdImageWriteFrameNum	= 0;
  
- volatile uint32_t bufCount0 = 0;
- volatile uint32_t bufCount1 = 0;
- volatile uint32_t bufCount2 = 0;
-
- twihs_packet_t packetCMOS;
+ 
+twihs_packet_t packetCMOS;
 /*----------------------------------------------------------------------------
  *         Functions
  *----------------------------------------------------------------------------*/
@@ -954,10 +963,14 @@ void imagingSensorLoadHeader(){
 	sd_mmc_wait_end_of_read_blocks(false);
 
 	gain				= header[HEADER_GAIN_POS];		// Not used in V4 WF
-	//ledValue			= ((100- header[HEADER_LED_POS])*0x0FFF)/100; //header should be between 0 and 100; Used for DAC
 	ledValue			= header[HEADER_LED_POS]; //header should be between 0 and 255;
 	numFramesToRecord	= header[HEADER_NUM_FRAMES_POS];
-	focalLength	= header[HEADER_EWL_FOCUS_POS];
+	focalLength			= header[HEADER_EWL_FOCUS_POS];
+	recMode				= header[HEADER_REC_MODE_POS];
+	focusMin			= header[HEADER_FOC_MIN_POS];
+	focusMax			= header[HEADER_FOC_MAX_POS];
+	focusSteps			= header[HEADER_FOC_STEPS_POS];
+	focusStepLen		= header[HEADER_FOC_PL_LEN_POS];
 
 }
 void imagingSensorCaptureEnable() {

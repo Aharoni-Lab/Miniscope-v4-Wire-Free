@@ -92,7 +92,7 @@ void Required_Uploads()
 	// SPI_Write(130, 0x0001);	// Handles phase of pixel clock changed from 0x0001 to 0x0015
 
 	// Test Pattern
-	// SPI_Write(144,0x0003);
+//	SPI_Write(144,0x0003);
 
 	SPI_Write(130, 0x0015);
 	SPI_Write(192, 0x0801);		// Monitor select function
@@ -100,7 +100,7 @@ void Required_Uploads()
 	SPI_Write(197, 0x0380);		// Num black lines SPI_Write(197, 0x030A);
 	
 	#ifdef DISABLE_PLL
-		SPI_Write(199, 167);		// Exposure/Frame rate config, SPI_Write(199, 0x0299);	// Why is this not 666?? --> Python divides input clock by 4 and then uses PLL to multiply by 4 again
+		SPI_Write(199, 167);	// Exposure/Frame rate config, SPI_Write(199, 0x0299);	// Why is this not 666?? --> Python divides input clock by 4 and then uses PLL to multiply by 4 again
 		SPI_Write(200, 5000);	// Frame length, SPI_Write(200, 0x0350);
 		SPI_Write(201, 4900);	// SPI_Write(201, 2900); // Exposure time SPI_Write(201, 0x01F4);
 	#else
@@ -284,6 +284,43 @@ void ROI_Configuration()
 	}
 
 
+void NO_Subsample_ROI()
+{
+			// Registers 195 & 256-265
+			
+			// ROI0 config0
+			// * default: 0xC900 (x_start 0x00, x_end 0xC9)
+			// goes from 0 - 201
+			// mind the subsampling
+			SPI_Write(256, 0x9435);		// Take 20 pixels off from each side (each bit = 4 pxs) // Is it 8 pixels since subsampling??
+			
+			// ROI0 config1
+			// * default: 0x9700 (y_start 0x00, y_end 0x97)
+			// goes from 0 - 151
+			// mind the subsampling
+			SPI_Write(257, 0x7027);		// take 8 pixels off from each side (each bit = 4 pxs)
+			
+			// Test on Oscilloscope:
+			// SPI_Write(257, 0x5250);
+			
+			// RIO0 config_lsb0
+			// The least significant configuration bits for x and y parameters are located in separate registers
+			// (refer to registers 264?265). One may decide not to reconfigure these bits, in which case the
+			// configuration granularity becomes 4 pixels for both x? and y?configurations.
+			// * default 0xc4c4
+			// bit 0: x_start0(0) - default 0 (ROI0 - x start config (bit0))
+			// bit 2
+			// SPI_Write(264, val);
+			
+			
+			// Active ROI selection (195 vs 228??)
+			SPI_Write(228, 0x0000);		// Choose ROI0
+//			SPI_Write(195, 0x0000);
+			
+			// Test_Pattern
+//			SPI_Write(144, 0x0003);
+}
+
 
 // ========== NOT IN USE ========== //
 void No_Transfer() 
@@ -321,11 +358,11 @@ void DisableE()
 // Power on sequencer and accepting/outputting pixel values
 void EnableSeq () 
 {
-	SPI_Write(192,0x0803);
+	SPI_Write(192,0x0801);
 }
 
 // Power off sequencer and accepting/outputting pixel values
 void Disable_Seq () 
 {
-	SPI_Write(192,0x0802);
+	SPI_Write(192,0x0800);
 }
