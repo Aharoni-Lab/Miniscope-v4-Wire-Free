@@ -11,6 +11,7 @@ Header Position: Block 2097151
 | Sweep Mode*: Time in Each Focal Plane (s) |  |  |  |
 
 Each cell represents a word (4 bytes).
+
 *Only applicable in sweep mode. Will be ignored in normal mode
 
 ### Communication Protocol to the Wired Expansion Board (WXB)
