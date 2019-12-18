@@ -10,6 +10,8 @@ Header Position: Block 2097151
 | Record Mode (1: Normal Mode, 2: Sweep Mode) | Sweep Mode*: Focal Plane Minimum | Sweep Mode*: Focal Plane Maximum | Sweep Mode*: Number of Focal Planes |
 | Sweep Mode*: Time in Each Focal Plane (s) |  |  |  |
 
+Each cell represents a word (4 bytes).
+*Only applicable in sweep mode. Will be ignored in normal mode
 
 ### Communication Protocol to the Wired Expansion Board (WXB)
 The wire-free board can talk to the wired-expansion board using the SD card slot.
