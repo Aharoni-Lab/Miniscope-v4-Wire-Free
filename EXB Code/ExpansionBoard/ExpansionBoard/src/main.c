@@ -32,6 +32,8 @@
 #include "expansion.h"
 #include "definitions.h"
 #include "serializer.h"
+// #include "wirefree.h"
+
 
 
 int main (void)
@@ -46,22 +48,23 @@ int main (void)
 	ioport_init();
 	TWIHS_init();
 	
+/*	Looks like we're running the serializer at default setting
 	twihs_packet_t Ser_Packet;
 	// SDA and SCL to communicate with the serializer and set it up.
 	// define object.addr[0], .buffer, .length
 	uint8_t Ser_Buff[2];
-	Ser_Packet.chip =		 = ;
+	Ser_Packet.chip =		 = 0xB0;
 	Ser_Packet.addr[0]		 = 0x01;
-	Ser_Packet.addr_length	 = ;
+	Ser_Packet.addr_length	 = 1;
 	Ser_Buff[0]				|= 0x10;
 	Ser_Packet.buffer 		|= (uint8_t *) Ser_Buff;		// VDDIO = 1.8V
 	Ser_Packet.length		 = 1;
 	while (twihs_master_write(TWIHS1, Ser_Packet) != TWIHS_SUCCESS)
 	{}
-	
+*/	
 	// something about starting to accept data = 1 (include it in the interrupt function)
-	// power on LED?
+	// power on LED
 	D_In = 1;
-	
-	BB_Serializer();	
+	Dinput_Pin_Setup();		// setup data input pins
+	BB_Serializer();		// write to serializer
 }
