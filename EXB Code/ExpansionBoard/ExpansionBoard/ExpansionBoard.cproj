@@ -586,6 +586,9 @@
     <Compile Include="src\serializer.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\wirefree.h">
+      <SubType>compile</SubType>
+    </Compile>
     <None Include="src\ASF\sam\drivers\wdt\wdt.h">
       <SubType>compile</SubType>
     </None>
