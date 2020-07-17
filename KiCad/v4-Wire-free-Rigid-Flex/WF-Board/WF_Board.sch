@@ -241,8 +241,6 @@ Wire Wire Line
 Wire Wire Line
 	4600 7450 4500 7450
 Wire Wire Line
-	2850 5750 2000 5750
-Wire Wire Line
 	2850 5550 2000 5550
 Wire Wire Line
 	2850 5450 2000 5450
@@ -1340,10 +1338,6 @@ F 3 "" H 7325 6275 50  0001 C CNN
 	1    7325 6275
 	1    0    0    -1  
 $EndComp
-Text HLabel 7000 5600 0    50   Input ~ 0
-SWDCLK
-Text HLabel 7000 5500 0    50   Input ~ 0
-SWDIO
 Text Notes 6850 5050 0    50   ~ 0
 SWD Programming Connections
 Text Notes 7075 5975 0    50   ~ 0
@@ -1631,4 +1625,132 @@ Text Label 6500 6900 0    50   ~ 0
 SDA_3V3
 Text Label 6500 7000 0    50   ~ 0
 SCL_3V3
+Wire Wire Line
+	2850 6050 2000 6050
+Wire Wire Line
+	2850 6150 2000 6150
+Text Label 2000 6050 0    50   ~ 0
+HSDP
+Text Label 2000 6150 0    50   ~ 0
+HSDM
+Wire Wire Line
+	2850 6250 2375 6250
+Wire Wire Line
+	2375 6250 2375 6400
+Wire Wire Line
+	2250 6400 2375 6400
+Connection ~ 2375 6400
+Wire Wire Line
+	2375 6400 2500 6400
+$Comp
+L .Capacitor:CQ0201JRNPO8BN100 C19
+U 1 1 5F14FAFE
+P 2250 6500
+F 0 "C19" H 2342 6546 50  0000 L CNN
+F 1 "CQ0201JRNPO8BN100" H 1860 6670 50  0001 L CNN
+F 2 ".Capacitor:C_0201_0603Metric_L" H 2310 6770 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-High_Q_NP0_16V-to-250V_15.pdf" H 2260 6570 50  0001 C CNN
+F 4 "10pF" H 2342 6455 50  0000 L CNN "Note"
+F 5 "0201" H 2360 6320 50  0001 C CNN "Size"
+	1    2250 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Resistor:RC0201FR-075K62L R1
+U 1 1 5F150C28
+P 2500 6500
+F 0 "R1" H 2568 6546 50  0000 L CNN
+F 1 "RC0201FR-075K62L" H 2530 6310 50  0001 L CNN
+F 2 ".Resistor:R_0201_0603Metric_ERJ_L" H 2430 6420 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 2500 6500 50  0001 C CNN
+F 4 "5.62K" H 2568 6455 50  0000 L CNN "Note"
+F 5 "0201" H 2730 6720 50  0001 C CNN "Size"
+	1    2500 6500
+	1    0    0    -1  
+$EndComp
+$Comp
+L .Connector:10118192-0001LF J3
+U 1 1 5F15C116
+P 850 5575
+F 0 "J3" H 792 5010 50  0000 C CNN
+F 1 "10118192-0001LF" H 792 5101 50  0000 C CNN
+F 2 "AMPHENOL_10118192-0001LF" H 850 5575 50  0001 L BNN
+F 3 "Amphenol" H 850 5575 50  0001 L BNN
+F 4 "B" H 850 5575 50  0001 L BNN "Field4"
+F 5 "Manufacturer Recommendation" H 850 5575 50  0001 L BNN "Field5"
+	1    850  5575
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1150 5875 1275 5875
+Wire Wire Line
+	1275 5675 1150 5675
+NoConn ~ 1150 5575
+Wire Wire Line
+	1150 5475 1550 5475
+Wire Wire Line
+	1150 5375 1550 5375
+Wire Wire Line
+	1150 5275 1550 5275
+$Comp
+L power:+BATT #PWR036
+U 1 1 5F19E027
+P 1550 5275
+F 0 "#PWR036" H 1550 5125 50  0001 C CNN
+F 1 "+BATT" H 1565 5448 50  0000 C CNN
+F 2 "" H 1550 5275 50  0001 C CNN
+F 3 "" H 1550 5275 50  0001 C CNN
+	1    1550 5275
+	1    0    0    -1  
+$EndComp
+Text Label 1550 5375 2    50   ~ 0
+HSDM
+Text Label 1550 5475 2    50   ~ 0
+HSDP
+Wire Notes Line
+	400  6225 1775 6225
+Wire Notes Line
+	1775 6225 1775 4975
+Wire Notes Line
+	1775 4975 400  4975
+Wire Notes Line
+	400  4975 400  6225
+Text Notes 575  5075 2    50   ~ 0
+USB
+Text Label 7000 5500 0    50   ~ 0
+SWDIO
+Text Label 7000 5600 0    50   ~ 0
+SWDCLK
+Wire Wire Line
+	1275 5675 1275 5775
+$Comp
+L power:GND #PWR?
+U 1 1 5F14429E
+P 1275 5775
+F 0 "#PWR?" H 1275 5525 50  0001 C CNN
+F 1 "GND" V 1280 5647 50  0000 R CNN
+F 2 "" H 1275 5775 50  0001 C CNN
+F 3 "" H 1275 5775 50  0001 C CNN
+	1    1275 5775
+	0    -1   -1   0   
+$EndComp
+Connection ~ 1275 5775
+Wire Wire Line
+	1275 5775 1275 5875
+$Comp
+L power:GND #PWR?
+U 1 1 5F144692
+P 2375 6600
+F 0 "#PWR?" H 2375 6350 50  0001 C CNN
+F 1 "GND" H 2380 6427 50  0000 C CNN
+F 2 "" H 2375 6600 50  0001 C CNN
+F 3 "" H 2375 6600 50  0001 C CNN
+	1    2375 6600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 6600 2375 6600
+Connection ~ 2375 6600
+Wire Wire Line
+	2375 6600 2500 6600
 $EndSCHEMATC
