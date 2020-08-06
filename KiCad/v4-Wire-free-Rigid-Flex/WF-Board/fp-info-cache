@@ -1,4 +1,4 @@
-17827838076366649
+17831039844630698
 .Capacitor
 C_0201_0603Metric_L
 Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body
@@ -48,6 +48,13 @@ Capacitor, Polarized, Chip; 7.30 mm L X 4.30 mm W X 4.30 mm H body
 0
 2
 2
+.Connector
+1x4_USB
+
+
+0
+4
+4
 .Connector
 1x8_microSD
 
@@ -461,6 +468,13 @@ Ball Grid Array (BGA), 0.80 mm pitch, square; 100 pin, 9.00 mm L X 9.00 mm W X 1
 0
 100
 100
+.Package_BGA
+MAX77681AEWV&plus_T
+
+
+0
+30
+30
 .Package_LCC
 iLCC48P70_1000X1000X135L80X40N
 Pullback Quad Flat No-Lead (PQFN), 0.70 mm pitch; square, 12 pin X 12 pin, 10.00 mm L X 10.00 mm W X 1.35 mm H body
