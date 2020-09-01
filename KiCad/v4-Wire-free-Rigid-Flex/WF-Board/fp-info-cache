@@ -1,4 +1,4 @@
-17831039844630698
+17834237206413903
 .Capacitor
 C_0201_0603Metric_L
 Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body
@@ -469,6 +469,13 @@ Ball Grid Array (BGA), 0.80 mm pitch, square; 100 pin, 9.00 mm L X 9.00 mm W X 1
 100
 100
 .Package_BGA
+MAX77651AEWV&plus_
+
+
+0
+30
+30
+.Package_BGA
 MAX77681AEWV&plus_T
 
 
@@ -643,6 +650,13 @@ Small Outline No-Lead (SON with Tab), 0.50 mm pitch; 10 pin, 3.00 mm L X 2.00 mm
 0
 11
 11
+.Package_SOT
+DCK5
+
+
+0
+5
+5
 .Package_SOT
 SOT23-5P95_280X145L45X40N
 Small Outline Transistor (SOT23), 0.95 mm pitch; 5 pin, 2.90 mm L X 1.60 mm W X 1.45 mm H body
