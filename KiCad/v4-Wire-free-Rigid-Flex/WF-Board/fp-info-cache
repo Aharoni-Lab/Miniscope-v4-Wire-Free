@@ -1,4 +1,4 @@
-17834237206413903
+17837436484965802
 .Capacitor
 C_0201_0603Metric_L
 Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body
@@ -140,6 +140,13 @@ B2B_Flex_05_Dual_Row_38milx24mil_Pad_20mil_copy
 5
 5
 .Connector
+B2B_Flex_6_Single_Row_200x1000_Pad_400P_copy
+
+
+0
+6
+6
+.Connector
 B2B_Flex_14_Dual_Row_38milx24mil_Hole_10milx20mil
 
 
@@ -202,6 +209,13 @@ B2B_Flex_20_Dual_Row_38milx24mil_Pad_20mil
 0
 20
 20
+.Connector
+B2B_Flex_27_Single_Row_200x1000_Pad_400P
+
+
+0
+27
+27
 .Connector
 BTE-040-01-L-D-A
 
