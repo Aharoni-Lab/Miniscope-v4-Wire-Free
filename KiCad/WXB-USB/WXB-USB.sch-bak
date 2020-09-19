@@ -202,9 +202,9 @@ USBD-
 Wire Wire Line
 	1825 3850 2475 3850
 Wire Wire Line
-	1825 3950 2475 3950
-Wire Wire Line
 	1825 4050 2475 4050
+Wire Wire Line
+	1825 3950 2475 3950
 Wire Wire Line
 	1825 4150 2475 4150
 $Comp
@@ -229,9 +229,9 @@ F 3 "" H 2475 3850 50  0001 C CNN
 	1    2475 3850
 	1    0    0    -1  
 $EndComp
-Text Label 2475 3950 2    50   ~ 0
-FT-WF-UTX
 Text Label 2475 4050 2    50   ~ 0
+FT-WF-UTX
+Text Label 2475 3950 2    50   ~ 0
 FT-WF-URX
 $Comp
 L .Regulator_Linear:TPS79718DCKR U2
@@ -332,8 +332,6 @@ NoConn ~ 4850 5875
 NoConn ~ 5150 4425
 NoConn ~ 5150 4325
 NoConn ~ 5150 3925
-NoConn ~ 5150 3825
-NoConn ~ 5150 3725
 $Comp
 L power:VBUS #PWR014
 U 1 1 5F4702A2
@@ -415,4 +413,52 @@ $EndComp
 Connection ~ 9275 2350
 Wire Wire Line
 	9275 2350 9550 2350
+Text Notes 5875 3000 0    50   ~ 0
+Ferrite Bead?
+Wire Wire Line
+	5150 3725 4725 3725
+$Comp
+L .LED:LTST-C190CKT D?
+U 1 1 5F663AD2
+P 4575 3725
+F 0 "D?" H 4575 4015 50  0000 C CNN
+F 1 "LTST-C190CKT" H 4575 3924 50  0000 C CNN
+F 2 ".LED:LED_SC80X160X65L40L" H 4555 3550 50  0001 C CNN
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTST-C190CKT.pdf" H 4575 3725 50  0001 C CNN
+	1    4575 3725
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4425 3725 4150 3725
+Wire Wire Line
+	4150 3725 4150 3575
+$Comp
+L power:+1V8 #PWR?
+U 1 1 5F665C86
+P 4150 3575
+F 0 "#PWR?" H 4150 3425 50  0001 C CNN
+F 1 "+1V8" H 4165 3748 50  0000 C CNN
+F 2 "" H 4150 3575 50  0001 C CNN
+F 3 "" H 4150 3575 50  0001 C CNN
+	1    4150 3575
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 3825 4725 3825
+$Comp
+L .LED:TLMY1000-GS08 D?
+U 1 1 5F666A14
+P 4575 3825
+F 0 "D?" H 4575 3610 50  0000 C CNN
+F 1 "TLMY1000-GS08" H 4575 3701 50  0000 C CNN
+F 2 ".LED:LED_SC80X160X65L40L" H 4580 3630 50  0001 C CNN
+F 3 "https://www.vishay.com/docs/83172/tlmo1000.pdf" H 4575 3825 50  0001 C CNN
+	1    4575 3825
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4425 3825 4150 3825
+Wire Wire Line
+	4150 3825 4150 3725
+Connection ~ 4150 3725
 $EndSCHEMATC
