@@ -149,10 +149,13 @@ src/SPI_BB_PYTHON480.d src/SPI_BB_PYTHON480.o: ../src/SPI_BB_PYTHON480.c \
  ../src/ASF/common/services/ioport/ioport.h \
  ../src/ASF/common/services/ioport/sam/ioport_pio.h \
  ../src/ASF/sam/drivers/matrix/matrix.h \
- ../src/ASF/sam/drivers/pmc/sleep.h ../src/ASF/sam/drivers/pwm/pwm.h \
- ../src/ASF/sam/utils/fpu/fpu.h \
+ ../src/ASF/sam/drivers/pmc/sleep.h ../src/ASF/sam/utils/fpu/fpu.h \
  ../src/ASF/common/components/memory/sd_mmc/sd_mmc.h \
  ../src/config/conf_sd_mmc.h ../src/ASF/sam/drivers/twihs/twihs.h \
+ ../src/ASF/sam/drivers/uart/uart.h \
+ ../src/ASF/common/services/serial/serial.h \
+ ../src/ASF/common/services/serial/sam_uart/uart_serial.h \
+ ../src/ASF/sam/drivers/usart/usart.h ../src/config/conf_uart_serial.h \
  ../src/ASF/sam/drivers/wdt/wdt.h ../src/ASF/sam/drivers/xdmac/xdmac.h \
  ../src/definitions.h
 
@@ -468,8 +471,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 
 ../src/ASF/sam/drivers/pmc/sleep.h:
 
-../src/ASF/sam/drivers/pwm/pwm.h:
-
 ../src/ASF/sam/utils/fpu/fpu.h:
 
 ../src/ASF/common/components/memory/sd_mmc/sd_mmc.h:
@@ -477,6 +478,16 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/config/conf_sd_mmc.h:
 
 ../src/ASF/sam/drivers/twihs/twihs.h:
+
+../src/ASF/sam/drivers/uart/uart.h:
+
+../src/ASF/common/services/serial/serial.h:
+
+../src/ASF/common/services/serial/sam_uart/uart_serial.h:
+
+../src/ASF/sam/drivers/usart/usart.h:
+
+../src/config/conf_uart_serial.h:
 
 ../src/ASF/sam/drivers/wdt/wdt.h:
 

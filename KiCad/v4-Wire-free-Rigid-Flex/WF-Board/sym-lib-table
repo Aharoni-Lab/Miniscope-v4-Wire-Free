@@ -224,5 +224,4 @@
   (lib (name Triac_Thyristor)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Triac_Thyristor.lib")(options "")(descr ""))
   (lib (name Valve)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Valve.lib")(options "")(descr ""))
   (lib (name Video)(type Legacy)(uri "C:/Program Files/KiCad/share/kicad/library/Video.lib")(options "")(descr ""))
-  (lib (name WF_Board-rescue)(type Legacy)(uri ${KIPRJMOD}/WF_Board-rescue.lib)(options "")(descr ""))
 )
