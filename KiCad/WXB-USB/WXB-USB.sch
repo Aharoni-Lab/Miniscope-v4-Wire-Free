@@ -139,9 +139,7 @@ Wire Wire Line
 Wire Wire Line
 	5000 4825 5550 4825
 NoConn ~ 5150 4225
-Text Notes 1250 3725 0    50   ~ 0
-Or add CTS# and RTS#?
-Text Notes 1525 3525 0    50   ~ 0
+Text Notes 1350 3650 0    50   ~ 0
 To WF
 Text Notes 9650 3575 0    50   ~ 0
 To PC
@@ -461,4 +459,6 @@ Wire Wire Line
 Wire Wire Line
 	4150 3825 4150 3725
 Connection ~ 4150 3725
+Text Notes 1350 3750 0    50   ~ 0
+Should be Tx-Rx & Rx-Tx
 $EndSCHEMATC

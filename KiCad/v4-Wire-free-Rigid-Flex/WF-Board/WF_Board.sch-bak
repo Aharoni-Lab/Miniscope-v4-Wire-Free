@@ -1827,7 +1827,7 @@ Wire Notes Line
 Text Notes 6175 225  0    50   ~ 0
 Voltage Regulator
 Text Notes -850 -600 0    50   ~ 0
-MCU Capacitors
+MCU Decouple Capacitors
 Text Notes 325  8375 0    50   ~ 0
 To CMOS Board
 $Sheet
@@ -1886,9 +1886,13 @@ U 1 1 5F5C3D02
 P 6650 1775
 F 0 "JP1" H 6650 1970 50  0000 C CNN
 F 1 "Jumper_2_Bridged" H 6650 1879 50  0000 C CNN
-F 2 "Connector_PinSocket_1.27mm:PinSocket_1x02_P1.27mm_Vertical" H 6650 1775 50  0001 C CNN
+F 2 "Connector_PinHeader_1.27mm:PinHeader_1x02_P1.27mm_Vertical" H 6650 1775 50  0001 C CNN
 F 3 "~" H 6650 1775 50  0001 C CNN
 	1    6650 1775
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5250 4550 6100 4550
+Text Label 6100 4550 2    50   ~ 0
+V_INT
 $EndSCHEMATC

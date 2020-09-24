@@ -1827,7 +1827,7 @@ Wire Notes Line
 Text Notes 6175 225  0    50   ~ 0
 Voltage Regulator
 Text Notes -850 -600 0    50   ~ 0
-MCU Capacitors
+MCU Decouple Capacitors
 Text Notes 325  8375 0    50   ~ 0
 To CMOS Board
 $Sheet
@@ -1891,4 +1891,8 @@ F 3 "~" H 6650 1775 50  0001 C CNN
 	1    6650 1775
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5250 4550 6100 4550
+Text Label 6100 4550 2    50   ~ 0
+V_INT
 $EndSCHEMATC

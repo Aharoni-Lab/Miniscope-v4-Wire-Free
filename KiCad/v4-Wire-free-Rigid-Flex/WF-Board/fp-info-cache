@@ -1,4 +1,4 @@
-17837436484965802
+17839037426256411
 .Capacitor
 C_0201_0603Metric_L
 Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body
@@ -568,6 +568,13 @@ Quad Flat No-Lead (QFN with Tab), 0.50 mm pitch; square, 12 pin X 12 pin, 7.00 m
 49
 .Package_QFN
 UQFN_MCP1711
+
+
+0
+5
+5
+.Package_QFN
+VREG_TLV74233PDQNR
 
 
 0

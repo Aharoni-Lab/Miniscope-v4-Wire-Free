@@ -139,8 +139,6 @@ Wire Wire Line
 Wire Wire Line
 	5000 4825 5550 4825
 NoConn ~ 5150 4225
-Text Notes 1250 3725 0    50   ~ 0
-Or add CTS# and RTS#?
 Text Notes 1525 3525 0    50   ~ 0
 To WF
 Text Notes 9650 3575 0    50   ~ 0
@@ -202,9 +200,9 @@ USBD-
 Wire Wire Line
 	1825 3850 2475 3850
 Wire Wire Line
-	1825 3950 2475 3950
-Wire Wire Line
 	1825 4050 2475 4050
+Wire Wire Line
+	1825 3950 2475 3950
 Wire Wire Line
 	1825 4150 2475 4150
 $Comp
@@ -229,9 +227,9 @@ F 3 "" H 2475 3850 50  0001 C CNN
 	1    2475 3850
 	1    0    0    -1  
 $EndComp
-Text Label 2475 3950 2    50   ~ 0
-FT-WF-UTX
 Text Label 2475 4050 2    50   ~ 0
+FT-WF-UTX
+Text Label 2475 3950 2    50   ~ 0
 FT-WF-URX
 $Comp
 L .Regulator_Linear:TPS79718DCKR U2
@@ -461,4 +459,6 @@ Wire Wire Line
 Wire Wire Line
 	4150 3825 4150 3725
 Connection ~ 4150 3725
+Text Notes 1350 3750 0    50   ~ 0
+Should be Tx-Rx & Rx-Tx
 $EndSCHEMATC

@@ -23,54 +23,47 @@
 #ifndef SDIMAGING_H_
 #define SDIMAGING_H_
 
-/*----------------------------------------------------------------------------
- *        Definitions
- *----------------------------------------------------------------------------*/
- #define SCK1_PIN					IOPORT_CREATE_PIN(PIOA, 17)
-/*-------------------------- Imaging Sensor ----------------------------------*/
+/************************************************************************/
+/*                             DEFINITIONS                              */
+/************************************************************************/
+#define SCK1_PIN					IOPORT_CREATE_PIN(PIOA, 17)
+
+
+/************************************************************************/
+/*                        IMAGE SENSOR SETTINGS                         */
+/************************************************************************/
 //Which CMOS imaging sensor are we using. Defined in conf_clock.h and sdImaging.h
 //#define MT9V032
 //#define EV76C454
 //#define EV76C454_SUBSAMP
-// #define EV76C541
+//#define EV76C541
 #define PYTHON480
 
 #ifdef  PYTHON480
 	#define IMAGING_SENSOR_ADR		0x18 // No address since uses SPI
 	#define POTENTIOMETER_ADR		0x50 // 0b0101 0000
 	#define EWL_DRIVER_ADR			0x77 // 0b0111 0111
-	//#define AUTO_GAIN_EXPOSURE_ADR	0xAF //bit0 is for Exposure | bit1 is for Gain
-	//#define SHUTTER_WIDTH_ADR		0x0B //Default = 480
-
-	//#define COLUMN_START_ADR		0x01 //Default = 1
-	//#define ROW_START_ADR			0x02 //Default = 4
-	//#define WINDOW_HEIGHT_ADR		0x03 //Default = 480
-	//#define WINDOW_WIDTH_ADR		0x04 //Default = 752
-
-	//#define HORZ_BLANKING_ADR		0x05 //Default = 94
-	//#define VERT_BLANKING_ADR		0x06 //Default = 45
-	//#define NOISE_CORRECTION_ADR	0x70 //bit 5 enables noise correction
 
 	#define D_SIZE					2
 	#define ALWYS					0
 	#define HALFS					0
 	#define FRSTS					0
 
-	#define PIXELS_PER_WORD			1<<D_SIZE
+	#define PIXELS_PER_WORD			1 << D_SIZE
 	#define FRAME_RATE				20
-	#define IMAGE_WIDTH				768 //Will be subsampled by 2x
-	#define IMAGE_HEIGHT			592 //Will be subsampled by 2x
+	#define IMAGE_WIDTH				768		// Will be sub-sampled by 2x
+	#define IMAGE_HEIGHT			592		// Will be sub-sampled by 2x
 	#define IMAGE_SUBSAMPLE			2
-	#define NUM_PIXELS				(IMAGE_HEIGHT*IMAGE_WIDTH)/(IMAGE_SUBSAMPLE*IMAGE_SUBSAMPLE) //Currently needs to be a multiple of PIXELS_PER_WORD and SDMMC_BLOCK_SIZE
-	#define FRAME_FOOTER_LENGTH		0 //Last 32bit of footer is frame number. The rest is used to fill up sdCard multi block write. Has units of WORDS
-	#define NUM_PIXEL_WORDS			(NUM_PIXELS/((uint32_t)PIXELS_PER_WORD))
+	#define NUM_PIXELS				(IMAGE_HEIGHT * IMAGE_WIDTH) / (IMAGE_SUBSAMPLE * IMAGE_SUBSAMPLE)	// Currently needs to be a multiple of PIXELS_PER_WORD and SDMMC_BLOCK_SIZE
+	#define FRAME_FOOTER_LENGTH		0		// Last 32bit of footer is frame number. The rest is used to fill up sdCard multi block write. Has units of WORDS
+	#define NUM_PIXEL_WORDS			(NUM_PIXELS / ((uint32_t)PIXELS_PER_WORD))
 
-	#define VSYNC_MASK				PIO_PA14X1_PIODCEN1 //VSync pin
+	#define VSYNC_MASK				PIO_PA14X1_PIODCEN1		// VSync pin
 	#define VSYNC_ID				PIO_PA14_IDX
 
-	#define HSYNC_MASK				PIO_PA21X1_PIODCEN2 //HSync pin
+	#define HSYNC_MASK				PIO_PA21X1_PIODCEN2		// HSync pin
 	#define HSYNC_ID				PIO_PA21_IDX
-#endif /*EV76C454_SUBSAMP*/
+#endif /*PYTHON480*/
 
 //CMOS imaging sensor definitions
 #ifdef  EV76C541
@@ -247,8 +240,9 @@
 	//#define HSYNC_ID				PIO_PA21_IDX
 //#endif /*MT9V032*/
 
-/* ------------------------ SD Card ------------------------------------------*/
-
+/************************************************************************/
+/*                          SD CARD SETTINGS                            */
+/************************************************************************/
 #ifdef EV76C541
 	#define SD_SLOT_NB					0
 	#define SDMMC_BLOCK_SIZE			512 //Number of bytes in a single block (sector)
@@ -286,7 +280,9 @@
 #endif
 
 
-/*------------------------- Header -------------------------------------------*/
+/************************************************************************/
+/*                           SD CARD HEADERS                            */
+/************************************************************************/
 #define START_SECTOR			STARTING_BLOCK
 
 #define WRITE_KEY0				0x0D7CBA17
@@ -307,38 +303,42 @@
 #define HEADER_FOC_PL_LEN_POS	12
 
 
-/* ------------------------ DMA    ------------------------------------------*/
+/************************************************************************/
+/*                         DIRECT MEMORY ACCESS                         */
+/************************************************************************/
 #define IMAGING_SENSOR_XDMAC_CH		1
 //const uint32_t testVal = 0x00441122;
-/*----------------------------------------------------------------------------
- *         Global variables
- *----------------------------------------------------------------------------*/
- volatile uint32_t xferDMAComplete = 0; //changed in XDMAC_Handler
- 
- volatile uint32_t nbErrors; /** Number or errors detected */
- const uint32_t buffSize = NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH;
- COMPILER_ALIGNED(8)
 
- #ifdef EV76C454
+
+/************************************************************************/
+/*                           GLOBAL VARIABLES                           */
+/************************************************************************/
+volatile uint32_t xferDMAComplete = 0; //changed in XDMAC_Handler
+ 
+volatile uint32_t nbErrors; /** Number or errors detected */
+const uint32_t buffSize = NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH;
+COMPILER_ALIGNED(8)
+
+#ifdef EV76C454
 	static uint32_t imageBuffer[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
 #endif
 
- #ifdef EV76C454_SUBSAMP
+#ifdef EV76C454_SUBSAMP
 	static uint32_t imageBuffer0[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
 	static uint32_t imageBuffer1[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
 	static uint32_t imageBuffer2[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
- #endif
+#endif
 
-  #ifdef EV76C541
-	  static uint32_t imageBuffer0[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
-	  static uint32_t imageBuffer1[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
-	  static uint32_t imageBuffer2[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
-  #endif
+#ifdef EV76C541
+	static uint32_t imageBuffer0[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
+	static uint32_t imageBuffer1[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
+	static uint32_t imageBuffer2[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
+#endif
   
 #ifdef PYTHON480
-  static uint32_t imageBuffer0[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
-  static uint32_t imageBuffer1[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
-  static uint32_t imageBuffer2[NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH];
+	static uint32_t imageBuffer0[NUM_PIXEL_WORDS + FRAME_FOOTER_LENGTH];
+	static uint32_t imageBuffer1[NUM_PIXEL_WORDS + FRAME_FOOTER_LENGTH];
+	static uint32_t imageBuffer2[NUM_PIXEL_WORDS + FRAME_FOOTER_LENGTH];
 #endif
 
 volatile uint32_t numWritesPerFrame = ((NUM_PIXEL_WORDS+FRAME_FOOTER_LENGTH)*4)/(SDMMC_BLOCK_SIZE*NB_BLOCKS_PER_WRITE); //This should be an integer
@@ -365,43 +365,57 @@ volatile uint32_t focusMax				= 255;
 volatile uint32_t focusSteps			= 16;
 volatile uint32_t focusStepLen			= 5;
 
-
 volatile uint32_t testPoint				= 0;
 
 volatile uint32_t sdImageWriteFrameNum	= 0;
- 
- 
-twihs_packet_t packetCMOS;
-/*----------------------------------------------------------------------------
- *         Functions
- *----------------------------------------------------------------------------*/
 
-/*-------------------------- Imaging Sensor ----------------------------------*/
+twihs_packet_t packetCMOS;
+
+
+/************************************************************************/
+/*                        FUNCTION DECLARATIONS                         */
+/************************************************************************/
 //void PIOA_Handler(void);
 void enableSourceClk();
+
 void imagingSensorSetup();
+
 void imagingSensorParamInit();
+
 void imagingSensorItInit();
+
 void imagingSensorDMAInit();
+
 void imagingSensorStartDMA();
+
 void imageSensorVSyncItInit();//Sets up VSync interrupt to detect end of frame
+
 void imageSensorHSyncItInit(); //Set up HSync for row counter
+
 void imagingSensorLoadHeader();
 
 void imagingSensorCaptureEnable();
+
 void imagingSensorCaptureDisable();
 
 void imagingSensorTWIInit();
+
 void spiWrite(uint8_t, uint16_t);
+
 void imagingSensorConfigureEV76C541();
+
 void imagingSensorConfigure();
 
 void checkVSync();
-/* ------------------------ Other ------------------------------------------*/
+
 void fillBuffer();
 
-/*=============================================================================*/
-void fillBuffer() {
+
+/************************************************************************/
+/*                         FUNCTION DEFINITIONS                         */
+/************************************************************************/
+void fillBuffer() 
+{
 	#ifdef EV76C454
 	uint32_t* pBuf;
 	uint32_t i;
@@ -422,7 +436,8 @@ void fillBuffer() {
 	#endif
 }
 
-void enableSourceClk() {
+void enableSourceClk() 
+{
 	//Sets PCK1 as clock output using Main Clocks
 	//pmc_enable_periph_clk( ID_PIOA ); //Sets PIO clock
 	ioport_set_pin_mode(SCK1_PIN,IOPORT_MODE_MUX_B);
@@ -452,7 +467,8 @@ void enableSourceClk() {
 
 }
 
-void spiWrite(uint8_t reg, uint16_t val) {
+void spiWrite(uint8_t reg, uint16_t val) 
+{
 	uint8_t count = 0;
 	reg = reg|0x80; //Sets write bit to 1
 	ioport_set_pin_level(PIO_PB0_IDX, 1);
@@ -487,7 +503,9 @@ void spiWrite(uint8_t reg, uint16_t val) {
 	delay_us(10);
 	//Should always end with clock low and chip select high
 }
-void imagingSensorConfigureEV76C541() { //SPI configuration of sensor
+
+void imagingSensorConfigureEV76C541() 
+{ //SPI configuration of sensor
 	uint16_t value = 0x0000;
 	uint8_t reg = 0x00;
 
@@ -600,7 +618,9 @@ void imagingSensorConfigureEV76C541() { //SPI configuration of sensor
 	value = (8<<8)|(8<<0); //2 x 2 down sample
 	spiWrite(reg,value);
 }
-void imagingSensorConfigure() {
+
+void imagingSensorConfigure() 
+{
 	//------- Synchro Reg -----------
 	//bit 6,7: Master clock div
 	//bit 5: Data clock polarity, 1 Data are output on falling edge
@@ -789,8 +809,8 @@ void imagingSensorConfigure() {
 	}
 }
 
-void imagingSensorSetup() {
-	
+void imagingSensorSetup() 
+{
 	imagingSensorCaptureDisable();//makes sure PIo Capture is disabled
 	
 	pmc_enable_periph_clk( ID_PIOA ); //Sets PIO clock
@@ -806,16 +826,12 @@ void imagingSensorSetup() {
 	imageSensorVSyncItInit();//Sets up VSync interrupt to detect end of frame
 	imageSensorHSyncItInit();
 	
-	
 	packetCMOS.chip = IMAGING_SENSOR_ADR;
 	packetCMOS.addr_length = 1;
-
-	
 }
 
-void imagingSensorParamInit() {
-	
-	
+void imagingSensorParamInit() 
+{
 	PIOA->PIO_PCMR |= PIO_PCMR_DSIZE(D_SIZE);
 	if (ALWYS == 1)
 	PIOA->PIO_PCMR |= PIO_PCMR_ALWYS;
@@ -825,7 +841,8 @@ void imagingSensorParamInit() {
 	PIOA->PIO_PCMR |= PIO_PCMR_FRSTS;
 }
 
-void imagingSensorDMAInit() {
+void imagingSensorDMAInit() 
+{
 	//Single Block With Single Microblock Transfer
 	uint32_t channelStatus = 0;
 	/* Initialize and enable DMA controller */
@@ -837,8 +854,8 @@ void imagingSensorDMAInit() {
 	NVIC_EnableIRQ(XDMAC_IRQn);
 }
 
-void imagingSensorStartDMA() {
-	
+void imagingSensorStartDMA() 
+{
 	uint32_t channelStatus = 0;
 
 	XDMAC->XDMAC_GD =(XDMAC_GD_DI0 << IMAGING_SENSOR_XDMAC_CH); //disables DMA channel
@@ -918,7 +935,9 @@ void imagingSensorStartDMA() {
 	XDMAC->XDMAC_GIE |= (XDMAC_GIE_IE0 <<IMAGING_SENSOR_XDMAC_CH); //Enables channel interrupt
 	XDMAC->XDMAC_GE |= (XDMAC_GE_EN0 << IMAGING_SENSOR_XDMAC_CH); //Enables DMA channel
 }
-void imagingSensorItInit() {
+
+void imagingSensorItInit() 
+{
 	//PIOA->PIO_PCIER = PIO_PCISR_DRDY; //Enable Data Ready Interrupt
 	//PIOA->PIO_PCIDR |= (PIO_PCIDR_RXBUFF)|(PIO_PCIDR_ENDRX)|(PIO_PCIDR_OVRE); //Makes sure other interrupts are disabled
 
@@ -926,7 +945,8 @@ void imagingSensorItInit() {
 	PIOA->PIO_PCIDR |= (PIO_PCIDR_DRDY)|(PIO_PCIDR_RXBUFF)|(PIO_PCIDR_ENDRX)|(PIO_PCIDR_OVRE); //Makes sure other interrupts are disabled
 }
 
-void imageSensorVSyncItInit() {
+void imageSensorVSyncItInit() 
+{
 	PIOA->PIO_PER		|= VSYNC_MASK; //PIO Enable. Takes control away from peripheral (is this OK?)
 	PIOA->PIO_ODR		|= VSYNC_MASK; //Disables output on this pin.
 	PIOA->PIO_PPDER		|= VSYNC_MASK; //Enables pulldown resistor
@@ -938,10 +958,10 @@ void imageSensorVSyncItInit() {
 	
 	//	if((PIOA->PIO_OSR&VSYNC_MASK) == VSYNC_MASK)
 	//		printf("VSync is set as input");
-	
 }
 
-void imageSensorHSyncItInit() {
+void imageSensorHSyncItInit() 
+{
 	PIOA->PIO_PER		|= HSYNC_MASK; //PIO Enable. Takes control away from peripheral (is this OK?)
 	PIOA->PIO_ODR		|= HSYNC_MASK; //Disables output on this pin.
 	PIOA->PIO_PPDER		|= HSYNC_MASK; //Enables pulldown resistor
@@ -950,9 +970,8 @@ void imageSensorHSyncItInit() {
 	PIOA->PIO_AIMER		|= HSYNC_MASK; //Enables additional Interrupt modes
 	PIOA->PIO_ESR		|= HSYNC_MASK; //Enables edge detect. (Edge detect is on by default)
 	PIOA->PIO_FELLSR	|= HSYNC_MASK; //Edge detect is for falling edge (Falling edge is on by default)
-	
-	
 }
+
 void imagingSensorLoadHeader()
 {
 	uint8_t headerTemp[SDMMC_BLOCK_SIZE] = {0};
@@ -974,16 +993,18 @@ void imagingSensorLoadHeader()
 	focusStepLen		= header[HEADER_FOC_PL_LEN_POS];
 }
 
-void imagingSensorCaptureEnable() {
-	PIOA->PIO_PCMR |= PIO_PCMR_PCEN ;
-	
+void imagingSensorCaptureEnable() 
+{
+	PIOA->PIO_PCMR |= PIO_PCMR_PCEN;
 }
 
-void imagingSensorCaptureDisable() {
-	PIOA->PIO_PCMR &= (uint32_t)(~PIO_PCMR_PCEN) ;
+void imagingSensorCaptureDisable() 
+{
+	PIOA->PIO_PCMR &= (uint32_t)(~PIO_PCMR_PCEN);
 }
 
-void checkVSync() {
+void checkVSync() 
+{
 	if (pcISR & VSYNC_MASK) { //VSync signal is detected. End of frame capture
 		//printf("VSYNC!\n");
 		//while(pcISR & VSYNC_MASK) {}
@@ -1130,7 +1151,9 @@ void checkVSync() {
 		//Consider adding HSync to label each row in case missing pixels is an issue
 	}
 }
-void PIOA_Handler(void) {
+
+void PIOA_Handler(void) 
+{
 	pcISR = PIOA->PIO_ISR;
 	if (pcISR & HSYNC_MASK) {
 		if (captureEnabled == 1)
