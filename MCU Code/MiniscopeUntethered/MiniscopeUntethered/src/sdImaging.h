@@ -811,19 +811,19 @@ void imagingSensorConfigure()
 
 void imagingSensorSetup() 
 {
-	imagingSensorCaptureDisable();//makes sure PIo Capture is disabled
+	imagingSensorCaptureDisable();		// Makes sure PIo Capture is disabled
 	
-	pmc_enable_periph_clk( ID_PIOA ); //Sets PIO clock
+	pmc_enable_periph_clk(ID_PIOA);		// Sets PIO clock
 	
 	//NVIC_DisableIRQ( PIOA_IRQn );
 	NVIC_ClearPendingIRQ(PIOA_IRQn);
 	NVIC_SetPriority(PIOA_IRQn, 2);
-	NVIC_EnableIRQ( PIOA_IRQn );
+	NVIC_EnableIRQ(PIOA_IRQn);
 
-	imagingSensorItInit(); //Sets up interrupts //Might need to change interrupts for DMA transfer
+	imagingSensorItInit();				// Sets up interrupts // Might need to change interrupts for DMA transfer
 	imagingSensorDMAInit();
-	imagingSensorParamInit(); //Configures PIO Capture settings
-	imageSensorVSyncItInit();//Sets up VSync interrupt to detect end of frame
+	imagingSensorParamInit();			// Configures PIO Capture settings
+	imageSensorVSyncItInit();			// Sets up VSync interrupt to detect end of frame
 	imageSensorHSyncItInit();
 	
 	packetCMOS.chip = IMAGING_SENSOR_ADR;
@@ -843,14 +843,14 @@ void imagingSensorParamInit()
 
 void imagingSensorDMAInit() 
 {
-	//Single Block With Single Microblock Transfer
+	// Single Block With Single Microblock Transfer
 	uint32_t channelStatus = 0;
 	/* Initialize and enable DMA controller */
 	pmc_enable_periph_clk(ID_XDMAC);
 
 	/*Enable XDMA interrupt */
 	NVIC_ClearPendingIRQ(XDMAC_IRQn);
-	NVIC_SetPriority( XDMAC_IRQn ,1);
+	NVIC_SetPriority(XDMAC_IRQn, 1);
 	NVIC_EnableIRQ(XDMAC_IRQn);
 }
 
