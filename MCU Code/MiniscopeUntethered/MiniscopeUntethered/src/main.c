@@ -14,14 +14,14 @@
 #include <PYTHON480.h>
 #include <conf_uart_serial.h>
 
+
 // #define DEBUG_MODE
 // #define SWEEP_MODE
 // #define LED_BOARD_TEST_MODE
 
 
-
 volatile uint32_t tick_start;
-volatile uint32_t UARTRecBuff = [];
+volatile uint32_t UARTRecBuff;
 
 /************************************************************************/
 /*                           LOCAL FUNCTIONS                            */
@@ -237,35 +237,35 @@ int main (void)
 	ROI_Configuration();
 	#endif
 		
-	// Set up EXCITATION LED
+	/** Set up excitation LED */
 	ioport_set_pin_dir(LED_ENT_PIN, IOPORT_DIR_OUTPUT);
 	ioport_set_pin_level(LED_ENT_PIN, 1);
 	#ifdef DEBUG_MODE
 	ioport_set_pin_level(LED_ENT_PIN, 0);
 	ioport_set_pin_level(LED_ENT_PIN, 1);
 	#endif
+	#ifdef LED_BOARD_TEST_MODE
+	testLEDBoardSetup();
+	#endif // LED_BOARD_TEST_MODE
+	
+	
+	/** Sets interrupts, configures IO pins for DMA CMOS sensor */
+	imagingSensorSetup();
 
 
 	/** Initialize SD Card Module */
 	sd_mmc_init();
 
-	#ifdef LED_BOARD_TEST_MODE
-	testLEDBoardSetup();
-	#endif // LED_BOARD_TEST_MODE
 	
-	uint32_t SD_Check;
-	SD_Check = sd_mmc_check(SD_SLOT_NB);
-	
+	/** Send frames to UART-USB Board */
+	writeFrameNum = 0;
+	uint32_t tick_start = 0;
+	startRecording = 1;
 	while (sd_mmc_check(SD_SLOT_NB) != SD_MMC_OK) 
 	{
-		ioport_toggle_pin_level(LED_PIN);
-		uint32_t tick_start = 0;
-		
-		tick_start = time_tick_get();
-		while (time_tick_calc_delay(tick_start, time_tick_get()) < 100)
-		{}
+		if (writeFrameNum > )
 	}
-
+	startRecording = 0;
 
 	if (sd_mmc_get_type(SD_SLOT_NB) == (CARD_TYPE_SD|CARD_TYPE_HC))		// This is the correct type of card (SDHC)
 	{}
@@ -282,10 +282,8 @@ int main (void)
 	
 	while (twihs_master_write(TWIHS1, &packetExcLED)  != TWIHS_SUCCESS)
 	{}
-		
 	while (twihs_master_write(TWIHS1, &packetEWLDriveInit)  != TWIHS_SUCCESS)
 	{}
-
 	while (twihs_master_write(TWIHS1, &packetEWLDrive)  != TWIHS_SUCCESS)
 	{}
 
@@ -304,39 +302,43 @@ int main (void)
 	else
 	{}
 
-	imagingSensorSetup(); //sets interrupts, configs IO pins for DMA CMOS sensor
 
+	/** Wait 5 seconds*/
 	tick_start = time_tick_get();
 	while (time_tick_calc_delay(tick_start, time_tick_get()) < 5000)
 	{}
 
 	
+	/** Set up to write to SD card */
 	sd_mmc_init_write_blocks(SD_SLOT_NB, STARTING_BLOCK, 50 * NB_BLOCKS_PER_FRAME);	
 	uint32_t curBlock = STARTING_BLOCK;
 	uint32_t writeLineCount = 0;
 	uint32_t writeCount = 0;
 	
+	
+	/** Set up to begin data recording */
 	writeFrameNum = 0;
 	tick_start = time_tick_get();
 	start_time = tick_start;
 	startRecording = 1;
-	ioport_set_pin_level(TRIGGER0_PIN, 1); //Starts acq of imaging sensor
-	//Enable PWM LED COntroll Driver
+	ioport_set_pin_level(TRIGGER0_PIN, 1);	// Starts acquiring imaging sensor data
 	ioport_set_pin_level(LED_ENT_PIN, 1);
 	ioport_set_pin_level(LED_PIN, 1);
 	
 	
-	uint8_t voltageStep = focusMin;		// VLL_4RMS = 44.5mV_RMS x N + 24.4V_RMS, where N = code 0x000 to 0x3FF in decimal (0-1023), voltageStep is the 8 MSBs (0-255)
+	/** Sweep Mode */
+	uint8_t voltageStep = focusMin;			// VLL_4RMS = 44.5mV_RMS x N + 24.4V_RMS, where N = code 0x000 to 0x3FF in decimal (0-1023), voltageStep is the 8 MSBs (0-255)
 	
 	twihs_packet_t packetEWLTest;
 	uint8_t EWLTestBuff[2];
-	packetEWLTest.chip = EWL_DRIVER_ADR;		// 0b 0111 0111
+	packetEWLTest.chip = EWL_DRIVER_ADR;	// 0b 0111 0111
 	packetEWLTest.addr[0] = 0x08;
 	packetEWLTest.addr_length = 1;
 	packetEWLTest.buffer = (uint8_t *) EWLTestBuff;
 	EWLTestBuff[1] = 0x02;
 	packetEWLTest.length = 2;
 
+	
 	while (1) 
 	{	
 		if (frameNumber > writeFrameNum) 
@@ -359,6 +361,8 @@ int main (void)
 				}
 			}
 			
+			
+			/** Writing footers and image sensor data to SD Card */
 			#ifdef PYTHON480
 			switch (writeFrameNum % 3)
 			{

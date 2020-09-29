@@ -1814,7 +1814,6 @@ F 3 "" H 4025 1075 50  0001 C CNN
 	1    4025 1075
 	1    0    0    -1  
 $EndComp
-NoConn ~ 6025 975 
 Wire Wire Line
 	6025 1075 6550 1075
 $Comp
@@ -1920,5 +1919,16 @@ F 2 ".Package_QFN:VREG_TLV74233PDQNR" H 5025 1215 60  0001 C CNN
 F 3 "" H 4025 975 60  0000 C CNN
 	1    4025 975 
 	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F92C1F4
+P 6025 975
+F 0 "#PWR?" H 6025 725 50  0001 C CNN
+F 1 "GND" V 6030 847 50  0000 R CNN
+F 2 "" H 6025 975 50  0001 C CNN
+F 3 "" H 6025 975 50  0001 C CNN
+	1    6025 975 
+	0    -1   -1   0   
 $EndComp
 $EndSCHEMATC

@@ -23,7 +23,6 @@
 
 // =========== OTHERS =========== //
 #define LED_PIN				PIO_PD19_IDX		// Status LED
-
 #define LED_ENT_PIN			PIO_PA19_IDX		// Excitation LED power on and off. I2C below decides the actual light intensity
 
 
