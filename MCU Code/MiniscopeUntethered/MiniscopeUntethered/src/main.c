@@ -263,7 +263,28 @@ int main (void)
 	startRecording = 1;
 	while (sd_mmc_check(SD_SLOT_NB) != SD_MMC_OK) 
 	{
-		if (writeFrameNum > )
+		if (writeFrameNum > frameNumber)
+		{
+			switch (writeFrameNum % 3)
+			{
+				case (0):
+				while (*imageBuffer0 != ' ') 
+				{
+					usart_write_line(USART2, *imageBuffer0++);
+				}
+				case (1):
+				while (*imageBuffer0 != ' ')
+				{
+					usart_write_line(USART2, *imageBuffer1++);
+				}
+				case (2):
+				while (*imageBuffer0 != ' ')
+				{
+					usart_write_line(USART2, *imageBuffer2++);
+				}
+			}
+			++writeFrameNum;
+		}
 	}
 	startRecording = 0;
 
@@ -318,6 +339,7 @@ int main (void)
 	
 	/** Set up to begin data recording */
 	writeFrameNum = 0;
+	frameNumber = 0;
 	tick_start = time_tick_get();
 	start_time = tick_start;
 	startRecording = 1;
