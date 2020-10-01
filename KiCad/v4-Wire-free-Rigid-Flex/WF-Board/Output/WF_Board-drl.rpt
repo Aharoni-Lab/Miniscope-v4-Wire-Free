@@ -1,5 +1,5 @@
 Drill report for C:\Users\raymo\Documents\GitHub\Miniscope-v4-Wire-Free\KiCad\v4-Wire-free-Rigid-Flex\WF-Board\WF_Board.kicad_pcb
-Created on 9/30/2020 12:33:48 PM
+Created on 10/1/2020 12:08:47 PM
 
 Copper Layer Stackup:
     =============================================================
@@ -14,10 +14,10 @@ Copper Layer Stackup:
 Drill file 'WF_Board-PTH.drl' contains
     plated through holes:
     =============================================================
-    T1  0.15mm  0.006"  (233 holes)
+    T1  0.15mm  0.006"  (232 holes)
     T2  0.65mm  0.026"  (2 holes)
 
-    Total plated holes count 235
+    Total plated holes count 234
 
 
 Drill file 'WF_Board-NPTH.drl' contains
