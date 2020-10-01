@@ -42,7 +42,7 @@
 #define CONF_UART				USART2
 #define CONF_UART_ID			ID_USART2
 /** Interrupt Setting */
-#define CONF_UART_USR_HANDLER	USART2_Handler
+#define USART_ISR_HANDLER		USART2_Handler
 /** Baudrate setting */
 #define CONF_UART_BAUDRATE		115200UL
 /** Character length setting */
