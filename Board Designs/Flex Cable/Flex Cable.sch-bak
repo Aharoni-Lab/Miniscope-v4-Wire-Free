@@ -49,12 +49,56 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x06 J4
 U 1 1 5F7DB4F4
-P 7525 3725
-F 0 "J4" H 7443 3200 50  0000 C CNN
-F 1 "Conn_01x06" H 7443 3291 50  0000 C CNN
-F 2 ".Connector:B2B_Flex_6_Single_Row_200x1000_Pad_400P" H 7525 3725 50  0001 C CNN
-F 3 "~" H 7525 3725 50  0001 C CNN
-	1    7525 3725
-	1    0    0    -1  
+P 7525 3825
+F 0 "J4" H 7443 3300 50  0000 C CNN
+F 1 "Conn_01x06" H 7443 3391 50  0000 C CNN
+F 2 ".Connector:B2B_Flex_6_Single_Row_200x1000_Pad_400P" H 7525 3825 50  0001 C CNN
+F 3 "~" H 7525 3825 50  0001 C CNN
+	1    7525 3825
+	1    0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x27 J5
+U 1 1 5F7E87E4
+P 3775 3650
+F 0 "J5" H 3693 2125 50  0000 C CNN
+F 1 "Conn_01x27" H 3693 2216 50  0000 C CNN
+F 2 ".Connector:B2B_Flex_27_Single_Row_200x1000_Pad_400P" H 3775 3650 50  0001 C CNN
+F 3 "~" H 3775 3650 50  0001 C CNN
+	1    3775 3650
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x27 J6
+U 1 1 5F7E87EA
+P 4175 3650
+F 0 "J6" H 4093 2125 50  0000 C CNN
+F 1 "Conn_01x27" H 4093 2216 50  0000 C CNN
+F 2 ".Connector:B2B_Flex_27_Single_Row_200x1000_Pad_400P" H 4175 3650 50  0001 C CNN
+F 3 "~" H 4175 3650 50  0001 C CNN
+	1    4175 3650
+	1    0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x06 J7
+U 1 1 5F7E90BE
+P 5550 3875
+F 0 "J7" H 5468 3350 50  0000 C CNN
+F 1 "Conn_01x06" H 5468 3441 50  0000 C CNN
+F 2 ".Connector:B2B_Flex_6_Single_Row_200x1000_Pad_400P" H 5550 3875 50  0001 C CNN
+F 3 "~" H 5550 3875 50  0001 C CNN
+	1    5550 3875
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x06 J8
+U 1 1 5F7E90C4
+P 5950 3875
+F 0 "J8" H 5868 3350 50  0000 C CNN
+F 1 "Conn_01x06" H 5868 3441 50  0000 C CNN
+F 2 ".Connector:B2B_Flex_6_Single_Row_200x1000_Pad_400P" H 5950 3875 50  0001 C CNN
+F 3 "~" H 5950 3875 50  0001 C CNN
+	1    5950 3875
+	1    0    0    1   
 $EndComp
 $EndSCHEMATC
