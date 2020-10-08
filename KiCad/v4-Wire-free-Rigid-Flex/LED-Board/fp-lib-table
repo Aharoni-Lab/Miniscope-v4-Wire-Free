@@ -1,4 +1,0 @@
-(fp_lib_table
-  (lib (name Package_SON)(type KiCad)(uri C:/Users/raymo/Documents/KiCad/KiCad-Library/Modules/Package_SON.pretty)(options "")(descr ""))
-  (lib (name Package_QFN)(type KiCad)(uri C:/Users/raymo/Documents/KiCad/KiCad-Library/Modules/Package_QFN.pretty)(options "")(descr ""))
-)
