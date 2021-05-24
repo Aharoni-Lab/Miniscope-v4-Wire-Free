@@ -1,4 +1,4 @@
-19557392029668257
+19559013826842517
 .Capacitor
 C_0201_0603Metric_L
 Capacitor, Chip; 0.60 mm L X 0.30 mm W X 0.33 mm H body
@@ -814,6 +814,13 @@ Resistor, Chip; 0.60 mm L X 0.30 mm W X 0.26 mm H body
 .Resistor
 R_0402_1005Metric_ERJ_L
 Resistor, Chip; 1.00 mm L X 0.50 mm W X 0.40 mm H body
+
+0
+2
+2
+.Switch
+SMD-Switch-3mmx2mm
+
 
 0
 2
