@@ -3370,4 +3370,6 @@ Text Label 3825 3300 0    50   ~ 0
 nCHRG
 Text Label 6525 7475 0    50   ~ 0
 nCHRG
+Text Notes 6050 7375 0    50   ~ 0
+Use EXTINT
 $EndSCHEMATC

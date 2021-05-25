@@ -469,9 +469,9 @@ EWL_1
 Text Label 21400 7200 2    50   ~ 0
 EWL_2
 Wire Wire Line
-	20800 7950 21400 7950
+	20800 7950 21340 7950
 Wire Wire Line
-	20800 8050 21400 8050
+	20800 8050 21340 8050
 Text Label 20800 8050 0    50   ~ 0
 EWL_1
 Text Label 20800 7950 0    50   ~ 0
@@ -3372,4 +3372,18 @@ Text Label 6525 7475 0    50   ~ 0
 nCHRG
 Text Notes 6050 7375 0    50   ~ 0
 Use EXTINT
+Wire Wire Line
+	21400 7850 21340 7850
+Wire Wire Line
+	21340 7850 21340 7950
+Connection ~ 21340 7950
+Wire Wire Line
+	21340 7950 21400 7950
+Wire Wire Line
+	21340 8050 21340 8150
+Wire Wire Line
+	21340 8150 21400 8150
+Connection ~ 21340 8050
+Wire Wire Line
+	21340 8050 21400 8050
 $EndSCHEMATC
