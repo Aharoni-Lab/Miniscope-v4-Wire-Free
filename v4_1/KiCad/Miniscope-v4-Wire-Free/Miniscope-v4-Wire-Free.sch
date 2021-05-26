@@ -1832,7 +1832,7 @@ Wire Notes Line
 Wire Notes Line
 	900  1600 900  700 
 Text Notes 1300 650  0    50   ~ 0
-USB Connector
+UART Connector
 Wire Wire Line
 	19950 11550 20700 11550
 Wire Wire Line
@@ -2175,10 +2175,6 @@ F 3 "" H 1850 7275 50  0001 C CNN
 $EndComp
 Text Label 3150 7450 2    50   ~ 0
 IR_REC
-Text Notes 3000 850  0    50   ~ 0
-1.8v, 3.3v, VDC, gnd, sda, slc, ENT, PWM, 6sd
-Text Notes 3050 1350 0    50   ~ 0
-NEED BATTERY CONNECTION
 Wire Notes Line
 	1700 6800 3200 6800
 Wire Notes Line
@@ -2950,8 +2946,8 @@ Wire Wire Line
 Connection ~ 2400 7850
 Wire Wire Line
 	2400 7850 2550 7850
-Text Notes 1100 8225 0    50   ~ 0
-Probably add volt div on output. Internal is a 33K res up to VSS
+Text Notes 1955 8185 0    50   ~ 0
+Internal is a 33K res up to VS
 $Comp
 L power:+3.3V #PWR0130
 U 1 1 612351CA
@@ -3386,4 +3382,6 @@ Wire Wire Line
 Connection ~ 21340 8050
 Wire Wire Line
 	21340 8050 21400 8050
+Text Notes 725  15890 0    157  ~ 0
+Capabilities:\n* Battery monitoring\n* IR Receiver\n* Power supply shutdown and low power mode\n* Push button on/reset and user input\n* Power LED, excitation LED, status LED\n* Onboard charger\n* UART connection for wired operation\n* EWL flex cable connector\n* Dynamic clock adjustment for MCU and image sensor\n* Low power EWL driver\n* Pogo pin SWD interface
 $EndSCHEMATC
