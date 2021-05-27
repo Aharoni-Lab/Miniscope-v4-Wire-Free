@@ -7,10 +7,7 @@ int main(void)
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
 
-	// Sets up I2C Bitbang
-	I2C_BB_init();
-	
-	
+	/* Replace with your application code */
 	while (1) {
 	}
 }

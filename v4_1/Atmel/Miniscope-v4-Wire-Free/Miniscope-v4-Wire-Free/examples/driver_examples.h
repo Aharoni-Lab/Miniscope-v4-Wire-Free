@@ -22,7 +22,11 @@ void CAMERA_0_example(void);
 
 void USART_0_example(void);
 
+void delay_example(void);
+
 void PWM_0_example(void);
+
+void TIMER_0_example(void);
 
 #ifdef __cplusplus
 }

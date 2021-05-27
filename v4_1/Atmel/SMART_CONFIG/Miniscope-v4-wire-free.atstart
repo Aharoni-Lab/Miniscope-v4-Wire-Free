@@ -788,10 +788,10 @@ drivers:
     functionality: System
     api: HAL:HPL:GCLK
     configuration:
-      $input: 12000000
-      $input_id: External Crystal Oscillator 8-48MHz (XOSC1)
-      RESERVED_InputFreq: 12000000
-      RESERVED_InputFreq_id: External Crystal Oscillator 8-48MHz (XOSC1)
+      $input: 47985664
+      $input_id: Digital Phase Locked Loop (DPLL1)
+      RESERVED_InputFreq: 47985664
+      RESERVED_InputFreq_id: Digital Phase Locked Loop (DPLL1)
       _$freq_output_Generic clock generator 0: 47985664
       _$freq_output_Generic clock generator 1: 47985664
       _$freq_output_Generic clock generator 10: 12000000
@@ -1358,6 +1358,17 @@ drivers:
         configuration:
           sdhc_gclk_selection: Generic clock generator 0
           sdhc_slow_gclk_selection: Generic clock generator 0
+  DELAY_0:
+    user_label: DELAY_0
+    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::SysTick::driver_config_definition::Delay::HAL:Driver:Delay
+    functionality: Delay
+    api: HAL:Driver:Delay
+    configuration:
+      systick_arch_tickint: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group: null
   PWM_0:
     user_label: PWM_0
     definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::TC0::driver_config_definition::PWM::HAL:Driver:PWM
@@ -1389,6 +1400,37 @@ drivers:
       definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::optional_signal_definition::TC0.WO.0
       name: TC0/WO/0
       label: WO/0
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC
+          input: Generic clock generator 0
+          external: false
+          external_frequency: 0
+        configuration:
+          tc_gclk_selection: Generic clock generator 0
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::TC1::driver_config_definition::Timer::HAL:Driver:Timer
+    functionality: Timer
+    api: HAL:Driver:Timer
+    configuration:
+      tc_arch_dbgrun: false
+      tc_arch_evact: Event action disabled
+      tc_arch_mceo0: false
+      tc_arch_mceo1: false
+      tc_arch_ondemand: false
+      tc_arch_ovfeo: false
+      tc_arch_presync: Reload or reset counter on next GCLK
+      tc_arch_runstdby: false
+      tc_arch_tcei: false
+      tc_arch_tcinv: false
+      timer_advanced_configuration: false
+      timer_event_control: false
+      timer_prescaler: Divide by 8
+      timer_tick: 1000
+    optional_signals: []
     variant: null
     clocks:
       domain_group:

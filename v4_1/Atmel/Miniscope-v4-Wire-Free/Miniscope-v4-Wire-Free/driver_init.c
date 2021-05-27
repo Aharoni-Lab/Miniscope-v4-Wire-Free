@@ -14,6 +14,7 @@
 #include <hpl_adc_base.h>
 
 struct spi_m_sync_descriptor SPI_0;
+struct timer_descriptor      TIMER_0;
 
 struct adc_sync_descriptor ADC_0;
 
@@ -486,6 +487,11 @@ void IO_BUS_init(void)
 	IO_BUS_PORT_init();
 }
 
+void delay_driver_init(void)
+{
+	delay_init(SysTick);
+}
+
 void PWM_0_PORT_init(void)
 {
 
@@ -504,6 +510,19 @@ void PWM_0_init(void)
 	PWM_0_CLOCK_init();
 	PWM_0_PORT_init();
 	pwm_init(&PWM_0, TC0, _tc_get_pwm());
+}
+
+/**
+ * \brief Timer initialization function
+ *
+ * Enables Timer peripheral, clocks and initializes Timer driver
+ */
+static void TIMER_0_init(void)
+{
+	hri_mclk_set_APBAMASK_TC1_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TC1_GCLK_ID, CONF_GCLK_TC1_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+
+	timer_init(&TIMER_0, TC1, _tc_get_timer());
 }
 
 void system_init(void)
@@ -712,5 +731,9 @@ void system_init(void)
 
 	IO_BUS_init();
 
+	delay_driver_init();
+
 	PWM_0_init();
+
+	TIMER_0_init();
 }

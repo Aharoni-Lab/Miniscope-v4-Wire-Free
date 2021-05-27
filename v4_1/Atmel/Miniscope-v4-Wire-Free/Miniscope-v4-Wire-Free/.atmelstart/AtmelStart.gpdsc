@@ -48,6 +48,7 @@
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/mci_sync.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/pwm.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/spi_master_sync.rst"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/timer.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="hal/documentation/usart_sync.rst"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_atomic.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_cache.h"/>
@@ -81,6 +82,7 @@
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_spi_async.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_spi_dma.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_spi_sync.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_time_measure.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_usart.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_atomic.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_cache.c"/>
@@ -153,6 +155,7 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="examples/driver_examples.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_adc_sync.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_pwm.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_timer.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hal_usart_sync.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_adc_async.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/include/hpl_adc_sync.h"/>
@@ -171,6 +174,7 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_ext_irq.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_pwm.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_spi_m_sync.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_timer.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hal/src/hal_usart_sync.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hal/utils/include/parts.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/adc/hpl_adc.c"/>
@@ -193,6 +197,7 @@
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/ramecc/hpl_ramecc.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/sdhc/hpl_sdhc.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/sercom/hpl_sercom.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="hpl/systick/hpl_systick.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="hpl/tc/hpl_tc.c"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="hpl/tc/hpl_tc_base.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="sd_mmc_start.c"/>
@@ -211,6 +216,7 @@
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_port_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_sdhc_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_sercom_config.h"/>
+        <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_systick_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/hpl_tc_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/peripheral_clk_config.h"/>
         <file attr="config" category="header" condition="ARMCC, GCC, IAR" name="config/conf_sd_mmc.h"/>
@@ -234,6 +240,7 @@
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/ramecc"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/sdhc"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/sercom"/>
+        <file category="include" condition="ARMCC, GCC, IAR" name="hpl/systick"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hpl/tc"/>
         <file category="include" condition="ARMCC, GCC, IAR" name="hri"/>
         <file category="include" condition="ARMCC, GCC, IAR" name=""/>
