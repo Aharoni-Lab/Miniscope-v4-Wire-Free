@@ -2504,7 +2504,7 @@ Wire Wire Line
 	7575 2550 7975 2550
 Text Label 7125 2550 0    50   ~ 0
 VDDCORE
-Text Notes 9575 8025 0    50   ~ 0
+Text Notes 10200 7980 0    50   ~ 0
 Internal vref bandgap = 1.1V
 Wire Wire Line
 	9525 7575 8925 7575
@@ -3366,8 +3366,8 @@ Text Label 3825 3300 0    50   ~ 0
 nCHRG
 Text Label 6525 7475 0    50   ~ 0
 nCHRG
-Text Notes 6050 7375 0    50   ~ 0
-Use EXTINT
+Text Notes 5890 7370 0    50   ~ 0
+Use EXTINT[6]
 Wire Wire Line
 	21400 7850 21340 7850
 Wire Wire Line
@@ -3384,4 +3384,16 @@ Wire Wire Line
 	21340 8050 21400 8050
 Text Notes 725  15890 0    157  ~ 0
 Capabilities:\n* Battery monitoring\n* IR Receiver\n* Power supply shutdown and low power mode\n* Push button on/reset and user input\n* Power LED, excitation LED, status LED\n* Onboard charger\n* UART connection for wired operation\n* EWL flex cable connector\n* Dynamic clock adjustment for MCU and image sensor\n* Low power EWL driver\n* Pogo pin SWD interface
+Text Notes 5990 9465 0    50   ~ 0
+GCLK_IO[1]
+Text Notes 9635 9060 0    50   ~ 0
+SPI -> SERCOM0
+Text Notes 9580 7980 0    50   ~ 0
+ADC0 | AIN/0
+Text Notes 6060 7570 0    50   ~ 0
+TCO, WO/0
+Text Notes 9580 9770 0    50   ~ 0
+PCC peripheral clock must be > 2x PCC_CLK
+Text Notes 5895 7480 0    50   ~ 0
+Use EXTINT[7]
 $EndSCHEMATC

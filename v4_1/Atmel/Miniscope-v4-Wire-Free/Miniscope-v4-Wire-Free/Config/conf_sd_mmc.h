@@ -41,7 +41,7 @@
 // <e> Card Detect (CD) 0 Enable
 // <id> conf_sd_mmc_0_cd_detect_en
 #ifndef CONF_SD_MMC_0_CD_DETECT_EN
-#define CONF_SD_MMC_0_CD_DETECT_EN 0
+#define CONF_SD_MMC_0_CD_DETECT_EN 1
 #endif
 
 // <o> Card Detect (CD) detection level

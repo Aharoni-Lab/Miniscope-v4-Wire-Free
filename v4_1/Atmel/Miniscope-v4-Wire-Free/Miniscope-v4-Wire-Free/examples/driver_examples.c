@@ -24,6 +24,24 @@ void ADC_0_example(void)
 	}
 }
 
+static void button_on_PB22_pressed(void)
+{
+}
+
+static void button_on_PB23_pressed(void)
+{
+}
+
+/**
+ * Example of using EXTERNAL_IRQ_0
+ */
+void EXTERNAL_IRQ_0_example(void)
+{
+
+	ext_irq_register(PIN_PB22, button_on_PB22_pressed);
+	ext_irq_register(PIN_PB23, button_on_PB23_pressed);
+}
+
 /**
  * It's just demo for usage and assume that
  * the frame size is very small, in actually application,
@@ -64,6 +82,18 @@ void SPI_0_example(void)
 
 	spi_m_sync_enable(&SPI_0);
 	io_write(io, example_SPI_0, 12);
+}
+
+/**
+ * Example of using USART_0 to write "Hello World" using the IO abstraction.
+ */
+void USART_0_example(void)
+{
+	struct io_descriptor *io;
+	usart_sync_get_io_descriptor(&USART_0, &io);
+	usart_sync_enable(&USART_0);
+
+	io_write(io, (uint8_t *)"Hello World!", 12);
 }
 
 /**

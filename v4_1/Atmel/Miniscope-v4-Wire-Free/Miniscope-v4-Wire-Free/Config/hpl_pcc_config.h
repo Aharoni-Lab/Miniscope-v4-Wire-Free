@@ -34,7 +34,7 @@
 //<i> Defines sample the sensor data only every other time or not.
 // <id> pcc_halfs
 #ifndef CONF_PCC_HALFS
-#define CONF_PCC_HALFS 0x1
+#define CONF_PCC_HALFS 0x0
 #endif
 
 // <q> First Sample

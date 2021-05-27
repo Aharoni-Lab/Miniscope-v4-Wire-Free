@@ -14,7 +14,7 @@
 /* Card Detect (CD) pin settings */
 static sd_mmc_detect_t SDMMC_ACCESS_0_cd[CONF_SD_MMC_MEM_CNT] = {
 
-    {-1, CONF_SD_MMC_0_CD_DETECT_VALUE},
+    {CARD_DETECT_0, CONF_SD_MMC_0_CD_DETECT_VALUE},
 };
 
 /* Write Protect (WP) pin settings */
@@ -50,5 +50,5 @@ void SDMMC_ACCESS_0_example(void)
 void sd_mmc_stack_init(void)
 {
 
-	sd_mmc_init(&MCI_0, SDMMC_ACCESS_0_cd, SDMMC_ACCESS_0_wp);
+	sd_mmc_init(&IO_BUS, SDMMC_ACCESS_0_cd, SDMMC_ACCESS_0_wp);
 }

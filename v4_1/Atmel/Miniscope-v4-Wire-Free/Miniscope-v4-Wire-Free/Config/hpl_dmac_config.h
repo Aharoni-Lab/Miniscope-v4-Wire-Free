@@ -122,7 +122,7 @@
 // <i> Defines the trigger action used for a transfer
 // <id> dmac_trigact_0
 #ifndef CONF_DMAC_TRIGACT_0
-#define CONF_DMAC_TRIGACT_0 0
+#define CONF_DMAC_TRIGACT_0 2
 #endif
 
 // <o> Trigger source
@@ -301,7 +301,7 @@
 // <i> Defines the size of one beat
 // <id> dmac_beatsize_0
 #ifndef CONF_DMAC_BEATSIZE_0
-#define CONF_DMAC_BEATSIZE_0 0
+#define CONF_DMAC_BEATSIZE_0 2
 #endif
 
 // <o> Block Action

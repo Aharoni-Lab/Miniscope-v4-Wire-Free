@@ -234,7 +234,7 @@
 // <i> Indicates whether configuration for DFLL is enabled or not
 // <id> enable_dfll
 #ifndef CONF_DFLL_CONFIG
-#define CONF_DFLL_CONFIG 1
+#define CONF_DFLL_CONFIG 0
 #endif
 
 // <y> Reference Clock Source
@@ -261,7 +261,7 @@
 // <i> Indicates whether DFLL is enabled or not
 // <id> dfll_arch_enable
 #ifndef CONF_DFLL_ENABLE
-#define CONF_DFLL_ENABLE 1
+#define CONF_DFLL_ENABLE 0
 #endif
 
 // <q> On Demand Control

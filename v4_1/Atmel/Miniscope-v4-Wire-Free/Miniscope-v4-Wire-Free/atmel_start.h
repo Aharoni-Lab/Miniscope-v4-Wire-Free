@@ -7,7 +7,6 @@ extern "C" {
 
 #include "driver_init.h"
 #include "sd_mmc_start.h"
-#include "usb_start.h"
 
 /**
  * Initializes MCU, drivers and middleware in the project

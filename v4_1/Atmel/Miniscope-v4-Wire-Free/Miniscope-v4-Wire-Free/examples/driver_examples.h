@@ -14,9 +14,13 @@ extern "C" {
 
 void ADC_0_example(void);
 
+void EXTERNAL_IRQ_0_example(void);
+
 #include <hpl_pcc_config.h>
 
 void CAMERA_0_example(void);
+
+void USART_0_example(void);
 
 void PWM_0_example(void);
 

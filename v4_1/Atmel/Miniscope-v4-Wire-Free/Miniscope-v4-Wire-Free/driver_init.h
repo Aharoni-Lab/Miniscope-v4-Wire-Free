@@ -23,15 +23,17 @@ extern "C" {
 
 #include <hal_adc_sync.h>
 
+#include <hal_ext_irq.h>
+
 #include <hal_camera_async.h>
 
 #include <hal_spi_m_sync.h>
 
+#include <hal_usart_sync.h>
+
 #include <hal_mci_sync.h>
 #include <hal_pwm.h>
 #include <hpl_tc_base.h>
-
-#include "hal_usb_device.h"
 
 extern struct adc_sync_descriptor ADC_0;
 
@@ -39,7 +41,9 @@ extern struct camera_async_descriptor CAMERA_0;
 extern uint32_t                       frame_buf[];
 extern struct spi_m_sync_descriptor   SPI_0;
 
-extern struct mci_sync_desc MCI_0;
+extern struct usart_sync_descriptor USART_0;
+
+extern struct mci_sync_desc IO_BUS;
 
 extern struct pwm_descriptor PWM_0;
 
@@ -55,16 +59,17 @@ void SPI_0_PORT_init(void);
 void SPI_0_CLOCK_init(void);
 void SPI_0_init(void);
 
-void MCI_0_PORT_init(void);
-void MCI_0_CLOCK_init(void);
-void MCI_0_init(void);
+void USART_0_PORT_init(void);
+void USART_0_CLOCK_init(void);
+void USART_0_init(void);
+
+void IO_BUS_PORT_init(void);
+void IO_BUS_CLOCK_init(void);
+void IO_BUS_init(void);
 
 void PWM_0_PORT_init(void);
 void PWM_0_CLOCK_init(void);
 void PWM_0_init(void);
-
-void USB_0_CLOCK_init(void);
-void USB_0_init(void);
 
 /**
  * \brief Perform system initialization, initialize pins and clocks for
