@@ -32,6 +32,10 @@ static void button_on_PB23_pressed(void)
 {
 }
 
+static void button_on_PB14_pressed(void)
+{
+}
+
 /**
  * Example of using EXTERNAL_IRQ_0
  */
@@ -40,6 +44,7 @@ void EXTERNAL_IRQ_0_example(void)
 
 	ext_irq_register(PIN_PB22, button_on_PB22_pressed);
 	ext_irq_register(PIN_PB23, button_on_PB23_pressed);
+	ext_irq_register(PIN_PB14, button_on_PB14_pressed);
 }
 
 /**

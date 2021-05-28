@@ -79,6 +79,19 @@ void EXTERNAL_IRQ_0_init(void)
 
 	gpio_set_pin_function(nCHRG, PINMUX_PB23A_EIC_EXTINT7);
 
+	// Set pin direction to input
+	gpio_set_pin_direction(FrameValid, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(FrameValid,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(FrameValid, PINMUX_PB14A_EIC_EXTINT14);
+
 	ext_irq_init();
 }
 

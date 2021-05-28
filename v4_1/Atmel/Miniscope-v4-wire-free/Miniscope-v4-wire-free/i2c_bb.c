@@ -8,30 +8,30 @@
 #include "i2c_bb.h"
 // I2C_BB_SDA and I2C_BB_SCL pins are defined in atmel_start_pins.h
 
-inline void SDA_low()
+void SDA_low()
 {
 	gpio_set_pin_direction(I2C_BB_SDA, GPIO_DIRECTION_OUT);	
 }
-inline void SDA_high()
+void SDA_high()
 {
 	gpio_set_pin_direction(I2C_BB_SDA, GPIO_DIRECTION_IN);
 }
-inline uint8_t SDA_read()
+uint8_t SDA_read()
 {
 	return gpio_get_pin_level(I2C_BB_SDA);
 }
-inline void SCL_low()
+void SCL_low()
 {
 	gpio_set_pin_direction(I2C_BB_SCL, GPIO_DIRECTION_OUT);
 }
-inline void SCL_high()
+void SCL_high()
 {
 	gpio_set_pin_direction(I2C_BB_SCL, GPIO_DIRECTION_IN);
 }
 
 void I2C_BB_sleep(void)
 {
-//	SLEEP_LENGTH
+	delay_us(SLEEP_LENGTH);
 }
 
 
@@ -104,6 +104,7 @@ void I2C_BB_init(void)
 uint8_t I2C_BB_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint8_t length)
 {
 	// TODO: fill this out!
+	return 0;
 }
 
 uint8_t I2C_BB_write(uint8_t addr, uint8_t *buf, uint8_t length)

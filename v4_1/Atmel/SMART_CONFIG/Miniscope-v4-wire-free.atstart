@@ -690,7 +690,7 @@ drivers:
       eic_arch_enable_irq_setting11: false
       eic_arch_enable_irq_setting12: false
       eic_arch_enable_irq_setting13: false
-      eic_arch_enable_irq_setting14: false
+      eic_arch_enable_irq_setting14: true
       eic_arch_enable_irq_setting15: false
       eic_arch_enable_irq_setting2: false
       eic_arch_enable_irq_setting3: false
@@ -722,7 +722,7 @@ drivers:
       eic_arch_filten11: false
       eic_arch_filten12: false
       eic_arch_filten13: false
-      eic_arch_filten14: false
+      eic_arch_filten14: true
       eic_arch_filten15: false
       eic_arch_filten2: false
       eic_arch_filten3: false
@@ -744,7 +744,7 @@ drivers:
       eic_arch_sense11: No detection
       eic_arch_sense12: No detection
       eic_arch_sense13: No detection
-      eic_arch_sense14: No detection
+      eic_arch_sense14: Falling-edge detection
       eic_arch_sense15: No detection
       eic_arch_sense2: No detection
       eic_arch_sense3: No detection
@@ -772,6 +772,13 @@ drivers:
       definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::optional_signal_definition::EIC.EXTINT.7
       name: EIC/EXTINT/7
       label: EXTINT/7
+    - identifier: EXTERNAL_IRQ_0:EXTINT/14
+      pad: PB14
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::optional_signal_definition::EIC.EXTINT.14
+      name: EIC/EXTINT/14
+      label: EXTINT/14
     variant: null
     clocks:
       domain_group:
@@ -788,10 +795,10 @@ drivers:
     functionality: System
     api: HAL:HPL:GCLK
     configuration:
-      $input: 47985664
-      $input_id: Digital Phase Locked Loop (DPLL1)
-      RESERVED_InputFreq: 47985664
-      RESERVED_InputFreq_id: Digital Phase Locked Loop (DPLL1)
+      $input: 12000000
+      $input_id: External Crystal Oscillator 8-48MHz (XOSC1)
+      RESERVED_InputFreq: 12000000
+      RESERVED_InputFreq_id: External Crystal Oscillator 8-48MHz (XOSC1)
       _$freq_output_Generic clock generator 0: 47985664
       _$freq_output_Generic clock generator 1: 47985664
       _$freq_output_Generic clock generator 10: 12000000
@@ -1585,6 +1592,12 @@ pads:
     definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::pad::PA13
     mode: Peripheral IO
     user_label: PCC_HV
+    configuration: null
+  FrameValid:
+    name: PB14
+    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::pad::PB14
+    mode: Digital input
+    user_label: FrameValid
     configuration: null
   SDCK:
     name: PB11

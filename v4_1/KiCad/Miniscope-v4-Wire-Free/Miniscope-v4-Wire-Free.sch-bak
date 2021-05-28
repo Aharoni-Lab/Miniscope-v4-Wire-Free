@@ -3366,8 +3366,8 @@ Text Label 3825 3300 0    50   ~ 0
 nCHRG
 Text Label 6525 7475 0    50   ~ 0
 nCHRG
-Text Notes 6050 7375 0    50   ~ 0
-Use EXTINT
+Text Notes 5890 7370 0    50   ~ 0
+Use EXTINT[6]
 Wire Wire Line
 	21400 7850 21340 7850
 Wire Wire Line
@@ -3394,4 +3394,6 @@ Text Notes 6060 7570 0    50   ~ 0
 TCO, WO/0
 Text Notes 9580 9770 0    50   ~ 0
 PCC peripheral clock must be > 2x PCC_CLK
+Text Notes 5895 7480 0    50   ~ 0
+Use EXTINT[7]
 $EndSCHEMATC

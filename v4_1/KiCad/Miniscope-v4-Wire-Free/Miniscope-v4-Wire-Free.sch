@@ -3396,4 +3396,10 @@ Text Notes 9580 9770 0    50   ~ 0
 PCC peripheral clock must be > 2x PCC_CLK
 Text Notes 5895 7480 0    50   ~ 0
 Use EXTINT[7]
+Wire Wire Line
+	6525 8975 7125 8975
+Text Label 6525 8975 0    50   ~ 0
+PCC_DEN1
+Text Notes 5605 8985 0    50   ~ 0
+Use as EXT INT for FV
 $EndSCHEMATC

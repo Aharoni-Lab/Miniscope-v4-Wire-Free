@@ -749,14 +749,14 @@
 // <e> Interrupt 14 Settings
 // <id> eic_arch_enable_irq_setting14
 #ifndef CONF_EIC_ENABLE_IRQ_SETTING14
-#define CONF_EIC_ENABLE_IRQ_SETTING14 0
+#define CONF_EIC_ENABLE_IRQ_SETTING14 1
 #endif
 
 // <q> External Interrupt 14 Filter Enable
 // <i> Indicates whether the external interrupt 14 filter is enabled or not
 // <id> eic_arch_filten14
 #ifndef CONF_EIC_FILTEN14
-#define CONF_EIC_FILTEN14 0
+#define CONF_EIC_FILTEN14 1
 #endif
 
 // <q> External Interrupt 14 Debounce Enable
@@ -783,7 +783,7 @@
 // <i> This defines input sense trigger
 // <id> eic_arch_sense14
 #ifndef CONF_EIC_SENSE14
-#define CONF_EIC_SENSE14 EIC_NMICTRL_NMISENSE_NONE_Val
+#define CONF_EIC_SENSE14 EIC_NMICTRL_NMISENSE_FALL_Val
 #endif
 
 // <q> External Interrupt 14 Asynchronous Edge Detection Mode
@@ -906,7 +906,7 @@
 
 // </h>
 
-#define CONFIG_EIC_EXTINT_MAP {6, PIN_PB22}, {7, PIN_PB23},
+#define CONFIG_EIC_EXTINT_MAP {6, PIN_PB22}, {7, PIN_PB23}, {14, PIN_PB14},
 
 // <<< end of configuration section >>>
 
