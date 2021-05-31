@@ -76,20 +76,6 @@ void CAMERA_0_example(void)
 }
 
 /**
- * Example of using SPI_0 to write "Hello World" using the IO abstraction.
- */
-static uint8_t example_SPI_0[12] = "Hello World!";
-
-void SPI_0_example(void)
-{
-	struct io_descriptor *io;
-	spi_m_sync_get_io_descriptor(&SPI_0, &io);
-
-	spi_m_sync_enable(&SPI_0);
-	io_write(io, example_SPI_0, 12);
-}
-
-/**
  * Example of using USART_0 to write "Hello World" using the IO abstraction.
  */
 void USART_0_example(void)

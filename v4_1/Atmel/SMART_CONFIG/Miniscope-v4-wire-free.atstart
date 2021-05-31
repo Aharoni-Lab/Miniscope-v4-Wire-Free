@@ -1229,50 +1229,6 @@ drivers:
     variant: null
     clocks:
       domain_group: null
-  SPI_0:
-    user_label: SPI_0
-    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::SERCOM0::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
-    functionality: SPI
-    api: HAL:Driver:SPI_Master_Sync
-    configuration:
-      spi_master_advanced: false
-      spi_master_arch_cpha: Sample input on leading edge
-      spi_master_arch_cpol: SCK is low when idle
-      spi_master_arch_dbgstop: Keep running
-      spi_master_arch_dord: MSB first
-      spi_master_arch_ibon: In data stream
-      spi_master_arch_runstdby: false
-      spi_master_baud_rate: 50000
-      spi_master_character_size: 8 bits
-      spi_master_dummybyte: 511
-      spi_master_rx_enable: true
-    optional_signals: []
-    variant:
-      specification: TXPO=0, RXPO=2
-      required_signals:
-      - name: SERCOM0/PAD/0
-        pad: PA04
-        label: MOSI
-      - name: SERCOM0/PAD/1
-        pad: PA05
-        label: SCK
-      - name: SERCOM0/PAD/2
-        pad: PA06
-        label: MISO
-    clocks:
-      domain_group:
-        nodes:
-        - name: Core
-          input: Generic clock generator 0
-          external: false
-          external_frequency: 0
-        - name: Slow
-          input: Generic clock generator 3
-          external: false
-          external_frequency: 0
-        configuration:
-          core_gclk_selection: Generic clock generator 0
-          slow_gclk_selection: Generic clock generator 3
   USART_0:
     user_label: USART_0
     definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::SERCOM5::driver_config_definition::UART::HAL:Driver:USART.Sync
@@ -1491,6 +1447,12 @@ pads:
     mode: Digital output
     user_label: EN_3V3
     configuration: null
+  ENT_LED:
+    name: PB01
+    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::pad::PB01
+    mode: Digital output
+    user_label: ENT_LED
+    configuration: null
   PCC_D6:
     name: PA22
     definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::pad::PA22
@@ -1568,7 +1530,8 @@ pads:
     definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::pad::PA05
     mode: Digital output
     user_label: SPI_SCK
-    configuration: null
+    configuration:
+      pad_initial_level: Low
   SPI_MOSI:
     name: PA04
     definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::pad::PA04

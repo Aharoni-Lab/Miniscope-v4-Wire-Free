@@ -13,8 +13,7 @@
 
 #include <hpl_adc_base.h>
 
-struct spi_m_sync_descriptor SPI_0;
-struct timer_descriptor      TIMER_0;
+struct timer_descriptor TIMER_0;
 
 struct adc_sync_descriptor ADC_0;
 
@@ -131,62 +130,6 @@ void CAMERA_0_init(void)
 	CAMERA_0_CLOCK_init();
 	camera_async_init(&CAMERA_0, PCC);
 	CAMERA_0_PORT_init();
-}
-
-void SPI_0_PORT_init(void)
-{
-
-	gpio_set_pin_level(SPI_MOSI,
-	                   // <y> Initial level
-	                   // <id> pad_initial_level
-	                   // <false"> Low
-	                   // <true"> High
-	                   false);
-
-	// Set pin direction to output
-	gpio_set_pin_direction(SPI_MOSI, GPIO_DIRECTION_OUT);
-
-	gpio_set_pin_function(SPI_MOSI, PINMUX_PA04D_SERCOM0_PAD0);
-
-	gpio_set_pin_level(SPI_SCK,
-	                   // <y> Initial level
-	                   // <id> pad_initial_level
-	                   // <false"> Low
-	                   // <true"> High
-	                   false);
-
-	// Set pin direction to output
-	gpio_set_pin_direction(SPI_SCK, GPIO_DIRECTION_OUT);
-
-	gpio_set_pin_function(SPI_SCK, PINMUX_PA05D_SERCOM0_PAD1);
-
-	// Set pin direction to input
-	gpio_set_pin_direction(SPI_MISO, GPIO_DIRECTION_IN);
-
-	gpio_set_pin_pull_mode(SPI_MISO,
-	                       // <y> Pull configuration
-	                       // <id> pad_pull_config
-	                       // <GPIO_PULL_OFF"> Off
-	                       // <GPIO_PULL_UP"> Pull-up
-	                       // <GPIO_PULL_DOWN"> Pull-down
-	                       GPIO_PULL_OFF);
-
-	gpio_set_pin_function(SPI_MISO, PINMUX_PA06D_SERCOM0_PAD2);
-}
-
-void SPI_0_CLOCK_init(void)
-{
-	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM0_GCLK_ID_CORE, CONF_GCLK_SERCOM0_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
-	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM0_GCLK_ID_SLOW, CONF_GCLK_SERCOM0_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
-
-	hri_mclk_set_APBAMASK_SERCOM0_bit(MCLK);
-}
-
-void SPI_0_init(void)
-{
-	SPI_0_CLOCK_init();
-	spi_m_sync_init(&SPI_0, SERCOM0);
-	SPI_0_PORT_init();
 }
 
 void USART_0_PORT_init(void)
@@ -542,6 +485,49 @@ void system_init(void)
 {
 	init_mcu();
 
+	// GPIO on PA04
+
+	gpio_set_pin_level(SPI_MOSI,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(SPI_MOSI, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(SPI_MOSI, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PA05
+
+	gpio_set_pin_level(SPI_SCK,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(SPI_SCK, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(SPI_SCK, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PA06
+
+	// Set pin direction to input
+	gpio_set_pin_direction(SPI_MISO, GPIO_DIRECTION_IN);
+
+	gpio_set_pin_pull_mode(SPI_MISO,
+	                       // <y> Pull configuration
+	                       // <id> pad_pull_config
+	                       // <GPIO_PULL_OFF"> Off
+	                       // <GPIO_PULL_UP"> Pull-up
+	                       // <GPIO_PULL_DOWN"> Pull-down
+	                       GPIO_PULL_OFF);
+
+	gpio_set_pin_function(SPI_MISO, GPIO_PIN_FUNCTION_OFF);
+
 	// GPIO on PA07
 
 	// Set pin direction to input
@@ -613,6 +599,20 @@ void system_init(void)
 	gpio_set_pin_direction(I2C_BB_SDA, GPIO_DIRECTION_OUT);
 
 	gpio_set_pin_function(I2C_BB_SDA, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PB01
+
+	gpio_set_pin_level(ENT_LED,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(ENT_LED, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(ENT_LED, GPIO_PIN_FUNCTION_OFF);
 
 	// GPIO on PB02
 
@@ -737,8 +737,6 @@ void system_init(void)
 	EXTERNAL_IRQ_0_init();
 
 	CAMERA_0_init();
-
-	SPI_0_init();
 
 	USART_0_init();
 

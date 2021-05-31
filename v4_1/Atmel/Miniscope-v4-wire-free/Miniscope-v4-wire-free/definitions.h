@@ -54,7 +54,7 @@
 #define HEADER_BLOCK				STARTING_BLOCK - 2
 #define CONFIG_BLOCK				STARTING_BLOCK - 1
 
-#define BLOCK_SIZE					512 //Number of bytes in a single block (sector)
+#define SD_BLOCK_SIZE					512 //Number of bytes in a single block (sector)
 
 // Write Key Protection Values
 #define WRITE_KEY0					0x0D7CBA17

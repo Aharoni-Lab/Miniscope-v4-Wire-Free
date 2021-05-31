@@ -61,7 +61,6 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_io.h" IsConfig="false" Hash="XZRSabc39WU/0MFBLYGLvQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_mci_sync.h" IsConfig="false" Hash="MudWo58j8srQrJRg6xz31Q" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_sleep.h" IsConfig="false" Hash="KuZDwgrLdU+fuMG82ZFTqg" />
-          <AcmeProjectActionInfo Action="File" Source="hal/include/hal_spi_m_sync.h" IsConfig="false" Hash="2oma6hRMCcowUy2wVveqMg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_adc_dma.h" IsConfig="false" Hash="ZNWJ5APLfPqPLqI7LDqlMA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_camera_async.h" IsConfig="false" Hash="rNG5UynSkhDzGRbtLG4pRA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_cmcc.h" IsConfig="false" Hash="mDAHEzTxsniAe2HtqO43oA" />
@@ -81,7 +80,6 @@
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_sleep.h" IsConfig="false" Hash="JOXa2/KqNtt950+B1ZJfSQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi.h" IsConfig="false" Hash="wAxvxvj1p/CvWEoawsWIBw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_async.h" IsConfig="false" Hash="sUIART4unR3sm4AlXv5LlQ" />
-          <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_dma.h" IsConfig="false" Hash="y9HmqskArpKzCF7kgcY+IQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_spi_sync.h" IsConfig="false" Hash="Qr5slVYsVsngWiAyjLwx8A" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_time_measure.h" IsConfig="false" Hash="3gMv9Ur+2bKt2LK5h7IEcQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hpl_usart.h" IsConfig="false" Hash="gkIcItnlv0v8NvwxEz9neA" />
@@ -148,11 +146,11 @@
           <AcmeProjectActionInfo Action="File" Source="sd_mmc/sd_mmc.h" IsConfig="false" Hash="LbKtNWw+TZw+6JHiL9P0iw" />
           <AcmeProjectActionInfo Action="File" Source="sd_mmc/sd_mmc_protocol.h" IsConfig="false" Hash="Pg+WRyQpL7FUDs/jBkg6hA" />
           <AcmeProjectActionInfo Action="File" Source="main.c" IsConfig="false" Hash="k0AH7j+BrmdFhBPzCCMptA" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="plmv1S1V/HyHHg2KazHD8Q" />
-          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="GkNZmlf1sVVduDHkuQGfDg" />
-          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="HvD6pOxSAM89ZXO7osGxIA" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.c" IsConfig="false" Hash="Zzfuspo8ul8phfvEjIj9RA" />
+          <AcmeProjectActionInfo Action="File" Source="driver_init.h" IsConfig="false" Hash="J+5Rw1eDTx56jEmpNNBkWg" />
+          <AcmeProjectActionInfo Action="File" Source="atmel_start_pins.h" IsConfig="false" Hash="YqHrGoZ5qQli//gI7nKMcw" />
           <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.h" IsConfig="false" Hash="83G7F2ytrecnarzuFYf79Q" />
-          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="ycrr+hqxVSCvWHfH87HpIg" />
+          <AcmeProjectActionInfo Action="File" Source="examples/driver_examples.c" IsConfig="false" Hash="Xbu8DXzWUY5ohjrLWvxInA" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_adc_sync.h" IsConfig="false" Hash="ez1X5T9kpYwT+1+5x4Pxqg" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_pwm.h" IsConfig="false" Hash="RXcBZcci/7vXKRJKNIq/Kw" />
           <AcmeProjectActionInfo Action="File" Source="hal/include/hal_timer.h" IsConfig="false" Hash="5pZVthtMl40VMvofOld2ng" />
@@ -173,7 +171,6 @@
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_adc_sync.c" IsConfig="false" Hash="g0MT/8E9mrmMV9tMAyu/aQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_ext_irq.c" IsConfig="false" Hash="l6Jmb4zu10+HvXQ0Iej4dQ" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_pwm.c" IsConfig="false" Hash="ZFJmg7/0rhQ6JMKyxuk9kw" />
-          <AcmeProjectActionInfo Action="File" Source="hal/src/hal_spi_m_sync.c" IsConfig="false" Hash="Q0IudnTEWeoIkfQIoYIqxA" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_timer.c" IsConfig="false" Hash="F2MrEXhHq4umI9xpONnlGg" />
           <AcmeProjectActionInfo Action="File" Source="hal/src/hal_usart_sync.c" IsConfig="false" Hash="VBVlAmBFEYTTUMHeIRFSxg" />
           <AcmeProjectActionInfo Action="File" Source="hal/utils/include/parts.h" IsConfig="false" Hash="iNmlmHpRV6XXv+ujHdORcQ" />
@@ -215,10 +212,10 @@
           <AcmeProjectActionInfo Action="File" Source="config/hpl_pcc_config.h" IsConfig="true" Hash="eqI8B7MMrvQWPo86lco2ow" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_port_config.h" IsConfig="true" Hash="rMTNR+5FXtu+wfT1NbfRRA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_sdhc_config.h" IsConfig="true" Hash="TZWhMnHjzlDARLFBVJhvlQ" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="BvjYngD90CPZORjMpixwgw" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="gw+q/ODVgVPvaUGMrrPOBg" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_systick_config.h" IsConfig="true" Hash="tlT3lNDKWFe82MiGWfQzcA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_tc_config.h" IsConfig="true" Hash="DlhQfAgEWm7ctASlxMKBFw" />
-          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="Cn6Pzj4JetU4Vg6bSm5G3w" />
+          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="fLQV6SDAjf7u8x5CQpxtbA" />
           <AcmeProjectActionInfo Action="File" Source="config/conf_sd_mmc.h" IsConfig="true" Hash="rA0NYIZvu/E0GS4TTw1MVA" />
         </AcmeActionInfos>
         <NonsecureFilesInfo />
@@ -592,9 +589,6 @@
     <Compile Include="hal\include\hal_sleep.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hal\include\hal_spi_m_sync.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="hal\include\hal_timer.h">
       <SubType>compile</SubType>
     </Compile>
@@ -673,9 +667,6 @@
     <Compile Include="hal\include\hpl_spi_async.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hal\include\hpl_spi_dma.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="hal\include\hpl_spi_m_async.h">
       <SubType>compile</SubType>
     </Compile>
@@ -743,9 +734,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_sleep.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="hal\src\hal_spi_m_sync.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="hal\src\hal_timer.c">
@@ -985,6 +973,9 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="python480.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="sd_mmc\sd_mmc.c">
       <SubType>compile</SubType>
     </Compile>
@@ -1057,9 +1048,6 @@
       <SubType>compile</SubType>
     </None>
     <None Include="hal\documentation\pwm.rst">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="hal\documentation\spi_master_sync.rst">
       <SubType>compile</SubType>
     </None>
     <None Include="hal\documentation\timer.rst">
