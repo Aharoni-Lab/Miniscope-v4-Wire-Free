@@ -9,11 +9,21 @@
 #ifndef DEFINITIONS_H_
 #define DEFINITIONS_H_
 
+// ------ OTHER STUFF ------------------------
+#define MS_SUCCESS						1
+#define MS_ERROR						0
+// -------------------------------------------
+
 // ---------- Device State Definitions -------
-#define DEVICE_STATE_IDLE				0
-#define DEVICE_STATE_START_RECORDING	1
-#define DEVICE_STATE_RECORDING			2
-#define DEVICE_STATE_STOP_RECORDING		3
+#define DEVICE_STATE_IDLE				1<<1
+#define DEVICE_STATE_START_RECORDING	1<<2
+#define DEVICE_STATE_RECORDING			1<<3
+#define DEVICE_STATE_STOP_RECORDING		1<<4
+#define DEVICE_STATE_CHARGING			1<<5
+#define DEVICE_STATE_CONFIG_LOADED		1<<6
+#define DEVICE_STATE_ERROR				1<<7
+#define DEVICE_STATE_LOW_VOLTAGE		1<<8
+#define DEVICE_STATE_START_RECORDING2	1<<9
 // -------------------------------------------
 
 // ----------- Buffer Definitions ------------
@@ -67,7 +77,7 @@
 #define HEADER_LED_POS				5
 #define HEADER_EWL_POS				6
 #define HEADER_RECORD_LENGTH_POS	7
-#define HEADER_FRAME_RATE			8
+#define HEADER_FRAME_RATE_POS		8
 // -------------------------------------------
  
 // ------- Image Sensor Definitions ----------

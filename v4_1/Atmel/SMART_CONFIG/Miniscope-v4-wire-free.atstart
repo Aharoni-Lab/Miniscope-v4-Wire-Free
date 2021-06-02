@@ -699,7 +699,7 @@ drivers:
       eic_arch_enable_irq_setting6: true
       eic_arch_enable_irq_setting7: true
       eic_arch_enable_irq_setting8: false
-      eic_arch_enable_irq_setting9: false
+      eic_arch_enable_irq_setting9: true
       eic_arch_extinteo0: false
       eic_arch_extinteo1: false
       eic_arch_extinteo10: false
@@ -731,7 +731,7 @@ drivers:
       eic_arch_filten6: true
       eic_arch_filten7: true
       eic_arch_filten8: false
-      eic_arch_filten9: false
+      eic_arch_filten9: true
       eic_arch_nmi_ctrl: false
       eic_arch_nmiasynch: false
       eic_arch_nmifilten: false
@@ -753,7 +753,7 @@ drivers:
       eic_arch_sense6: Both-edges detection
       eic_arch_sense7: Both-edges detection
       eic_arch_sense8: No detection
-      eic_arch_sense9: No detection
+      eic_arch_sense9: Both-edges detection
       eic_arch_states0: '3'
       eic_arch_states1: '3'
       eic_arch_tickon: The sampling rate is EIC clock
@@ -772,6 +772,13 @@ drivers:
       definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::optional_signal_definition::EIC.EXTINT.7
       name: EIC/EXTINT/7
       label: EXTINT/7
+    - identifier: EXTERNAL_IRQ_0:EXTINT/9
+      pad: PA25
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::optional_signal_definition::EIC.EXTINT.9
+      name: EIC/EXTINT/9
+      label: EXTINT/9
     - identifier: EXTERNAL_IRQ_0:EXTINT/14
       pad: PB14
       mode: Enabled
@@ -1231,9 +1238,9 @@ drivers:
       domain_group: null
   USART_0:
     user_label: USART_0
-    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::SERCOM5::driver_config_definition::UART::HAL:Driver:USART.Sync
+    definition: Atmel:SAMD51_Drivers:0.0.1::SAMD51J20A-UN::SERCOM5::driver_config_definition::UART::HAL:Driver:USART.Async
     functionality: USART
-    api: HAL:Driver:USART_Sync
+    api: HAL:Driver:USART_Async
     configuration:
       usart_advanced: false
       usart_arch_clock_mode: USART with internal clock

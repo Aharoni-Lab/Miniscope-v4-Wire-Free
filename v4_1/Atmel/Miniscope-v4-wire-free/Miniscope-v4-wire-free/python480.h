@@ -23,12 +23,12 @@ void python480Init()
 	SoftPowerUp();
 }
 
-void python480SetGain(uint8_t value)
+void python480SetGain(uint32_t value)
 {
 	
 }
 
-void python480SetFPS(uint8_t value)
+void python480SetFPS(uint32_t value)
 {
 	
 }

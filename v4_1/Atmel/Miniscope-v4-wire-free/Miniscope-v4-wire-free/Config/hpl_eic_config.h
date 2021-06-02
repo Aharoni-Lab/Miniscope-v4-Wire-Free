@@ -504,14 +504,14 @@
 // <e> Interrupt 9 Settings
 // <id> eic_arch_enable_irq_setting9
 #ifndef CONF_EIC_ENABLE_IRQ_SETTING9
-#define CONF_EIC_ENABLE_IRQ_SETTING9 0
+#define CONF_EIC_ENABLE_IRQ_SETTING9 1
 #endif
 
 // <q> External Interrupt 9 Filter Enable
 // <i> Indicates whether the external interrupt 9 filter is enabled or not
 // <id> eic_arch_filten9
 #ifndef CONF_EIC_FILTEN9
-#define CONF_EIC_FILTEN9 0
+#define CONF_EIC_FILTEN9 1
 #endif
 
 // <q> External Interrupt 9 Debounce Enable
@@ -538,7 +538,7 @@
 // <i> This defines input sense trigger
 // <id> eic_arch_sense9
 #ifndef CONF_EIC_SENSE9
-#define CONF_EIC_SENSE9 EIC_NMICTRL_NMISENSE_NONE_Val
+#define CONF_EIC_SENSE9 EIC_NMICTRL_NMISENSE_BOTH_Val
 #endif
 
 // <q> External Interrupt 9 Asynchronous Edge Detection Mode
@@ -906,7 +906,7 @@
 
 // </h>
 
-#define CONFIG_EIC_EXTINT_MAP {6, PIN_PB22}, {7, PIN_PB23}, {14, PIN_PB14},
+#define CONFIG_EIC_EXTINT_MAP {6, PIN_PB22}, {7, PIN_PB23}, {9, PIN_PA25}, {14, PIN_PB14},
 
 // <<< end of configuration section >>>
 
