@@ -23,7 +23,7 @@
 #define DEVICE_STATE_CONFIG_LOADED		1<<6
 #define DEVICE_STATE_ERROR				1<<7
 #define DEVICE_STATE_LOW_VOLTAGE		1<<8
-#define DEVICE_STATE_START_RECORDING2	1<<9
+#define DEVICE_STATE_START_RECORDING_WAITING	1<<9
 // -------------------------------------------
 
 // ----------- Buffer Definitions ------------
