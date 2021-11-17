@@ -64,7 +64,7 @@
 // <0x6=>8000092us
 // <id> xosc32k_arch_startup
 #ifndef CONF_XOSC32K_STARTUP
-#define CONF_XOSC32K_STARTUP 0x0
+#define CONF_XOSC32K_STARTUP 0x2
 #endif
 
 // <q> On Demand Control
@@ -92,7 +92,7 @@
 // <i> Indicates whether 32kHz Output is enabled or not
 // <id> xosc32k_arch_en32k
 #ifndef CONF_XOSC32K_EN32K
-#define CONF_XOSC32K_EN32K 0
+#define CONF_XOSC32K_EN32K 1
 #endif
 
 // <q> Clock Switch Back

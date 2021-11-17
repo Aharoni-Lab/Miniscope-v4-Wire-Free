@@ -20,10 +20,10 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <ResetRule>0</ResetRule>
     <eraseonlaunchrule>0</eraseonlaunchrule>
@@ -181,7 +181,7 @@
           <AcmeProjectActionInfo Action="File" Source="hpl/cmcc/hpl_cmcc.c" IsConfig="false" Hash="xrdKSj3ppVwQWgZ3zrlaRg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_m4.c" IsConfig="false" Hash="SpvW0RJ1Ej3k5aP6f3FHfg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_core_port.h" IsConfig="false" Hash="RXrDMMracCeflR1F9jWiGg" />
-          <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_init.c" IsConfig="false" Hash="/W7xK3rVKLxPEwN+aiJq8Q" />
+          <AcmeProjectActionInfo Action="File" Source="hpl/core/hpl_init.c" IsConfig="false" Hash="18lu6kTmHSBaVKElrmBASw" />
           <AcmeProjectActionInfo Action="File" Source="hpl/dmac/hpl_dmac.c" IsConfig="false" Hash="hfo1VP6av1KthYmILu3PCg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/eic/hpl_eic.c" IsConfig="false" Hash="2jFaaiSJP393BpiDLOi7Wg" />
           <AcmeProjectActionInfo Action="File" Source="hpl/gclk/hpl_gclk.c" IsConfig="false" Hash="5XO/19EedZQ0lq6yB8UTWQ" />
@@ -207,22 +207,38 @@
           <AcmeProjectActionInfo Action="File" Source="config/hpl_cmcc_config.h" IsConfig="true" Hash="bmtxQ8rLloaRtAo2HeXZRQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_dmac_config.h" IsConfig="true" Hash="xUugZ8p7p9slDcoiUoT6ig" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_eic_config.h" IsConfig="true" Hash="uDhxqBERnWoYaJ6Be5Gj3w" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_gclk_config.h" IsConfig="true" Hash="yHU9wBfNqsTyqIOP7I3hOQ" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_gclk_config.h" IsConfig="true" Hash="LOIO52K9UdwlcDB3YdgDxA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_mclk_config.h" IsConfig="true" Hash="pxBzoQXTG66x4dbzVzxteg" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_osc32kctrl_config.h" IsConfig="true" Hash="TSacbnJ95QfPDRd99RDdxw" />
-          <AcmeProjectActionInfo Action="File" Source="config/hpl_oscctrl_config.h" IsConfig="true" Hash="fBASUi48zI9toHw506JGvA" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_osc32kctrl_config.h" IsConfig="true" Hash="tpQLG0hdQq3xR8uk6+RAwA" />
+          <AcmeProjectActionInfo Action="File" Source="config/hpl_oscctrl_config.h" IsConfig="true" Hash="c7FcoI1a1oVqH1anZQs6HA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_pcc_config.h" IsConfig="true" Hash="eqI8B7MMrvQWPo86lco2ow" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_port_config.h" IsConfig="true" Hash="rMTNR+5FXtu+wfT1NbfRRA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_sdhc_config.h" IsConfig="true" Hash="TZWhMnHjzlDARLFBVJhvlQ" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_sercom_config.h" IsConfig="true" Hash="gw+q/ODVgVPvaUGMrrPOBg" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_systick_config.h" IsConfig="true" Hash="tlT3lNDKWFe82MiGWfQzcA" />
           <AcmeProjectActionInfo Action="File" Source="config/hpl_tc_config.h" IsConfig="true" Hash="DlhQfAgEWm7ctASlxMKBFw" />
-          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="fLQV6SDAjf7u8x5CQpxtbA" />
+          <AcmeProjectActionInfo Action="File" Source="config/peripheral_clk_config.h" IsConfig="true" Hash="ccQfGFUC/LB4DEv2teGhCA" />
           <AcmeProjectActionInfo Action="File" Source="config/conf_sd_mmc.h" IsConfig="true" Hash="rA0NYIZvu/E0GS4TTw1MVA" />
         </AcmeActionInfos>
         <NonsecureFilesInfo />
       </AcmeProjectConfig>
     </AcmeProjectConfig>
+    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
+    <avrtoolserialnumber>J42700024076</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x60060304</avrdeviceexpectedsignature>
+    <avrtoolinterface>SWD</avrtoolinterface>
+    <com_atmel_avrdbg_tool_atmelice>
+      <ToolOptions>
+        <InterfaceProperties>
+          <SwdClock>2000000</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
+      <ToolNumber>J42700024076</ToolNumber>
+      <ToolName>Atmel-ICE</ToolName>
+    </com_atmel_avrdbg_tool_atmelice>
+    <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>

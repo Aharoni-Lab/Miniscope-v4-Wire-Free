@@ -35,7 +35,6 @@ void I2C_BB_sleep(void)
 }
 
 
-
 void I2C_BB_end()
 {
 	SDA_low();

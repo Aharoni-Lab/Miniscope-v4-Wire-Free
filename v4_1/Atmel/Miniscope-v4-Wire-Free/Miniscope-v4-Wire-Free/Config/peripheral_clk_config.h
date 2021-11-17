@@ -41,7 +41,7 @@
  * \brief ADC0's Clock frequency
  */
 #ifndef CONF_GCLK_ADC0_FREQUENCY
-#define CONF_GCLK_ADC0_FREQUENCY 47985664
+#define CONF_GCLK_ADC0_FREQUENCY 60006400
 #endif
 
 // <y> EIC Clock Source
@@ -81,7 +81,7 @@
  * \brief EIC's Clock frequency
  */
 #ifndef CONF_GCLK_EIC_FREQUENCY
-#define CONF_GCLK_EIC_FREQUENCY 47985664
+#define CONF_GCLK_EIC_FREQUENCY 60006400
 #endif
 
 /**
@@ -89,7 +89,7 @@
  * \brief CPU's Clock frequency
  */
 #ifndef CONF_CPU_FREQUENCY
-#define CONF_CPU_FREQUENCY 47985664
+#define CONF_CPU_FREQUENCY 60006400
 #endif
 
 // <y> Core Clock Source
@@ -161,7 +161,7 @@
  * \brief SERCOM5's Core Clock frequency
  */
 #ifndef CONF_GCLK_SERCOM5_CORE_FREQUENCY
-#define CONF_GCLK_SERCOM5_CORE_FREQUENCY 47985664
+#define CONF_GCLK_SERCOM5_CORE_FREQUENCY 60006400
 #endif
 
 /**
@@ -169,7 +169,7 @@
  * \brief SERCOM5's Slow Clock frequency
  */
 #ifndef CONF_GCLK_SERCOM5_SLOW_FREQUENCY
-#define CONF_GCLK_SERCOM5_SLOW_FREQUENCY 48005120
+#define CONF_GCLK_SERCOM5_SLOW_FREQUENCY 3000320
 #endif
 
 // <h> SDHC Clock Settings
@@ -243,7 +243,7 @@
  * \brief SDHC's Clock frequency
  */
 #ifndef CONF_SDHC0_FREQUENCY
-#define CONF_SDHC0_FREQUENCY 47985664
+#define CONF_SDHC0_FREQUENCY 60006400
 #endif
 
 /**
@@ -251,7 +251,7 @@
  * \brief SDHC's Clock slow frequency
  */
 #ifndef CONF_SDHC0_SLOW_FREQUENCY
-#define CONF_SDHC0_SLOW_FREQUENCY 47985664
+#define CONF_SDHC0_SLOW_FREQUENCY 60006400
 #endif
 
 // <y> TC Clock Source
@@ -291,7 +291,7 @@
  * \brief TC0's Clock frequency
  */
 #ifndef CONF_GCLK_TC0_FREQUENCY
-#define CONF_GCLK_TC0_FREQUENCY 47985664
+#define CONF_GCLK_TC0_FREQUENCY 60006400
 #endif
 
 // <y> TC Clock Source
@@ -331,7 +331,7 @@
  * \brief TC1's Clock frequency
  */
 #ifndef CONF_GCLK_TC1_FREQUENCY
-#define CONF_GCLK_TC1_FREQUENCY 47985664
+#define CONF_GCLK_TC1_FREQUENCY 60006400
 #endif
 
 // <<< end of configuration section >>>

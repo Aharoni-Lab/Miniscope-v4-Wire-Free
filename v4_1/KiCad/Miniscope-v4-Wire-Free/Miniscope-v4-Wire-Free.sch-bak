@@ -535,6 +535,7 @@ F 0 "U1" H 1850 4700 50  0000 C CNN
 F 1 "LTC3554" H 2650 4700 50  0000 C CNN
 F 2 "Package_DFN_QFN:QFN-20-1EP_3x3mm_P0.4mm_EP1.65x1.65mm" H 2000 4400 50  0001 C CNN
 F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/355412ff.pdf" H 2000 4400 50  0001 C CNN
+F 4 "LTC3554EUD#PBF" H 2250 3750 50  0001 C CNN "Manufacturer_Part_Number"
 	1    2250 3750
 	1    0    0    -1  
 $EndComp

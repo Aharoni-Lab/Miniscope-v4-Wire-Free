@@ -171,6 +171,7 @@ static void pushButton_cb(void)
 
 static void frameValid_cb(void)
 {
+	/*
 	bool pinState = gpio_get_pin_level(FrameValid);
 	if (pinState == true) {
 		// beginning of new frame acquisition
@@ -215,6 +216,7 @@ static void frameValid_cb(void)
 			deviceState |= DEVICE_STATE_RECORDING;
 		}
 	}
+	*/
 }
 
 void setExcitationLED(uint32_t value, bool enable)
@@ -364,12 +366,16 @@ void recording()
 }
 int main(void)
 {
+	uint32_t lastTime = 0;
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
 	
 	// Enable the 3.3V regulator
 	gpio_set_pin_level(EN_3V3, true);
 
+	setStatusLED(1);
+	//setExcitationLED(50,1);
+	/*
 	I2C_BB_init();
 	
 	// Enable ADC for checking battery voltage
@@ -377,9 +383,10 @@ int main(void)
 	
 	// Sets up a set of circularly linked list for camera DMA.
 	linkedListInit(); 
+	*/
 	
 	// Setup a timer to count in milliseconds
-	TIMER_0_task1.interval = 100; // Need to check this value
+	TIMER_0_task1.interval = 10; // Need to check this value
 	TIMER_0_task1.cb       = millisecondTimer_cb;
 	TIMER_0_task1.mode     = TIMER_TASK_REPEAT;
 	
@@ -390,7 +397,8 @@ int main(void)
 	timer_add_task(&TIMER_0, &TIMER_0_task1);
 	timer_add_task(&TIMER_0, &TIMER_0_task2);
 	timer_start(&TIMER_0);
-		
+	
+	/*		
 	// Setup callbacks for external interrupts
 	ext_irq_register(PIN_PB22, irReceive_cb);
 	ext_irq_register(PIN_PB23, battCharging_cb);
@@ -423,12 +431,25 @@ int main(void)
 	sd_mmc_init_write_blocks(0, CONFIG_BLOCK, 1);
 	sd_mmc_start_write_blocks(configBlock, 1); // We will re-write this block at the end of recording too
 	sd_mmc_wait_end_of_write_blocks(false);
-	
+	*/
 	while (1) {
 		if (deviceState & DEVICE_STATE_START_RECORDING)
 			startRecording();
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
+		}
+		
+		// Used for debugging timers
+		if (timeMS%100 == 0 && lastTime != timeMS) {
+			lastTime = timeMS;
+			if (gpio_get_pin_level(LED_STATUS) == 1) {
+				setStatusLED(0);
+				
+			}
+			else {
+				setStatusLED(1);
+			}
+		// ----------------------------
 		}
 	}
 }
