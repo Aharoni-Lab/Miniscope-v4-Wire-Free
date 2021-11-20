@@ -12,6 +12,8 @@
 #include "driver_init.h"
 #include "utils.h"
 
+#define DISABLE_PLL
+
 void python480Init() 
 {
 	// Sets up initial register values in the PYTHON 480
@@ -35,10 +37,10 @@ void python480SetFPS(uint32_t value)
 
 void spi_BB_Write(uint8_t address, uint16_t value) 
 {
-	uint8_t i = 0;
+	int8_t i = 0;
 	//Bitbang SPI Master.
-	//Assuming SS starts high and clock starts low
-	
+	gpio_set_pin_level(SPI_NSS, 1); // Make sure NSS is high
+	delay_us(10);
 	gpio_set_pin_level(SPI_NSS, 0); // Pull SPI chip select pin low
 	delay_us(10);
 	

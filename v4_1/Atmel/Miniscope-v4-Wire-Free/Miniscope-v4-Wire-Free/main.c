@@ -171,11 +171,12 @@ static void pushButton_cb(void)
 
 static void frameValid_cb(void)
 {
-	/*
+	
 	bool pinState = gpio_get_pin_level(FrameValid);
 	if (pinState == true) {
 		// beginning of new frame acquisition
 	}
+	/*
 	else {
 		if (deviceState == DEVICE_STATE_RECORDING || deviceState == DEVICE_STATE_STOP_RECORDING) {
 			// At the end of frame the current buffer is likely only partially filled.
@@ -374,23 +375,26 @@ int main(void)
 	gpio_set_pin_level(EN_3V3, true);
 
 	setStatusLED(1);
+	
 	//setExcitationLED(50,1);
 	/*
 	I2C_BB_init();
+	*/
 	
 	// Enable ADC for checking battery voltage
 	adc_sync_enable_channel(&ADC_0, 0);
 	
+	/*
 	// Sets up a set of circularly linked list for camera DMA.
 	linkedListInit(); 
 	*/
 	
 	// Setup a timer to count in milliseconds
-	TIMER_0_task1.interval = 10; // Need to check this value
+	TIMER_0_task1.interval = 1; // Need to check this value
 	TIMER_0_task1.cb       = millisecondTimer_cb;
 	TIMER_0_task1.mode     = TIMER_TASK_REPEAT;
 	
-	TIMER_0_task2.interval = 100000; // Need to check this value
+	TIMER_0_task2.interval = 1000; // Units are in ms so 1000 should check every 1 second
 	TIMER_0_task2.cb       = checkBattVoltage_cb;
 	TIMER_0_task2.mode     = TIMER_TASK_REPEAT;
 	
@@ -398,12 +402,13 @@ int main(void)
 	timer_add_task(&TIMER_0, &TIMER_0_task2);
 	timer_start(&TIMER_0);
 	
-	/*		
+			
 	// Setup callbacks for external interrupts
 	ext_irq_register(PIN_PB22, irReceive_cb);
 	ext_irq_register(PIN_PB23, battCharging_cb);
 	ext_irq_register(PIN_PB14, frameValid_cb);
 	ext_irq_register(PIN_PA25, pushButton_cb);
+	
 	
 	// Wait for SD Card and then load config from it
 	while (SD_MMC_OK != sd_mmc_check(0)) {}
@@ -412,12 +417,16 @@ int main(void)
 	else 
 		deviceState |= DEVICE_STATE_ERROR;
 	
+	
 	// Setup Image Sensor
 	// TODO: Work on minimizing power draw
+	gpio_set_pin_level(RESET_CMOS, 1);
+	delay_us(100); // minimum delay is 10us
 	python480Init();
-	python480SetGain(getPropFromHeader(HEADER_GAIN_POS));
-	python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
+	//python480SetGain(getPropFromHeader(HEADER_GAIN_POS));
+	//python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
 	
+	/*
 	// Setup rest of Miniscope
 	setEWL(getPropFromHeader(HEADER_EWL_POS));
 	setExcitationLED(getPropFromHeader(HEADER_LED_POS), false);
@@ -440,7 +449,7 @@ int main(void)
 		}
 		
 		// Used for debugging timers
-		if (timeMS%100 == 0 && lastTime != timeMS) {
+		if (timeMS%1000 == 0 && timeMS > (lastTime + 500)) {
 			lastTime = timeMS;
 			if (gpio_get_pin_level(LED_STATUS) == 1) {
 				setStatusLED(0);
