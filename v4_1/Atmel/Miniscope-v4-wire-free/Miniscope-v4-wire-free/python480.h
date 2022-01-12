@@ -27,12 +27,37 @@ void python480Init()
 
 void python480SetGain(uint32_t value)
 {
-	
+	switch (value)
+	{
+	case (1) :
+		spi_BB_Write(204, 0x00E1);
+		break;
+	case (2):
+		spi_BB_Write(204, 0x00E4);
+		break;
+	case (4): // This is really 3.5x
+		spi_BB_Write(204, 0x0024);
+		break;
+	default:
+		spi_BB_Write(204, 0x00E1);
+		break;
+	}
 }
 
 void python480SetFPS(uint32_t value)
 {
-	
+	switch (value)
+	{
+	case (5):
+		spi_BB_Write(0xC9, 20000);
+		break;
+	case (10):
+		spi_BB_Write(0xC9, 10000);
+		break;
+	case (15):
+		spi_BB_Write(0xC9, 6667);
+		break;
+	}
 }
 
 void spi_BB_Write(uint8_t address, uint16_t value) 
@@ -79,12 +104,59 @@ void spi_BB_Write(uint8_t address, uint16_t value)
 	}
 		
 	gpio_set_pin_level(SPI_SCK, 0);
+	//delay_us(10);
+	//gpio_set_pin_level(SPI_SCK, 1);
 	delay_us(10);
-	gpio_set_pin_level(SPI_SCK, 1);
-		
 	delay_us(10);
 	gpio_set_pin_level(SPI_NSS, 1); // Pull SPI chip select pin high
 	
+}
+
+uint16_t spi_BB_Read(uint8_t address)
+{
+	int8_t i = 0;
+	uint16_t value = 0;
+	//Bitbang SPI Master.
+	gpio_set_pin_level(SPI_NSS, 1); // Make sure NSS is high
+	delay_us(10);
+	gpio_set_pin_level(SPI_NSS, 0); // Pull SPI chip select pin low
+	delay_us(10);
+	
+	for (i = 8; i >= 0 ;i--) { // 9bit address
+		gpio_set_pin_level(SPI_SCK, 0);
+		// Set MOSI pin to next bit value
+		if (0x0001&(address>>i)) //a 1
+			gpio_set_pin_level(SPI_MOSI, 1);
+		else // a 0
+			gpio_set_pin_level(SPI_MOSI, 0);
+		
+		delay_us(10);
+		gpio_set_pin_level(SPI_SCK, 1);
+		delay_us(10);
+	}
+	// Write bit
+	gpio_set_pin_level(SPI_SCK, 0);
+	gpio_set_pin_level(SPI_MOSI, 0); // Set read bit to 0
+	delay_us(10);
+	gpio_set_pin_level(SPI_SCK, 1);
+	delay_us(10);
+	// extra sck transitions for read operation
+	gpio_set_pin_level(SPI_SCK, 0);
+	delay_us(10);
+	
+	
+	// Value
+	for (i=15; i >=0 ;i--) {
+		gpio_set_pin_level(SPI_SCK, 1);
+		delay_us(10);
+		gpio_set_pin_level(SPI_SCK, 0);
+		// read bit
+		value |= (gpio_get_pin_level(SPI_MISO) << i);		
+		delay_us(10);	
+	}
+	delay_us(10);
+	gpio_set_pin_level(SPI_NSS, 1); // Pull SPI chip select pin high
+	return value;
 }
 
 void EnableClockMngmnt1() {
@@ -138,7 +210,7 @@ void RequiredUploads() {// Reserved register settings uploads
 	spi_BB_Write(32, 0x7007);
 	#endif
 	spi_BB_Write(34, 0x0001);
-	spi_BB_Write(40, 0x0007); // 3rd bit endables bias. This was set to 0 (0x003).
+	spi_BB_Write(40, 0x0007); // 3rd bit enables bias. This was set to 0 (0x003).
 	spi_BB_Write(41, 0x085F);
 	spi_BB_Write(42, 0x4103);
 	spi_BB_Write(43, 0x0518);

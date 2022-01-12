@@ -43,6 +43,9 @@ volatile uint32_t droppedFrameCount;
 volatile uint32_t framesToDrop;
 volatile uint32_t *bufferToWrite;
 volatile uint32_t numBlocks;
+
+// Debugging and checking stuff
+volatile uint16_t chip_id; // Reads the chip id from Python480 to make sure we can talk to it
 // --------------------------------------
 
 // ----------- FUNCTIONS ----------------
@@ -171,10 +174,19 @@ static void pushButton_cb(void)
 
 static void frameValid_cb(void)
 {
-	
 	bool pinState = gpio_get_pin_level(FrameValid);
+	
+	if (gpio_get_pin_level(LED_STATUS) == 1) {
+		setStatusLED(0);
+		
+	}
+	else {
+		setStatusLED(1);
+	}
+	
 	if (pinState == true) {
 		// beginning of new frame acquisition
+		
 	}
 	/*
 	else {
@@ -420,11 +432,16 @@ int main(void)
 	
 	// Setup Image Sensor
 	// TODO: Work on minimizing power draw
+	// Trigger pin gets init'ed as output low and shouldn't need to be adjusted
+	gpio_set_pin_level(RESET_CMOS, 0); // Make sure N_RESET of the PYTHON480 is low for a bit before going high. Shouldn't be needed
+	delay_ms(100);
 	gpio_set_pin_level(RESET_CMOS, 1);
 	delay_us(100); // minimum delay is 10us
+	chip_id = spi_BB_Read(0x00);
+
 	python480Init();
-	//python480SetGain(getPropFromHeader(HEADER_GAIN_POS));
-	//python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
+	python480SetGain(1); //getPropFromHeader(HEADER_GAIN_POS));
+	python480SetFPS(10); //getPropFromHeader(HEADER_FRAME_RATE_POS));
 	
 	/*
 	// Setup rest of Miniscope
@@ -449,16 +466,16 @@ int main(void)
 		}
 		
 		// Used for debugging timers
-		if (timeMS%1000 == 0 && timeMS > (lastTime + 500)) {
-			lastTime = timeMS;
-			if (gpio_get_pin_level(LED_STATUS) == 1) {
-				setStatusLED(0);
-				
-			}
-			else {
-				setStatusLED(1);
-			}
-		// ----------------------------
-		}
+		//if (timeMS%1000 == 0 && timeMS > (lastTime + 500)) {
+			//lastTime = timeMS;
+			//if (gpio_get_pin_level(LED_STATUS) == 1) {
+				//setStatusLED(0);
+				//
+			//}
+			//else {
+				//setStatusLED(1);
+			//}
+		//// ----------------------------
+		//}
 	}
 }
