@@ -33,6 +33,8 @@ volatile uint32_t frameBufferCount = 0;
 volatile uint32_t startTimeMS;
 volatile uint32_t timeMS = 0;
 
+volatile uint8_t battVolt;
+
 static struct timer_task TIMER_0_task1, TIMER_0_task2;
 
 // used for tracking recording and inc. DMA buffers
@@ -46,6 +48,7 @@ volatile uint32_t numBlocks;
 
 // Debugging and checking stuff
 volatile uint16_t chip_id; // Reads the chip id from Python480 to make sure we can talk to it
+volatile uint16_t regValue[2]; 
 // --------------------------------------
 
 // ----------- FUNCTIONS ----------------
@@ -124,6 +127,7 @@ static void checkBattVoltage_cb(const struct timer_task *const timer_task)
 	uint8_t adcValue;
 	// Uses ADC0 to check batt voltage
 	adc_sync_read_channel(&ADC_0, 0, &adcValue, 1);
+	battVolt = adcValue;
 	
 	// If under voltage, set device state to ...
 	// Compare to 1.1V band gap
@@ -176,13 +180,13 @@ static void frameValid_cb(void)
 {
 	bool pinState = gpio_get_pin_level(FrameValid);
 	
-	if (gpio_get_pin_level(LED_STATUS) == 1) {
-		setStatusLED(0);
-		
-	}
-	else {
-		setStatusLED(1);
-	}
+	//if (gpio_get_pin_level(LED_STATUS) == 1) {
+		//setStatusLED(0);
+		//
+	//}
+	//else {
+		//setStatusLED(1);
+	//}
 	
 	if (pinState == true) {
 		// beginning of new frame acquisition
@@ -377,6 +381,7 @@ void recording()
 	}
 	
 }
+
 int main(void)
 {
 	uint32_t lastTime = 0;
@@ -437,9 +442,10 @@ int main(void)
 	delay_ms(100);
 	gpio_set_pin_level(RESET_CMOS, 1);
 	delay_us(100); // minimum delay is 10us
-	chip_id = spi_BB_Read(0x00);
-
+	chip_id = spi_BB_Read(0x00); // can use this to make sure MCU can talk to Python480
+	regValue[0] = spi_BB_Read(32);
 	python480Init();
+	regValue[1] = spi_BB_Read(32);
 	python480SetGain(1); //getPropFromHeader(HEADER_GAIN_POS));
 	python480SetFPS(10); //getPropFromHeader(HEADER_FRAME_RATE_POS));
 	
@@ -464,18 +470,19 @@ int main(void)
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
 		}
+	//	setStatusLED(gpio_get_pin_level(MONITOR0));
 		
 		// Used for debugging timers
-		//if (timeMS%1000 == 0 && timeMS > (lastTime + 500)) {
-			//lastTime = timeMS;
-			//if (gpio_get_pin_level(LED_STATUS) == 1) {
-				//setStatusLED(0);
-				//
-			//}
-			//else {
-				//setStatusLED(1);
-			//}
-		//// ----------------------------
-		//}
+		if (timeMS%1000 == 0 && timeMS > (lastTime + 500)) {
+			lastTime = timeMS;
+			if (gpio_get_pin_level(LED_STATUS) == 1) {
+				setStatusLED(0);
+				
+			}
+			else {
+				setStatusLED(1);
+			}
+		// ----------------------------
+		}
 	}
 }
