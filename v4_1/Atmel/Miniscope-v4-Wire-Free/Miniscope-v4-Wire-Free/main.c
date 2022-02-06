@@ -8,7 +8,7 @@
 #include "python480.h"
 #include "i2c_bb.h"
 
-#define DEBUG
+//#define DEBUG
 
 // ------- SET WIRE-FREE DEVICE TYPE ----
 #define MINISCOPE_V4_WF
@@ -385,6 +385,8 @@ void recording()
 int main(void)
 {
 	uint32_t lastTime = 0;
+	bool lastMonitor0 = 0;
+	bool thisMonitor0 = 0;
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
 	
@@ -428,11 +430,11 @@ int main(void)
 	
 	
 	// Wait for SD Card and then load config from it
-	while (SD_MMC_OK != sd_mmc_check(0)) {}
-	if (loadSDCardHeader() == MS_SUCCESS)
-		deviceState |= DEVICE_STATE_CONFIG_LOADED;
-	else 
-		deviceState |= DEVICE_STATE_ERROR;
+	//while (SD_MMC_OK != sd_mmc_check(0)) {}
+	//if (loadSDCardHeader() == MS_SUCCESS)
+		//deviceState |= DEVICE_STATE_CONFIG_LOADED;
+	//else 
+		//deviceState |= DEVICE_STATE_ERROR;
 	
 	
 	// Setup Image Sensor
@@ -470,19 +472,31 @@ int main(void)
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
 		}
-	//	setStatusLED(gpio_get_pin_level(MONITOR0));
-		
-		// Used for debugging timers
-		if (timeMS%1000 == 0 && timeMS > (lastTime + 500)) {
-			lastTime = timeMS;
+		thisMonitor0 = gpio_get_pin_level(MONITOR0);
+		if ((lastMonitor0 != thisMonitor0) && lastMonitor0 == 0) {
+			
 			if (gpio_get_pin_level(LED_STATUS) == 1) {
 				setStatusLED(0);
-				
 			}
 			else {
 				setStatusLED(1);
 			}
-		// ----------------------------
 		}
+		lastMonitor0 = thisMonitor0;
+		
+		//setStatusLED(gpio_get_pin_level(MONITOR0));
+		
+		// Used for debugging timers
+		//if (timeMS%1000 == 0 && timeMS > (lastTime + 500)) {
+			//lastTime = timeMS;
+			//if (gpio_get_pin_level(LED_STATUS) == 1) {
+				//setStatusLED(0);
+				//
+			//}
+			//else {
+				//setStatusLED(1);
+			//}
+		//// ----------------------------
+		//}
 	}
 }

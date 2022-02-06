@@ -60,7 +60,7 @@ void python480SetFPS(uint32_t value)
 	}
 }
 
-void spi_BB_Write(uint8_t address, uint16_t value) 
+void spi_BB_Write(uint16_t address, uint16_t value) 
 {
 	int8_t i = 0;
 	//Bitbang SPI Master.
@@ -112,7 +112,7 @@ void spi_BB_Write(uint8_t address, uint16_t value)
 	
 }
 
-uint16_t spi_BB_Read(uint8_t address)
+uint16_t spi_BB_Read(uint16_t address)
 {
 	int8_t i = 0;
 	uint16_t value = 0;

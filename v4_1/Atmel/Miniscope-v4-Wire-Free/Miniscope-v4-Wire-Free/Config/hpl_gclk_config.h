@@ -135,7 +135,7 @@
 // <i> Indicates whether Improve Duty Cycle is enabled or not
 // <id> gclk_arch_gen_1_idc
 #ifndef CONF_GCLK_GEN_1_IDC
-#define CONF_GCLK_GEN_1_IDC 0
+#define CONF_GCLK_GEN_1_IDC 1
 #endif
 
 // <q> Generic Clock Generator Enable
@@ -150,7 +150,7 @@
 //<o> Generic clock generator 1 division <0x0000-0xFFFF>
 // <id> gclk_gen_1_div
 #ifndef CONF_GCLK_GEN_1_DIV
-#define CONF_GCLK_GEN_1_DIV 10
+#define CONF_GCLK_GEN_1_DIV 2
 #endif
 // </h>
 // </e>
