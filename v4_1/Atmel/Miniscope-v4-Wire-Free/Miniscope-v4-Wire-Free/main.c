@@ -238,13 +238,14 @@ static void frameValid_cb(void)
 
 void setExcitationLED(uint32_t value, bool enable)
 {
-	uint32_t period = 10000;
-	
+	// Value is a percentage of brightness from 0 to 100.
+	// PWM runs at 1ms period using 16bit MAX counter and a ~60MHz clock	
 	if (value > 100)
 		value = 100;
-	uint32_t duty = (period * value ) / 100; // Might need to invert this
 	
-	pwm_set_parameters(&PWM_0, period, duty); // period and duty cycle
+	value = (0xFFFF * value ) /100;
+	
+	pwm_set_parameters(&PWM_0, value, 0); // period and duty cycle
 	pwm_enable(&PWM_0);
 	
 	gpio_set_pin_level(ENT_LED, enable);
@@ -390,12 +391,16 @@ int main(void)
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
 	
+	// We need to change the PWM mode from MPWM to NPWM because we are using WO[0] as waveform output
+	hri_tc_write_WAVE_reg(TC0, TC_WAVE_WAVEGEN_NPWM_Val);
+	
 	// Enable the 3.3V regulator
 	gpio_set_pin_level(EN_3V3, true);
 
 	setStatusLED(1);
 	
-	//setExcitationLED(50,1);
+	setExcitationLED(5,1);
+	
 	/*
 	I2C_BB_init();
 	*/
@@ -430,11 +435,11 @@ int main(void)
 	
 	
 	// Wait for SD Card and then load config from it
-	//while (SD_MMC_OK != sd_mmc_check(0)) {}
-	//if (loadSDCardHeader() == MS_SUCCESS)
-		//deviceState |= DEVICE_STATE_CONFIG_LOADED;
-	//else 
-		//deviceState |= DEVICE_STATE_ERROR;
+	while (SD_MMC_OK != sd_mmc_check(0)) {}
+	if (loadSDCardHeader() == MS_SUCCESS)
+		deviceState |= DEVICE_STATE_CONFIG_LOADED;
+	else 
+		deviceState |= DEVICE_STATE_ERROR;
 	
 	
 	// Setup Image Sensor
