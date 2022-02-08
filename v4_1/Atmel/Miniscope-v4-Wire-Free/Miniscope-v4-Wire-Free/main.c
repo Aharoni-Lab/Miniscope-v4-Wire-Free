@@ -180,13 +180,13 @@ static void frameValid_cb(void)
 {
 	bool pinState = gpio_get_pin_level(FrameValid);
 	
-	//if (gpio_get_pin_level(LED_STATUS) == 1) {
-		//setStatusLED(0);
-		//
-	//}
-	//else {
-		//setStatusLED(1);
-	//}
+	if (gpio_get_pin_level(LED_STATUS) == 1) {
+		setStatusLED(0);
+		
+	}
+	else {
+		setStatusLED(1);
+	}
 	
 	if (pinState == true) {
 		// beginning of new frame acquisition
@@ -245,8 +245,8 @@ void setExcitationLED(uint32_t value, bool enable)
 	
 	value = (0xFFFF * value ) /100;
 	
-	pwm_set_parameters(&PWM_0, value, 0); // period and duty cycle
-	pwm_enable(&PWM_0);
+	pwm_set_parameters(&PWM_0, value, 0); // value sets duty cycle out of 2^16. We aren't using CC1 so just send it 0
+	pwm_enable(&PWM_0); //Only actually needs to be done once. Consider moving to init stuff at top of main()
 	
 	gpio_set_pin_level(ENT_LED, enable);
 }
@@ -299,8 +299,13 @@ void startRecording()
 	droppedFrameCount = 0;
 	framesToDrop = 0;
 	
+	// This gets the next set of blocks ready to be written into
+	sd_mmc_init_write_blocks(0, currentBlock, BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK); 
+	initBlocksRemaining = BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK;
+		
 	startTimeMS = getCurrentTimeMS();
 	
+	deviceState &= !(DEVICE_STATE_IDLE);
 	deviceState &= !(DEVICE_STATE_START_RECORDING);
 	deviceState |= DEVICE_STATE_START_RECORDING_WAITING;
 }
@@ -308,6 +313,8 @@ void startRecording()
 void stopRecording()
 {
 	// TODO: Change status LEDs
+	
+	// TODO: Update currentBlock maybe to get ready for next recording??
 	
 	// Write end of recording info to a block
 	// TODO: Add more meta data to this (frames dropped?, blocks written?, overall time, data starting block?)!
@@ -317,8 +324,9 @@ void stopRecording()
 	sd_mmc_start_write_blocks(configBlock, 1);
 	sd_mmc_wait_end_of_write_blocks(false);
 	
-	deviceState |= DEVICE_STATE_STOP_RECORDING;
-//	deviceState &= !(DEVICE_STATE_RECORDING);	
+	deviceState &= !(DEVICE_STATE_STOP_RECORDING);
+	deviceState &= !(DEVICE_STATE_RECORDING);
+	deviceState |= DEVICE_STATE_IDLE;
 }
 
 void recording()
@@ -346,36 +354,42 @@ void recording()
 			if (numBlocks < initBlocksRemaining) {
 				// There are enough init blocks for this write
 				if (sd_mmc_start_write_blocks(bufferToWrite, numBlocks) != SD_MMC_OK)
+					deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
 				
-				sd_mmc_wait_end_of_write_blocks(false);
+				
 				initBlocksRemaining -= numBlocks;
 				currentBlock += numBlocks;
 			}
 			else {
 				// TODO: error checking with LED showing status
 				
+				// This finishes up the remaining blocks in the current set of initialized blocks
 				if (sd_mmc_start_write_blocks(bufferToWrite, initBlocksRemaining) != SD_MMC_OK)
-				
+					deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;				
 				sd_mmc_wait_end_of_write_blocks(false);
 				currentBlock += initBlocksRemaining;
 				
+				// We now initialize the next set of blocks
+				// TODO: Probably handle errors better here and don't go forward with writing if init fails
 				if (sd_mmc_init_write_blocks(0, currentBlock, BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK) != SD_MMC_OK)
+					deviceState |= DEVICE_STATE_SDCARD_INIT_WRITE_ERROR;
 				
+				// And write remaining data from buffer
 				if (sd_mmc_start_write_blocks((uint32_t)(&bufferToWrite[initBlocksRemaining * SD_BLOCK_SIZE / 4]), numBlocks - initBlocksRemaining) != SD_MMC_OK)
+					deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
 				
-				sd_mmc_wait_end_of_write_blocks(false);
 				currentBlock += numBlocks - initBlocksRemaining;
 				initBlocksRemaining = (BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK) - (numBlocks - initBlocksRemaining);
 				
 			}
-			//writeFrameNum = bufferToWrite[BUFFER_HEADER_FRAME_NUM_POS];
 			writeBufferCount++;
+			sd_mmc_wait_end_of_write_blocks(false);
 			
 		}
 		
 		if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
 			// Recording time has elapsed
-			stopRecording();			
+			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
 			
 		}
 		
@@ -383,34 +397,51 @@ void recording()
 	
 }
 
+
+// ===================== Check list ===============================
+// ADC for battery voltage monitoring: Working with ~192 showing full battery
+// Status LED control: Working
+// PWM excitation LED control: Working using NPWM. Cannot use MPWM unless reroute PCB to use WO1 pin
+// Python480 SPI communication: Working
+// MCU output clock GCLK1: Working
+// Timers to check lipo level and to count in milliseconds: Working
+
+// Verify SDCard interface: TODO
+// Bit Bang I2C: TODO
+// Linked List: TODO
+// Check callbacks working: TODO
+// Finish building state machine: TODO
+// Set up IR communication: TODO
+// Set up EWL configuration and control: TODO
+// Optimize power: TODO
+// Setup wired USART data connection: TODO
+// Enable push button cb to start recording: TODO
+// Pushbutton to power up system from battery??: TODO
+// Make sure lipo charge callback works: TODO
+// Consider putting ADC value in frame footer: TODO
+
+// ================================================================
 int main(void)
 {
 	uint32_t lastTime = 0;
 	bool lastMonitor0 = 0;
 	bool thisMonitor0 = 0;
+	
 	/* Initializes MCU, drivers and middleware */
-	atmel_start_init();
-	
+	atmel_start_init();	
 	// We need to change the PWM mode from MPWM to NPWM because we are using WO[0] as waveform output
-	hri_tc_write_WAVE_reg(TC0, TC_WAVE_WAVEGEN_NPWM_Val);
-	
+	hri_tc_write_WAVE_reg(TC0, TC_WAVE_WAVEGEN_NPWM_Val);	
 	// Enable the 3.3V regulator
 	gpio_set_pin_level(EN_3V3, true);
-
-	setStatusLED(1);
-	
-	setExcitationLED(5,1);
-	
-	/*
-	I2C_BB_init();
-	*/
-	
 	// Enable ADC for checking battery voltage
 	adc_sync_enable_channel(&ADC_0, 0);
 	
+	
+	setStatusLED(1);	
+	
+	
 	/*
-	// Sets up a set of circularly linked list for camera DMA.
-	linkedListInit(); 
+	I2C_BB_init();
 	*/
 	
 	// Setup a timer to count in milliseconds
@@ -433,6 +464,10 @@ int main(void)
 	ext_irq_register(PIN_PB14, frameValid_cb);
 	ext_irq_register(PIN_PA25, pushButton_cb);
 	
+	/*
+	// Sets up a set of circularly linked list for camera DMA.
+	linkedListInit(); 
+	*/
 	
 	// Wait for SD Card and then load config from it
 	while (SD_MMC_OK != sd_mmc_check(0)) {}
@@ -440,7 +475,6 @@ int main(void)
 		deviceState |= DEVICE_STATE_CONFIG_LOADED;
 	else 
 		deviceState |= DEVICE_STATE_ERROR;
-	
 	
 	// Setup Image Sensor
 	// TODO: Work on minimizing power draw
@@ -450,16 +484,16 @@ int main(void)
 	gpio_set_pin_level(RESET_CMOS, 1);
 	delay_us(100); // minimum delay is 10us
 	chip_id = spi_BB_Read(0x00); // can use this to make sure MCU can talk to Python480
-	regValue[0] = spi_BB_Read(32);
 	python480Init();
-	regValue[1] = spi_BB_Read(32);
-	python480SetGain(1); //getPropFromHeader(HEADER_GAIN_POS));
-	python480SetFPS(10); //getPropFromHeader(HEADER_FRAME_RATE_POS));
+	
 	
 	/*
 	// Setup rest of Miniscope
 	setEWL(getPropFromHeader(HEADER_EWL_POS));
-	setExcitationLED(getPropFromHeader(HEADER_LED_POS), false);
+	setExcitationLED(getPropFromHeader(HEADER_LED_POS), false);	
+	python480SetGain(getPropFromHeader(HEADER_GAIN_POS));
+	python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
+	*/
 	
 	// Set some parameters in config buffer to be written to SD card at end of recording
 	setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH);
@@ -470,24 +504,32 @@ int main(void)
 	sd_mmc_init_write_blocks(0, CONFIG_BLOCK, 1);
 	sd_mmc_start_write_blocks(configBlock, 1); // We will re-write this block at the end of recording too
 	sd_mmc_wait_end_of_write_blocks(false);
-	*/
+	
+	
+	// Just a debugging point for turning on excitation LED
+	setExcitationLED(5,1);
+	
 	while (1) {
 		if (deviceState & DEVICE_STATE_START_RECORDING)
 			startRecording();
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
 		}
-		thisMonitor0 = gpio_get_pin_level(MONITOR0);
-		if ((lastMonitor0 != thisMonitor0) && lastMonitor0 == 0) {
-			
-			if (gpio_get_pin_level(LED_STATUS) == 1) {
-				setStatusLED(0);
-			}
-			else {
-				setStatusLED(1);
-			}
+		if (deviceState & DEVICE_STATE_STOP_RECORDING) {
+			stopRecording();
 		}
-		lastMonitor0 = thisMonitor0;
+		
+		//thisMonitor0 = gpio_get_pin_level(MONITOR0);
+		//if ((lastMonitor0 != thisMonitor0) && lastMonitor0 == 0) {
+			//
+			//if (gpio_get_pin_level(LED_STATUS) == 1) {
+				//setStatusLED(0);
+			//}
+			//else {
+				//setStatusLED(1);
+			//}
+		//}
+		//lastMonitor0 = thisMonitor0;
 		
 		//setStatusLED(gpio_get_pin_level(MONITOR0));
 		
