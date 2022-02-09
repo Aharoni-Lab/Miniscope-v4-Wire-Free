@@ -405,8 +405,8 @@ void recording()
 // Python480 SPI communication: Working
 // MCU output clock GCLK1: Working
 // Timers to check lipo level and to count in milliseconds: Working
+// Verify SDCard interface: Working
 
-// Verify SDCard interface: TODO
 // Bit Bang I2C: TODO
 // Linked List: TODO
 // Check callbacks working: TODO
@@ -418,7 +418,7 @@ void recording()
 // Enable push button cb to start recording: TODO
 // Pushbutton to power up system from battery??: TODO
 // Make sure lipo charge callback works: TODO
-// Consider putting ADC value in frame footer: TODO
+// Consider putting ADC value and deviceState in frame header: TODO
 
 // ================================================================
 int main(void)
@@ -510,8 +510,9 @@ int main(void)
 	setExcitationLED(5,1);
 	
 	while (1) {
-		if (deviceState & DEVICE_STATE_START_RECORDING)
+		if (deviceState & DEVICE_STATE_START_RECORDING) {
 			startRecording();
+		}
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
 		}
