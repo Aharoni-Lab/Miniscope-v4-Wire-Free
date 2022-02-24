@@ -24,11 +24,13 @@
 #define DEVICE_STATE_ERROR				1<<7
 #define DEVICE_STATE_LOW_VOLTAGE		1<<8
 #define DEVICE_STATE_START_RECORDING_WAITING	1<<9
+#define DEVICE_STATE_SDCARD_WRITE_ERROR			1<<10
+#define DEVICE_STATE_SDCARD_INIT_WRITE_ERROR	1<<11
 // -------------------------------------------
 
 // ----------- Buffer Definitions ------------
-#define BUFFER_BLOCK_LENGTH		80 // can be edited by used to optimize speed
-#define NUM_BUFFERS				4   // can be edited by used to optimize speed
+#define BUFFER_BLOCK_LENGTH		80 // can be edited by user to optimize speed
+#define NUM_BUFFERS				4   // can be edited by user to optimize speed
 #define BLOCK_SIZE_IN_WORDS		128 // (512 bytes) / (4 byte word size)
 
 // Buffer Header position definitions

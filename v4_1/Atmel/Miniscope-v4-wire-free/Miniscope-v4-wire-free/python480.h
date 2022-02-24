@@ -46,6 +46,7 @@ void python480SetGain(uint32_t value)
 
 void python480SetFPS(uint32_t value)
 {
+	// TODO: correct and add more options once we settle on MCU output clock freq
 	switch (value)
 	{
 	case (5):

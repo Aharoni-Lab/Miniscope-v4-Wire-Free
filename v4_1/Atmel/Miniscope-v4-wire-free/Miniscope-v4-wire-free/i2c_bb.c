@@ -6,7 +6,9 @@
  */ 
 
 #include "i2c_bb.h"
-// I2C_BB_SDA and I2C_BB_SCL pins are defined in atmel_start_pins.h
+//I2C_BB_SDA and I2C_BB_SCL pins are defined in atmel_start_pins.h
+//I2C_BB_SDA GPIO(GPIO_PORTB, 0)
+//I2C_BB_SCL GPIO(GPIO_PORTB, 2)  Reminder for Federico
 
 void SDA_low()
 {
@@ -45,18 +47,19 @@ void I2C_BB_end()
 	I2C_BB_sleep();
 }
 
-uint8_t I2C_BB_begin(uint8_t addr, uint8_t read)
+bool I2C_BB_begin(uint8_t addr, uint8_t read)
 {
 	SDA_low();
 	I2C_BB_sleep();
 	SCL_low();
+	addr=addr<<1;		//7 bit address shifted one bit to make room for the RW bit
 	if (read)
-		addr++;
+		addr++;		
 		
-	return I2C_BB_byte_out(addr);
+	return I2C_BB_byte_out(addr);	//should receive a bool?
 }
 
-uint8_t I2C_BB_byte_out(uint8_t byte)
+bool I2C_BB_byte_out(uint8_t byte)
 {
 	uint8_t i, ack;
 
@@ -80,7 +83,7 @@ uint8_t I2C_BB_byte_out(uint8_t byte)
 	SCL_low();
 	I2C_BB_sleep();
 	SDA_low();
-	return (ack == 0) ? 1:0;
+	return (ack == 0) ? 1:0;   //
 }
 
 void I2C_BB_init(void)
@@ -102,28 +105,20 @@ void I2C_BB_init(void)
 
 uint8_t I2C_BB_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint8_t length)
 {
-	// TODO: fill this out!
+	// The HV892 is write only. 
 	return 0;
 }
 
-uint8_t I2C_BB_write(uint8_t addr, uint8_t *buf, uint8_t length)
+uint8_t I2C_BB_write(uint8_t addr, uint8_t value)
 {
 	uint8_t rc = 0;
-	uint8_t originalLength = length;
-	uint8_t byte;
-	
-	rc = I2C_BB_begin(addr, 0);
+
+	rc = I2C_BB_begin(addr, 0);    //read ack
 	if (rc == 1) { // ack was received
-		rc = 1;
-		while (length && rc == 1) {
-			byte = *buf++;
-			rc = I2C_BB_byte_out(byte);
-			if (rc == 1)
-				length--;
-		}
+		I2C_BB_byte_out(value);
 	}
+
 	I2C_BB_end();
-	
-	return (rc == 1) ? (originalLength - length) : 0; // returns number of bytes written
+	return 0;
 }
 
