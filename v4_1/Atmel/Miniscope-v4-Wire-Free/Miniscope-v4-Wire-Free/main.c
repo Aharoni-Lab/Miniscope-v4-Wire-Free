@@ -10,13 +10,11 @@
 
 //#define DEBUG
 
-#define EWL_I2C_ADDR 0x23  //7 bit address!
-
 // ------- SET WIRE-FREE DEVICE TYPE ----
 #define MINISCOPE_V4_WF
 // --------------------------------------
 
-//
+#define EWL_I2C_ADDR 0x23  //7 bit address!
 
 // ------------ GLOBAL VARIABLES --------
 volatile uint32_t dataBuffer[NUM_BUFFERS][BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS]; //Allocate memory for DMA image buffers
@@ -64,7 +62,7 @@ void imageSensorInit(void);
 void linkedListInit(void);
 
 void setExcitationLED(uint32_t value, bool enable);
-void setEWL(uint8_t value);
+void setEWL(uint32_t value);
 void setStatusLED(bool value);
 
 void startRecording();
@@ -254,15 +252,9 @@ void setExcitationLED(uint32_t value, bool enable)
 	gpio_set_pin_level(ENT_LED, enable);
 }
 
-void setEWL(uint8_t value)
+void setEWL(uint32_t value)
 {
-// VoutRMS= 9.6V + 0.208*AMP 
-// 01h<AMP<FFh  ----> changes focus in 255 steps. Setting it to 00h puts the driver to sleep
-// Address = 0100011b  
-
-	//I2C_BB_write(EWL_I2C_ADDR,&value,8);
-	I2C_BB_begin(EWL_I2C_ADDR,0);
-
+	I2C_BB_write(EWL_I2C_ADDR,value);
 }
 
 void setStatusLED(bool value)
@@ -416,7 +408,7 @@ void recording()
 // Timers to check lipo level and to count in milliseconds: Working
 // Verify SDCard interface: Working
 
-// Bit Bang I2C: TODO
+// Bit Bang I2C: Done and working with the HV892 EWL driver
 // Linked List: TODO
 // Check callbacks working: TODO
 // Finish building state machine: TODO
@@ -435,43 +427,23 @@ int main(void)
 	uint32_t lastTime = 0;
 	bool lastMonitor0 = 0;
 	bool thisMonitor0 = 0;
-<<<<<<< HEAD
-	bool add_read = 0;
-	/* Initializes MCU, drivers and middleware */
-	atmel_start_init();
-	
-	
-=======
 	
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();	
->>>>>>> 202ae7f6df145eeeeba0f5b592df1aa3f4cb9453
 	// We need to change the PWM mode from MPWM to NPWM because we are using WO[0] as waveform output
 	hri_tc_write_WAVE_reg(TC0, TC_WAVE_WAVEGEN_NPWM_Val);	
 	// Enable the 3.3V regulator
 	gpio_set_pin_level(EN_3V3, true);
-<<<<<<< HEAD
-
-	//setStatusLED(1);
-=======
 	// Enable ADC for checking battery voltage
 	adc_sync_enable_channel(&ADC_0, 0);
->>>>>>> 202ae7f6df145eeeeba0f5b592df1aa3f4cb9453
 	
 	
-<<<<<<< HEAD
-	setStatusLED(0);
-	
-	I2C_BB_init();
-=======
 	setStatusLED(1);	
->>>>>>> 202ae7f6df145eeeeba0f5b592df1aa3f4cb9453
 	
 	
 	
-	/*
 	I2C_BB_init();
-	*/
+	
 	
 	// Setup a timer to count in milliseconds
 	TIMER_0_task1.interval = 1; // Need to check this value
@@ -499,11 +471,11 @@ int main(void)
 	*/
 	
 	// Wait for SD Card and then load config from it
-	// while (SD_MMC_OK != sd_mmc_check(0)) {}
+	//while (SD_MMC_OK != sd_mmc_check(0)) {}
 	//if (loadSDCardHeader() == MS_SUCCESS)
-	//	deviceState |= DEVICE_STATE_CONFIG_LOADED;
+		//deviceState |= DEVICE_STATE_CONFIG_LOADED;
 	//else 
-	//	deviceState |= DEVICE_STATE_ERROR;
+		//deviceState |= DEVICE_STATE_ERROR;
 	
 	// Setup Image Sensor
 	// TODO: Work on minimizing power draw
@@ -524,23 +496,19 @@ int main(void)
 	python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
 	*/
 	
-	// Set some parameters in config buffer to be written to SD card at end of recording
-	setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH);
-	setConfigBlockProp(CONFIG_BLOCK_HEIGHT_POS, HEIGHT);
-	setConfigBlockProp(CONFIG_BLOCK_FRAME_RATE_POS, getPropFromHeader(HEADER_FRAME_RATE_POS));
-	setConfigBlockProp(CONFIG_BLOCK_BUFFER_SIZE_POS, BUFFER_BLOCK_LENGTH * SD_BLOCK_SIZE);
-	
-	sd_mmc_init_write_blocks(0, CONFIG_BLOCK, 1);
-	sd_mmc_start_write_blocks(configBlock, 1); // We will re-write this block at the end of recording too
-	sd_mmc_wait_end_of_write_blocks(false);
-<<<<<<< HEAD
-	*/
-=======
+	//// Set some parameters in config buffer to be written to SD card at end of recording
+	//setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH);
+	//setConfigBlockProp(CONFIG_BLOCK_HEIGHT_POS, HEIGHT);
+	//setConfigBlockProp(CONFIG_BLOCK_FRAME_RATE_POS, getPropFromHeader(HEADER_FRAME_RATE_POS));
+	//setConfigBlockProp(CONFIG_BLOCK_BUFFER_SIZE_POS, BUFFER_BLOCK_LENGTH * SD_BLOCK_SIZE);
+	//
+	//sd_mmc_init_write_blocks(0, CONFIG_BLOCK, 1);
+	//sd_mmc_start_write_blocks(configBlock, 1); // We will re-write this block at the end of recording too
+	//sd_mmc_wait_end_of_write_blocks(false);
 	
 	
 	// Just a debugging point for turning on excitation LED
 	setExcitationLED(5,1);
->>>>>>> 202ae7f6df145eeeeba0f5b592df1aa3f4cb9453
 	
 	while (1) {
 		if (deviceState & DEVICE_STATE_START_RECORDING) {
@@ -549,21 +517,11 @@ int main(void)
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
 		}
-<<<<<<< HEAD
-		thisMonitor0 = gpio_get_pin_level(MONITOR0);
-		if ((lastMonitor0 != thisMonitor0) && lastMonitor0 == 0) {
-			
-			if (gpio_get_pin_level(LED_STATUS) == 1) {
-				//setStatusLED(0);
-			}
-			else {
-				//setStatusLED(1);
-			}
-=======
 		if (deviceState & DEVICE_STATE_STOP_RECORDING) {
 			stopRecording();
->>>>>>> 202ae7f6df145eeeeba0f5b592df1aa3f4cb9453
 		}
+		
+		setEWL(0x33);  //test value. Should we map the 0x01 to 0xFF as a 0-100 scale?
 		
 		//thisMonitor0 = gpio_get_pin_level(MONITOR0);
 		//if ((lastMonitor0 != thisMonitor0) && lastMonitor0 == 0) {
@@ -576,10 +534,6 @@ int main(void)
 			//}
 		//}
 		//lastMonitor0 = thisMonitor0;
-		
-	
-		I2C_BB_write(EWL_I2C_ADDR,0x20);   //0x20 is just an example
-		
 		
 		//setStatusLED(gpio_get_pin_level(MONITOR0));
 		
