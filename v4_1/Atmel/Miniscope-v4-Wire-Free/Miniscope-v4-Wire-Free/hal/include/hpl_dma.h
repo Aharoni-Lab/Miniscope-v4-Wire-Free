@@ -108,6 +108,11 @@ int32_t _dma_set_source_address(const uint8_t channel, const void *const src);
 int32_t _dma_set_DESCADDR(const uint8_t channel, uint32_t src);
 
 /**
+* Added by DAharoni
+*/
+uint16_t _dma_get_WRB_data(uint8_t channel);
+
+/**
  * \brief Set next descriptor address
  *
  * \param[in] current_channel Current DMA channel to set next descriptor address

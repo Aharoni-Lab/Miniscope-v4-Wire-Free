@@ -155,6 +155,11 @@ int32_t _dma_set_DESCADDR(const uint8_t channel, uint32_t src)
 	DMAC_CRITICAL_SECTION_LEAVE();
 	return ERR_NONE;
 }
+uint16_t _dma_get_WRB_data(uint8_t channel)
+// Added by DAharoni to get beat transfer count after disabling DMA transfer
+{
+	return _write_back_section[channel].BTCNT.reg;
+}
 
 int32_t _dma_set_next_descriptor(const uint8_t current_channel, const uint8_t next_channel)
 {

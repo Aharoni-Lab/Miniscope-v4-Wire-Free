@@ -17,7 +17,9 @@
 #define EWL_I2C_ADDR 0x23  //7 bit address!
 
 // ------------ GLOBAL VARIABLES --------
+COMPILER_ALIGNED(4)
 volatile uint32_t dataBuffer[NUM_BUFFERS][BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS]; //Allocate memory for DMA image buffers
+
 volatile uint8_t headerBlock[SD_BLOCK_SIZE] = {0}; // Will hold the 512 bytes from the header block of sd card
 volatile uint8_t configBlock[SD_BLOCK_SIZE] = {0}; // Will hold the device config information to be written to the starting block
 	
@@ -25,6 +27,8 @@ volatile uint32_t currentBlock = STARTING_BLOCK;
 volatile uint32_t initBlocksRemaining;
 
 volatile uint32_t deviceState = DEVICE_STATE_IDLE;
+
+COMPILER_ALIGNED(16) // Taken from hpl_dmac.c but I think this could be '8' since descriptors need to be 64bit aligned from data sheet
 volatile DmacDescriptor linkedList[NUM_BUFFERS];
 
 volatile uint32_t frameNum = 0;
@@ -207,8 +211,7 @@ static void frameValid_cb(void)
 			DMAC->Channel[CONF_PCC_DMA_CHANNEL].CHCTRLA.reg &= !(DMAC_CHCTRLA_ENABLE); // Disables PCC DMA
 			//imageCaptureDMAStop();
 			
-			setBufferHeader(0); // TODO need to add data size here
-			//setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - (XDMAC->XDMAC_CHID[IMAGE_CAPTURE_XDMAC_CH].XDMAC_CUBC & XDMAC_CUBC_UBLEN_Msk));// Update buffer header
+			setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL)); // This should get total beats transferred through DMA
 			//setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - (XDMAC->XDMAC_CHID[IMAGE_CAPTURE_XDMAC_CH].XDMAC_CUBC & XDMAC_CUBC_UBLEN_Msk));// Update buffer header
 			
 			frameBufferCount = 0;
@@ -296,6 +299,7 @@ void linkedListInit(void)
 			linkedList[i].DESCADDR.reg = (uint32_t)&linkedList[0];
 		else
 			linkedList[i].DESCADDR.reg = (uint32_t)&linkedList[i + 1];
+			
 		linkedList[i].BTCNT.reg = (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS);
 		// We aren't actually using the STEPSIZE part of incrementing the destination address. 
 		linkedList[i].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE(0) | (CONF_DMAC_STEPSEL_0 << DMAC_BTCTRL_STEPSEL_Pos)						\
@@ -304,7 +308,9 @@ void linkedListInit(void)
 								| DMAC_BTCTRL_EVOSEL(CONF_DMAC_EVOSEL_0) | DMAC_BTCTRL_VALID;
 	
 		linkedList[i].SRCADDR.reg = (uint32_t)(&PCC->RHR.reg);
+		
 		// Destination address when incrementing address needs to be the end address and not the start address.
+		// I think the last scale multiplication needs to be either 3 or 5.
 		linkedList[i].DSTADDR.reg = (uint32_t)(&dataBuffer[i][BUFFER_HEADER_LENGTH]) + (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS) * 4;
 	}
 	setPCCCurrentLinkedListPosition(0);
