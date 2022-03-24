@@ -235,7 +235,7 @@ void RequiredUploads() {// Reserved register settings uploads
 	//spi_BB_Write(144,0x0003);
 
 	spi_BB_Write(130, 0x0015);
-	spi_BB_Write(192, 0x0801); // Monitor select function
+	spi_BB_Write(192, 0x0801); // Monitor select function. Sets subsampling too
 	spi_BB_Write(194, 0x00E4);	// reverse x and y enabled for demo kit compatibility
 	spi_BB_Write(197, 0x0104); // 0x0380) Num black lines spi_BB_Write(197, 0x030A);
 	#ifdef DISABLE_PLL
@@ -405,7 +405,12 @@ void Egray(){				// enables electrical gray image
 	spi_BB_Write(220, 0x3C4D);
 }
 
-
+void Enable_Subsample()
+// Taken from Raymonds wirefree code. Need to make sure it fit correctly here
+{
+	spi_BB_Write(192, 0x0803 | 0x0080);	// Subsampling
+	spi_BB_Write(194, 0x03E4 | 0x0C00);	// Subsampling mode in both x and y (Check VITA-compatibility)
+}
 //////////////////////////////////////////////////////////////////////////
 // function to (re)enable normal image mode
 //////////////////////////////////////////////////////////////////////////

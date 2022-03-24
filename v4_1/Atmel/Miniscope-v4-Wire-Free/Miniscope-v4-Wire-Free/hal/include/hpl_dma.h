@@ -103,6 +103,11 @@ int32_t _dma_set_destination_address(const uint8_t channel, const void *const ds
 int32_t _dma_set_source_address(const uint8_t channel, const void *const src);
 
 /**
+* Added by DAharoni
+*/
+int32_t _dma_set_DESCADDR(const uint8_t channel, uint32_t src);
+
+/**
  * \brief Set next descriptor address
  *
  * \param[in] current_channel Current DMA channel to set next descriptor address

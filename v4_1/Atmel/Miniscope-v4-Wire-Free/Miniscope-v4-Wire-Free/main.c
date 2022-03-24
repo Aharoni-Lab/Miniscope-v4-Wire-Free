@@ -60,6 +60,7 @@ void setBufferHeader(uint32_t dataWordLength);
 
 void imageSensorInit(void);
 void linkedListInit(void);
+void setPCCCurrentLinkedListPosition(uint8_t pos);
 
 void setExcitationLED(uint32_t value, bool enable);
 void setEWL(uint32_t value);
@@ -193,25 +194,35 @@ static void frameValid_cb(void)
 		// beginning of new frame acquisition
 		
 	}
-	/*
 	else {
+		// Handles end of frame
+		
 		if (deviceState == DEVICE_STATE_RECORDING || deviceState == DEVICE_STATE_STOP_RECORDING) {
 			// At the end of frame the current buffer is likely only partially filled.
 			// Disable DMA to flush DMA FIFO then start DMA again but with the next linked list
 			
-			imageCaptureDisable();
-			imageCaptureDMAStop();
+			PCC->MR.reg &= !(PCC_MR_PCEN); // Disables PCC
+			//imageCaptureDisable();
 			
-			setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - (XDMAC->XDMAC_CHID[IMAGE_CAPTURE_XDMAC_CH].XDMAC_CUBC & XDMAC_CUBC_UBLEN_Msk));// Update buffer header
+			DMAC->Channel[CONF_PCC_DMA_CHANNEL].CHCTRLA.reg &= !(DMAC_CHCTRLA_ENABLE); // Disables PCC DMA
+			//imageCaptureDMAStop();
+			
+			setBufferHeader(0); // TODO need to add data size here
+			//setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - (XDMAC->XDMAC_CHID[IMAGE_CAPTURE_XDMAC_CH].XDMAC_CUBC & XDMAC_CUBC_UBLEN_Msk));// Update buffer header
+			//setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - (XDMAC->XDMAC_CHID[IMAGE_CAPTURE_XDMAC_CH].XDMAC_CUBC & XDMAC_CUBC_UBLEN_Msk));// Update buffer header
+			
 			frameBufferCount = 0;
 			bufferCount++; // A buffer has been filled (likely partially) and is ready for writing to SD card
 			frameNum++; // Zero-Indexed
 			
 			if (deviceState == DEVICE_STATE_RECORDING) { // Keep recording
 				// Update Linked List
+				setPCCCurrentLinkedListPosition(bufferCount % NUM_BUFFERS); // Moves to next buffer/linked list element
+				_dma_enable_transaction(CONF_PCC_DMA_CHANNEL, false); // Should enable DMA transfer
+				//imageCaptureDMAStart((uint32_t)&linkedList[bufferCount % NUM_BUFFERS]);
 				
-				imageCaptureDMAStart((uint32_t)&linkedList[bufferCount % NUM_BUFFERS]);
-				imageCaptureEnable();
+				PCC->MR.reg |= PCC_MR_PCEN; // Enables PCC
+				//imageCaptureEnable();
 			}
 			if (deviceState == DEVICE_STATE_STOP_RECORDING) {
 				// Reset linked lists so we will be ready to start recording again in the future
@@ -227,14 +238,29 @@ static void frameValid_cb(void)
 			frameNum = 0;
 			bufferCount = 0;
 			frameBufferCount = 0;
+			
 			linkedListInit();
-			imageCaptureDMAStart((uint32_t)&linkedList[0]); // Let's always start a new recording at the initialized Linked List 0
-			imageCaptureEnable();
+			setPCCCurrentLinkedListPosition(0); // Moves to next buffer/linked list element
+			_dma_enable_transaction(CONF_PCC_DMA_CHANNEL, false); // Should enable DMA transfer
+			//imageCaptureDMAStart((uint32_t)&linkedList[0]); // Let's always start a new recording at the initialized Linked List 0
+			
+			PCC->MR.reg |= PCC_MR_PCEN; // Enables PCC
+			//imageCaptureEnable();
+			
 			deviceState &= !(DEVICE_STATE_START_RECORDING_WAITING);
 			deviceState |= DEVICE_STATE_RECORDING;
 		}
 	}
-	*/
+}
+
+static void pcc_dma_cb(struct camera_async_descriptor *const descr, uint32_t ch)
+{
+	if (ch == CONF_PCC_DMA_CHANNEL) {
+		// add header to current buffer
+		setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH);
+		bufferCount++;// increment counters
+		frameBufferCount++;
+	}
 }
 
 void setExcitationLED(uint32_t value, bool enable)
@@ -274,22 +300,27 @@ void linkedListInit(void)
 		// We aren't actually using the STEPSIZE part of incrementing the destination address. 
 		linkedList[i].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE(0) | (CONF_DMAC_STEPSEL_0 << DMAC_BTCTRL_STEPSEL_Pos)						\
 								| (CONF_DMAC_DSTINC_0 << DMAC_BTCTRL_DSTINC_Pos) | (CONF_DMAC_SRCINC_0 << DMAC_BTCTRL_SRCINC_Pos)	\
-								| DMAC_BTCTRL_BEATSIZE(CONF_DMAC_BEATSIZE_0) | DMAC_BTCTRL_BLOCKACT(CONF_DMAC_BLOCKACT_0)            \
-								| DMAC_BTCTRL_EVOSEL(CONF_DMAC_EVOSEL_0);
+								| DMAC_BTCTRL_BEATSIZE(CONF_DMAC_BEATSIZE_0) | DMAC_BTCTRL_BLOCKACT(CONF_DMAC_BLOCKACT_0 | 0x01)            \
+								| DMAC_BTCTRL_EVOSEL(CONF_DMAC_EVOSEL_0) | DMAC_BTCTRL_VALID;
 	
 		linkedList[i].SRCADDR.reg = (uint32_t)(&PCC->RHR.reg);
 		// Destination address when incrementing address needs to be the end address and not the start address.
 		linkedList[i].DSTADDR.reg = (uint32_t)(&dataBuffer[i][BUFFER_HEADER_LENGTH]) + (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS) * 4;
 	}
-	// Set up initial DMA descriptor for DMA channel handling PCC. BTCNT is already setup in DMA init step
-	_dma_set_source_address(CONF_PCC_DMA_CHANNEL, linkedList[0].SRCADDR.reg);
-	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, linkedList[0].DSTADDR.reg);
-	_dma_set_data_amount(CONF_PCC_DMA_CHANNEL, (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS));
-	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, linkedList[0].DSTADDR.reg); // Overwrite destination address since set_data_amount function modifies this
-	_dma_set_next_descriptor(CONF_PCC_DMA_CHANNEL, linkedList[0].DESCADDR.reg);
+	setPCCCurrentLinkedListPosition(0);
 	
 	// To turn on DMA channel: 
 	// _dma_enable_transaction(CONF_PCC_DMA_CHANNEL, false);
+}
+void setPCCCurrentLinkedListPosition(uint8_t pos)
+{
+	// Set up initial DMA descriptor for DMA channel handling PCC. BTCNT is already setup in DMA init step
+	_dma_set_source_address(CONF_PCC_DMA_CHANNEL, linkedList[pos].SRCADDR.reg);
+	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, linkedList[pos].DSTADDR.reg);
+	_dma_set_data_amount(CONF_PCC_DMA_CHANNEL, (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS));
+	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, linkedList[pos].DSTADDR.reg); // Overwrite destination address since set_data_amount function modifies this
+
+	_dma_set_DESCADDR(CONF_PCC_DMA_CHANNEL, linkedList[pos].DESCADDR.reg);
 }
 
 void startRecording()
@@ -407,6 +438,7 @@ void recording()
 // MCU output clock GCLK1: Working
 // Timers to check lipo level and to count in milliseconds: Working
 // Verify SDCard interface: Working
+// Pushbutton to power up system from battery: Working
 
 // Bit Bang I2C: Done and working with the HV892 EWL driver
 // Linked List: TODO
@@ -417,7 +449,6 @@ void recording()
 // Optimize power: TODO
 // Setup wired USART data connection: TODO
 // Enable push button cb to start recording: TODO
-// Pushbutton to power up system from battery??: TODO
 // Make sure lipo charge callback works: TODO
 // Consider putting ADC value and deviceState in frame header: TODO
 
@@ -465,17 +496,17 @@ int main(void)
 	ext_irq_register(PIN_PB14, frameValid_cb);
 	ext_irq_register(PIN_PA25, pushButton_cb);
 	
-	/*
+	
 	// Sets up a set of circularly linked list for camera DMA.
 	linkedListInit(); 
-	*/
+	
 	
 	// Wait for SD Card and then load config from it
-	//while (SD_MMC_OK != sd_mmc_check(0)) {}
-	//if (loadSDCardHeader() == MS_SUCCESS)
-		//deviceState |= DEVICE_STATE_CONFIG_LOADED;
-	//else 
-		//deviceState |= DEVICE_STATE_ERROR;
+	while (SD_MMC_OK != sd_mmc_check(0)) {}
+	if (loadSDCardHeader() == MS_SUCCESS)
+		deviceState |= DEVICE_STATE_CONFIG_LOADED;
+	else
+		deviceState |= DEVICE_STATE_ERROR;
 	
 	// Setup Image Sensor
 	// TODO: Work on minimizing power draw
@@ -496,6 +527,9 @@ int main(void)
 	python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
 	*/
 	
+	python480SetGain(1);
+	python480SetFPS(10);
+	
 	//// Set some parameters in config buffer to be written to SD card at end of recording
 	//setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH);
 	//setConfigBlockProp(CONFIG_BLOCK_HEIGHT_POS, HEIGHT);
@@ -508,20 +542,37 @@ int main(void)
 	
 	
 	// Just a debugging point for turning on excitation LED
-	setExcitationLED(5,1);
+	setExcitationLED(2,1);
 	
+	//setEWL(0x33);  //test value. Should we map the 0x01 to 0xFF as a 0-100 scale?
+	
+	// Enables DMA Transfer complete interrupt. Should be put in better place
+	DMAC->Channel[CONF_PCC_DMA_CHANNEL].CHINTENSET.reg = DMAC_CHINTENSET_TCMPL;
+	
+	// Sets the callback for when each DMA buffer is full
+	camera_async_register_callback(&CAMERA_0, pcc_dma_cb);
+	
+	// This should already be done in init but trying here as well
+	PCC->MR.reg = PCC_MR_CID(0x3) | PCC_MR_ISIZE(CONF_PCC_ISIZE) | CONF_PCC_FRSTS << PCC_MR_FRSTS_Pos
+	       | CONF_PCC_HALFS << PCC_MR_HALFS_Pos | CONF_PCC_ALWYS << PCC_MR_ALWYS_Pos
+	       | CONF_PCC_SCALE << PCC_MR_SCALE_Pos | PCC_MR_DSIZE(CONF_PCC_DSIZE);
+		   
+	//PCC->IDR.reg = 2;
+	//PCC->IER.reg = 1;
+	
+	deviceState = DEVICE_STATE_START_RECORDING;
 	while (1) {
 		if (deviceState & DEVICE_STATE_START_RECORDING) {
 			startRecording();
 		}
 		if (deviceState & DEVICE_STATE_RECORDING) {
-			recording();
+			//recording();
 		}
 		if (deviceState & DEVICE_STATE_STOP_RECORDING) {
 			stopRecording();
 		}
 		
-		setEWL(0x33);  //test value. Should we map the 0x01 to 0xFF as a 0-100 scale?
+		
 		
 		//thisMonitor0 = gpio_get_pin_level(MONITOR0);
 		//if ((lastMonitor0 != thisMonitor0) && lastMonitor0 == 0) {
@@ -551,3 +602,4 @@ int main(void)
 		//}
 	}
 }
+

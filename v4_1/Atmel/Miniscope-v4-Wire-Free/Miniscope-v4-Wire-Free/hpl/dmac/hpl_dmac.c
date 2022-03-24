@@ -147,6 +147,15 @@ int32_t _dma_set_source_address(const uint8_t channel, const void *const src)
 	return ERR_NONE;
 }
 
+int32_t _dma_set_DESCADDR(const uint8_t channel, uint32_t src)
+// Added by DAharoni 
+{
+	DMAC_CRITICAL_SECTION_ENTER();
+	_descriptor_section[channel].DESCADDR.reg = src;
+	DMAC_CRITICAL_SECTION_LEAVE();
+	return ERR_NONE;
+}
+
 int32_t _dma_set_next_descriptor(const uint8_t current_channel, const uint8_t next_channel)
 {
 	hri_dmacdescriptor_write_DESCADDR_reg(&_descriptor_section[current_channel],
