@@ -5,6 +5,8 @@
 #include "hpl_dmac_config.h"
 #include "hpl_pcc_config.h"
 
+#include "hpl_dma.h"
+
 #include "python480.h"
 #include "i2c_bb.h"
 
@@ -54,6 +56,7 @@ volatile uint32_t numBlocks;
 // Debugging and checking stuff
 volatile uint16_t chip_id; // Reads the chip id from Python480 to make sure we can talk to it
 volatile uint16_t regValue[2]; 
+volatile uint32_t tempPCC[4];
 // --------------------------------------
 
 // ----------- FUNCTIONS ----------------
@@ -152,7 +155,7 @@ static void battCharging_cb(void)
 	bool pinState = gpio_get_pin_level(nCHRG);
 	if (pinState == true) {
 		// Not charging
-		deviceState &= !(DEVICE_STATE_CHARGING);
+		deviceState &= ~(DEVICE_STATE_CHARGING);
 	}
 	else {
 		// charging
@@ -205,10 +208,10 @@ static void frameValid_cb(void)
 			// At the end of frame the current buffer is likely only partially filled.
 			// Disable DMA to flush DMA FIFO then start DMA again but with the next linked list
 			
-			PCC->MR.reg &= !(PCC_MR_PCEN); // Disables PCC
+			PCC->MR.reg &= ~(PCC_MR_PCEN); // Disables PCC
 			//imageCaptureDisable();
 			
-			DMAC->Channel[CONF_PCC_DMA_CHANNEL].CHCTRLA.reg &= !(DMAC_CHCTRLA_ENABLE); // Disables PCC DMA
+			DMAC->Channel[CONF_PCC_DMA_CHANNEL].CHCTRLA.reg &= ~(DMAC_CHCTRLA_ENABLE); // Disables PCC DMA
 			//imageCaptureDMAStop();
 			
 			setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL)); // This should get total beats transferred through DMA
@@ -230,8 +233,8 @@ static void frameValid_cb(void)
 			if (deviceState == DEVICE_STATE_STOP_RECORDING) {
 				// Reset linked lists so we will be ready to start recording again in the future
 				linkedListInit();
-				deviceState &= !(DEVICE_STATE_RECORDING);
-				deviceState &= !(DEVICE_STATE_STOP_RECORDING);
+				deviceState &= ~(DEVICE_STATE_RECORDING);
+				deviceState &= ~(DEVICE_STATE_STOP_RECORDING);
 				deviceState |= DEVICE_STATE_IDLE;
 			}
 		}
@@ -250,7 +253,7 @@ static void frameValid_cb(void)
 			PCC->MR.reg |= PCC_MR_PCEN; // Enables PCC
 			//imageCaptureEnable();
 			
-			deviceState &= !(DEVICE_STATE_START_RECORDING_WAITING);
+			deviceState &= ~(DEVICE_STATE_START_RECORDING_WAITING);
 			deviceState |= DEVICE_STATE_RECORDING;
 		}
 	}
@@ -307,10 +310,10 @@ void linkedListInit(void)
 								| DMAC_BTCTRL_BEATSIZE(CONF_DMAC_BEATSIZE_0) | DMAC_BTCTRL_BLOCKACT(CONF_DMAC_BLOCKACT_0 | 0x01)            \
 								| DMAC_BTCTRL_EVOSEL(CONF_DMAC_EVOSEL_0) | DMAC_BTCTRL_VALID;
 	
-		linkedList[i].SRCADDR.reg = (uint32_t)(&PCC->RHR.reg);
+		linkedList[i].SRCADDR.reg = (uint32_t)(&PCC->RHR.reg); //(void *)&(((Pcc *)device->hw)->RHR.reg)
 		
 		// Destination address when incrementing address needs to be the end address and not the start address.
-		// I think the last scale multiplication needs to be either 3 or 5.
+		// I think the last scale multiplication needs to be either 3 or 5 but _dma_set_data_amount() uses a 4.
 		linkedList[i].DSTADDR.reg = (uint32_t)(&dataBuffer[i][BUFFER_HEADER_LENGTH]) + (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS) * 4;
 	}
 	setPCCCurrentLinkedListPosition(0);
@@ -321,10 +324,10 @@ void linkedListInit(void)
 void setPCCCurrentLinkedListPosition(uint8_t pos)
 {
 	// Set up initial DMA descriptor for DMA channel handling PCC. BTCNT is already setup in DMA init step
-	_dma_set_source_address(CONF_PCC_DMA_CHANNEL, linkedList[pos].SRCADDR.reg);
-	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, linkedList[pos].DSTADDR.reg);
+	_dma_set_source_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].SRCADDR.reg);
+	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].DSTADDR.reg);
 	_dma_set_data_amount(CONF_PCC_DMA_CHANNEL, (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS));
-	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, linkedList[pos].DSTADDR.reg); // Overwrite destination address since set_data_amount function modifies this
+	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].DSTADDR.reg); // Overwrite destination address since set_data_amount function modifies this
 
 	_dma_set_DESCADDR(CONF_PCC_DMA_CHANNEL, linkedList[pos].DESCADDR.reg);
 }
@@ -343,8 +346,8 @@ void startRecording()
 		
 	startTimeMS = getCurrentTimeMS();
 	
-	deviceState &= !(DEVICE_STATE_IDLE);
-	deviceState &= !(DEVICE_STATE_START_RECORDING);
+	deviceState &= ~(DEVICE_STATE_IDLE);
+	deviceState &= ~(DEVICE_STATE_START_RECORDING);
 	deviceState |= DEVICE_STATE_START_RECORDING_WAITING;
 }
 
@@ -362,8 +365,8 @@ void stopRecording()
 	sd_mmc_start_write_blocks(configBlock, 1);
 	sd_mmc_wait_end_of_write_blocks(false);
 	
-	deviceState &= !(DEVICE_STATE_STOP_RECORDING);
-	deviceState &= !(DEVICE_STATE_RECORDING);
+	deviceState &= ~(DEVICE_STATE_STOP_RECORDING);
+	deviceState &= ~(DEVICE_STATE_RECORDING);
 	deviceState |= DEVICE_STATE_IDLE;
 }
 
@@ -393,10 +396,22 @@ void recording()
 				// There are enough init blocks for this write
 				if (sd_mmc_start_write_blocks(bufferToWrite, numBlocks) != SD_MMC_OK)
 					deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
-				
+				sd_mmc_wait_end_of_write_blocks(false);
 				
 				initBlocksRemaining -= numBlocks;
 				currentBlock += numBlocks;
+			}
+			else if (numBlocks == initBlocksRemaining)
+			{
+				if (sd_mmc_start_write_blocks(bufferToWrite, numBlocks) != SD_MMC_OK)
+					deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
+				sd_mmc_wait_end_of_write_blocks(false);
+				currentBlock += numBlocks;
+				
+				if (sd_mmc_init_write_blocks(0, currentBlock, BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK) != SD_MMC_OK)
+					deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
+				
+				initBlocksRemaining = (BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK);
 			}
 			else {
 				// TODO: error checking with LED showing status
@@ -415,21 +430,22 @@ void recording()
 				// And write remaining data from buffer
 				if (sd_mmc_start_write_blocks((uint32_t)(&bufferToWrite[initBlocksRemaining * SD_BLOCK_SIZE / 4]), numBlocks - initBlocksRemaining) != SD_MMC_OK)
 					deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
+				sd_mmc_wait_end_of_write_blocks(false);
 				
 				currentBlock += numBlocks - initBlocksRemaining;
 				initBlocksRemaining = (BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK) - (numBlocks - initBlocksRemaining);
 				
 			}
 			writeBufferCount++;
-			sd_mmc_wait_end_of_write_blocks(false);
+			
 			
 		}
 		
-		if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
-			// Recording time has elapsed
-			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
-			
-		}
+		//if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
+			//// Recording time has elapsed
+			//deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
+			//
+		//}
 		
 	}
 	
@@ -572,7 +588,10 @@ int main(void)
 			startRecording();
 		}
 		if (deviceState & DEVICE_STATE_RECORDING) {
-			//recording();
+			recording();
+			//tempPCC[0] = PCC->MR.reg;
+			//tempPCC[1] = PCC->ISR.reg;
+			//tempPCC[2] = PCC->RHR.reg;
 		}
 		if (deviceState & DEVICE_STATE_STOP_RECORDING) {
 			stopRecording();

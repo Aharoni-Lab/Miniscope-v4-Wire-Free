@@ -166,8 +166,9 @@ main.d main.o: .././main.c ../atmel_start.h ../driver_init.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\machine\types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\stdio.h \
  ../sd_mmc/sd_mmc.h ../Config/conf_sd_mmc.h .././definitions.h \
- ../Config/hpl_dmac_config.h ../Config/hpl_pcc_config.h .././python480.h \
- .././driver_init.h .././i2c_bb.h .././atmel_start_pins.h
+ ../Config/hpl_dmac_config.h ../Config/hpl_pcc_config.h \
+ ../hal/include/hpl_dma.h .././python480.h .././driver_init.h \
+ .././i2c_bb.h .././atmel_start_pins.h
 
 ../atmel_start.h:
 
@@ -602,6 +603,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../Config/hpl_dmac_config.h:
 
 ../Config/hpl_pcc_config.h:
+
+../hal/include/hpl_dma.h:
 
 .././python480.h:
 
