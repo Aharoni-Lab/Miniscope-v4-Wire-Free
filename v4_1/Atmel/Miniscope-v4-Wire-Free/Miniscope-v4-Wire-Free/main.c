@@ -26,7 +26,7 @@ volatile uint8_t headerBlock[SD_BLOCK_SIZE] = {0}; // Will hold the 512 bytes fr
 volatile uint8_t configBlock[SD_BLOCK_SIZE] = {0}; // Will hold the device config information to be written to the starting block
 	
 volatile uint32_t currentBlock = STARTING_BLOCK;
-volatile uint32_t initBlocksRemaining;
+volatile uint32_t initBlocksRemaining = 0;
 
 volatile uint32_t deviceState = DEVICE_STATE_IDLE;
 
@@ -51,7 +51,7 @@ volatile uint32_t droppedBufferCount;
 volatile uint32_t droppedFrameCount;
 volatile uint32_t framesToDrop;
 volatile uint32_t *bufferToWrite;
-volatile uint32_t numBlocks;
+volatile uint32_t numBlocks = BUFFER_BLOCK_LENGTH;
 
 // Debugging and checking stuff
 volatile uint16_t chip_id; // Reads the chip id from Python480 to make sure we can talk to it
@@ -382,6 +382,7 @@ void recording()
 			// We are going to just drop writing the rest of this frame
 			
 			// Let's figure out how many buffers need to be dropped
+			// TODO: I think NUM_BUFFERS here should actually be number_of_buffers_per_frame
 			droppedBufferCount += (NUM_BUFFERS - (writeBufferCount + droppedBufferCount) % NUM_BUFFERS);
 		}
 		else {
@@ -389,6 +390,9 @@ void recording()
 			bufferToWrite = (uint32_t)(&dataBuffer[(writeBufferCount + droppedBufferCount) % NUM_BUFFERS]);
 			numBlocks = (bufferToWrite[BUFFER_HEADER_DATA_LENGTH_POS] + (BUFFER_HEADER_LENGTH * 4) + (SD_BLOCK_SIZE - 1)) / SD_BLOCK_SIZE;
 			
+			if (numBlocks > BUFFER_BLOCK_LENGTH)
+				numBlocks = BUFFER_BLOCK_LENGTH;
+				
 			bufferToWrite[BUFFER_HEADER_WRITE_BUFFER_COUNT_POS] = writeBufferCount;
 			bufferToWrite[BUFFER_HEADER_DROPPED_BUFFER_COUNT_POS] = droppedBufferCount;
 			
@@ -442,10 +446,12 @@ void recording()
 		}
 		
 		//if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
-			//// Recording time has elapsed
-			//deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
-			//
-		//}
+		if (((getCurrentTimeMS() - startTimeMS) >= 10*1000)){
+
+			// Recording time has elapsed
+			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
+			
+		}
 		
 	}
 	
