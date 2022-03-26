@@ -16,7 +16,7 @@
 // <i> This defines the clock generator mode in the SDCLK Frequency Select field
 // <id> sdhc_clk_gsel
 #ifndef CONF_SDHC0_CLK_GEN_SEL
-#define CONF_SDHC0_CLK_GEN_SEL 0
+#define CONF_SDHC0_CLK_GEN_SEL 0 
 #endif
 
 // <<< end of configuration section >>>

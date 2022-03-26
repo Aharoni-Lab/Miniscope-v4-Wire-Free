@@ -87,7 +87,7 @@ errno               0x4               c:/program files (x86)/atmel/studio/7.0/to
 regValue            0x4               main.o
 framesToDrop        0x4               main.o
 droppedBufferCount  0x4               main.o
-linkedList          0x40              main.o
+linkedList          0x70              main.o
 bufferToWrite       0x4               main.o
 startTimeMS         0x4               main.o
 frame_buf           0x100             examples/driver_examples.o
@@ -99,7 +99,7 @@ _write_back_section
                     0x200             hpl/dmac/hpl_dmac.o
 writeFrameNum       0x4               main.o
 ADC_0               0x4               driver_init.o
-dataBuffer          0x28000           main.o
+dataBuffer          0x2bc00           main.o
 tempPCC             0x10              main.o
 _irq_table          0x224             hpl/core/hpl_core_m4.o
 USART_0             0x50              driver_init.o
@@ -13099,10 +13099,6 @@ Discarded input sections
                 0x00000000       0x14 main.o
  .text.DisableSeq
                 0x00000000       0x14 main.o
- .text.getPropFromHeader
-                0x00000000       0x10 main.o
- .text.setConfigBlockProp
-                0x00000000        0xc main.o
  .text.setEWL   0x00000000       0x10 main.o
  .debug_macro   0x00000000      0x8b0 main.o
  .debug_macro   0x00000000      0x16d main.o
@@ -14382,7 +14378,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
                 0x00010000                STACK_SIZE = DEFINED (STACK_SIZE)?STACK_SIZE:DEFINED (__stack_size__)?__stack_size__:0x10000
 
-.text           0x00000000     0x5954
+.text           0x00000000     0x5a58
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                _sfixed = .
  *(.vectors .vectors.*)
@@ -15034,240 +15030,246 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
  .text.loadSDCardHeader
                 0x00003c3c       0x38 main.o
                 0x00003c3c                loadSDCardHeader
+ .text.getPropFromHeader
+                0x00003c74       0x10 main.o
+                0x00003c74                getPropFromHeader
+ .text.setConfigBlockProp
+                0x00003c84        0xc main.o
+                0x00003c84                setConfigBlockProp
  .text.setBufferHeader
-                0x00003c74       0x58 main.o
-                0x00003c74                setBufferHeader
+                0x00003c90       0x80 main.o
+                0x00003c90                setBufferHeader
  .text.pcc_dma_cb
-                0x00003ccc       0x30 main.o
+                0x00003d10       0x30 main.o
  .text.setExcitationLED
-                0x00003cfc       0x50 main.o
-                0x00003cfc                setExcitationLED
+                0x00003d40       0x50 main.o
+                0x00003d40                setExcitationLED
  .text.setStatusLED
-                0x00003d4c       0x20 main.o
-                0x00003d4c                setStatusLED
+                0x00003d90       0x20 main.o
+                0x00003d90                setStatusLED
  .text.setPCCCurrentLinkedListPosition
-                0x00003d6c       0x48 main.o
-                0x00003d6c                setPCCCurrentLinkedListPosition
+                0x00003db0       0x48 main.o
+                0x00003db0                setPCCCurrentLinkedListPosition
  .text.linkedListInit
-                0x00003db4       0x6c main.o
-                0x00003db4                linkedListInit
+                0x00003df8       0x70 main.o
+                0x00003df8                linkedListInit
  .text.frameValid_cb
-                0x00003e20      0x17c main.o
+                0x00003e68      0x194 main.o
  .text.startRecording
-                0x00003f9c       0x78 main.o
-                0x00003f9c                startRecording
+                0x00003ffc       0x78 main.o
+                0x00003ffc                startRecording
  .text.stopRecording
-                0x00004014       0x6c main.o
-                0x00004014                stopRecording
+                0x00004074       0x6c main.o
+                0x00004074                stopRecording
  .text.recording
-                0x00004080      0x20c main.o
-                0x00004080                recording
- .text.main     0x0000428c      0x1dc main.o
-                0x0000428c                main
+                0x000040e0      0x248 main.o
+                0x000040e0                recording
+ .text.main     0x00004328      0x244 main.o
+                0x00004328                main
  .text.sd_decode_csd
-                0x00004468       0x88 sd_mmc/sd_mmc.o
+                0x0000456c       0x88 sd_mmc/sd_mmc.o
  .text.sd_mmc_configure_slot
-                0x000044f0       0x2c sd_mmc/sd_mmc.o
+                0x000045f4       0x2c sd_mmc/sd_mmc.o
  .text.sd_mmc_select_slot
-                0x0000451c      0x144 sd_mmc/sd_mmc.o
+                0x00004620      0x144 sd_mmc/sd_mmc.o
  .text.sd_acmd6
-                0x00004660       0x44 sd_mmc/sd_mmc.o
+                0x00004764       0x44 sd_mmc/sd_mmc.o
  .text.sdio_cmd52
-                0x000046a4       0x68 sd_mmc/sd_mmc.o
+                0x000047a8       0x68 sd_mmc/sd_mmc.o
  .text.sdio_get_max_speed
-                0x0000470c       0xfc sd_mmc/sd_mmc.o
+                0x00004810       0xfc sd_mmc/sd_mmc.o
  .text.sdio_cmd52_set_bus_width
-                0x00004808       0x54 sd_mmc/sd_mmc.o
+                0x0000490c       0x54 sd_mmc/sd_mmc.o
  .text.sdio_cmd52_set_high_speed
-                0x0000485c       0x58 sd_mmc/sd_mmc.o
- .text.sd_cmd8  0x000048b4       0x50 sd_mmc/sd_mmc.o
+                0x00004960       0x58 sd_mmc/sd_mmc.o
+ .text.sd_cmd8  0x000049b8       0x50 sd_mmc/sd_mmc.o
  .text.sdio_op_cond
-                0x00004904       0x80 sd_mmc/sd_mmc.o
+                0x00004a08       0x80 sd_mmc/sd_mmc.o
  .text.sd_mci_op_cond
-                0x00004984       0x74 sd_mmc/sd_mmc.o
+                0x00004a88       0x74 sd_mmc/sd_mmc.o
  .text.sd_mmc_cmd13
-                0x000049f8       0x48 sd_mmc/sd_mmc.o
+                0x00004afc       0x48 sd_mmc/sd_mmc.o
  .text.sd_mmc_cmd9_mci
-                0x00004a40       0x38 sd_mmc/sd_mmc.o
+                0x00004b44       0x38 sd_mmc/sd_mmc.o
  .text.sd_acmd51
-                0x00004a78       0xc0 sd_mmc/sd_mmc.o
+                0x00004b7c       0xc0 sd_mmc/sd_mmc.o
  .text.sd_cm6_set_high_speed
-                0x00004b38       0xb4 sd_mmc/sd_mmc.o
+                0x00004c3c       0xb4 sd_mmc/sd_mmc.o
  .text.sd_mmc_mci_card_init
-                0x00004bec      0x21c sd_mmc/sd_mmc.o
+                0x00004cf0      0x21c sd_mmc/sd_mmc.o
  .text.sd_mmc_deselect_slot
-                0x00004e08       0x1c sd_mmc/sd_mmc.o
+                0x00004f0c       0x1c sd_mmc/sd_mmc.o
  .text.sd_mmc_init
-                0x00004e24       0x2c sd_mmc/sd_mmc.o
-                0x00004e24                sd_mmc_init
+                0x00004f28       0x2c sd_mmc/sd_mmc.o
+                0x00004f28                sd_mmc_init
  .text.sd_mmc_check
-                0x00004e50       0x48 sd_mmc/sd_mmc.o
-                0x00004e50                sd_mmc_check
+                0x00004f54       0x48 sd_mmc/sd_mmc.o
+                0x00004f54                sd_mmc_check
  .text.sd_mmc_is_write_protected
-                0x00004e98       0x78 sd_mmc/sd_mmc.o
-                0x00004e98                sd_mmc_is_write_protected
+                0x00004f9c       0x78 sd_mmc/sd_mmc.o
+                0x00004f9c                sd_mmc_is_write_protected
  .text.sd_mmc_init_read_blocks
-                0x00004f10       0x9c sd_mmc/sd_mmc.o
-                0x00004f10                sd_mmc_init_read_blocks
+                0x00005014       0x9c sd_mmc/sd_mmc.o
+                0x00005014                sd_mmc_init_read_blocks
  .text.sd_mmc_start_read_blocks
-                0x00004fac       0x4c sd_mmc/sd_mmc.o
-                0x00004fac                sd_mmc_start_read_blocks
+                0x000050b0       0x4c sd_mmc/sd_mmc.o
+                0x000050b0                sd_mmc_start_read_blocks
  .text.sd_mmc_wait_end_of_read_blocks
-                0x00004ff8       0x70 sd_mmc/sd_mmc.o
-                0x00004ff8                sd_mmc_wait_end_of_read_blocks
+                0x000050fc       0x70 sd_mmc/sd_mmc.o
+                0x000050fc                sd_mmc_wait_end_of_read_blocks
  .text.sd_mmc_init_write_blocks
-                0x00005068       0xa0 sd_mmc/sd_mmc.o
-                0x00005068                sd_mmc_init_write_blocks
+                0x0000516c       0xa0 sd_mmc/sd_mmc.o
+                0x0000516c                sd_mmc_init_write_blocks
  .text.sd_mmc_start_write_blocks
-                0x00005108       0x4c sd_mmc/sd_mmc.o
-                0x00005108                sd_mmc_start_write_blocks
+                0x0000520c       0x4c sd_mmc/sd_mmc.o
+                0x0000520c                sd_mmc_start_write_blocks
  .text.sd_mmc_wait_end_of_write_blocks
-                0x00005154       0x68 sd_mmc/sd_mmc.o
-                0x00005154                sd_mmc_wait_end_of_write_blocks
+                0x00005258       0x68 sd_mmc/sd_mmc.o
+                0x00005258                sd_mmc_wait_end_of_write_blocks
  .text.sd_mmc_stack_init
-                0x000051bc       0x1c sd_mmc_start.o
-                0x000051bc                sd_mmc_stack_init
- .text          0x000051d8       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
-                0x000051d8                __aeabi_uldivmod
- .text          0x00005208      0x2dc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
-                0x00005208                __udivmoddi4
- .text          0x000054e4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_dvmd_tls.o)
-                0x000054e4                __aeabi_idiv0
-                0x000054e4                __aeabi_ldiv0
+                0x000052c0       0x1c sd_mmc_start.o
+                0x000052c0                sd_mmc_stack_init
+ .text          0x000052dc       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
+                0x000052dc                __aeabi_uldivmod
+ .text          0x0000530c      0x2dc c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+                0x0000530c                __udivmoddi4
+ .text          0x000055e8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_dvmd_tls.o)
+                0x000055e8                __aeabi_idiv0
+                0x000055e8                __aeabi_ldiv0
  .text.__libc_init_array
-                0x000054e8       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-init.o)
-                0x000054e8                __libc_init_array
- .text.memset   0x00005530       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memset.o)
-                0x00005530                memset
+                0x000055ec       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-init.o)
+                0x000055ec                __libc_init_array
+ .text.memset   0x00005634       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memset.o)
+                0x00005634                memset
  *(.glue_7t)
- .glue_7t       0x00005540        0x0 linker stubs
+ .glue_7t       0x00005644        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00005540        0x0 linker stubs
+ .glue_7        0x00005644        0x0 linker stubs
  *(.rodata .rodata* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00005540       0x1a hal/src/hal_adc_sync.o
- *fill*         0x0000555a        0x2 
+                0x00005644       0x1a hal/src/hal_adc_sync.o
+ *fill*         0x0000565e        0x2 
  .rodata.str1.4
-                0x0000555c       0x1e hal/src/hal_camera_async.o
- *fill*         0x0000557a        0x2 
+                0x00005660       0x1e hal/src/hal_camera_async.o
+ *fill*         0x0000567e        0x2 
  .rodata.str1.4
-                0x0000557c       0x1a hal/src/hal_mci_sync.o
- *fill*         0x00005596        0x2 
+                0x00005680       0x1a hal/src/hal_mci_sync.o
+ *fill*         0x0000569a        0x2 
  .rodata.str1.4
-                0x00005598       0x15 hal/src/hal_pwm.o
- *fill*         0x000055ad        0x3 
+                0x0000569c       0x15 hal/src/hal_pwm.o
+ *fill*         0x000056b1        0x3 
  .rodata.str1.4
-                0x000055b0       0x17 hal/src/hal_timer.o
- *fill*         0x000055c7        0x1 
+                0x000056b4       0x17 hal/src/hal_timer.o
+ *fill*         0x000056cb        0x1 
  .rodata.str1.4
-                0x000055c8       0x1d hal/src/hal_usart_async.o
- *fill*         0x000055e5        0x3 
+                0x000056cc       0x1d hal/src/hal_usart_async.o
+ *fill*         0x000056e9        0x3 
  .rodata.str1.4
-                0x000055e8       0x1e hal/utils/src/utils_list.o
- *fill*         0x00005606        0x2 
+                0x000056ec       0x1e hal/utils/src/utils_list.o
+ *fill*         0x0000570a        0x2 
  .rodata.str1.4
-                0x00005608       0x24 hal/utils/src/utils_ringbuffer.o
- .rodata        0x0000562c       0x16 hpl/adc/hpl_adc.o
- *fill*         0x00005642        0x2 
+                0x0000570c       0x24 hal/utils/src/utils_ringbuffer.o
+ .rodata        0x00005730       0x16 hpl/adc/hpl_adc.o
+ *fill*         0x00005746        0x2 
  .rodata.str1.4
-                0x00005644       0x15 hpl/adc/hpl_adc.o
- *fill*         0x00005659        0x3 
- .rodata        0x0000565c      0x100 hpl/dmac/hpl_dmac.o
- .rodata        0x0000575c       0x20 hpl/eic/hpl_eic.o
+                0x00005748       0x15 hpl/adc/hpl_adc.o
+ *fill*         0x0000575d        0x3 
+ .rodata        0x00005760      0x100 hpl/dmac/hpl_dmac.o
+ .rodata        0x00005860       0x20 hpl/eic/hpl_eic.o
  .rodata.str1.4
-                0x0000577c       0x15 hpl/eic/hpl_eic.o
- *fill*         0x00005791        0x3 
+                0x00005880       0x15 hpl/eic/hpl_eic.o
+ *fill*         0x00005895        0x3 
  .rodata.str1.4
-                0x00005794       0x17 hpl/sdhc/hpl_sdhc.o
- *fill*         0x000057ab        0x1 
- .rodata        0x000057ac       0x69 hpl/sercom/hpl_sercom.o
- *fill*         0x00005815        0x3 
+                0x00005898       0x17 hpl/sdhc/hpl_sdhc.o
+ *fill*         0x000058af        0x1 
+ .rodata        0x000058b0       0x69 hpl/sercom/hpl_sercom.o
+ *fill*         0x00005919        0x3 
  .rodata.str1.4
-                0x00005818       0x1b hpl/sercom/hpl_sercom.o
- *fill*         0x00005833        0x1 
- .rodata        0x00005834       0x18 hpl/tc/hpl_tc.o
+                0x0000591c       0x1b hpl/sercom/hpl_sercom.o
+ *fill*         0x00005937        0x1 
+ .rodata        0x00005938       0x18 hpl/tc/hpl_tc.o
  .rodata.str1.4
-                0x0000584c       0x13 hpl/tc/hpl_tc.o
- *fill*         0x0000585f        0x1 
+                0x00005950       0x13 hpl/tc/hpl_tc.o
+ *fill*         0x00005963        0x1 
  .rodata.str1.4
-                0x00005860       0x22 main.o
- *fill*         0x00005882        0x2 
- .rodata        0x00005884       0x9c sd_mmc/sd_mmc.o
-                0x00005884                sd_mmc_trans_units
-                0x000058a0                sd_trans_multipliers
-                0x000058e0                mmc_trans_multipliers
+                0x00005964       0x22 main.o
+ *fill*         0x00005986        0x2 
+ .rodata        0x00005988       0x9c sd_mmc/sd_mmc.o
+                0x00005988                sd_mmc_trans_units
+                0x000059a4                sd_trans_multipliers
+                0x000059e4                mmc_trans_multipliers
  .rodata.str1.4
-                0x00005920       0x14 sd_mmc/sd_mmc.o
+                0x00005a24       0x14 sd_mmc/sd_mmc.o
                                  0x13 (size before relaxing)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00005934                . = ALIGN (0x4)
+                0x00005a38                . = ALIGN (0x4)
  *(.init)
- .init          0x00005934        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
-                0x00005934                _init
- .init          0x00005938        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
-                0x00005940                . = ALIGN (0x4)
-                0x00005940                __preinit_array_start = .
+ .init          0x00005a38        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
+                0x00005a38                _init
+ .init          0x00005a3c        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
+                0x00005a44                . = ALIGN (0x4)
+                0x00005a44                __preinit_array_start = .
  *(.preinit_array)
-                0x00005940                __preinit_array_end = .
-                0x00005940                . = ALIGN (0x4)
-                0x00005940                __init_array_start = .
+                0x00005a44                __preinit_array_end = .
+                0x00005a44                . = ALIGN (0x4)
+                0x00005a44                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00005940        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
-                0x00005944                __init_array_end = .
-                0x00005944                . = ALIGN (0x4)
+ .init_array    0x00005a44        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+                0x00005a48                __init_array_end = .
+                0x00005a48                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00005944                . = ALIGN (0x4)
+                0x00005a48                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00005944        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
-                0x00005944                _fini
- .fini          0x00005948        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
-                0x00005950                . = ALIGN (0x4)
-                0x00005950                __fini_array_start = .
+ .fini          0x00005a48        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crti.o
+                0x00005a48                _fini
+ .fini          0x00005a4c        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtn.o
+                0x00005a54                . = ALIGN (0x4)
+                0x00005a54                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00005950        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+ .fini_array    0x00005a54        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00005954                __fini_array_end = .
+                0x00005a58                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00005954                . = ALIGN (0x4)
-                0x00005954                _efixed = .
+                0x00005a58                . = ALIGN (0x4)
+                0x00005a58                _efixed = .
                 [!provide]                PROVIDE (__exidx_start, .)
 
-.vfp11_veneer   0x00005954        0x0
- .vfp11_veneer  0x00005954        0x0 linker stubs
+.vfp11_veneer   0x00005a58        0x0
+ .vfp11_veneer  0x00005a58        0x0 linker stubs
 
-.v4_bx          0x00005954        0x0
- .v4_bx         0x00005954        0x0 linker stubs
+.v4_bx          0x00005a58        0x0
+ .v4_bx         0x00005a58        0x0 linker stubs
 
-.iplt           0x00005954        0x0
- .iplt          0x00005954        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.iplt           0x00005a58        0x0
+ .iplt          0x00005a58        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.ARM.exidx      0x00005954        0x8
+.ARM.exidx      0x00005a58        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00005954        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x00005a58        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
                 [!provide]                PROVIDE (__exidx_end, .)
 
-.eh_frame       0x0000595c        0x0
- .eh_frame      0x0000595c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.eh_frame       0x00005a60        0x0
+ .eh_frame      0x00005a60        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.rel.dyn        0x0000595c        0x0
- .rel.iplt      0x0000595c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.rel.dyn        0x00005a60        0x0
+ .rel.iplt      0x00005a60        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.jcr            0x0000595c        0x0
- .jcr           0x0000595c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+.jcr            0x00005a60        0x0
+ .jcr           0x00005a60        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
 
-.igot.plt       0x0000595c        0x0
- .igot.plt      0x0000595c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
-                0x0000595c                . = ALIGN (0x4)
-                0x0000595c                _etext = .
+.igot.plt       0x00005a60        0x0
+ .igot.plt      0x00005a60        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/crtbegin.o
+                0x00005a60                . = ALIGN (0x4)
+                0x00005a60                _etext = .
 
-.relocate       0x20000000       0x3c load address 0x0000595c
+.relocate       0x20000000       0x3c load address 0x00005a60
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _srelocate = .
  *(.ramfunc .ramfunc.*)
@@ -15295,7 +15297,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x04000000                . = ALIGN (0x8)
                 0x04000000                _eqspi = .
 
-.bss            0x20000040    0x28bb4 load address 0x000059a0
+.bss            0x20000040    0x2c7e4 load address 0x00005aa0
                 0x20000040                . = ALIGN (0x4)
                 0x20000040                _sbss = .
                 0x20000040                _szero = .
@@ -15309,7 +15311,7 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
  .bss           0x20000214        0x4 hpl/pcc/hpl_pcc.o
  .bss           0x20000218        0x4 hpl/sercom/hpl_sercom.o
  .bss           0x2000021c        0x8 hpl/tc/hpl_tc.o
- .bss           0x20000224      0x43c main.o
+ .bss           0x20000224      0x440 main.o
                 0x20000224                timeMS
                 0x20000228                headerBlock
                 0x20000428                configBlock
@@ -15317,9 +15319,10 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
                 0x2000062c                frameNum
                 0x20000630                frameBufferCount
                 0x20000634                initBlocksRemaining
- .bss           0x20000660       0x3a sd_mmc/sd_mmc.o
+                0x20000638                numBuffersPerFrame
+ .bss           0x20000664       0x3a sd_mmc/sd_mmc.o
  *(COMMON)
- *fill*         0x2000069a        0x6 
+ *fill*         0x2000069e        0x2 
  COMMON         0x200006a0       0xbc driver_init.o
                 0x200006a0                PWM_0
                 0x200006bc                CAMERA_0
@@ -15336,34 +15339,34 @@ LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin
  COMMON         0x20000b64       0x10 hpl/ramecc/hpl_ramecc.o
                 0x20000b64                device
  *fill*         0x20000b74        0xc 
- COMMON         0x20000b80    0x28074 main.o
+ COMMON         0x20000b80    0x2bca4 main.o
                 0x20000b80                chip_id
                 0x20000b82                battVolt
                 0x20000b84                regValue
                 0x20000b88                framesToDrop
                 0x20000b8c                droppedBufferCount
                 0x20000b90                linkedList
-                0x20000bd0                bufferToWrite
-                0x20000bd4                startTimeMS
-                0x20000bd8                droppedFrameCount
-                0x20000bdc                writeBufferCount
-                0x20000be0                writeFrameNum
-                0x20000be4                dataBuffer
-                0x20028be4                tempPCC
-                0x20028bf4                . = ALIGN (0x4)
-                0x20028bf4                _ebss = .
-                0x20028bf4                _ezero = .
+                0x20000c00                bufferToWrite
+                0x20000c04                startTimeMS
+                0x20000c08                droppedFrameCount
+                0x20000c0c                writeBufferCount
+                0x20000c10                writeFrameNum
+                0x20000c14                dataBuffer
+                0x2002c814                tempPCC
+                0x2002c824                . = ALIGN (0x4)
+                0x2002c824                _ebss = .
+                0x2002c824                _ezero = .
 
-.stack          0x20028bf4    0x10004 load address 0x0002e554
-                0x20028bf8                . = ALIGN (0x8)
- *fill*         0x20028bf4        0x4 
-                0x20028bf8                _sstack = .
-                0x20038bf8                . = (. + STACK_SIZE)
- *fill*         0x20028bf8    0x10000 
-                0x20038bf8                . = ALIGN (0x8)
-                0x20038bf8                _estack = .
-                0x20038bf8                . = ALIGN (0x4)
-                0x20038bf8                _end = .
+.stack          0x2002c824    0x10004 load address 0x00032284
+                0x2002c828                . = ALIGN (0x8)
+ *fill*         0x2002c824        0x4 
+                0x2002c828                _sstack = .
+                0x2003c828                . = (. + STACK_SIZE)
+ *fill*         0x2002c828    0x10000 
+                0x2003c828                . = ALIGN (0x8)
+                0x2003c828                _estack = .
+                0x2003c828                . = ALIGN (0x4)
+                0x2003c828                _end = .
 OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
 
 .ARM.attributes
@@ -15490,7 +15493,7 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
  .comment       0x00000059       0x5a sd_mmc/sd_mmc.o
  .comment       0x00000059       0x5a sd_mmc_start.o
 
-.debug_info     0x00000000    0x44ed4
+.debug_info     0x00000000    0x44faa
  .debug_info    0x00000000     0x109f atmel_start.o
  .debug_info    0x0000109f      0xd71 Device_Startup/startup_samd51.o
  .debug_info    0x00001e10     0xce3f driver_init.o
@@ -15522,9 +15525,9 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
  .debug_info    0x00033ad8      0x289 hpl/systick/hpl_systick.o
  .debug_info    0x00033d61     0x38a4 hpl/tc/hpl_tc.o
  .debug_info    0x00037605     0x17e2 i2c_bb.o
- .debug_info    0x00038de7     0x8065 main.o
- .debug_info    0x00040e4c     0x2e0c sd_mmc/sd_mmc.o
- .debug_info    0x00043c58     0x127c sd_mmc_start.o
+ .debug_info    0x00038de7     0x813b main.o
+ .debug_info    0x00040f22     0x2e0c sd_mmc/sd_mmc.o
+ .debug_info    0x00043d2e     0x127c sd_mmc_start.o
 
 .debug_abbrev   0x00000000     0x58f7
  .debug_abbrev  0x00000000      0x1b9 atmel_start.o
@@ -15562,7 +15565,7 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
  .debug_abbrev  0x00005232      0x4a4 sd_mmc/sd_mmc.o
  .debug_abbrev  0x000056d6      0x221 sd_mmc_start.o
 
-.debug_loc      0x00000000    0x196a8
+.debug_loc      0x00000000    0x196b4
  .debug_loc     0x00000000       0x20 atmel_start.o
  .debug_loc     0x00000020       0x78 Device_Startup/startup_samd51.o
  .debug_loc     0x00000098     0x37f8 driver_init.o
@@ -15593,9 +15596,9 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
  .debug_loc     0x0001429c      0x127 hpl/systick/hpl_systick.o
  .debug_loc     0x000143c3     0x15d0 hpl/tc/hpl_tc.o
  .debug_loc     0x00015993      0x867 i2c_bb.o
- .debug_loc     0x000161fa     0x1b2f main.o
- .debug_loc     0x00017d29     0x191b sd_mmc/sd_mmc.o
- .debug_loc     0x00019644       0x64 sd_mmc_start.o
+ .debug_loc     0x000161fa     0x1b3b main.o
+ .debug_loc     0x00017d35     0x191b sd_mmc/sd_mmc.o
+ .debug_loc     0x00019650       0x64 sd_mmc_start.o
 
 .debug_aranges  0x00000000     0x1448
  .debug_aranges
@@ -15703,7 +15706,7 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
  .debug_ranges  0x000013a8      0x138 sd_mmc/sd_mmc.o
  .debug_ranges  0x000014e0       0x18 sd_mmc_start.o
 
-.debug_macro    0x00000000    0x32f22
+.debug_macro    0x00000000    0x32f28
  .debug_macro   0x00000000      0x91d atmel_start.o
  .debug_macro   0x0000091d      0x8b0 atmel_start.o
  .debug_macro   0x000011cd      0x16d atmel_start.o
@@ -15932,15 +15935,15 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
  .debug_macro   0x0003029a      0x996 main.o
  .debug_macro   0x00030c30       0x4c main.o
  .debug_macro   0x00030c7c       0x9a main.o
- .debug_macro   0x00030d16      0x13c main.o
- .debug_macro   0x00030e52      0x7d5 sd_mmc/sd_mmc.o
- .debug_macro   0x00031627       0xd9 sd_mmc/sd_mmc.o
- .debug_macro   0x00031700      0xe29 sd_mmc/sd_mmc.o
- .debug_macro   0x00032529       0xa0 sd_mmc/sd_mmc.o
- .debug_macro   0x000325c9       0x22 sd_mmc/sd_mmc.o
- .debug_macro   0x000325eb      0x937 sd_mmc_start.o
+ .debug_macro   0x00030d16      0x142 main.o
+ .debug_macro   0x00030e58      0x7d5 sd_mmc/sd_mmc.o
+ .debug_macro   0x0003162d       0xd9 sd_mmc/sd_mmc.o
+ .debug_macro   0x00031706      0xe29 sd_mmc/sd_mmc.o
+ .debug_macro   0x0003252f       0xa0 sd_mmc/sd_mmc.o
+ .debug_macro   0x000325cf       0x22 sd_mmc/sd_mmc.o
+ .debug_macro   0x000325f1      0x937 sd_mmc_start.o
 
-.debug_line     0x00000000    0x1f1a7
+.debug_line     0x00000000    0x1f1b3
  .debug_line    0x00000000      0xee1 atmel_start.o
  .debug_line    0x00000ee1      0x858 Device_Startup/startup_samd51.o
  .debug_line    0x00001739     0x1295 driver_init.o
@@ -15972,11 +15975,11 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
  .debug_line    0x00018f41      0xbdc hpl/systick/hpl_systick.o
  .debug_line    0x00019b1d     0x119b hpl/tc/hpl_tc.o
  .debug_line    0x0001acb8      0xd1e i2c_bb.o
- .debug_line    0x0001b9d6     0x1645 main.o
- .debug_line    0x0001d01b     0x1270 sd_mmc/sd_mmc.o
- .debug_line    0x0001e28b      0xf1c sd_mmc_start.o
+ .debug_line    0x0001b9d6     0x1651 main.o
+ .debug_line    0x0001d027     0x1270 sd_mmc/sd_mmc.o
+ .debug_line    0x0001e297      0xf1c sd_mmc_start.o
 
-.debug_str      0x00000000   0x100b57
+.debug_str      0x00000000   0x100b8f
  .debug_str     0x00000000    0xe1d33 atmel_start.o
                               0xe234f (size before relaxing)
  .debug_str     0x000e1d33      0xbad Device_Startup/startup_samd51.o
@@ -16039,14 +16042,14 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
                               0xdec01 (size before relaxing)
  .debug_str     0x000fa8ef      0x12d i2c_bb.o
                               0xdde83 (size before relaxing)
- .debug_str     0x000faa1c      0xdbf main.o
-                              0xe6fc4 (size before relaxing)
- .debug_str     0x000fb7db     0x5320 sd_mmc/sd_mmc.o
+ .debug_str     0x000faa1c      0xdf7 main.o
+                              0xe6ffc (size before relaxing)
+ .debug_str     0x000fb813     0x5320 sd_mmc/sd_mmc.o
                               0xeb84c (size before relaxing)
- .debug_str     0x00100afb       0x5c sd_mmc_start.o
+ .debug_str     0x00100b33       0x5c sd_mmc_start.o
                               0xe27de (size before relaxing)
 
-.debug_frame    0x00000000     0x35b8
+.debug_frame    0x00000000     0x35bc
  .debug_frame   0x00000000       0x28 atmel_start.o
  .debug_frame   0x00000028       0x38 Device_Startup/startup_samd51.o
  .debug_frame   0x00000060      0x1a4 driver_init.o
@@ -16078,10 +16081,10 @@ OUTPUT(Miniscope-v4-wire-free.elf elf32-littlearm)
  .debug_frame   0x000028e4       0x78 hpl/systick/hpl_systick.o
  .debug_frame   0x0000295c      0x238 hpl/tc/hpl_tc.o
  .debug_frame   0x00002b94      0x110 i2c_bb.o
- .debug_frame   0x00002ca4      0x3cc main.o
- .debug_frame   0x00003070      0x454 sd_mmc/sd_mmc.o
- .debug_frame   0x000034c4       0x48 sd_mmc_start.o
- .debug_frame   0x0000350c       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00003538       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x0000356c       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-init.o)
- .debug_frame   0x00003598       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x00002ca4      0x3d0 main.o
+ .debug_frame   0x00003074      0x454 sd_mmc/sd_mmc.o
+ .debug_frame   0x000034c8       0x48 sd_mmc_start.o
+ .debug_frame   0x00003510       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000353c       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00003570       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x0000359c       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m\libc_nano.a(lib_a-memset.o)

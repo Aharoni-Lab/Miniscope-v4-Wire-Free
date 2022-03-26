@@ -52,6 +52,7 @@ volatile uint32_t droppedFrameCount;
 volatile uint32_t framesToDrop;
 volatile uint32_t *bufferToWrite;
 volatile uint32_t numBlocks = BUFFER_BLOCK_LENGTH;
+volatile uint32_t numBuffersPerFrame = 0; 
 
 // Debugging and checking stuff
 volatile uint16_t chip_id; // Reads the chip id from Python480 to make sure we can talk to it
@@ -116,9 +117,12 @@ void setConfigBlockProp(uint8_t position, uint32_t value) {
 void setBufferHeader(uint32_t dataWordLength) {
 	uint32_t numBuffer = bufferCount % NUM_BUFFERS;
 	dataBuffer[numBuffer][BUFFER_HEADER_HEADER_LENGTH_POS] = BUFFER_HEADER_LENGTH;
+	dataBuffer[numBuffer][BUFFER_HEADER_LINKED_LIST_POS] = bufferCount % NUM_BUFFERS;
 	dataBuffer[numBuffer][BUFFER_HEADER_FRAME_NUM_POS] = frameNum;
 	dataBuffer[numBuffer][BUFFER_HEADER_BUFFER_COUNT_POS] = bufferCount;
 	dataBuffer[numBuffer][BUFFER_HEADER_FRAME_BUFFER_COUNT_POS] = frameBufferCount;
+	//dataBuffer[numBuffer][BUFFER_HEADER_WRITE_BUFFER_COUNT_POS] = writeBufferCount;
+	//dataBuffer[numBuffer][BUFFER_HEADER_DROPPED_BUFFER_COUNT_POS] = droppedBufferCount;
 	dataBuffer[numBuffer][BUFFER_HEADER_TIMESTAMP_POS] = getCurrentTimeMS() - startTimeMS;
 	
 	// TODO: Put the correct value for data length. This will change if it is a partially filled buffer
@@ -214,7 +218,7 @@ static void frameValid_cb(void)
 			DMAC->Channel[CONF_PCC_DMA_CHANNEL].CHCTRLA.reg &= ~(DMAC_CHCTRLA_ENABLE); // Disables PCC DMA
 			//imageCaptureDMAStop();
 			
-			setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL)); // This should get total beats transferred through DMA
+			setBufferHeader((BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH) - _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL)); // This should get total beats transferred through DMA
 			//setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - (XDMAC->XDMAC_CHID[IMAGE_CAPTURE_XDMAC_CH].XDMAC_CUBC & XDMAC_CUBC_UBLEN_Msk));// Update buffer header
 			
 			frameBufferCount = 0;
@@ -303,7 +307,7 @@ void linkedListInit(void)
 		else
 			linkedList[i].DESCADDR.reg = (uint32_t)&linkedList[i + 1];
 			
-		linkedList[i].BTCNT.reg = (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS);
+		linkedList[i].BTCNT.reg = (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH);
 		// We aren't actually using the STEPSIZE part of incrementing the destination address. 
 		linkedList[i].BTCTRL.reg = DMAC_BTCTRL_STEPSIZE(0) | (CONF_DMAC_STEPSEL_0 << DMAC_BTCTRL_STEPSEL_Pos)						\
 								| (CONF_DMAC_DSTINC_0 << DMAC_BTCTRL_DSTINC_Pos) | (CONF_DMAC_SRCINC_0 << DMAC_BTCTRL_SRCINC_Pos)	\
@@ -314,7 +318,7 @@ void linkedListInit(void)
 		
 		// Destination address when incrementing address needs to be the end address and not the start address.
 		// I think the last scale multiplication needs to be either 3 or 5 but _dma_set_data_amount() uses a 4.
-		linkedList[i].DSTADDR.reg = (uint32_t)(&dataBuffer[i][BUFFER_HEADER_LENGTH]) + (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS) * 4;
+		linkedList[i].DSTADDR.reg = (uint32_t)(&dataBuffer[i][BUFFER_HEADER_LENGTH]) + (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH) * 4;
 	}
 	setPCCCurrentLinkedListPosition(0);
 	
@@ -326,7 +330,7 @@ void setPCCCurrentLinkedListPosition(uint8_t pos)
 	// Set up initial DMA descriptor for DMA channel handling PCC. BTCNT is already setup in DMA init step
 	_dma_set_source_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].SRCADDR.reg);
 	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].DSTADDR.reg);
-	_dma_set_data_amount(CONF_PCC_DMA_CHANNEL, (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS));
+	_dma_set_data_amount(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].BTCNT.reg);
 	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].DSTADDR.reg); // Overwrite destination address since set_data_amount function modifies this
 
 	_dma_set_DESCADDR(CONF_PCC_DMA_CHANNEL, linkedList[pos].DESCADDR.reg);
@@ -383,18 +387,20 @@ void recording()
 			
 			// Let's figure out how many buffers need to be dropped
 			// TODO: I think NUM_BUFFERS here should actually be number_of_buffers_per_frame
-			droppedBufferCount += (NUM_BUFFERS - (writeBufferCount + droppedBufferCount) % NUM_BUFFERS);
+			droppedBufferCount += (numBuffersPerFrame - (writeBufferCount + droppedBufferCount) % numBuffersPerFrame);
 		}
 		else {
 			// Actual writing of good buffers
 			bufferToWrite = (uint32_t)(&dataBuffer[(writeBufferCount + droppedBufferCount) % NUM_BUFFERS]);
 			numBlocks = (bufferToWrite[BUFFER_HEADER_DATA_LENGTH_POS] + (BUFFER_HEADER_LENGTH * 4) + (SD_BLOCK_SIZE - 1)) / SD_BLOCK_SIZE;
 			
+			// This if statement shouldn't be needed
 			if (numBlocks > BUFFER_BLOCK_LENGTH)
 				numBlocks = BUFFER_BLOCK_LENGTH;
 				
 			bufferToWrite[BUFFER_HEADER_WRITE_BUFFER_COUNT_POS] = writeBufferCount;
 			bufferToWrite[BUFFER_HEADER_DROPPED_BUFFER_COUNT_POS] = droppedBufferCount;
+			bufferToWrite[BUFFER_HEADER_WRITE_TIMESTAMP_POS] = getCurrentTimeMS() - startTimeMS;
 			
 			if (numBlocks < initBlocksRemaining) {
 				// There are enough init blocks for this write
@@ -440,9 +446,7 @@ void recording()
 				initBlocksRemaining = (BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK) - (numBlocks - initBlocksRemaining);
 				
 			}
-			writeBufferCount++;
-			
-			
+			writeBufferCount++;	
 		}
 		
 		//if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
@@ -486,6 +490,14 @@ int main(void)
 	uint32_t lastTime = 0;
 	bool lastMonitor0 = 0;
 	bool thisMonitor0 = 0;
+	
+	// Probably should put this somewhere else or as a define
+	numBuffersPerFrame = (WIDTH * HEIGHT) / (BUFFER_BLOCK_LENGTH * SD_BLOCK_SIZE - (BUFFER_HEADER_LENGTH * 4));
+	if ((WIDTH * HEIGHT) % (BUFFER_BLOCK_LENGTH * SD_BLOCK_SIZE - (BUFFER_HEADER_LENGTH * 4)) != 0)
+	// Need to add 1 to account for partially filled buffer
+		numBuffersPerFrame += 1;
+		
+	
 	
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();	
@@ -559,14 +571,14 @@ int main(void)
 	python480SetFPS(10);
 	
 	//// Set some parameters in config buffer to be written to SD card at end of recording
-	//setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH);
-	//setConfigBlockProp(CONFIG_BLOCK_HEIGHT_POS, HEIGHT);
-	//setConfigBlockProp(CONFIG_BLOCK_FRAME_RATE_POS, getPropFromHeader(HEADER_FRAME_RATE_POS));
-	//setConfigBlockProp(CONFIG_BLOCK_BUFFER_SIZE_POS, BUFFER_BLOCK_LENGTH * SD_BLOCK_SIZE);
-	//
-	//sd_mmc_init_write_blocks(0, CONFIG_BLOCK, 1);
-	//sd_mmc_start_write_blocks(configBlock, 1); // We will re-write this block at the end of recording too
-	//sd_mmc_wait_end_of_write_blocks(false);
+	setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH);
+	setConfigBlockProp(CONFIG_BLOCK_HEIGHT_POS, HEIGHT);
+	setConfigBlockProp(CONFIG_BLOCK_FRAME_RATE_POS, getPropFromHeader(HEADER_FRAME_RATE_POS));
+	setConfigBlockProp(CONFIG_BLOCK_BUFFER_SIZE_POS, BUFFER_BLOCK_LENGTH * SD_BLOCK_SIZE);
+	
+	sd_mmc_init_write_blocks(0, CONFIG_BLOCK, 1);
+	sd_mmc_start_write_blocks(configBlock, 1); // We will re-write this block at the end of recording too
+	sd_mmc_wait_end_of_write_blocks(false);
 	
 	
 	// Just a debugging point for turning on excitation LED

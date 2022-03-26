@@ -29,12 +29,12 @@
 // -------------------------------------------
 
 // ----------- Buffer Definitions ------------
-#define BUFFER_BLOCK_LENGTH		80 // can be edited by user to optimize speed
-#define NUM_BUFFERS				4   // can be edited by user to optimize speed
+#define BUFFER_BLOCK_LENGTH		50 // can be edited by user to optimize speed
+#define NUM_BUFFERS				7   // can be edited by user to optimize speed
 #define BLOCK_SIZE_IN_WORDS		128 // (512 bytes) / (4 byte word size)
 
 // Buffer Header position definitions
-#define BUFFER_HEADER_LENGTH					9
+#define BUFFER_HEADER_LENGTH					10
 
 #define BUFFER_HEADER_HEADER_LENGTH_POS			0
 #define BUFFER_HEADER_LINKED_LIST_POS			1
@@ -45,6 +45,7 @@
 #define BUFFER_HEADER_DROPPED_BUFFER_COUNT_POS	6
 #define BUFFER_HEADER_TIMESTAMP_POS				7
 #define BUFFER_HEADER_DATA_LENGTH_POS			8
+#define BUFFER_HEADER_WRITE_TIMESTAMP_POS		9
 
 // -------------------------------------------
 
@@ -83,10 +84,10 @@
 // -------------------------------------------
  
 // ------- Image Sensor Definitions ----------
-#define FRAME_RATE					20
-#define WIDTH						600
-#define HEIGHT						600
-#define BINNING						2
+#define FRAME_RATE					10
+#define WIDTH						608
+#define HEIGHT						608
+#define BINNING						1
 
 #define NUM_PIXELS					((WIDTH * HEIGHT) / (BINNING * BINNING))
 
