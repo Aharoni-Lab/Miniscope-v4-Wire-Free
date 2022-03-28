@@ -222,7 +222,7 @@ static void frameValid_cb(void)
 			//tempHeader[tempCount][0] = frameNum;
 			//tempHeader[tempCount][1] = bufferCount;
 			//tempHeader[tempCount][2] = 4 * _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL);
-			//tempHeader[tempCount][3] = _dma_get_DESCADDR(0);		
+			//tempHeader[tempCount][3] = PCC->ISR.reg;;		
 			//if (tempCount < 99)
 				//tempCount++;
 			
@@ -239,15 +239,15 @@ static void frameValid_cb(void)
 	
 				PCC->MR.reg |= PCC_MR_PCEN; // Enables PCC
 			}
-			if (deviceState == DEVICE_STATE_STOP_RECORDING) {
+			if (deviceState & DEVICE_STATE_STOP_RECORDING) {
 				// Reset linked lists so we will be ready to start recording again in the future
 				
-				deviceState &= ~(DEVICE_STATE_RECORDING);
-				deviceState &= ~(DEVICE_STATE_STOP_RECORDING);
-				deviceState |= DEVICE_STATE_IDLE;
+				//deviceState &= ~(DEVICE_STATE_RECORDING);
+				//deviceState &= ~(DEVICE_STATE_STOP_RECORDING);
+				//deviceState |= DEVICE_STATE_IDLE;
 			}
 		}
-		else if (deviceState == DEVICE_STATE_START_RECORDING_WAITING) {
+		else if (deviceState & DEVICE_STATE_START_RECORDING_WAITING) {
 			// We wait till !FV to enable recording so the first buffer starts at the beginning and not middle of a frame
 			
 			frameNum = 0;
@@ -276,7 +276,7 @@ static void pcc_dma_cb(struct camera_async_descriptor *const descr, uint32_t ch)
 		//tempHeader[tempCount][0] = frameNum;
 		//tempHeader[tempCount][1] = bufferCount;
 		//tempHeader[tempCount][2] = 4 * _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL);
-		//tempHeader[tempCount][3] = _dma_get_DESCADDR(0);
+		//tempHeader[tempCount][3] = PCC->ISR.reg;
 		//if (tempCount < 99)
 			//tempCount++;
 			
@@ -368,21 +368,40 @@ void startRecording()
 
 void stopRecording()
 {
+	
+	deviceState &= ~(DEVICE_STATE_STOP_RECORDING);
+	deviceState &= ~(DEVICE_STATE_RECORDING);
+	deviceState |= DEVICE_STATE_IDLE;
+	
+	// Must be a better way of doing this. This finishes up the remaining init blocks so we can then write to the config block
+	while (initBlocksRemaining > BUFFER_BLOCK_LENGTH) {
+		if (sd_mmc_start_write_blocks(dataBuffer[0], BUFFER_BLOCK_LENGTH) != SD_MMC_OK)
+			deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
+		initBlocksRemaining -= BUFFER_BLOCK_LENGTH;				
+		sd_mmc_wait_end_of_write_blocks(false);
+	}
+	if (initBlocksRemaining > 0) {
+		if (sd_mmc_start_write_blocks(dataBuffer[0], initBlocksRemaining) != SD_MMC_OK)
+			deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
+		initBlocksRemaining = 0;			
+		sd_mmc_wait_end_of_write_blocks(false);
+	}
+				
+	//sd_mmc_wait_end_of_write_blocks(true); // Abort any initalized write blocks
 	// TODO: Change status LEDs
 	
 	// TODO: Update currentBlock maybe to get ready for next recording??
 	
 	// Write end of recording info to a block
 	// TODO: Add more meta data to this (frames dropped?, blocks written?, overall time, data starting block?)!
-	configBlock[CONFIG_BLOCK_NUM_BUFFERS_RECORDED_POS] = writeBufferCount;
-	configBlock[CONFIG_BLOCK_NUM_BUFFERS_DROPPED_POS] = droppedBufferCount;
-	sd_mmc_init_write_blocks(0,STARTING_BLOCK, 1);
+	setConfigBlockProp(CONFIG_BLOCK_NUM_BUFFERS_RECORDED_POS, writeBufferCount);
+	setConfigBlockProp(CONFIG_BLOCK_NUM_BUFFERS_DROPPED_POS, droppedBufferCount);
+	sd_mmc_init_write_blocks(0,CONFIG_BLOCK, 1);
 	sd_mmc_start_write_blocks(configBlock, 1);
 	sd_mmc_wait_end_of_write_blocks(false);
 	
-	deviceState &= ~(DEVICE_STATE_STOP_RECORDING);
-	deviceState &= ~(DEVICE_STATE_RECORDING);
-	deviceState |= DEVICE_STATE_IDLE;
+	setExcitationLED(0, false);
+	
 }
 
 void recording()
@@ -460,8 +479,8 @@ void recording()
 			writeBufferCount++;	
 		}
 		
-		//if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
-		if (((getCurrentTimeMS() - startTimeMS) >= 10*1000)){
+		if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
+		//if (((getCurrentTimeMS() - startTimeMS) >= 10*1000)){
 
 			// Recording time has elapsed
 			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
@@ -482,18 +501,19 @@ void recording()
 // Timers to check lipo level and to count in milliseconds: Working
 // Verify SDCard interface: Working
 // Pushbutton to power up system from battery: Working
-
+// Linked List: Working
+// Set up EWL configuration and control: WORKING
 // Bit Bang I2C: Done and working with the HV892 EWL driver
-// Linked List: TODO
+
 // Check callbacks working: TODO
 // Finish building state machine: TODO
 // Set up IR communication: TODO
-// Set up EWL configuration and control: TODO
 // Optimize power: TODO
 // Setup wired USART data connection: TODO
 // Enable push button cb to start recording: TODO
 // Make sure lipo charge callback works: TODO
 // Consider putting ADC value and deviceState in frame header: TODO
+// Check SD card write speed by directly measuring the clock pin with oscilloscope. Potentially it needs to be sped up: TODO
 
 // ================================================================
 int main(void)
@@ -568,7 +588,7 @@ int main(void)
 	delay_us(100); // minimum delay is 10us
 	chip_id = spi_BB_Read(0x00); // can use this to make sure MCU can talk to Python480
 	python480Init();
-	
+	Enable_Subsample();
 	
 	/*
 	// Setup rest of Miniscope
@@ -577,15 +597,18 @@ int main(void)
 	python480SetGain(getPropFromHeader(HEADER_GAIN_POS));
 	python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
 	*/
-	Enable_Subsample();
+	
 	python480SetGain(1);
 	python480SetFPS(10);
 	
-	//// Set some parameters in config buffer to be written to SD card at end of recording
+	// Set some parameters in config buffer to be written to SD card at end of recording
+	// TODO: Add additional info in the config block to cover everything needed for offline processing
 	setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH / BINNING);
 	setConfigBlockProp(CONFIG_BLOCK_HEIGHT_POS, HEIGHT / BINNING);
 	setConfigBlockProp(CONFIG_BLOCK_FRAME_RATE_POS, getPropFromHeader(HEADER_FRAME_RATE_POS));
 	setConfigBlockProp(CONFIG_BLOCK_BUFFER_SIZE_POS, BUFFER_BLOCK_LENGTH * SD_BLOCK_SIZE);
+	setConfigBlockProp(CONFIG_BLOCK_NUM_BUFFERS_RECORDED_POS, 0);
+	setConfigBlockProp(CONFIG_BLOCK_NUM_BUFFERS_DROPPED_POS,0);
 	
 	sd_mmc_init_write_blocks(0, CONFIG_BLOCK, 1);
 	sd_mmc_start_write_blocks(configBlock, 1); // We will re-write this block at the end of recording too
@@ -607,9 +630,11 @@ int main(void)
 	PCC->MR.reg = PCC_MR_CID(0x3) | PCC_MR_ISIZE(CONF_PCC_ISIZE) | CONF_PCC_FRSTS << PCC_MR_FRSTS_Pos
 	       | CONF_PCC_HALFS << PCC_MR_HALFS_Pos | CONF_PCC_ALWYS << PCC_MR_ALWYS_Pos
 	       | CONF_PCC_SCALE << PCC_MR_SCALE_Pos | PCC_MR_DSIZE(CONF_PCC_DSIZE);
-		   
+	
+	
+	// These PCC interrupts aren't needed for DMA functioning	   
 	//PCC->IDR.reg = 2;
-	//PCC->IER.reg = 1;
+	//PCC->IER.reg = 3;
 	
 	deviceState = DEVICE_STATE_START_RECORDING;
 	while (1) {

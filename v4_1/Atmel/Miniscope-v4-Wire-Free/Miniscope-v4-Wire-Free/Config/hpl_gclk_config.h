@@ -150,7 +150,7 @@
 //<o> Generic clock generator 1 division <0x0000-0xFFFF>
 // <id> gclk_gen_1_div
 #ifndef CONF_GCLK_GEN_1_DIV
-#define CONF_GCLK_GEN_1_DIV 2
+#define CONF_GCLK_GEN_1_DIV 6 // Changed by DAharoni
 #endif
 // </h>
 // </e>

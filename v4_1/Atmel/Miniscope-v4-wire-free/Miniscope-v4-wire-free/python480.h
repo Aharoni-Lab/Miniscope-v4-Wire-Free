@@ -232,14 +232,15 @@ void RequiredUploads() {// Reserved register settings uploads
 	//spi_BB_Write(130, 0x0001); // Handles phase of pixel clock changed from 0x0001 to 0x0015
 
 	// Test Pattern
-	spi_BB_Write(144,0x0003);
+	//spi_BB_Write(144,0x0003);
 
 	spi_BB_Write(130, 0x0015);
 	spi_BB_Write(192, 0x0801); // Monitor select function. Sets subsampling too
 	spi_BB_Write(194, 0x00E4);	// reverse x and y enabled for demo kit compatibility
 	spi_BB_Write(197, 0x0104); // 0x0380) Num black lines spi_BB_Write(197, 0x030A);
 	#ifdef DISABLE_PLL
-	spi_BB_Write(199, 167); // Exposure/Frame rate config, spi_BB_Write(199, 0x0299);
+	//spi_BB_Write(199, 167); // Exposure/Frame rate config, spi_BB_Write(199, 0x0299);
+	spi_BB_Write(199, 50); // Exposure/Frame rate config, spi_BB_Write(199, 0x0299);
 	spi_BB_Write(200, 3300); // Frame length, spi_BB_Write(200, 0x0350);
 	spi_BB_Write(201, 3300); // spi_BB_Write(201, 2900); // Exposure time spi_BB_Write(201, 0x01F4);
 	#else
