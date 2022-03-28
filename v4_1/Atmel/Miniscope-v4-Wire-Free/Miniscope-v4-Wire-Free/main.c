@@ -58,6 +58,8 @@ volatile uint32_t numBuffersPerFrame = 0;
 volatile uint16_t chip_id; // Reads the chip id from Python480 to make sure we can talk to it
 volatile uint16_t regValue[2]; 
 volatile uint32_t tempPCC[4];
+volatile uint32_t tempHeader[100][4];
+volatile uint32_t tempCount = 0;
 // --------------------------------------
 
 // ----------- FUNCTIONS ----------------
@@ -208,35 +210,38 @@ static void frameValid_cb(void)
 	else {
 		// Handles end of frame
 		
-		if (deviceState == DEVICE_STATE_RECORDING || deviceState == DEVICE_STATE_STOP_RECORDING) {
+		if (deviceState & (DEVICE_STATE_RECORDING | DEVICE_STATE_STOP_RECORDING)) {
 			// At the end of frame the current buffer is likely only partially filled.
 			// Disable DMA to flush DMA FIFO then start DMA again but with the next linked list
 			
 			PCC->MR.reg &= ~(PCC_MR_PCEN); // Disables PCC
-			//imageCaptureDisable();
 			
 			DMAC->Channel[CONF_PCC_DMA_CHANNEL].CHCTRLA.reg &= ~(DMAC_CHCTRLA_ENABLE); // Disables PCC DMA
-			//imageCaptureDMAStop();
+			
+			// Some debugging stuff here
+			//tempHeader[tempCount][0] = frameNum;
+			//tempHeader[tempCount][1] = bufferCount;
+			//tempHeader[tempCount][2] = 4 * _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL);
+			//tempHeader[tempCount][3] = _dma_get_DESCADDR(0);		
+			//if (tempCount < 99)
+				//tempCount++;
 			
 			setBufferHeader((BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH) - _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL)); // This should get total beats transferred through DMA
-			//setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH - (XDMAC->XDMAC_CHID[IMAGE_CAPTURE_XDMAC_CH].XDMAC_CUBC & XDMAC_CUBC_UBLEN_Msk));// Update buffer header
-			
+	
 			frameBufferCount = 0;
 			bufferCount++; // A buffer has been filled (likely partially) and is ready for writing to SD card
 			frameNum++; // Zero-Indexed
 			
-			if (deviceState == DEVICE_STATE_RECORDING) { // Keep recording
+			if (deviceState & DEVICE_STATE_RECORDING) { // Keep recording
 				// Update Linked List
 				setPCCCurrentLinkedListPosition(bufferCount % NUM_BUFFERS); // Moves to next buffer/linked list element
 				_dma_enable_transaction(CONF_PCC_DMA_CHANNEL, false); // Should enable DMA transfer
-				//imageCaptureDMAStart((uint32_t)&linkedList[bufferCount % NUM_BUFFERS]);
-				
+	
 				PCC->MR.reg |= PCC_MR_PCEN; // Enables PCC
-				//imageCaptureEnable();
 			}
 			if (deviceState == DEVICE_STATE_STOP_RECORDING) {
 				// Reset linked lists so we will be ready to start recording again in the future
-				linkedListInit();
+				
 				deviceState &= ~(DEVICE_STATE_RECORDING);
 				deviceState &= ~(DEVICE_STATE_STOP_RECORDING);
 				deviceState |= DEVICE_STATE_IDLE;
@@ -252,11 +257,9 @@ static void frameValid_cb(void)
 			linkedListInit();
 			setPCCCurrentLinkedListPosition(0); // Moves to next buffer/linked list element
 			_dma_enable_transaction(CONF_PCC_DMA_CHANNEL, false); // Should enable DMA transfer
-			//imageCaptureDMAStart((uint32_t)&linkedList[0]); // Let's always start a new recording at the initialized Linked List 0
-			
+		
 			PCC->MR.reg |= PCC_MR_PCEN; // Enables PCC
-			//imageCaptureEnable();
-			
+	
 			deviceState &= ~(DEVICE_STATE_START_RECORDING_WAITING);
 			deviceState |= DEVICE_STATE_RECORDING;
 		}
@@ -266,7 +269,17 @@ static void frameValid_cb(void)
 static void pcc_dma_cb(struct camera_async_descriptor *const descr, uint32_t ch)
 {
 	if (ch == CONF_PCC_DMA_CHANNEL) {
+		
 		// add header to current buffer
+		
+		// Some debugging stuff here
+		//tempHeader[tempCount][0] = frameNum;
+		//tempHeader[tempCount][1] = bufferCount;
+		//tempHeader[tempCount][2] = 4 * _dma_get_WRB_data(CONF_PCC_DMA_CHANNEL);
+		//tempHeader[tempCount][3] = _dma_get_DESCADDR(0);
+		//if (tempCount < 99)
+			//tempCount++;
+			
 		setBufferHeader(BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH);
 		bufferCount++;// increment counters
 		frameBufferCount++;
@@ -318,12 +331,9 @@ void linkedListInit(void)
 		
 		// Destination address when incrementing address needs to be the end address and not the start address.
 		// I think the last scale multiplication needs to be either 3 or 5 but _dma_set_data_amount() uses a 4.
-		linkedList[i].DSTADDR.reg = (uint32_t)(&dataBuffer[i][BUFFER_HEADER_LENGTH]) + (BUFFER_BLOCK_LENGTH * BLOCK_SIZE_IN_WORDS - BUFFER_HEADER_LENGTH) * 4;
+		linkedList[i].DSTADDR.reg = (uint32_t)(&dataBuffer[i][BUFFER_HEADER_LENGTH]) + linkedList[i].BTCNT.reg * 4;
 	}
-	setPCCCurrentLinkedListPosition(0);
-	
-	// To turn on DMA channel: 
-	// _dma_enable_transaction(CONF_PCC_DMA_CHANNEL, false);
+	//setPCCCurrentLinkedListPosition(0);
 }
 void setPCCCurrentLinkedListPosition(uint8_t pos)
 {
@@ -331,6 +341,7 @@ void setPCCCurrentLinkedListPosition(uint8_t pos)
 	_dma_set_source_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].SRCADDR.reg);
 	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].DSTADDR.reg);
 	_dma_set_data_amount(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].BTCNT.reg);
+	_dma_set_BTCTRL(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].BTCTRL.reg);
 	_dma_set_destination_address(CONF_PCC_DMA_CHANNEL, (void *)linkedList[pos].DSTADDR.reg); // Overwrite destination address since set_data_amount function modifies this
 
 	_dma_set_DESCADDR(CONF_PCC_DMA_CHANNEL, linkedList[pos].DESCADDR.reg);
@@ -566,13 +577,13 @@ int main(void)
 	python480SetGain(getPropFromHeader(HEADER_GAIN_POS));
 	python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
 	*/
-	
+	Enable_Subsample();
 	python480SetGain(1);
 	python480SetFPS(10);
 	
 	//// Set some parameters in config buffer to be written to SD card at end of recording
-	setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH);
-	setConfigBlockProp(CONFIG_BLOCK_HEIGHT_POS, HEIGHT);
+	setConfigBlockProp(CONFIG_BLOCK_WIDTH_POS, WIDTH / BINNING);
+	setConfigBlockProp(CONFIG_BLOCK_HEIGHT_POS, HEIGHT / BINNING);
 	setConfigBlockProp(CONFIG_BLOCK_FRAME_RATE_POS, getPropFromHeader(HEADER_FRAME_RATE_POS));
 	setConfigBlockProp(CONFIG_BLOCK_BUFFER_SIZE_POS, BUFFER_BLOCK_LENGTH * SD_BLOCK_SIZE);
 	
@@ -614,35 +625,6 @@ int main(void)
 		if (deviceState & DEVICE_STATE_STOP_RECORDING) {
 			stopRecording();
 		}
-		
-		
-		
-		//thisMonitor0 = gpio_get_pin_level(MONITOR0);
-		//if ((lastMonitor0 != thisMonitor0) && lastMonitor0 == 0) {
-			//
-			//if (gpio_get_pin_level(LED_STATUS) == 1) {
-				//setStatusLED(0);
-			//}
-			//else {
-				//setStatusLED(1);
-			//}
-		//}
-		//lastMonitor0 = thisMonitor0;
-		
-		//setStatusLED(gpio_get_pin_level(MONITOR0));
-		
-		// Used for debugging timers
-		//if (timeMS%1000 == 0 && timeMS > (lastTime + 500)) {
-			//lastTime = timeMS;
-			//if (gpio_get_pin_level(LED_STATUS) == 1) {
-				//setStatusLED(0);
-				//
-			//}
-			//else {
-				//setStatusLED(1);
-			//}
-		//// ----------------------------
-		//}
 	}
 }
 

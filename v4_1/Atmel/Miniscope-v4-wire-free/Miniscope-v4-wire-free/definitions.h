@@ -29,8 +29,8 @@
 // -------------------------------------------
 
 // ----------- Buffer Definitions ------------
-#define BUFFER_BLOCK_LENGTH		50 // can be edited by user to optimize speed
-#define NUM_BUFFERS				7   // can be edited by user to optimize speed
+#define BUFFER_BLOCK_LENGTH		80 // can be edited by user to optimize speed
+#define NUM_BUFFERS				4   // can be edited by user to optimize speed
 #define BLOCK_SIZE_IN_WORDS		128 // (512 bytes) / (4 byte word size)
 
 // Buffer Header position definitions
@@ -87,7 +87,7 @@
 #define FRAME_RATE					10
 #define WIDTH						608
 #define HEIGHT						608
-#define BINNING						1
+#define BINNING						2
 
 #define NUM_PIXELS					((WIDTH * HEIGHT) / (BINNING * BINNING))
 

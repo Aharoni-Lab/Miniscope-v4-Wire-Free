@@ -147,6 +147,15 @@ int32_t _dma_set_source_address(const uint8_t channel, const void *const src)
 	return ERR_NONE;
 }
 
+int32_t _dma_set_BTCTRL(const uint8_t channel, uint32_t src)
+// Added by DAharoni 
+{
+	DMAC_CRITICAL_SECTION_ENTER();
+	_descriptor_section[channel].BTCTRL.reg = src;
+	DMAC_CRITICAL_SECTION_LEAVE();
+	return ERR_NONE;
+}
+
 int32_t _dma_set_DESCADDR(const uint8_t channel, uint32_t src)
 // Added by DAharoni 
 {
@@ -155,6 +164,13 @@ int32_t _dma_set_DESCADDR(const uint8_t channel, uint32_t src)
 	DMAC_CRITICAL_SECTION_LEAVE();
 	return ERR_NONE;
 }
+
+uint32_t _dma_get_DESCADDR(const uint8_t channel)
+// Added by DAharoni
+{
+	return _write_back_section[channel].DESCADDR.reg;
+}
+
 uint16_t _dma_get_WRB_data(uint8_t channel)
 // Added by DAharoni to get beat transfer count after disabling DMA transfer
 {

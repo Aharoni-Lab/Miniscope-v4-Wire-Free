@@ -232,7 +232,7 @@ void RequiredUploads() {// Reserved register settings uploads
 	//spi_BB_Write(130, 0x0001); // Handles phase of pixel clock changed from 0x0001 to 0x0015
 
 	// Test Pattern
-	//spi_BB_Write(144,0x0003);
+	spi_BB_Write(144,0x0003);
 
 	spi_BB_Write(130, 0x0015);
 	spi_BB_Write(192, 0x0801); // Monitor select function. Sets subsampling too
