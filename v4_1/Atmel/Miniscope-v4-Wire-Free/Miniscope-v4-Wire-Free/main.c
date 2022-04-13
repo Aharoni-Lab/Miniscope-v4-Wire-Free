@@ -60,6 +60,7 @@ volatile uint16_t regValue[2];
 volatile uint32_t tempPCC[4];
 volatile uint32_t tempHeader[100][4];
 volatile uint32_t tempCount = 0;
+volatile uint32_t tempTimestamp[100];
 // --------------------------------------
 
 // ----------- FUNCTIONS ----------------
@@ -432,6 +433,8 @@ void recording()
 			bufferToWrite[BUFFER_HEADER_DROPPED_BUFFER_COUNT_POS] = droppedBufferCount;
 			bufferToWrite[BUFFER_HEADER_WRITE_TIMESTAMP_POS] = getCurrentTimeMS() - startTimeMS;
 			
+			tempTimestamp[(writeBufferCount + droppedBufferCount) % 100] = getCurrentTimeMS() - startTimeMS;
+			
 			if (numBlocks < initBlocksRemaining) {
 				// There are enough init blocks for this write
 				if (sd_mmc_start_write_blocks(bufferToWrite, numBlocks) != SD_MMC_OK)
@@ -579,6 +582,13 @@ int main(void)
 	else
 		deviceState |= DEVICE_STATE_ERROR;
 	
+	// Give capabilities info of sd card
+	tempPCC[0] = SDHC0->CA0R.reg;
+	tempPCC[1] = SDHC0->CA1R.reg;
+	tempPCC[2] = SDHC0->HC1R.reg;
+	
+	
+	
 	// Setup Image Sensor
 	// TODO: Work on minimizing power draw
 	// Trigger pin gets init'ed as output low and shouldn't need to be adjusted
@@ -643,6 +653,8 @@ int main(void)
 		}
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
+			//tempPCC[2] = SDHC0->HC1R.reg;
+			
 			//tempPCC[0] = PCC->MR.reg;
 			//tempPCC[1] = PCC->ISR.reg;
 			//tempPCC[2] = PCC->RHR.reg;

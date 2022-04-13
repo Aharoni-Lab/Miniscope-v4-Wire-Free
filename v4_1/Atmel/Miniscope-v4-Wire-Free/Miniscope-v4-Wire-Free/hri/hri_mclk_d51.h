@@ -2466,7 +2466,8 @@ static inline void hri_mclk_toggle_APBCMASK_TCC3_bit(const void *const hw)
 	MCLK_CRITICAL_SECTION_LEAVE();
 }
 
-static inline void hri_mclk_set_APBCMASK_TC4_bit(const void *const hw)
+static inline void hri_mclk_set_APBCMASK_TC
+(const void *const hw)
 {
 	MCLK_CRITICAL_SECTION_ENTER();
 	((Mclk *)hw)->APBCMASK.reg |= MCLK_APBCMASK_TC4;

@@ -607,7 +607,8 @@ static inline void hri_pac_clear_INTFLAGC_TCC3_bit(const void *const hw)
 	((Pac *)hw)->INTFLAGC.reg = PAC_INTFLAGC_TCC3;
 }
 
-static inline bool hri_pac_get_INTFLAGC_TC4_bit(const void *const hw)
+static inline bool hri_pac_get_INTFLAGC_TC
+(const void *const hw)
 {
 	return (((Pac *)hw)->INTFLAGC.reg & PAC_INTFLAGC_TC4) >> PAC_INTFLAGC_TC4_Pos;
 }

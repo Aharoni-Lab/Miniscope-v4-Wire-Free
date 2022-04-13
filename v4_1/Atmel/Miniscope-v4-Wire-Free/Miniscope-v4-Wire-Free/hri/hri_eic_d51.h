@@ -887,7 +887,8 @@ static inline void hri_eic_toggle_CONFIG_FILTEN3_bit(const void *const hw, uint8
 	EIC_CRITICAL_SECTION_LEAVE();
 }
 
-static inline void hri_eic_set_CONFIG_FILTEN4_bit(const void *const hw, uint8_t index)
+static inline void hri_eic_set_CONFIG_FILTEN
+(const void *const hw, uint8_t index)
 {
 	EIC_CRITICAL_SECTION_ENTER();
 	((Eic *)hw)->CONFIG[index].reg |= EIC_CONFIG_FILTEN4;

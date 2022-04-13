@@ -29,8 +29,8 @@
 // -------------------------------------------
 
 // ----------- Buffer Definitions ------------
-#define BUFFER_BLOCK_LENGTH		80 // can be edited by user to optimize speed
-#define NUM_BUFFERS				4   // can be edited by user to optimize speed
+#define BUFFER_BLOCK_LENGTH		40 // can be edited by user to optimize speed
+#define NUM_BUFFERS				8   // can be edited by user to optimize speed
 #define BLOCK_SIZE_IN_WORDS		128 // (512 bytes) / (4 byte word size)
 
 // Buffer Header position definitions
@@ -61,7 +61,7 @@
 // -------------------------------------------
 // -------------- SD Definitions -------------
 #define STARTING_BLOCK				1024
-#define NB_BUFFER_WRITES_PER_CHUNK	100 // Can be edited by user to optimize speed
+#define NB_BUFFER_WRITES_PER_CHUNK	20 // Can be edited by user to optimize speed
  
  
 #define HEADER_BLOCK				STARTING_BLOCK - 2

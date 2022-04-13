@@ -7,7 +7,7 @@
 // <q> Enable the SDIO support
 // <id> conf_sdio_support
 #ifndef CONF_SDIO_SUPPORT
-#define CONF_SDIO_SUPPORT 1
+#define CONF_SDIO_SUPPORT 0 // Changed by DAharoni as we don't need SDIO support
 #endif
 
 // <q> Enable the MMC card support
