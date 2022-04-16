@@ -58,6 +58,11 @@ void python480SetFPS(uint32_t value)
 	case (15):
 		spi_BB_Write(0xC9, 6667);
 		break;
+	case (20):
+		spi_BB_Write(0xC9, 5000);
+		break;
+	default:
+		break;
 	}
 }
 

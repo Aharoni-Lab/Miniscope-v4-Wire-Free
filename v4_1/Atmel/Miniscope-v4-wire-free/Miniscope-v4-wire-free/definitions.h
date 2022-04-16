@@ -61,6 +61,7 @@
 // -------------------------------------------
 // -------------- SD Definitions -------------
 #define STARTING_BLOCK				1024
+// This is only used in non-DMA operation
 #define NB_BUFFER_WRITES_PER_CHUNK	20 // Can be edited by user to optimize speed
  
  
@@ -91,7 +92,7 @@
 // -------------------------------------------
  
 // ------- Image Sensor Definitions ----------
-#define FRAME_RATE					10
+#define FRAME_RATE					20
 #define WIDTH						608
 #define HEIGHT						608
 #define BINNING						2

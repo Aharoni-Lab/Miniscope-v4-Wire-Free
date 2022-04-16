@@ -652,7 +652,7 @@ int main(void)
 	*/
 	
 	python480SetGain(1);
-	python480SetFPS(10);
+	python480SetFPS(FRAME_RATE);
 	
 	// Set some parameters in config buffer to be written to SD card at end of recording
 	// TODO: Add additional info in the config block to cover everything needed for offline processing
