@@ -40,7 +40,7 @@
 static void _mci_reset(const void *const hw);
 static void _mci_set_speed(const void *const hw, uint32_t speed, uint8_t prog_clock_mode);
 static bool _mci_wait_busy(const void *const hw);
-static bool _mci_send_cmd_execute(const void *const hw, uint32_t cmdr, uint32_t cmd, uint32_t arg);
+
 
 /**
  * \brief Reset the SDHC interface
@@ -147,7 +147,7 @@ static bool _mci_wait_busy(const void *const hw)
  *
  * \return true if success, otherwise false
  */
-static bool _mci_send_cmd_execute(const void *const hw, uint32_t cmdr, uint32_t cmd, uint32_t arg)
+bool _mci_send_cmd_execute(const void *const hw, uint32_t cmdr, uint32_t cmd, uint32_t arg)
 {
 	uint32_t sr;
 	ASSERT(hw);
@@ -428,6 +428,9 @@ bool _mci_sync_adtc_start(struct _mci_sync_device *const mci_dev, uint32_t cmd, 
 	} else {
 		return false;
 	}
+	
+	// NOTE: maybe auto CMD12 needs to be set to 1 in the TMR reg. It looks like the MCU is already generating an auto 12 command
+	// but not sure how as this bit doesn't seem to be set in TMR. DAharoni
 	hri_sdhc_write_TMR_reg(hw, tmr);
 	hri_sdhc_write_BSR_reg(hw, SDHC_BSR_BLOCKSIZE(block_size) | SDHC_BSR_BOUNDARY_4K);
 	hri_sdhc_write_BCR_reg(hw, SDHC_BCR_BCNT(nb_block));

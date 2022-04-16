@@ -205,6 +205,13 @@ sd_mmc_err_t sd_mmc_start_read_blocks(void *dest, uint16_t nb_block);
  */
 sd_mmc_err_t sd_mmc_wait_end_of_read_blocks(bool abort);
 
+// Added by DAharoni.
+// This should handling 1 multiblock ADMA transfer
+sd_mmc_err_t sd_mmc_write_with_ADMA(uint8_t slot, uint32_t start, uint32_t *descAdd, uint16_t nb_block);
+
+//Added by DAharoni
+sd_mmc_err_t sd_mmc_wait_end_of_ADMA_write(bool abort);
+
 /**
  * \brief Initialize the write blocks of data
  *

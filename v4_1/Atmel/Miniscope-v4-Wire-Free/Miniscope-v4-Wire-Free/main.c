@@ -12,6 +12,8 @@
 
 //#define DEBUG
 
+#define ADMA_ENABLE
+
 // ------- SET WIRE-FREE DEVICE TYPE ----
 #define MINISCOPE_V4_WF
 // --------------------------------------
@@ -32,6 +34,9 @@ volatile uint32_t deviceState = DEVICE_STATE_IDLE;
 
 COMPILER_ALIGNED(16) // Taken from hpl_dmac.c but I think this could be '8' since descriptors need to be 64bit aligned from data sheet
 volatile DmacDescriptor linkedList[NUM_BUFFERS];
+
+// Probably should turn this into a struct to be more easily understandable
+volatile uint64_t SDTransferDescriptor; // I think we will only use 1 of these for now. Each descriptor is 64bits long 
 
 volatile uint32_t frameNum = 0;
 volatile uint32_t bufferCount = 0;
@@ -68,6 +73,8 @@ uint8_t loadSDCardHeader(void);
 uint32_t getPropFromHeader(uint8_t headerPos);
 void setConfigBlockProp(uint8_t position, uint32_t value);
 void setBufferHeader(uint32_t dataWordLength);
+
+void setSDDescriptor(uint32_t *address, uint16_t length, uint8_t attribute);
 
 void imageSensorInit(void);
 void linkedListInit(void);
@@ -131,6 +138,16 @@ void setBufferHeader(uint32_t dataWordLength) {
 	// TODO: Put the correct value for data length. This will change if it is a partially filled buffer
 	// UBLEN in XDMAC_CUBC gets decremented by MBSIZE or CSIZE for each memory or chunk transfer. We can calculate from this
 	dataBuffer[numBuffer][BUFFER_HEADER_DATA_LENGTH_POS] = dataWordLength * 4; // In bytes
+}
+
+void setSDDescriptor(uint32_t *address, uint16_t length, uint8_t attribute)
+// address holds the pointer location to the front of a data buffer
+// Length is in bytes
+// attribute holds the lower 6 bits of the descriptor table
+{
+	uint64_t temp = address;
+	temp = temp<<32;
+	SDTransferDescriptor = (temp)|attribute|SD_DESCRIPTOR_LENGTH(length);
 }
 
 static void millisecondTimer_cb(const struct timer_task *const timer_task)
@@ -357,8 +374,10 @@ void startRecording()
 	framesToDrop = 0;
 	
 	// This gets the next set of blocks ready to be written into
+	#ifndef ADMA_ENABLE
 	sd_mmc_init_write_blocks(0, currentBlock, BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK); 
 	initBlocksRemaining = BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK;
+	#endif // not ADMA_ENABLE
 		
 	startTimeMS = getCurrentTimeMS();
 	
@@ -375,6 +394,8 @@ void stopRecording()
 	deviceState |= DEVICE_STATE_IDLE;
 	
 	// Must be a better way of doing this. This finishes up the remaining init blocks so we can then write to the config block
+	
+	#ifndef ADMA_ENABLE
 	while (initBlocksRemaining > BUFFER_BLOCK_LENGTH) {
 		if (sd_mmc_start_write_blocks(dataBuffer[0], BUFFER_BLOCK_LENGTH) != SD_MMC_OK)
 			deviceState |= DEVICE_STATE_SDCARD_WRITE_ERROR;
@@ -387,6 +408,7 @@ void stopRecording()
 		initBlocksRemaining = 0;			
 		sd_mmc_wait_end_of_write_blocks(false);
 	}
+	#endif // not ADMA_ENABLE
 				
 	//sd_mmc_wait_end_of_write_blocks(true); // Abort any initalized write blocks
 	// TODO: Change status LEDs
@@ -397,6 +419,8 @@ void stopRecording()
 	// TODO: Add more meta data to this (frames dropped?, blocks written?, overall time, data starting block?)!
 	setConfigBlockProp(CONFIG_BLOCK_NUM_BUFFERS_RECORDED_POS, writeBufferCount);
 	setConfigBlockProp(CONFIG_BLOCK_NUM_BUFFERS_DROPPED_POS, droppedBufferCount);
+	
+	// Currently not using ADMA. Might consider switching everything over to ADMA to be consistent
 	sd_mmc_init_write_blocks(0,CONFIG_BLOCK, 1);
 	sd_mmc_start_write_blocks(configBlock, 1);
 	sd_mmc_wait_end_of_write_blocks(false);
@@ -435,6 +459,21 @@ void recording()
 			
 			tempTimestamp[(writeBufferCount + droppedBufferCount) % 100] = getCurrentTimeMS() - startTimeMS;
 			
+			#ifdef ADMA_ENABLE
+			// Sets up ADMA descriptor for writing 1 full buffer
+			setSDDescriptor(bufferToWrite, numBlocks * SD_BLOCK_SIZE, 
+							SD_DESCRIPTOR_ATT_TRANSFER|SD_DESCRIPTOR_ATT_VALID|SD_DESCRIPTOR_ATT_END);
+			
+			
+			sd_mmc_write_with_ADMA(0, currentBlock, (uint32_t)&SDTransferDescriptor, numBlocks);
+			
+			// 
+			sd_mmc_wait_end_of_ADMA_write(false);
+			currentBlock += numBlocks;
+			
+			
+			
+			#else // not ADMA_ENABLE
 			if (numBlocks < initBlocksRemaining) {
 				// There are enough init blocks for this write
 				if (sd_mmc_start_write_blocks(bufferToWrite, numBlocks) != SD_MMC_OK)
@@ -479,11 +518,13 @@ void recording()
 				initBlocksRemaining = (BUFFER_BLOCK_LENGTH * NB_BUFFER_WRITES_PER_CHUNK) - (numBlocks - initBlocksRemaining);
 				
 			}
+			#endif // not ADMA_ENABLE
+			
 			writeBufferCount++;	
 		}
 		
-		if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
-		//if (((getCurrentTimeMS() - startTimeMS) >= 10*1000)){
+		//if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
+		if (((getCurrentTimeMS() - startTimeMS) >= 10*1000)){
 
 			// Recording time has elapsed
 			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			

@@ -133,6 +133,12 @@ void mci_sync_get_response_128(struct mci_sync_desc *mci, uint8_t *response)
 	_mci_sync_get_response_128(&mci->device, response);
 }
 
+//Added by DAharoni
+bool mci_send_cmd_execute(Sdhc *mci, uint32_t cmdr, uint32_t cmd, uint32_t arg)
+{
+	return _mci_send_cmd_execute(mci, cmdr, cmd, arg);
+}
+
 /**
  *  \brief Send an ADTC command on the selected slot
  *         An ADTC (Addressed Data Transfer Commands)

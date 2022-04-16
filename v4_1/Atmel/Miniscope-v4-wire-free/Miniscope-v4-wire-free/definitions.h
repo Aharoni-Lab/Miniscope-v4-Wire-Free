@@ -69,6 +69,13 @@
 
 #define SD_BLOCK_SIZE					512 //Number of bytes in a single block (sector)
 
+#define SD_DESCRIPTOR_ATT_VALID			1
+#define SD_DESCRIPTOR_ATT_END			1<<1
+#define SD_DESCRIPTOR_ATT_Int			1<<2
+#define SD_DESCRIPTOR_LENGTH(val)		(val<<16)
+#define SD_DESCRIPTOR_ATT_TRANSFER		(1<<5)
+#define SD_DESCRIPTOR_ATT_LINK			(3<<4)	
+
 // Write Key Protection Values
 #define WRITE_KEY0					0x0D7CBA17
 #define WRITE_KEY1					0x0D7CBA17

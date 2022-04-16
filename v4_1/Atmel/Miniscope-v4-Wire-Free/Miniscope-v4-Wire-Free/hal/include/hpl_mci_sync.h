@@ -77,6 +77,9 @@ struct _mci_sync_device {
 	uint16_t mci_sync_nb_block;
 };
 
+// Moved by DAharoni after removing static type
+bool _mci_send_cmd_execute(const void *const hw, uint32_t cmdr, uint32_t cmd, uint32_t arg);
+
 /**
  *  \brief Initialize MCI low level driver.
  *

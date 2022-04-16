@@ -160,6 +160,9 @@ void mci_sync_get_response_128(struct mci_sync_desc *mci, uint8_t *response);
 bool mci_sync_adtc_start(struct mci_sync_desc *mci, uint32_t cmd, uint32_t arg, uint16_t block_size, uint16_t nb_block,
                          bool access_block);
 
+//Added by DAharoni
+bool mci_send_cmd_execute(Sdhc *mci, uint32_t cmdr, uint32_t cmd, uint32_t arg);
+
 /**
  *  \brief Send a command to stop an ADTC command on the selected slot.
  *
