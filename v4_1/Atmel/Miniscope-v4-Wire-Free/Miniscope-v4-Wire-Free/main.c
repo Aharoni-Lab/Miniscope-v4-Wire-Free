@@ -467,7 +467,7 @@ void recording()
 			
 			sd_mmc_write_with_ADMA(0, currentBlock, (uint32_t)&SDTransferDescriptor, numBlocks);
 			
-			// 
+			
 			sd_mmc_wait_end_of_ADMA_write(false);
 			currentBlock += numBlocks;
 			
@@ -628,6 +628,8 @@ int main(void)
 	tempPCC[1] = SDHC0->CA1R.reg;
 	tempPCC[2] = SDHC0->HC1R.reg;
 	
+	// Select ADMA as the DMA to use. This should be moved to where other bits of HC1R get set.
+	SDHC0->HC1R.reg |= 1<<4;
 	
 	
 	// Setup Image Sensor
