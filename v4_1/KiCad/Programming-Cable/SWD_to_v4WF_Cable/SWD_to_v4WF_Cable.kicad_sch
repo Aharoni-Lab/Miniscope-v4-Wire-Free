@@ -2,7 +2,13 @@
 
   (uuid e63e39d7-6ac0-4ffd-8aa3-1841a4541b55)
 
-  (paper "A4")
+  (paper "A")
+
+  (title_block
+    (date "2022-08-31")
+    (rev "0.1")
+    (company "Aharoni Lab")
+  )
 
   (lib_symbols
     (symbol "Connector_Generic:Conn_01x05" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
@@ -285,8 +291,8 @@
   )
 
   (no_connect (at 213.995 75.819) (uuid d98f2240-2e34-4080-9767-e3208f9ebcae))
-  (no_connect (at 213.995 78.359) (uuid d98f2240-2e34-4080-9767-e3208f9ebcae))
-  (no_connect (at 201.295 78.359) (uuid d98f2240-2e34-4080-9767-e3208f9ebcae))
+  (no_connect (at 213.995 78.359) (uuid d98f2240-2e34-4080-9767-e3208f9ebcaf))
+  (no_connect (at 201.295 78.359) (uuid d98f2240-2e34-4080-9767-e3208f9ebcb0))
 
   (polyline (pts (xy 175.768 57.785) (xy 235.077 57.785))
     (stroke (width 0) (type default) (color 0 0 0 0))
@@ -407,7 +413,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 43842bc5-eb5d-4b1b-b855-863d38ab71ed)
   )
-  (label "nRESET" (at 106.807 75.184 0)
+  (label "nRST" (at 106.807 75.184 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 48311f5e-0e8c-42c4-b39d-9ff005975267)
   )
@@ -419,7 +425,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid b03e4849-8256-41e0-845f-780dcce71f55)
   )
-  (label "nRESET" (at 219.837 80.899 0)
+  (label "nRST" (at 219.837 80.899 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid e1b91ddc-33d3-4d4d-8c25-d116e5ba43e0)
   )
