@@ -524,7 +524,7 @@ void recording()
 		}
 		
 		//if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
-		if (((getCurrentTimeMS() - startTimeMS) >= 10*1000)){
+		if (((getCurrentTimeMS() - startTimeMS) >= 10*2000000)){
 
 			// Recording time has elapsed
 			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
@@ -697,7 +697,7 @@ int main(void)
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
 			//tempPCC[2] = SDHC0->HC1R.reg;
-			
+			setEWL(0x33);
 			//tempPCC[0] = PCC->MR.reg;
 			//tempPCC[1] = PCC->ISR.reg;
 			//tempPCC[2] = PCC->RHR.reg;

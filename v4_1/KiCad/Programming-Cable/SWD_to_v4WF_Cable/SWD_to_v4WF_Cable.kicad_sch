@@ -439,7 +439,7 @@
     (property "Value" "Conn_01x05" (id 1) (at 119.761 71.8062 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" (id 2) (at 117.729 70.104 0)
+    (property "Footprint" "Connector_PinSocket_1.00mm:PinSocket_1x05_P1.00mm_Vertical" (id 2) (at 117.729 70.104 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 117.729 70.104 0)
@@ -565,7 +565,7 @@
       (reference "#PWR04") (unit 1) (value "GND") (footprint "")
     )
     (path "/1848fb17-5179-40b4-bf82-55e641590875"
-      (reference "J1") (unit 1) (value "Conn_01x05") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical")
+      (reference "J1") (unit 1) (value "Conn_01x05") (footprint "Connector_PinSocket_1.00mm:PinSocket_1x05_P1.00mm_Vertical")
     )
     (path "/4632212f-13ce-4392-bc68-ccb9ba333770"
       (reference "J2") (unit 1) (value "Conn_02x05_Odd_Even") (footprint "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Horizontal")
