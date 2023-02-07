@@ -549,14 +549,17 @@ void recording()
 			//}
 		//}		
 		
-		//if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
-			//10*2000000
-		if (((getCurrentTimeMS() - startTimeMS) >= 1000*30000))
-		{
-
-			// Recording time has elapsed
-			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
+		if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
+			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording	
 		}
+			
+		// Code used during testing to record for a fixed, hard-coded lengths 	
+		//if (((getCurrentTimeMS() - startTimeMS) >= 1000*30000))
+		//{
+
+			//// Recording time has elapsed
+			//deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
+		//}
 		
 	}
 	
@@ -669,13 +672,13 @@ int main(void)
 	python480Init();
 	Enable_Subsample();
 	
-	/*
+	
 	// Setup rest of Miniscope
 	setEWL(getPropFromHeader(HEADER_EWL_POS));
 	setExcitationLED(getPropFromHeader(HEADER_LED_POS), false);	
 	python480SetGain(getPropFromHeader(HEADER_GAIN_POS));
 	python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
-	*/
+	
 	
 	python480SetGain(1);
 	python480SetFPS(FRAME_RATE);
