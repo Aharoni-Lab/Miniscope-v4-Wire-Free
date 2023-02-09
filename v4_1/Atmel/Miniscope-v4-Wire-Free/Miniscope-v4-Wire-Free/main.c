@@ -66,6 +66,7 @@ volatile uint32_t tempPCC[4];
 volatile uint32_t tempHeader[100][4];
 volatile uint32_t tempCount = 0;
 volatile uint32_t tempTimestamp[100];
+volatile uint8_t timerIndex = 0;
 // --------------------------------------
 
 // ----------- FUNCTIONS ----------------
@@ -168,9 +169,10 @@ static void checkBattVoltage_cb(const struct timer_task *const timer_task)
 	
 	// Raise issue if voltage is under 3.4V
 	// 3.4V = 158
-	if (adcValue < 158) {
+	if (adcValue < 148) {
 		// Low voltage problem
 		deviceState |= DEVICE_STATE_LOW_VOLTAGE;
+		deviceState |= DEVICE_STATE_STOP_RECORDING;
 	}
 }
 
@@ -426,6 +428,7 @@ void stopRecording()
 	sd_mmc_wait_end_of_write_blocks(false);
 	
 	setExcitationLED(0, false);
+	setEWL(0x00);	//Sets the EWL to standby mode
 	
 }
 
@@ -522,14 +525,41 @@ void recording()
 			
 			writeBufferCount++;	
 		}
+		//Code for demonstration
+		//I jump through three planes using the EWL and different LED values
+		//if (((getCurrentTimeMS() - startTimeMS) < 6*1000*10
+		//)){
+			//if((getCurrentTimeMS() - startTimeMS)<5*1000*2.5)
+			//{
+				//setExcitationLED(1,1);
+				//setEWL(0x20);
+			//}
+			////num >= lower && num <= upper
+			////else if(2*1000*2.5<=(getCurrentTimeMS() - startTimeMS)<2*1000*5)
+			//else if((getCurrentTimeMS() - startTimeMS)>=5*1000*2.5 && (getCurrentTimeMS() - startTimeMS)<=5*1000*5)
+			//{
+				////setExcitationLED(5,1);
+				//setExcitationLED(2,1);
+				//setEWL(0x50);
+			//}
+			//else if((getCurrentTimeMS() - startTimeMS)>5*1000*5)
+			//{
+				//setExcitationLED(4,1);
+				//setEWL(0xFE);
+			//}
+		//}		
 		
-		//if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
-		if (((getCurrentTimeMS() - startTimeMS) >= 10*1000)){
-
-			// Recording time has elapsed
-			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
-			
+		if (((getCurrentTimeMS() - startTimeMS) >= getPropFromHeader(HEADER_RECORD_LENGTH_POS) * 1000) & (getPropFromHeader(HEADER_RECORD_LENGTH_POS) != 0)){
+			deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording	
 		}
+			
+		// Code used during testing to record for a fixed, hard-coded lengths 	
+		//if (((getCurrentTimeMS() - startTimeMS) >= 1000*30000))
+		//{
+
+			//// Recording time has elapsed
+			//deviceState |= DEVICE_STATE_STOP_RECORDING; // Sets the flag to want to end current recording			
+		//}
 		
 	}
 	
@@ -586,10 +616,9 @@ int main(void)
 	
 	setStatusLED(1);	
 	
-	
-	
 	I2C_BB_init();
-	
+	setEWL(0xFE);
+	setExcitationLED(2,1);
 	
 	// Setup a timer to count in milliseconds
 	TIMER_0_task1.interval = 1; // Need to check this value
@@ -618,10 +647,10 @@ int main(void)
 	
 	// Wait for SD Card and then load config from it
 	while (SD_MMC_OK != sd_mmc_check(0)) {}
-	if (loadSDCardHeader() == MS_SUCCESS)
-		deviceState |= DEVICE_STATE_CONFIG_LOADED;
-	else
-		deviceState |= DEVICE_STATE_ERROR;
+		if (loadSDCardHeader() == MS_SUCCESS)
+			deviceState |= DEVICE_STATE_CONFIG_LOADED;
+		else
+			deviceState |= DEVICE_STATE_ERROR;
 	
 	// Give capabilities info of sd card
 	tempPCC[0] = SDHC0->CA0R.reg;
@@ -643,13 +672,13 @@ int main(void)
 	python480Init();
 	Enable_Subsample();
 	
-	/*
+	
 	// Setup rest of Miniscope
 	setEWL(getPropFromHeader(HEADER_EWL_POS));
 	setExcitationLED(getPropFromHeader(HEADER_LED_POS), false);	
 	python480SetGain(getPropFromHeader(HEADER_GAIN_POS));
 	python480SetFPS(getPropFromHeader(HEADER_FRAME_RATE_POS));
-	*/
+	
 	
 	python480SetGain(1);
 	python480SetFPS(FRAME_RATE);
@@ -669,7 +698,7 @@ int main(void)
 	
 	
 	// Just a debugging point for turning on excitation LED
-	setExcitationLED(2,1);
+	//setExcitationLED(2,1);
 	
 	//setEWL(0x33);  //test value. Should we map the 0x01 to 0xFF as a 0-100 scale?
 	
@@ -697,10 +726,10 @@ int main(void)
 		if (deviceState & DEVICE_STATE_RECORDING) {
 			recording();
 			//tempPCC[2] = SDHC0->HC1R.reg;
-			
+			//setEWL(0xFF);
 			//tempPCC[0] = PCC->MR.reg;
 			//tempPCC[1] = PCC->ISR.reg;
-			//tempPCC[2] = PCC->RHR.reg;
+			//tempPCC[2] = PCC->RHR.reg;	
 		}
 		if (deviceState & DEVICE_STATE_STOP_RECORDING) {
 			stopRecording();
