@@ -7,3 +7,6 @@ The Miniscope v4 Wire-Free is an open-source one photon miniatirized microscope 
 </p>
 
 This microscope is based on the Miniscope v4, sharing the same optical properties with redesigned electronics.
+
+## Miniscope V4 Wire-Free Wiki
+**[Miniscope V4 Wire-Free Wiki](https://wiki.aharoni-lab.com/Wire-free_Miniscope_v4)**
