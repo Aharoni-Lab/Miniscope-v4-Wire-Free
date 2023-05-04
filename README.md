@@ -1,6 +1,6 @@
 # Miniscope-v4-Wire-Free
 
-The Miniscope v4 Wire-Free is an open-source one photon miniatirized microscope for neural recordings in freely behaving animals.  
+The Miniscope v4 Wire-Free is an open-source one photon miniaturized microscope for neural recordings in freely behaving animals.  
 
 <p align="center">
   <img width="900" src="https://github.com/fnsangiul/Miniscope-v4-Wire-Free/blob/master/imgs/Render.png">
