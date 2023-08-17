@@ -1,50 +1,15 @@
-11172179822197
-.LED
-APHF1608SEEQBDZGKC
-
-
+3352323108882
+Audio_Module
+Reverb_BTDR-1H
+Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
+audio belton reverb
 0
-4
-4
-.LED
-LED_4_P138_270X320X110L50X90N
-Chip Array, 2 Side Concave, 1.38 mm pitch; 4 pin, 2.70 mm L X 3.20 mm W X 1.10 mm H body
-
+7
+7
+Audio_Module
+Reverb_BTDR-1V
+Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
+audio belton reverb
 0
-4
-4
-.LED
-LED_LXZ1_PB01_L
-LED, Chip; 1.30 mm L X 1.70 mm W X 0.76 mm H body
-470 nm Blue LED
-0
-2
-2
-.LED
-LED_LXZ1_PR01_L
-LED, Chip; 1.30 mm L X 1.70 mm W X 0.76 mm H body
-
-0
-2
-2
-.LED
-LED_LXZ1_PX01
-LED, Chip; 1.30 mm L X 1.70 mm W X 0.76 mm H body
-Lime LED
-0
-2
-2
-.LED
-LED_SC80X160X65L40L
-LED, Side Lead; 2 pin, 0.80 mm L X 1.60 mm W X 0.65 mm H body
-
-0
-2
-2
-.LED
-LTST-C235KGKRKT
-Oscillator, Corner Concave; 3.20 mm L X 1.60 mm W X 1.10 mm H body
-
-0
-4
-4
+7
+7
