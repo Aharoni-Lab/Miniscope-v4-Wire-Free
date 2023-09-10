@@ -1,0 +1,3194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\fsang\Documents\Miniscope-v4-Wire-Free\Miniscope-v4-Wire-Free-KiCad\KiCad\Miniscope-v4-Wire-Free\Miniscope-v4-Wire-Free.kicad_sch</source>
+    <date>7/5/2023 5:29:25 PM</date>
+    <tool>Eeschema (7.0.0)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Miniscope-v4-Wire-Free</title>
+        <company>UCLA</company>
+        <rev/>
+        <date>2021-05-14</date>
+        <source>Miniscope-v4-Wire-Free.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060da6e2b</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060d96507</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>10pF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10PF 50V C0G/NP0 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM0335C1H100FA01J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10PF 50V C0G/NP0 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM0335C1H100FA01J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060c86ee5</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>10pF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10PF 50V C0G/NP0 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM0335C1H100FA01J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10PF 50V C0G/NP0 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM0335C1H100FA01J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060c8769a</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>2.2uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 2.2UF 10V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61A225KE47D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 2.2UF 10V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61A225KE47D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060d9696a</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060d1eca8</tstamps>
+    </comp>
+    <comp ref="C7">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060d1f079</tstamps>
+    </comp>
+    <comp ref="C9">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060fd05c0</tstamps>
+    </comp>
+    <comp ref="C10">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060fcf9f4</tstamps>
+    </comp>
+    <comp ref="C11">
+      <value>2.2uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 2.2UF 10V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61A225KE47D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 2.2UF 10V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61A225KE47D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061027047</tstamps>
+    </comp>
+    <comp ref="C12">
+      <value>2.2uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 2.2UF 10V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61A225KE47D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 2.2UF 10V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61A225KE47D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060fba87b</tstamps>
+    </comp>
+    <comp ref="C13">
+      <value>2.2uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 2.2UF 10V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61A225KE47D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 2.2UF 10V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61A225KE47D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006107ee0a</tstamps>
+    </comp>
+    <comp ref="C14">
+      <value>1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 1UF 10V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61A105ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 1UF 10V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61A105ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000611cb699</tstamps>
+    </comp>
+    <comp ref="C15">
+      <value>2.2uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 2.2UF 10V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61A225KE47D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 2.2UF 10V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61A225KE47D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000611013cb</tstamps>
+    </comp>
+    <comp ref="C16">
+      <value>4.7nF 100V</value>
+      <footprint>.Capacitor:C_0603_1608Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 4700PF 100V X7R 0603</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GCM188R72A472KA37D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 4700PF 100V X7R 0603"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GCM188R72A472KA37D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060e50e13</tstamps>
+    </comp>
+    <comp ref="C17">
+      <value>4.7uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 4.7UF 6.3V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM035R60J475ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 4.7UF 6.3V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM035R60J475ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006109535f</tstamps>
+    </comp>
+    <comp ref="C18">
+      <value>22pF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 22PF 50V C0G/NP0 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM0335C1H220GA01D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 22PF 50V C0G/NP0 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM0335C1H220GA01D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000618efc76</tstamps>
+    </comp>
+    <comp ref="C19">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061d281fa</tstamps>
+    </comp>
+    <comp ref="C20">
+      <value>22pF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 22PF 50V C0G/NP0 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM0335C1H220GA01D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 22PF 50V C0G/NP0 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM0335C1H220GA01D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000618efc7c</tstamps>
+    </comp>
+    <comp ref="C22">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061d28af7</tstamps>
+    </comp>
+    <comp ref="C23">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061838a3f</tstamps>
+    </comp>
+    <comp ref="C24">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061fd8d43</tstamps>
+    </comp>
+    <comp ref="C25">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061d28c64</tstamps>
+    </comp>
+    <comp ref="C26">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061fd8d49</tstamps>
+    </comp>
+    <comp ref="C27">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006147d067</tstamps>
+    </comp>
+    <comp ref="C28">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061d28f3a</tstamps>
+    </comp>
+    <comp ref="C29">
+      <value>4.7uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 4.7UF 6.3V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM035R60J475ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 4.7UF 6.3V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM035R60J475ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061838a45</tstamps>
+    </comp>
+    <comp ref="C30">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061ab41fd</tstamps>
+    </comp>
+    <comp ref="C35">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061d72e8e</tstamps>
+    </comp>
+    <comp ref="C36">
+      <value>4.7uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 4.7UF 6.3V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM035R60J475ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 4.7UF 6.3V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM035R60J475ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000614e1f0e</tstamps>
+    </comp>
+    <comp ref="C37">
+      <value>1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 1UF 10V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61A105ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 1UF 10V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61A105ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061434016</tstamps>
+    </comp>
+    <comp ref="C38">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006159aaac</tstamps>
+    </comp>
+    <comp ref="C40">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006159afd0</tstamps>
+    </comp>
+    <comp ref="C41">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006159b1ef</tstamps>
+    </comp>
+    <comp ref="C42">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000615d4249</tstamps>
+    </comp>
+    <comp ref="C43">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061652c55</tstamps>
+    </comp>
+    <comp ref="C44">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006159b333</tstamps>
+    </comp>
+    <comp ref="C45">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000615d3de3</tstamps>
+    </comp>
+    <comp ref="C46">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061652c4f</tstamps>
+    </comp>
+    <comp ref="C47">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006159b620</tstamps>
+    </comp>
+    <comp ref="C48">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000615d3a7c</tstamps>
+    </comp>
+    <comp ref="C49">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061652c49</tstamps>
+    </comp>
+    <comp ref="C50">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006159b8bc</tstamps>
+    </comp>
+    <comp ref="C51">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000615d3807</tstamps>
+    </comp>
+    <comp ref="C52">
+      <value>10uF</value>
+      <footprint>.Capacitor:C_0402_1005Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 10UF 6.3V X5R 0402</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM155R60J106ME15D</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 10UF 6.3V X5R 0402"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM155R60J106ME15D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061652c43</tstamps>
+    </comp>
+    <comp ref="C53">
+      <value>0.1uF</value>
+      <footprint>.Capacitor:C_0201_0603Metric_L</footprint>
+      <fields>
+        <field name="Description">CAP CER 0.1UF 25V X5R 0201</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">GRM033R61E104KE14J</field>
+      </fields>
+      <libsource lib=".Device" part="C_Small" description=""/>
+      <property name="Description" value="CAP CER 0.1UF 25V X5R 0201"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="GRM033R61E104KE14J"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000616b2a06</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>LXZ1-PB01</value>
+      <footprint>.LED:LED_LXZ1_PR01_L</footprint>
+      <datasheet>https://www.lumileds.com/uploads/415/DS105-pdf</datasheet>
+      <fields>
+        <field name="Description">LED LUXEON Z BLUE 470NM SMD</field>
+        <field name="Manufacturer_Name">Lumileds</field>
+        <field name="Manufacturer_Part_Number">LXZ1-PB01</field>
+      </fields>
+      <libsource lib=".LED" part="LXZ1-PR01" description=""/>
+      <property name="Description" value="LED LUXEON Z BLUE 470NM SMD"/>
+      <property name="Manufacturer_Name" value="Lumileds"/>
+      <property name="Manufacturer_Part_Number" value="LXZ1-PB01"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000609f2067</tstamps>
+    </comp>
+    <comp ref="D2">
+      <value>LED_Small_ALT</value>
+      <footprint>.LED:LED_SC80X160X65L40L</footprint>
+      <libsource lib=".Device" part="LED_Small_ALT" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060e08dd6</tstamps>
+    </comp>
+    <comp ref="D3">
+      <value>LED_Small_ALT</value>
+      <footprint>.LED:LED_SC80X160X65L40L</footprint>
+      <libsource lib=".Device" part="LED_Small_ALT" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061c50a52</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>0475710001</value>
+      <footprint>.Connector:0475710001</footprint>
+      <datasheet>https://www.molex.com/pdm_docs/sd/475710001_sd.pdf</datasheet>
+      <fields>
+        <field name="Description">CONN MICRO SD CARD PUSH-PULL R/A</field>
+        <field name="Manufacturer_Name">Molex</field>
+        <field name="Manufacturer_Part_Number">0475710001</field>
+      </fields>
+      <libsource lib=".Connector" part="0475710001" description=""/>
+      <property name="Description" value="CONN MICRO SD CARD PUSH-PULL R/A"/>
+      <property name="Manufacturer_Name" value="Molex"/>
+      <property name="Manufacturer_Part_Number" value="0475710001"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000609ee7b5</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>Conn_01x04</value>
+      <footprint>.Connector:1x4_USB</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060a05bfa</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>Conn_01x04</value>
+      <footprint>.Connector:FH19C-4S-0.5SH(10)</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060a06714</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060a0c432</tstamps>
+    </comp>
+    <comp ref="J5">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060a0c89b</tstamps>
+    </comp>
+    <comp ref="J6">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060a0cbf3</tstamps>
+    </comp>
+    <comp ref="J7">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060a0cea1</tstamps>
+    </comp>
+    <comp ref="J8">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000621131f7</tstamps>
+    </comp>
+    <comp ref="J9">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006291916a</tstamps>
+    </comp>
+    <comp ref="J10">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000062919164</tstamps>
+    </comp>
+    <comp ref="J11">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061bb4d5b</tstamps>
+    </comp>
+    <comp ref="J12">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061bb4d61</tstamps>
+    </comp>
+    <comp ref="J14">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f54b2f</tstamps>
+    </comp>
+    <comp ref="J15">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f54f68</tstamps>
+    </comp>
+    <comp ref="J16">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f55185</tstamps>
+    </comp>
+    <comp ref="J17">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f55437</tstamps>
+    </comp>
+    <comp ref="J18">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f55c74</tstamps>
+    </comp>
+    <comp ref="J19">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f55c7a</tstamps>
+    </comp>
+    <comp ref="J20">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f55c80</tstamps>
+    </comp>
+    <comp ref="J21">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f84719</tstamps>
+    </comp>
+    <comp ref="J22">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f84713</tstamps>
+    </comp>
+    <comp ref="J23">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f8470d</tstamps>
+    </comp>
+    <comp ref="J24">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f84707</tstamps>
+    </comp>
+    <comp ref="J25">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f84701</tstamps>
+    </comp>
+    <comp ref="J26">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f846fb</tstamps>
+    </comp>
+    <comp ref="J27">
+      <value>Conn_01x01</value>
+      <footprint>.Connector:Conn_1x1_700_Circular_Pad</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+        <field name="PN">DNL</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x01" description="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="PN" value="DNL"/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060f846f5</tstamps>
+    </comp>
+    <comp ref="L1">
+      <value>10uH</value>
+      <footprint>.Capacitor:C_0805_2012Metric_L</footprint>
+      <fields>
+        <field name="Description">FIXED IND 10UH 300MA 600MOHM SMD</field>
+        <field name="Manufacturer_Name">TDK</field>
+        <field name="Manufacturer_Part_Number">MLZ1608N100LT000</field>
+        <field name="PN">MLZ1608N100LT00</field>
+      </fields>
+      <libsource lib=".Device" part="L_Small" description=""/>
+      <property name="PN" value="MLZ1608N100LT00"/>
+      <property name="Description" value="FIXED IND 10UH 300MA 600MOHM SMD"/>
+      <property name="Manufacturer_Name" value="TDK"/>
+      <property name="Manufacturer_Part_Number" value="MLZ1608N100LT000"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060c85c75</tstamps>
+    </comp>
+    <comp ref="L2">
+      <value>4.7uH</value>
+      <footprint>.Capacitor:C_0805_2012Metric_L</footprint>
+      <fields>
+        <field name="Description">FIXED IND 4.7UH 180MA 300MOHM SM</field>
+        <field name="Manufacturer_Name">Abracon</field>
+        <field name="Manufacturer_Part_Number">ASMCI-0805-4R7M-T</field>
+        <field name="PN">ASMCI-0805-4R7M-T</field>
+      </fields>
+      <libsource lib=".Device" part="L_Small" description=""/>
+      <property name="PN" value="ASMCI-0805-4R7M-T"/>
+      <property name="Description" value="FIXED IND 4.7UH 180MA 300MOHM SM"/>
+      <property name="Manufacturer_Name" value="Abracon"/>
+      <property name="Manufacturer_Part_Number" value="ASMCI-0805-4R7M-T"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060c869ea</tstamps>
+    </comp>
+    <comp ref="L3">
+      <value>BLM18PG471SN1D</value>
+      <footprint>.Inductor:L_0603_1608Metric_L</footprint>
+      <fields>
+        <field name="Description">FERRITE BEAD 470 OHM 0603 1LN</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">BLM18PG471SN1D</field>
+      </fields>
+      <libsource lib=".Device" part="L_Small" description=""/>
+      <property name="Description" value="FERRITE BEAD 470 OHM 0603 1LN"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="BLM18PG471SN1D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061fac951</tstamps>
+    </comp>
+    <comp ref="L4">
+      <value>BLM18PG471SN1D</value>
+      <footprint>.Inductor:L_0603_1608Metric_L</footprint>
+      <fields>
+        <field name="Description">FERRITE BEAD 470 OHM 0603 1LN</field>
+        <field name="Manufacturer_Name">Murata</field>
+        <field name="Manufacturer_Part_Number">BLM18PG471SN1D</field>
+      </fields>
+      <libsource lib=".Device" part="L_Small" description=""/>
+      <property name="Description" value="FERRITE BEAD 470 OHM 0603 1LN"/>
+      <property name="Manufacturer_Name" value="Murata"/>
+      <property name="Manufacturer_Part_Number" value="BLM18PG471SN1D"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000614e0e92</tstamps>
+    </comp>
+    <comp ref="L5">
+      <value>10uH</value>
+      <footprint>.Capacitor:C_0805_2012Metric_L</footprint>
+      <fields>
+        <field name="Description">FIXED IND 10UH 300MA 600MOHM SMD</field>
+        <field name="Manufacturer_Name">TDK</field>
+        <field name="Manufacturer_Part_Number">MLZ1608N100LT000</field>
+        <field name="PN">MLZ1608N100LT00</field>
+      </fields>
+      <libsource lib=".Device" part="L_Small" description=""/>
+      <property name="PN" value="MLZ1608N100LT00"/>
+      <property name="Description" value="FIXED IND 10UH 300MA 600MOHM SMD"/>
+      <property name="Manufacturer_Name" value="TDK"/>
+      <property name="Manufacturer_Part_Number" value="MLZ1608N100LT000"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000617e1d1f</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>NTK3134NT1G</value>
+      <footprint>.Transistor:TRXSOFL3P40_120X120X55L29X21L</footprint>
+      <fields>
+        <field name="Allied Price/Stock">http://www.alliedelec.com/on-semiconductor-ntk3134nt1g/70341343/</field>
+        <field name="Allied_Number">70341343</field>
+        <field name="Description">Power MOSFET</field>
+        <field name="Manufacturer_Name">ON Semiconductor</field>
+        <field name="Manufacturer_Part_Number">NTK3134NT1G</field>
+        <field name="Mouser Part Number">863-NTK3134NT1G</field>
+        <field name="Mouser Price/Stock">https://www.mouser.com/Search/Refine.aspx?Keyword=863-NTK3134NT1G</field>
+        <field name="RS Part Number">7800649P</field>
+        <field name="RS Price/Stock">http://uk.rs-online.com/web/p/products/7800649P</field>
+      </fields>
+      <libsource lib=".Transistor" part="NTK3134NT1G" description=""/>
+      <property name="Description" value="Power MOSFET"/>
+      <property name="Manufacturer_Name" value="ON Semiconductor"/>
+      <property name="Manufacturer_Part_Number" value="NTK3134NT1G"/>
+      <property name="Mouser Part Number" value="863-NTK3134NT1G"/>
+      <property name="Mouser Price/Stock" value="https://www.mouser.com/Search/Refine.aspx?Keyword=863-NTK3134NT1G"/>
+      <property name="RS Part Number" value="7800649P"/>
+      <property name="RS Price/Stock" value="http://uk.rs-online.com/web/p/products/7800649P"/>
+      <property name="Allied_Number" value="70341343"/>
+      <property name="Allied Price/Stock" value="http://www.alliedelec.com/on-semiconductor-ntk3134nt1g/70341343/"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061143fbe</tstamps>
+    </comp>
+    <comp ref="Q2">
+      <value>MMBT3904LP-7B</value>
+      <footprint>.Transistor:TRXDFN3_101X61X53L25X15N</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds31835.pdf</datasheet>
+      <fields>
+        <field name="Description">TRANS NPN 40V 0.2A DFN1006-3</field>
+        <field name="Manufacturer_Name">Diodes Incorporated</field>
+        <field name="Manufacturer_Part_Number">MMBT3904LP-7B</field>
+      </fields>
+      <libsource lib=".Transistor" part="MMBT3904LP-7B" description=""/>
+      <property name="Description" value="TRANS NPN 40V 0.2A DFN1006-3"/>
+      <property name="Manufacturer_Name" value="Diodes Incorporated"/>
+      <property name="Manufacturer_Part_Number" value="MMBT3904LP-7B"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000624e582c</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>25K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 24.9K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW020124K9FNED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 24.9K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW020124K9FNED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060c5a40c</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>R_Small_US</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060df8071</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>1.25M</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES 1.27M OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW02011M27FNED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES 1.27M OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW02011M27FNED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060cd08d5</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>2.05M</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES 2.05M OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW02012M05FNED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES 2.05M OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW02012M05FNED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060cd14de</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>1M</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 1M OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW02011M00FNED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 1M OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW02011M00FNED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060d1ea1a</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>649K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 649K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW0201649KFNED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 649K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW0201649KFNED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060d1df3e</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>2.2K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 2.2K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Panasonic</field>
+        <field name="Manufacturer_Part_Number">ERJ-1GNF2201C</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 2.2K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Panasonic"/>
+      <property name="Manufacturer_Part_Number" value="ERJ-1GNF2201C"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060ebd1fc</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>2.2K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 2.2K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Panasonic</field>
+        <field name="Manufacturer_Part_Number">ERJ-1GNF2201C</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 2.2K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Panasonic"/>
+      <property name="Manufacturer_Part_Number" value="ERJ-1GNF2201C"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060ebc612</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>8.2K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 8.2K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW02018K20FKED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 8.2K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW02018K20FKED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061144bde</tstamps>
+    </comp>
+    <comp ref="R10">
+      <value>2K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 2K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW02012K00FNED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 2K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW02012K00FNED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006102a8e7</tstamps>
+    </comp>
+    <comp ref="R11">
+      <value>1K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 1K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW02011K00FKED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 1K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW02011K00FKED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061ed9e4f</tstamps>
+    </comp>
+    <comp ref="R12">
+      <value>DNL</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">DNL</field>
+        <field name="Manufacturer_Name">DNL</field>
+        <field name="Manufacturer_Part_Number">DNL</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="DNL"/>
+      <property name="Manufacturer_Name" value="DNL"/>
+      <property name="Manufacturer_Part_Number" value="DNL"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061edab0c</tstamps>
+    </comp>
+    <comp ref="R13">
+      <value>400K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 402K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Panasonic</field>
+        <field name="Manufacturer_Part_Number">ERJ-1GNF4023C</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 402K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Panasonic"/>
+      <property name="Manufacturer_Part_Number" value="ERJ-1GNF4023C"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061ca644f</tstamps>
+    </comp>
+    <comp ref="R14">
+      <value>100K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 100K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Panasonic</field>
+        <field name="Manufacturer_Part_Number">ERJ-1GNF1003C</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 100K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Panasonic"/>
+      <property name="Manufacturer_Part_Number" value="ERJ-1GNF1003C"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061ca710b</tstamps>
+    </comp>
+    <comp ref="R15">
+      <value>37K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 37.4K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Panasonic</field>
+        <field name="Manufacturer_Part_Number">ERJ-1GNF3742C</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 37.4K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Panasonic"/>
+      <property name="Manufacturer_Part_Number" value="ERJ-1GNF3742C"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000617c7007</tstamps>
+    </comp>
+    <comp ref="R16">
+      <value>100K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 100K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Panasonic</field>
+        <field name="Manufacturer_Part_Number">ERJ-1GNF1003C</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 100K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Panasonic"/>
+      <property name="Manufacturer_Part_Number" value="ERJ-1GNF1003C"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061a20c91</tstamps>
+    </comp>
+    <comp ref="R17">
+      <value>25K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 24.9K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW020124K9FNED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 24.9K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW020124K9FNED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006190c730</tstamps>
+    </comp>
+    <comp ref="R18">
+      <value>R_Small_US</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061c51b1b</tstamps>
+    </comp>
+    <comp ref="R19">
+      <value>1K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 1K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW02011K00FKED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 1K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW02011K00FKED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000062614175</tstamps>
+    </comp>
+    <comp ref="R20">
+      <value>100K</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 100K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Panasonic</field>
+        <field name="Manufacturer_Part_Number">ERJ-1GNF1003C</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 100K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Panasonic"/>
+      <property name="Manufacturer_Part_Number" value="ERJ-1GNF1003C"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000062800a4a</tstamps>
+    </comp>
+    <comp ref="R21">
+      <value>47k5</value>
+      <footprint>.Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 47.5K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW020147K5FNED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 47.5K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW020147K5FNED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006209e562</tstamps>
+    </comp>
+    <comp ref="R22">
+      <value>10K</value>
+      <footprint>Resistor:R_0201_0603Metric_ERJ_L</footprint>
+      <fields>
+        <field name="Description">RES SMD 1K OHM 1% 1/20W 0201</field>
+        <field name="Manufacturer_Name">Vishay Dale</field>
+        <field name="Manufacturer_Part_Number">CRCW02011K00FKED</field>
+      </fields>
+      <libsource lib=".Device" part="R_Small_US" description=""/>
+      <property name="Description" value="RES SMD 1K OHM 1% 1/20W 0201"/>
+      <property name="Manufacturer_Name" value="Vishay Dale"/>
+      <property name="Manufacturer_Part_Number" value="CRCW02011K00FKED"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e58dd0a0-f7a8-4c7a-8437-b91a27261650</tstamps>
+    </comp>
+    <comp ref="SW1">
+      <value>TL3780AF330QG</value>
+      <footprint>.Switch:SMD-Switch-3mmx2mm</footprint>
+      <fields>
+        <field name="Description">SWITCH TACTILE SPST-NO 0.02A 15V</field>
+        <field name="Manufacturer_Name">E-Switch</field>
+        <field name="Manufacturer_Part_Number">TL3780AF330QG</field>
+      </fields>
+      <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
+      <property name="Description" value="SWITCH TACTILE SPST-NO 0.02A 15V"/>
+      <property name="Manufacturer_Name" value="E-Switch"/>
+      <property name="Manufacturer_Part_Number" value="TL3780AF330QG"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Push button switch, generic, two pins"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000061acacbf</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>LTC3554</value>
+      <footprint>Package_DFN_QFN:QFN-20-1EP_3x3mm_P0.4mm_EP1.65x1.65mm</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/355412ff.pdf</datasheet>
+      <fields>
+        <field name="Description">IC USB POWER MANAGER 20UTQFN</field>
+        <field name="Manufacturer_Name">Analog Devices Inc.</field>
+        <field name="Manufacturer_Part_Number">LTC3554EUD#PBF</field>
+      </fields>
+      <libsource lib="Miniscope-v4-Wire-Free-rescue" part="LTC3554-.Regulator_Switching" description=""/>
+      <property name="Manufacturer_Part_Number" value="LTC3554EUD#PBF"/>
+      <property name="Description" value="IC USB POWER MANAGER 20UTQFN"/>
+      <property name="Manufacturer_Name" value="Analog Devices Inc."/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060c27de1</tstamps>
+    </comp>
+    <comp ref="U2">
+      <value>HV892</value>
+      <footprint>.Package_SON:SON11P65_400X400X80L40X30T315X255L</footprint>
+      <fields>
+        <field name="Description">IC LED DRIVER LENS 10WDFN</field>
+        <field name="Manufacturer_Name">Microchip</field>
+        <field name="Manufacturer_Part_Number">HV892K7-G</field>
+      </fields>
+      <libsource lib="Miniscope-v4-Wire-Free-rescue" part="HV892-.Driver_ETL" description=""/>
+      <property name="Description" value="IC LED DRIVER LENS 10WDFN"/>
+      <property name="Manufacturer_Name" value="Microchip"/>
+      <property name="Manufacturer_Part_Number" value="HV892K7-G"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000609f1d8d</tstamps>
+    </comp>
+    <comp ref="U3">
+      <value>LTC3218</value>
+      <footprint>.Package_SON:SON_11_P50_300X200X80L40X25T239X64L</footprint>
+      <datasheet>http://www.linear.com/docs/19518</datasheet>
+      <fields>
+        <field name="Description">IC LED DRIVER RGLTR 150MA 10DFN</field>
+        <field name="Manufacturer_Name">Analog Devices Inc.</field>
+        <field name="Manufacturer_Part_Number">LTC3218</field>
+      </fields>
+      <libsource lib=".Driver_LED" part="LTC3218" description=""/>
+      <property name="Description" value="IC LED DRIVER RGLTR 150MA 10DFN"/>
+      <property name="Manufacturer_Name" value="Analog Devices Inc."/>
+      <property name="Manufacturer_Part_Number" value="LTC3218"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000609f17ec</tstamps>
+    </comp>
+    <comp ref="U4">
+      <value>MAX13030EETE+BGA</value>
+      <footprint>Package_BGA:BGA-16_1.92x1.92mm_Layout4x4_P0.5mm</footprint>
+      <datasheet>https://datasheets.maximintegrated.com/en/ds/MAX13030E-MAX13035E.pdf</datasheet>
+      <fields>
+        <field name="Description">IC TRNSLTR BIDIRECTIONAL 16TQFN</field>
+        <field name="Manufacturer_Name">Maxim Integrated</field>
+        <field name="Manufacturer_Part_Number">MAX13030EETE+</field>
+      </fields>
+      <libsource lib="Miniscope-v4-Wire-Free-rescue" part="MAX13030EETE+BGA-.Logic_Level_Translator" description=""/>
+      <property name="Description" value="IC TRNSLTR BIDIRECTIONAL 16TQFN"/>
+      <property name="Manufacturer_Name" value="Maxim Integrated"/>
+      <property name="Manufacturer_Part_Number" value="MAX13030EETE+"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000062728104</tstamps>
+    </comp>
+    <comp ref="U5">
+      <value>TSOP57438TT1</value>
+      <footprint>.Package_SON:SON_4_P300_395X395X90L55X35L</footprint>
+      <fields>
+        <field name="Description">SENSOR REMOTE REC 38.0KHZ 40M</field>
+        <field name="Manufacturer_Name">Vishay Semiconductor Opto Division</field>
+        <field name="Manufacturer_Part_Number">TSOP57438TT1</field>
+      </fields>
+      <libsource lib=".IR_Receiver" part="TSOP57438TT1" description=""/>
+      <property name="Description" value="SENSOR REMOTE REC 38.0KHZ 40M"/>
+      <property name="Manufacturer_Name" value="Vishay Semiconductor Opto Division"/>
+      <property name="Manufacturer_Part_Number" value="TSOP57438TT1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00006111ac63</tstamps>
+    </comp>
+    <comp ref="U6">
+      <value>ATSAMD51J20A-UUT-EFP</value>
+      <footprint>.Package_BGA:ATSAMD51J20A-UUT-EFP</footprint>
+      <fields>
+        <field name="Description">MCU 120MHZ 1024KB FLASH 64</field>
+        <field name="Manufacturer_Name">Microchip</field>
+        <field name="Manufacturer_Part_Number">ATSAMD51J20A-UUT-EFP</field>
+      </fields>
+      <libsource lib="Miniscope-v4-Wire-Free-rescue" part="ATSAMD51J20A-UUT-EFP-.SAMD51" description=""/>
+      <property name="Description" value="MCU 120MHZ 1024KB FLASH 64"/>
+      <property name="Manufacturer_Name" value="Microchip"/>
+      <property name="Manufacturer_Part_Number" value="ATSAMD51J20A-UUT-EFP"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060a93c14 00000000-0000-0000-0000-000060a91709</tstamps>
+    </comp>
+    <comp ref="U7">
+      <value>NCP163AMX330TBG</value>
+      <footprint>.Package_QFN:UQFN_MCP1711</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/20005415D.pdf</datasheet>
+      <fields>
+        <field name="Description">IC REG LINEAR 3.3V 250MA 4XDFN</field>
+        <field name="Manufacturer_Name">onsemi</field>
+        <field name="Manufacturer_Part_Number">NCP163AMX330TBG</field>
+      </fields>
+      <libsource lib=".Regulator_Linear" part="MCP1711" description=""/>
+      <property name="Description" value="IC REG LINEAR 3.3V 250MA 4XDFN"/>
+      <property name="Manufacturer_Name" value="onsemi"/>
+      <property name="Manufacturer_Part_Number" value="NCP163AMX330TBG"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000609f09bc</tstamps>
+    </comp>
+    <comp ref="U8">
+      <value>NOIP1SN0480A</value>
+      <footprint>.Package_BGA:BGA88CP50_8X11_493X613X75B25</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/NOIP1SN0480A-D.PDF</datasheet>
+      <fields>
+        <field name="Description">IC CMOS IMAGE SENSOR 1/3.6"</field>
+        <field name="Manufacturer_Name">onsemi</field>
+        <field name="Manufacturer_Part_Number">NOIP1SN0480A-STI1</field>
+      </fields>
+      <libsource lib=".Image_Sensor" part="NOIP1SN0480A" description=""/>
+      <property name="Description" value="IC CMOS IMAGE SENSOR 1/3.6&quot;"/>
+      <property name="Manufacturer_Name" value="onsemi"/>
+      <property name="Manufacturer_Part_Number" value="NOIP1SN0480A-STI1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000609f2a7a</tstamps>
+    </comp>
+    <comp ref="U9">
+      <value>LMV321IDCKR</value>
+      <footprint>.Package_SOT:SOT_23-5P65_210X110L36X22L</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/lmv324.pdf</datasheet>
+      <libsource lib=".Opamp" part="LMV321IDCKR" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000619c14a3</tstamps>
+    </comp>
+    <comp ref="Y2">
+      <value>Crystal</value>
+      <footprint>Crystal:Crystal_SMD_MicroCrystal_CC8V-T1A-2Pin_2.0x1.2mm</footprint>
+      <libsource lib="Device" part="Crystal" description="Two pin crystal"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Miniscope-v4-Wire-Free.kicad_sch"/>
+      <property name="ki_description" value="Two pin crystal"/>
+      <property name="ki_keywords" value="quartz ceramic resonator oscillator"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000060c2fb65</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib=".Connector" part="0475710001">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">.Connector_0475710001</field>
+        <field name="Footprint">.Connector:0475710001</field>
+      </fields>
+      <pins>
+        <pin num="G1" name="GND" type="input"/>
+        <pin num="G2" name="GND" type="input"/>
+        <pin num="G3" name="GND" type="input"/>
+        <pin num="G4" name="POL" type="input"/>
+        <pin num="G5" name="DET" type="input"/>
+        <pin num="P1" name="DAT2" type="input"/>
+        <pin num="P2" name="CD/DAT3" type="input"/>
+        <pin num="P3" name="CMD" type="input"/>
+        <pin num="P4" name="VDD" type="input"/>
+        <pin num="P5" name="CLK" type="input"/>
+        <pin num="P6" name="VSS" type="input"/>
+        <pin num="P7" name="DAT0" type="input"/>
+        <pin num="P8" name="DAT1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Device" part="C_Small">
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">.Device_C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Device" part="LED_Small_ALT">
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">.Device_LED_Small_ALT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Device" part="L_Small">
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">.Device_L_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Device" part="R_Small_US">
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">.Device_R_Small_US</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Driver_LED" part="LTC3218">
+      <footprints>
+        <fp>SON_11*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">.Driver_LED_LTC3218</field>
+        <field name="Footprint">.Package_SON:SON_11_P50_300X200X80L40X25T239X64L</field>
+      </fields>
+      <pins>
+        <pin num="1" name="CP" type="output"/>
+        <pin num="2" name="eCPO" type="output"/>
+        <pin num="3" name="I_LED" type="power_out"/>
+        <pin num="4" name="ENT" type="input"/>
+        <pin num="5" name="I_SETT" type="unspecified"/>
+        <pin num="6" name="I_SETF" type="unspecified"/>
+        <pin num="7" name="ENF" type="input"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="CM" type="input"/>
+        <pin num="10" name="VIN" type="power_in"/>
+        <pin num="11" name="GND" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib=".IR_Receiver" part="TSOP57438TT1">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">.IR_Receiver_TSOP57438TT1</field>
+        <field name="Footprint">.Package_SON:SON_4_P300_395X395X90L55X35L</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT" type="input"/>
+        <pin num="5" name="Vs" type="power_in"/>
+        <pin num="6" name="GND" type="output"/>
+        <pin num="8" name="GND" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Image_Sensor" part="NOIP1SN0480A">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">.Image_Sensor_NOIP1SN0480A</field>
+        <field name="Footprint">.Package_BGA:BGA88CP50_8X11_493X613X75B25</field>
+      </fields>
+      <pins>
+        <pin num="A1" name="VDD_PIX" type="power_in"/>
+        <pin num="A2" name="VDD_18" type="power_in"/>
+        <pin num="A3" name="TR2" type="input"/>
+        <pin num="A4" name="SS_N" type="input"/>
+        <pin num="A5" name="FRAME_VALID" type="input"/>
+        <pin num="A6" name="VSS_COLPC" type="power_in"/>
+        <pin num="A7" name="DOUT7" type="output"/>
+        <pin num="A8" name="CLK_OUT" type="input"/>
+        <pin num="A9" name="DOUT2" type="output"/>
+        <pin num="A10" name="VDD_18" type="power_in"/>
+        <pin num="A11" name="VSS_COLPC" type="power_in"/>
+        <pin num="B1" name="VDD_33" type="power_in"/>
+        <pin num="B2" name="VSS_COLPC" type="power_in"/>
+        <pin num="B3" name="TR1" type="input"/>
+        <pin num="B4" name="SCK" type="input"/>
+        <pin num="B5" name="LINE_VALID" type="input"/>
+        <pin num="B6" name="VDD_PIX" type="power_in"/>
+        <pin num="B7" name="DOUT6" type="output"/>
+        <pin num="B8" name="DOUT4" type="output"/>
+        <pin num="B9" name="DOUT0" type="output"/>
+        <pin num="B10" name="VDD_PIX" type="power_in"/>
+        <pin num="B11" name="CLK_OUTP" type="input"/>
+        <pin num="C1" name="MONITOR0" type="input"/>
+        <pin num="C2" name="SCAN_EN" type="input"/>
+        <pin num="C3" name="TRIGGER0" type="input"/>
+        <pin num="C4" name="RESET_N" type="input"/>
+        <pin num="C5" name="DOUT9" type="output"/>
+        <pin num="C6" name="DOUT8" type="output"/>
+        <pin num="C7" name="DOUT5" type="output"/>
+        <pin num="C8" name="DOUT3" type="output"/>
+        <pin num="C9" name="DOUT1" type="output"/>
+        <pin num="C10" name="CLK_OUTN" type="input"/>
+        <pin num="C11" name="DOUTP" type="input"/>
+        <pin num="D1" name="MONITOR1" type="input"/>
+        <pin num="D2" name="VSS_18" type="power_in"/>
+        <pin num="D10" name="DOUTN" type="input"/>
+        <pin num="D11" name="SYNCP" type="input"/>
+        <pin num="E1" name="IBIAS_MASTER" type="input"/>
+        <pin num="E2" name="VSS_33" type="power_in"/>
+        <pin num="E10" name="SYNCN" type="input"/>
+        <pin num="E11" name="LVDS_CLK_INP" type="input"/>
+        <pin num="F1" name="CP_RESPD" type="input"/>
+        <pin num="F2" name="MONITOR2" type="input"/>
+        <pin num="F10" name="LVDS_CLK_INN" type="input"/>
+        <pin num="F11" name="VDD_33" type="power_in"/>
+        <pin num="G1" name="CP_CALIB" type="input"/>
+        <pin num="G2" name="VSS_33" type="power_in"/>
+        <pin num="G3" name="VDD_33" type="power_in"/>
+        <pin num="G4" name="MISO" type="input"/>
+        <pin num="G5" name="MOSI" type="input"/>
+        <pin num="G6" name="VSS_18" type="power_in"/>
+        <pin num="G7" name="VSS_18" type="power_in"/>
+        <pin num="G8" name="VSS_18" type="power_in"/>
+        <pin num="G9" name="CLK_PLL" type="input"/>
+        <pin num="G10" name="LOCK_DETECT" type="input"/>
+        <pin num="G11" name="VSS_18" type="power_in"/>
+        <pin num="H1" name="MBSINOUT1" type="input"/>
+        <pin num="H2" name="MBSINOUT1" type="input"/>
+        <pin num="H3" name="MBSINOUT2" type="input"/>
+        <pin num="H4" name="CP_SEL_SAMPLE" type="input"/>
+        <pin num="H5" name="TEST_ENABLE" type="input"/>
+        <pin num="H6" name="VREF_BOTPLATE" type="input"/>
+        <pin num="H7" name="VSS_33" type="power_in"/>
+        <pin num="H8" name="VSS_33" type="power_in"/>
+        <pin num="H9" name="VDD_18" type="power_in"/>
+        <pin num="H10" name="VDD_33" type="power_in"/>
+        <pin num="H11" name="VDD_33" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib=".LED" part="LXZ1-PR01">
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">.LED_LXZ1-PR01</field>
+        <field name="Footprint">.LED:LED_LXZ1_PR01_L</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="C" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Opamp" part="LMV321IDCKR">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">.Opamp_LMV321IDCKR</field>
+        <field name="Footprint">.Package_SOT:SOT_23-5P65_210X110L36X22L</field>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="input"/>
+        <pin num="2" name="V-" type="power_in"/>
+        <pin num="3" name="-" type="input"/>
+        <pin num="4" name="" type="output"/>
+        <pin num="5" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Regulator_Linear" part="MCP1711">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">.Regulator_Linear_MCP1711</field>
+        <field name="Footprint">.Package_QFN:UQFN_MCP1711</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VOUT" type="input"/>
+        <pin num="2" name="GND" type="input"/>
+        <pin num="3" name="nSHDN" type="input"/>
+        <pin num="4" name="VIN" type="input"/>
+        <pin num="5" name="EP" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Transistor" part="MMBT3904LP-7B">
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">.Transistor_MMBT3904LP-7B</field>
+        <field name="Footprint">.Transistor:TRXDFN3_101X61X53L25X15N</field>
+      </fields>
+      <pins>
+        <pin num="1" name="B" type="input"/>
+        <pin num="2" name="E" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib=".Transistor" part="NTK3134NT1G">
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">.Transistor_NTK3134NT1G</field>
+        <field name="Footprint">.Transistor:TRXSOFL3P40_120X120X55L29X21L</field>
+        <field name="Description">Power MOSFET</field>
+        <field name="Manufacturer_Name">ON Semiconductor</field>
+        <field name="Manufacturer_Part_Number">NTK3134NT1G</field>
+        <field name="Mouser Part Number">863-NTK3134NT1G</field>
+        <field name="Mouser Price/Stock">https://www.mouser.com/Search/Refine.aspx?Keyword=863-NTK3134NT1G</field>
+        <field name="RS Part Number">7800649P</field>
+        <field name="RS Price/Stock">http://uk.rs-online.com/web/p/products/7800649P</field>
+        <field name="Allied_Number">70341343</field>
+        <field name="Allied Price/Stock">http://www.alliedelec.com/on-semiconductor-ntk3134nt1g/70341343/</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="bidirectional"/>
+        <pin num="2" name="S" type="bidirectional"/>
+        <pin num="3" name="D" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x01">
+      <description>Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x01</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Crystal">
+      <description>Two pin crystal</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Crystal*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Miniscope-v4-Wire-Free-rescue" part="ATSAMD51J20A-UUT-EFP-.SAMD51">
+      <footprints>
+        <fp>WLCSP64_3P593X3P513X0P533_VS_MCH</fp>
+        <fp>WLCSP64_3P593X3P513X0P533_VS_MCH-M</fp>
+        <fp>WLCSP64_3P593X3P513X0P533_VS_MCH-L</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATSAMD51J20A-UUT-EFP-.SAMD51</field>
+        <field name="Footprint">.Package_BGA:ATSAMD51J20A-UUT-EFP</field>
+      </fields>
+      <pins>
+        <pin num="A1" name="PA25" type="bidirectional"/>
+        <pin num="A2" name="PB22" type="bidirectional"/>
+        <pin num="A3" name="PB23" type="bidirectional"/>
+        <pin num="A4" name="VDDCORE" type="power_in"/>
+        <pin num="A5" name="VSW" type="power_in"/>
+        <pin num="A6" name="PB30" type="bidirectional"/>
+        <pin num="A7" name="PB00" type="bidirectional"/>
+        <pin num="A8" name="PB02" type="bidirectional"/>
+        <pin num="B1" name="PA24" type="bidirectional"/>
+        <pin num="B2" name="GND" type="power_in"/>
+        <pin num="B3" name="PA27" type="bidirectional"/>
+        <pin num="B4" name="*RESET" type="input"/>
+        <pin num="B5" name="VDDIO" type="power_in"/>
+        <pin num="B6" name="PB31" type="bidirectional"/>
+        <pin num="B7" name="PB01" type="bidirectional"/>
+        <pin num="B8" name="PA00" type="bidirectional"/>
+        <pin num="C1" name="PA22" type="bidirectional"/>
+        <pin num="C2" name="PA23" type="bidirectional"/>
+        <pin num="C3" name="VDDIO" type="power_in"/>
+        <pin num="C4" name="GND" type="power_in"/>
+        <pin num="C5" name="PA30" type="bidirectional"/>
+        <pin num="C6" name="PB03" type="bidirectional"/>
+        <pin num="C7" name="PA02" type="bidirectional"/>
+        <pin num="C8" name="PA01" type="bidirectional"/>
+        <pin num="D1" name="PB17" type="bidirectional"/>
+        <pin num="D2" name="PA20" type="bidirectional"/>
+        <pin num="D3" name="PA21" type="bidirectional"/>
+        <pin num="D4" name="PB16" type="bidirectional"/>
+        <pin num="D5" name="PA31" type="bidirectional"/>
+        <pin num="D6" name="PA03" type="bidirectional"/>
+        <pin num="D7" name="PB04" type="bidirectional"/>
+        <pin num="D8" name="PB05" type="bidirectional"/>
+        <pin num="E1" name="PA18" type="bidirectional"/>
+        <pin num="E2" name="PA19" type="bidirectional"/>
+        <pin num="E3" name="VDDIO" type="power_in"/>
+        <pin num="E4" name="VDDIOB" type="power_in"/>
+        <pin num="E5" name="GNDANA" type="power_in"/>
+        <pin num="E6" name="PB07" type="bidirectional"/>
+        <pin num="E7" name="PB06" type="bidirectional"/>
+        <pin num="E8" name="VDDANA" type="power_in"/>
+        <pin num="F1" name="PA17" type="bidirectional"/>
+        <pin num="F2" name="PA12" type="bidirectional"/>
+        <pin num="F3" name="GND" type="power_in"/>
+        <pin num="F4" name="GND" type="power_in"/>
+        <pin num="F5" name="PB08" type="bidirectional"/>
+        <pin num="F6" name="PA05" type="bidirectional"/>
+        <pin num="F7" name="PA04" type="bidirectional"/>
+        <pin num="F8" name="PB09" type="bidirectional"/>
+        <pin num="G1" name="PA16" type="bidirectional"/>
+        <pin num="G2" name="PA13" type="bidirectional"/>
+        <pin num="G3" name="PB14" type="bidirectional"/>
+        <pin num="G4" name="PB11" type="bidirectional"/>
+        <pin num="G5" name="PA11" type="bidirectional"/>
+        <pin num="G6" name="PA09" type="bidirectional"/>
+        <pin num="G7" name="PA06" type="bidirectional"/>
+        <pin num="G8" name="PA07" type="bidirectional"/>
+        <pin num="H1" name="PA14" type="bidirectional"/>
+        <pin num="H2" name="PA15" type="bidirectional"/>
+        <pin num="H3" name="PB15" type="bidirectional"/>
+        <pin num="H4" name="PB13" type="bidirectional"/>
+        <pin num="H5" name="PB12" type="bidirectional"/>
+        <pin num="H6" name="PB15" type="bidirectional"/>
+        <pin num="H7" name="PA10" type="bidirectional"/>
+        <pin num="H8" name="PA08" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="Miniscope-v4-Wire-Free-rescue" part="HV892-.Driver_ETL">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">HV892-.Driver_ETL</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND1" type="unspecified"/>
+        <pin num="2" name="VIN" type="power_in"/>
+        <pin num="3" name="SCL" type="input"/>
+        <pin num="4" name="SDA" type="input"/>
+        <pin num="5" name="VDD" type="input"/>
+        <pin num="6" name="GND2" type="bidirectional"/>
+        <pin num="7" name="OUT2" type="output"/>
+        <pin num="8" name="OUT1" type="output"/>
+        <pin num="9" name="NC" type="no_connect"/>
+        <pin num="10" name="HV" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="Miniscope-v4-Wire-Free-rescue" part="LTC3554-.Regulator_Switching">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LTC3554-.Regulator_Switching</field>
+      </fields>
+      <pins>
+        <pin num="1" name="HPWR" type="input"/>
+        <pin num="2" name="FSEL" type="input"/>
+        <pin num="3" name="PBSTAT" type="input"/>
+        <pin num="4" name="PGOOD" type="input"/>
+        <pin num="5" name="nON" type="input"/>
+        <pin num="6" name="FB1" type="input"/>
+        <pin num="7" name="FB2" type="input"/>
+        <pin num="8" name="PWR_ON2" type="input"/>
+        <pin num="9" name="PWR_ON1" type="input"/>
+        <pin num="10" name="STBY" type="input"/>
+        <pin num="11" name="SW2" type="input"/>
+        <pin num="12" name="BVIN" type="input"/>
+        <pin num="13" name="SW1" type="input"/>
+        <pin num="14" name="nCHRG" type="input"/>
+        <pin num="15" name="NTC" type="input"/>
+        <pin num="16" name="PROG" type="input"/>
+        <pin num="17" name="BAT" type="input"/>
+        <pin num="18" name="V_OUT" type="input"/>
+        <pin num="19" name="SUSP" type="input"/>
+        <pin num="20" name="V_BUS" type="input"/>
+        <pin num="21" name="GND" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Miniscope-v4-Wire-Free-rescue" part="MAX13030EETE+BGA-.Logic_Level_Translator">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MAX13030EETE+BGA-.Logic_Level_Translator</field>
+        <field name="Footprint">Package_BGA:BGA-16_1.92x1.92mm_Layout4x4_P0.5mm</field>
+      </fields>
+      <pins>
+        <pin num="A1" name="IO_VL3" type="bidirectional"/>
+        <pin num="A2" name="IO_VCC3" type="bidirectional"/>
+        <pin num="A3" name="IO_VCC4" type="bidirectional"/>
+        <pin num="A4" name="IO_VL4" type="bidirectional"/>
+        <pin num="B1" name="IO_VL2" type="bidirectional"/>
+        <pin num="B2" name="IO_VCC2" type="bidirectional"/>
+        <pin num="B3" name="IO_VCC5" type="bidirectional"/>
+        <pin num="B4" name="IO_VL5" type="bidirectional"/>
+        <pin num="C1" name="VL" type="power_in"/>
+        <pin num="C2" name="VCC" type="power_in"/>
+        <pin num="C3" name="GND" type="power_in"/>
+        <pin num="C4" name="EN" type="input"/>
+        <pin num="D1" name="IO_VL1" type="bidirectional"/>
+        <pin num="D2" name="IO_VCC1" type="bidirectional"/>
+        <pin num="D3" name="IO_VCC6" type="bidirectional"/>
+        <pin num="D4" name="IO_VL6" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="Switch" part="SW_Push">
+      <description>Push button switch, generic, two pins</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Push</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector_Generic">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Connector_Generic.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Device.kicad_sym</uri>
+    </library>
+    <library logical="Miniscope-v4-Wire-Free-rescue">
+      <uri>C:\Users\fsang\Documents\Miniscope-v4-Wire-Free\Miniscope-v4-Wire-Free-KiCad\KiCad\Miniscope-v4-Wire-Free/Miniscope-v4-Wire-Free-rescue.lib</uri>
+    </library>
+    <library logical="Switch">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Switch.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+1V8">
+      <node ref="C19" pin="1" pintype="passive"/>
+      <node ref="C22" pin="1" pintype="passive"/>
+      <node ref="C25" pin="1" pintype="passive"/>
+      <node ref="C27" pin="1" pintype="passive"/>
+      <node ref="C28" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="C35" pin="1" pintype="passive"/>
+      <node ref="C43" pin="1" pintype="passive"/>
+      <node ref="C46" pin="1" pintype="passive"/>
+      <node ref="C49" pin="1" pintype="passive"/>
+      <node ref="C52" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="J19" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J26" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J6" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="L1" pin="2" pintype="passive"/>
+      <node ref="L3" pin="1" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="PWR_ON1" pintype="input"/>
+      <node ref="U2" pin="5" pinfunction="VDD" pintype="input"/>
+      <node ref="U4" pin="C1" pinfunction="VL" pintype="power_in"/>
+      <node ref="U4" pin="C4" pinfunction="EN" pintype="input"/>
+      <node ref="U6" pin="B5" pinfunction="VDDIO" pintype="power_in"/>
+      <node ref="U6" pin="C3" pinfunction="VDDIO" pintype="power_in"/>
+      <node ref="U6" pin="E3" pinfunction="VDDIO" pintype="power_in"/>
+      <node ref="U6" pin="E4" pinfunction="VDDIOB" pintype="power_in"/>
+      <node ref="U8" pin="A10" pinfunction="VDD_18" pintype="power_in"/>
+      <node ref="U8" pin="A2" pinfunction="VDD_18" pintype="power_in"/>
+      <node ref="U8" pin="H9" pinfunction="VDD_18" pintype="power_in"/>
+      <node ref="U9" pin="1" pinfunction="+" pintype="input"/>
+    </net>
+    <net code="2" name="+3V3">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="C13" pin="1" pintype="passive"/>
+      <node ref="C30" pin="1" pintype="passive"/>
+      <node ref="C38" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C40" pin="1" pintype="passive"/>
+      <node ref="C41" pin="1" pintype="passive"/>
+      <node ref="C44" pin="1" pintype="passive"/>
+      <node ref="C47" pin="1" pintype="passive"/>
+      <node ref="C50" pin="1" pintype="passive"/>
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="J1" pin="P4" pinfunction="VDD" pintype="input"/>
+      <node ref="J14" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J21" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="L2" pin="2" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="VIN" pintype="power_in"/>
+      <node ref="U3" pin="10" pinfunction="VIN" pintype="power_in"/>
+      <node ref="U4" pin="C2" pinfunction="VCC" pintype="power_in"/>
+      <node ref="U5" pin="5" pinfunction="Vs" pintype="power_in"/>
+      <node ref="U7" pin="3" pinfunction="nSHDN" pintype="input"/>
+      <node ref="U8" pin="B1" pinfunction="VDD_33" pintype="power_in"/>
+      <node ref="U8" pin="F11" pinfunction="VDD_33" pintype="power_in"/>
+      <node ref="U8" pin="G3" pinfunction="VDD_33" pintype="power_in"/>
+      <node ref="U8" pin="H10" pinfunction="VDD_33" pintype="power_in"/>
+      <node ref="U8" pin="H11" pinfunction="VDD_33" pintype="power_in"/>
+      <node ref="U9" pin="5" pinfunction="V+" pintype="power_in"/>
+    </net>
+    <net code="3" name="/3V3_EN">
+      <node ref="U1" pin="8" pinfunction="PWR_ON2" pintype="input"/>
+      <node ref="U6" pin="B1" pinfunction="PA24" pintype="bidirectional"/>
+    </net>
+    <net code="4" name="/ADC0">
+      <node ref="R13" pin="2" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="U6" pin="C7" pinfunction="PA02" pintype="bidirectional"/>
+    </net>
+    <net code="5" name="/BAT+">
+      <node ref="J10" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+      <node ref="U1" pin="17" pinfunction="BAT" pintype="input"/>
+    </net>
+    <net code="6" name="/CLK1_OUT">
+      <node ref="U6" pin="H3" pinfunction="PB15" pintype="bidirectional"/>
+      <node ref="U8" pin="G9" pinfunction="CLK_PLL" pintype="input"/>
+    </net>
+    <net code="7" name="/ENT">
+      <node ref="U3" pin="4" pinfunction="ENT" pintype="input"/>
+      <node ref="U6" pin="B7" pinfunction="PB01" pintype="bidirectional"/>
+    </net>
+    <net code="8" name="/EWL_1">
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="U2" pin="8" pinfunction="OUT1" pintype="output"/>
+    </net>
+    <net code="9" name="/EWL_2">
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="U2" pin="7" pinfunction="OUT2" pintype="output"/>
+    </net>
+    <net code="10" name="/I2C_BB_SCL">
+      <node ref="J15" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J22" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="U2" pin="3" pinfunction="SCL" pintype="input"/>
+      <node ref="U6" pin="A8" pinfunction="PB02" pintype="bidirectional"/>
+    </net>
+    <net code="11" name="/I2C_BB_SDA">
+      <node ref="J16" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J23" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="U2" pin="4" pinfunction="SDA" pintype="input"/>
+      <node ref="U6" pin="A7" pinfunction="PB00" pintype="bidirectional"/>
+    </net>
+    <net code="12" name="/IR_REC">
+      <node ref="J17" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J24" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R15" pin="1" pintype="passive"/>
+      <node ref="U5" pin="1" pinfunction="OUT" pintype="input"/>
+      <node ref="U6" pin="A2" pinfunction="PB22" pintype="bidirectional"/>
+    </net>
+    <net code="13" name="/I_LED">
+      <node ref="D1" pin="A" pinfunction="A" pintype="passive"/>
+      <node ref="J18" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J25" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="U3" pin="3" pinfunction="I_LED" pintype="power_out"/>
+    </net>
+    <net code="14" name="/I_SET">
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="I_SETT" pintype="unspecified"/>
+      <node ref="U3" pin="6" pinfunction="I_SETF" pintype="unspecified"/>
+    </net>
+    <net code="15" name="/LED_PWM">
+      <node ref="Q1" pin="1" pinfunction="G" pintype="bidirectional"/>
+      <node ref="U6" pin="A6" pinfunction="PB30" pintype="bidirectional"/>
+    </net>
+    <net code="16" name="/LED_STATUS">
+      <node ref="R19" pin="2" pintype="passive"/>
+      <node ref="U6" pin="F8" pinfunction="PB09" pintype="bidirectional"/>
+    </net>
+    <net code="17" name="/LOCK_DETECT">
+      <node ref="U8" pin="G10" pinfunction="LOCK_DETECT" pintype="input"/>
+    </net>
+    <net code="18" name="/MONITOR0">
+      <node ref="U6" pin="G8" pinfunction="PA07" pintype="bidirectional"/>
+      <node ref="U8" pin="C1" pinfunction="MONITOR0" pintype="input"/>
+    </net>
+    <net code="19" name="/MONITOR1">
+      <node ref="U8" pin="D1" pinfunction="MONITOR1" pintype="input"/>
+    </net>
+    <net code="20" name="/MONITOR2">
+      <node ref="U8" pin="F2" pinfunction="MONITOR2" pintype="input"/>
+    </net>
+    <net code="21" name="/PCC_CLK">
+      <node ref="U6" pin="H1" pinfunction="PA14" pintype="bidirectional"/>
+      <node ref="U8" pin="A8" pinfunction="CLK_OUT" pintype="input"/>
+    </net>
+    <net code="22" name="/PCC_DATA0">
+      <node ref="U6" pin="G1" pinfunction="PA16" pintype="bidirectional"/>
+      <node ref="U8" pin="A9" pinfunction="DOUT2" pintype="output"/>
+    </net>
+    <net code="23" name="/PCC_DATA1">
+      <node ref="U6" pin="F1" pinfunction="PA17" pintype="bidirectional"/>
+      <node ref="U8" pin="C8" pinfunction="DOUT3" pintype="output"/>
+    </net>
+    <net code="24" name="/PCC_DATA2">
+      <node ref="U6" pin="E1" pinfunction="PA18" pintype="bidirectional"/>
+      <node ref="U8" pin="B8" pinfunction="DOUT4" pintype="output"/>
+    </net>
+    <net code="25" name="/PCC_DATA3">
+      <node ref="U6" pin="E2" pinfunction="PA19" pintype="bidirectional"/>
+      <node ref="U8" pin="C7" pinfunction="DOUT5" pintype="output"/>
+    </net>
+    <net code="26" name="/PCC_DATA4">
+      <node ref="U6" pin="D2" pinfunction="PA20" pintype="bidirectional"/>
+      <node ref="U8" pin="B7" pinfunction="DOUT6" pintype="output"/>
+    </net>
+    <net code="27" name="/PCC_DATA5">
+      <node ref="U6" pin="D3" pinfunction="PA21" pintype="bidirectional"/>
+      <node ref="U8" pin="A7" pinfunction="DOUT7" pintype="output"/>
+    </net>
+    <net code="28" name="/PCC_DATA6">
+      <node ref="U6" pin="C1" pinfunction="PA22" pintype="bidirectional"/>
+      <node ref="U8" pin="C6" pinfunction="DOUT8" pintype="output"/>
+    </net>
+    <net code="29" name="/PCC_DATA7">
+      <node ref="U6" pin="C2" pinfunction="PA23" pintype="bidirectional"/>
+      <node ref="U8" pin="C5" pinfunction="DOUT9" pintype="output"/>
+    </net>
+    <net code="30" name="/PCC_DEN1">
+      <node ref="U6" pin="F2" pinfunction="PA12" pintype="bidirectional"/>
+      <node ref="U6" pin="G3" pinfunction="PB14" pintype="bidirectional"/>
+      <node ref="U8" pin="A5" pinfunction="FRAME_VALID" pintype="input"/>
+    </net>
+    <net code="31" name="/PCC_DEN2">
+      <node ref="U6" pin="G2" pinfunction="PA13" pintype="bidirectional"/>
+      <node ref="U8" pin="B5" pinfunction="LINE_VALID" pintype="input"/>
+    </net>
+    <net code="32" name="/PUSH_BUT_MCU">
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="PBSTAT" pintype="input"/>
+      <node ref="U6" pin="A1" pinfunction="PA25" pintype="bidirectional"/>
+    </net>
+    <net code="33" name="/RESET_N">
+      <node ref="U6" pin="H4" pinfunction="PB13" pintype="bidirectional"/>
+      <node ref="U8" pin="C4" pinfunction="RESET_N" pintype="input"/>
+    </net>
+    <net code="34" name="/SDMMC1_CK">
+      <node ref="U4" pin="D4" pinfunction="IO_VL6" pintype="bidirectional"/>
+      <node ref="U6" pin="G4" pinfunction="PB11" pintype="bidirectional"/>
+    </net>
+    <net code="35" name="/SDMMC1_CMD">
+      <node ref="U4" pin="B4" pinfunction="IO_VL5" pintype="bidirectional"/>
+      <node ref="U6" pin="H8" pinfunction="PA08" pintype="bidirectional"/>
+    </net>
+    <net code="36" name="/SDMMC1_D0">
+      <node ref="U4" pin="D1" pinfunction="IO_VL1" pintype="bidirectional"/>
+      <node ref="U6" pin="G6" pinfunction="PA09" pintype="bidirectional"/>
+    </net>
+    <net code="37" name="/SDMMC1_D1">
+      <node ref="U4" pin="B1" pinfunction="IO_VL2" pintype="bidirectional"/>
+      <node ref="U6" pin="H7" pinfunction="PA10" pintype="bidirectional"/>
+    </net>
+    <net code="38" name="/SDMMC1_D2">
+      <node ref="U4" pin="A1" pinfunction="IO_VL3" pintype="bidirectional"/>
+      <node ref="U6" pin="G5" pinfunction="PA11" pintype="bidirectional"/>
+    </net>
+    <net code="39" name="/SDMMC1_D3">
+      <node ref="U4" pin="A4" pinfunction="IO_VL4" pintype="bidirectional"/>
+      <node ref="U6" pin="H6" pinfunction="PB15" pintype="bidirectional"/>
+    </net>
+    <net code="40" name="/SD_CLK">
+      <node ref="J1" pin="P5" pinfunction="CLK" pintype="input"/>
+      <node ref="U4" pin="D3" pinfunction="IO_VCC6" pintype="bidirectional"/>
+    </net>
+    <net code="41" name="/SD_CMD">
+      <node ref="J1" pin="P3" pinfunction="CMD" pintype="input"/>
+      <node ref="U4" pin="B3" pinfunction="IO_VCC5" pintype="bidirectional"/>
+    </net>
+    <net code="42" name="/SD_DAT0">
+      <node ref="J1" pin="P7" pinfunction="DAT0" pintype="input"/>
+      <node ref="U4" pin="D2" pinfunction="IO_VCC1" pintype="bidirectional"/>
+    </net>
+    <net code="43" name="/SD_DAT1">
+      <node ref="J1" pin="P8" pinfunction="DAT1" pintype="input"/>
+      <node ref="U4" pin="B2" pinfunction="IO_VCC2" pintype="bidirectional"/>
+    </net>
+    <net code="44" name="/SD_DAT2">
+      <node ref="J1" pin="P1" pinfunction="DAT2" pintype="input"/>
+      <node ref="U4" pin="A2" pinfunction="IO_VCC3" pintype="bidirectional"/>
+    </net>
+    <net code="45" name="/SD_DAT3">
+      <node ref="J1" pin="P2" pinfunction="CD/DAT3" pintype="input"/>
+      <node ref="U4" pin="A3" pinfunction="IO_VCC4" pintype="bidirectional"/>
+    </net>
+    <net code="46" name="/SD_DET">
+      <node ref="J1" pin="G5" pinfunction="DET" pintype="input"/>
+      <node ref="U6" pin="D8" pinfunction="PB05" pintype="bidirectional"/>
+    </net>
+    <net code="47" name="/SPI1_MISO">
+      <node ref="U6" pin="G7" pinfunction="PA06" pintype="bidirectional"/>
+      <node ref="U8" pin="G4" pinfunction="MISO" pintype="input"/>
+    </net>
+    <net code="48" name="/SPI1_MOSI">
+      <node ref="U6" pin="F7" pinfunction="PA04" pintype="bidirectional"/>
+      <node ref="U8" pin="G5" pinfunction="MOSI" pintype="input"/>
+    </net>
+    <net code="49" name="/SPI1_NSS">
+      <node ref="U6" pin="H5" pinfunction="PB12" pintype="bidirectional"/>
+      <node ref="U8" pin="A4" pinfunction="SS_N" pintype="input"/>
+    </net>
+    <net code="50" name="/SPI1_SCK">
+      <node ref="U6" pin="F6" pinfunction="PA05" pintype="bidirectional"/>
+      <node ref="U8" pin="B4" pinfunction="SCK" pintype="input"/>
+    </net>
+    <net code="51" name="/SWCLK">
+      <node ref="J7" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="U6" pin="C5" pinfunction="PA30" pintype="bidirectional"/>
+    </net>
+    <net code="52" name="/SWDIO">
+      <node ref="J4" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="U6" pin="D5" pinfunction="PA31" pintype="bidirectional"/>
+    </net>
+    <net code="53" name="/TRIGGER0">
+      <node ref="U6" pin="H2" pinfunction="PA15" pintype="bidirectional"/>
+      <node ref="U8" pin="C3" pinfunction="TRIGGER0" pintype="input"/>
+    </net>
+    <net code="54" name="/UART_RX">
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="U6" pin="D1" pinfunction="PB17" pintype="bidirectional"/>
+    </net>
+    <net code="55" name="/UART_TX">
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="U6" pin="D4" pinfunction="PB16" pintype="bidirectional"/>
+    </net>
+    <net code="56" name="/USB_VBUS">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="J2" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="V_BUS" pintype="input"/>
+    </net>
+    <net code="57" name="/VDDA">
+      <node ref="C24" pin="1" pintype="passive"/>
+      <node ref="C26" pin="1" pintype="passive"/>
+      <node ref="L3" pin="2" pintype="passive"/>
+      <node ref="U6" pin="E8" pinfunction="VDDANA" pintype="power_in"/>
+    </net>
+    <net code="58" name="/VDDCORE">
+      <node ref="C23" pin="1" pintype="passive"/>
+      <node ref="C29" pin="1" pintype="passive"/>
+      <node ref="L5" pin="1" pintype="passive"/>
+      <node ref="U6" pin="A4" pinfunction="VDDCORE" pintype="power_in"/>
+    </net>
+    <net code="59" name="/VDD_PIX">
+      <node ref="C42" pin="1" pintype="passive"/>
+      <node ref="C45" pin="1" pintype="passive"/>
+      <node ref="C48" pin="1" pintype="passive"/>
+      <node ref="C51" pin="1" pintype="passive"/>
+      <node ref="U7" pin="1" pinfunction="VOUT" pintype="input"/>
+      <node ref="U8" pin="A1" pinfunction="VDD_PIX" pintype="power_in"/>
+      <node ref="U8" pin="B10" pinfunction="VDD_PIX" pintype="power_in"/>
+      <node ref="U8" pin="B6" pinfunction="VDD_PIX" pintype="power_in"/>
+    </net>
+    <net code="60" name="/VREF_BOTPLATE">
+      <node ref="C36" pin="1" pintype="passive"/>
+      <node ref="C53" pin="1" pintype="passive"/>
+      <node ref="L4" pin="2" pintype="passive"/>
+      <node ref="U8" pin="H6" pinfunction="VREF_BOTPLATE" pintype="input"/>
+    </net>
+    <net code="61" name="/XIN32">
+      <node ref="C18" pin="1" pintype="passive"/>
+      <node ref="U6" pin="B8" pinfunction="PA00" pintype="bidirectional"/>
+      <node ref="Y2" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="62" name="/XOUT32">
+      <node ref="C20" pin="1" pintype="passive"/>
+      <node ref="U6" pin="C8" pinfunction="PA01" pintype="bidirectional"/>
+      <node ref="Y2" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="63" name="/nCHRG">
+      <node ref="R20" pin="1" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="nCHRG" pintype="input"/>
+      <node ref="U6" pin="A3" pinfunction="PB23" pintype="bidirectional"/>
+    </net>
+    <net code="64" name="/nON">
+      <node ref="J20" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J27" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="nON" pintype="input"/>
+    </net>
+    <net code="65" name="/nRESET">
+      <node ref="J8" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R22" pin="2" pintype="passive"/>
+      <node ref="U6" pin="B4" pinfunction="*RESET" pintype="input"/>
+    </net>
+    <net code="66" name="GND">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C13" pin="2" pintype="passive"/>
+      <node ref="C14" pin="2" pintype="passive"/>
+      <node ref="C16" pin="2" pintype="passive"/>
+      <node ref="C17" pin="2" pintype="passive"/>
+      <node ref="C18" pin="2" pintype="passive"/>
+      <node ref="C19" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C20" pin="2" pintype="passive"/>
+      <node ref="C22" pin="2" pintype="passive"/>
+      <node ref="C23" pin="2" pintype="passive"/>
+      <node ref="C24" pin="2" pintype="passive"/>
+      <node ref="C25" pin="2" pintype="passive"/>
+      <node ref="C26" pin="2" pintype="passive"/>
+      <node ref="C27" pin="2" pintype="passive"/>
+      <node ref="C28" pin="2" pintype="passive"/>
+      <node ref="C29" pin="2" pintype="passive"/>
+      <node ref="C30" pin="2" pintype="passive"/>
+      <node ref="C35" pin="2" pintype="passive"/>
+      <node ref="C36" pin="2" pintype="passive"/>
+      <node ref="C37" pin="2" pintype="passive"/>
+      <node ref="C38" pin="2" pintype="passive"/>
+      <node ref="C40" pin="2" pintype="passive"/>
+      <node ref="C41" pin="2" pintype="passive"/>
+      <node ref="C42" pin="2" pintype="passive"/>
+      <node ref="C43" pin="2" pintype="passive"/>
+      <node ref="C44" pin="2" pintype="passive"/>
+      <node ref="C45" pin="2" pintype="passive"/>
+      <node ref="C46" pin="2" pintype="passive"/>
+      <node ref="C47" pin="2" pintype="passive"/>
+      <node ref="C48" pin="2" pintype="passive"/>
+      <node ref="C49" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C50" pin="2" pintype="passive"/>
+      <node ref="C51" pin="2" pintype="passive"/>
+      <node ref="C52" pin="2" pintype="passive"/>
+      <node ref="C53" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="D1" pin="C" pinfunction="C" pintype="passive"/>
+      <node ref="J1" pin="G1" pinfunction="GND" pintype="input"/>
+      <node ref="J1" pin="G2" pinfunction="GND" pintype="input"/>
+      <node ref="J1" pin="G3" pinfunction="GND" pintype="input"/>
+      <node ref="J1" pin="G4" pinfunction="POL" pintype="input"/>
+      <node ref="J1" pin="P6" pinfunction="VSS" pintype="input"/>
+      <node ref="J11" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J12" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J9" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S" pintype="bidirectional"/>
+      <node ref="Q2" pin="2" pinfunction="E" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+      <node ref="R15" pin="2" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+      <node ref="R21" pin="2" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="SW1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="STBY" pintype="input"/>
+      <node ref="U1" pin="15" pinfunction="NTC" pintype="input"/>
+      <node ref="U1" pin="2" pinfunction="FSEL" pintype="input"/>
+      <node ref="U1" pin="21" pinfunction="GND" pintype="input"/>
+      <node ref="U2" pin="1" pinfunction="GND1" pintype="unspecified"/>
+      <node ref="U2" pin="6" pinfunction="GND2" pintype="bidirectional"/>
+      <node ref="U3" pin="11" pinfunction="GND" pintype="power_in"/>
+      <node ref="U3" pin="7" pinfunction="ENF" pintype="input"/>
+      <node ref="U3" pin="8" pinfunction="GND" pintype="power_in"/>
+      <node ref="U4" pin="C3" pinfunction="GND" pintype="power_in"/>
+      <node ref="U5" pin="6" pinfunction="GND" pintype="output"/>
+      <node ref="U5" pin="8" pinfunction="GND" pintype="power_in"/>
+      <node ref="U6" pin="B2" pinfunction="GND" pintype="power_in"/>
+      <node ref="U6" pin="C4" pinfunction="GND" pintype="power_in"/>
+      <node ref="U6" pin="E5" pinfunction="GNDANA" pintype="power_in"/>
+      <node ref="U6" pin="F3" pinfunction="GND" pintype="power_in"/>
+      <node ref="U6" pin="F4" pinfunction="GND" pintype="power_in"/>
+      <node ref="U7" pin="2" pinfunction="GND" pintype="input"/>
+      <node ref="U7" pin="5" pinfunction="EP" pintype="input"/>
+      <node ref="U8" pin="A11" pinfunction="VSS_COLPC" pintype="power_in"/>
+      <node ref="U8" pin="A3" pinfunction="TR2" pintype="input"/>
+      <node ref="U8" pin="A6" pinfunction="VSS_COLPC" pintype="power_in"/>
+      <node ref="U8" pin="B2" pinfunction="VSS_COLPC" pintype="power_in"/>
+      <node ref="U8" pin="B3" pinfunction="TR1" pintype="input"/>
+      <node ref="U8" pin="C2" pinfunction="SCAN_EN" pintype="input"/>
+      <node ref="U8" pin="D2" pinfunction="VSS_18" pintype="power_in"/>
+      <node ref="U8" pin="E2" pinfunction="VSS_33" pintype="power_in"/>
+      <node ref="U8" pin="G11" pinfunction="VSS_18" pintype="power_in"/>
+      <node ref="U8" pin="G2" pinfunction="VSS_33" pintype="power_in"/>
+      <node ref="U8" pin="G6" pinfunction="VSS_18" pintype="power_in"/>
+      <node ref="U8" pin="G7" pinfunction="VSS_18" pintype="power_in"/>
+      <node ref="U8" pin="G8" pinfunction="VSS_18" pintype="power_in"/>
+      <node ref="U8" pin="H5" pinfunction="TEST_ENABLE" pintype="input"/>
+      <node ref="U8" pin="H7" pinfunction="VSS_33" pintype="power_in"/>
+      <node ref="U8" pin="H8" pinfunction="VSS_33" pintype="power_in"/>
+      <node ref="U9" pin="2" pinfunction="V-" pintype="power_in"/>
+    </net>
+    <net code="67" name="Net-(C14-Pad1)">
+      <node ref="C14" pin="1" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+    </net>
+    <net code="68" name="Net-(D2-A)">
+      <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+    </net>
+    <net code="69" name="Net-(D2-K)">
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="Q2" pin="3" pinfunction="C" pintype="passive"/>
+    </net>
+    <net code="70" name="Net-(D3-K)">
+      <node ref="D3" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R18" pin="2" pintype="passive"/>
+    </net>
+    <net code="71" name="Net-(Q1-D)">
+      <node ref="Q1" pin="3" pinfunction="D" pintype="bidirectional"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+    </net>
+    <net code="72" name="Net-(Q2-B)">
+      <node ref="Q2" pin="1" pinfunction="B" pintype="input"/>
+      <node ref="R19" pin="1" pintype="passive"/>
+    </net>
+    <net code="73" name="Net-(U1-FB1)">
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="FB1" pintype="input"/>
+    </net>
+    <net code="74" name="Net-(U1-FB2)">
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="FB2" pintype="input"/>
+    </net>
+    <net code="75" name="Net-(U1-HPWR)">
+      <node ref="R17" pin="1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="HPWR" pintype="input"/>
+    </net>
+    <net code="76" name="Net-(U1-PROG)">
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="PROG" pintype="input"/>
+    </net>
+    <net code="77" name="Net-(U1-SW1)">
+      <node ref="L1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="SW1" pintype="input"/>
+    </net>
+    <net code="78" name="Net-(U1-SW2)">
+      <node ref="L2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="11" pinfunction="SW2" pintype="input"/>
+    </net>
+    <net code="79" name="Net-(U2-HV)">
+      <node ref="C16" pin="1" pintype="passive"/>
+      <node ref="U2" pin="10" pinfunction="HV" pintype="power_out"/>
+    </net>
+    <net code="80" name="Net-(U3-CM)">
+      <node ref="C15" pin="2" pintype="passive"/>
+      <node ref="U3" pin="9" pinfunction="CM" pintype="input"/>
+    </net>
+    <net code="81" name="Net-(U3-CP)">
+      <node ref="C15" pin="1" pintype="passive"/>
+      <node ref="U3" pin="1" pinfunction="CP" pintype="output"/>
+    </net>
+    <net code="82" name="Net-(U3-eCPO)">
+      <node ref="C17" pin="1" pintype="passive"/>
+      <node ref="U3" pin="2" pinfunction="eCPO" pintype="output"/>
+    </net>
+    <net code="83" name="Net-(U6B-VSW)">
+      <node ref="L5" pin="2" pintype="passive"/>
+      <node ref="U6" pin="A5" pinfunction="VSW" pintype="power_in"/>
+    </net>
+    <net code="84" name="Net-(U8-IBIAS_MASTER)">
+      <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="U8" pin="E1" pinfunction="IBIAS_MASTER" pintype="input"/>
+    </net>
+    <net code="85" name="Net-(U9--)">
+      <node ref="L4" pin="1" pintype="passive"/>
+      <node ref="U9" pin="3" pinfunction="-" pintype="input"/>
+      <node ref="U9" pin="4" pintype="output"/>
+    </net>
+    <net code="86" name="VDC">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C37" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="BVIN" pintype="input"/>
+      <node ref="U1" pin="18" pinfunction="V_OUT" pintype="input"/>
+      <node ref="U7" pin="4" pinfunction="VIN" pintype="input"/>
+    </net>
+    <net code="87" name="unconnected-(U1-PGOOD-Pad4)">
+      <node ref="U1" pin="4" pinfunction="PGOOD" pintype="input"/>
+    </net>
+    <net code="88" name="unconnected-(U1-SUSP-Pad19)">
+      <node ref="U1" pin="19" pinfunction="SUSP" pintype="input"/>
+    </net>
+    <net code="89" name="unconnected-(U2-NC-Pad9)">
+      <node ref="U2" pin="9" pinfunction="NC" pintype="no_connect"/>
+    </net>
+    <net code="90" name="unconnected-(U6A-PA03-PadD6)">
+      <node ref="U6" pin="D6" pinfunction="PA03" pintype="bidirectional"/>
+    </net>
+    <net code="91" name="unconnected-(U6A-PA27-PadB3)">
+      <node ref="U6" pin="B3" pinfunction="PA27" pintype="bidirectional"/>
+    </net>
+    <net code="92" name="unconnected-(U6A-PB03-PadC6)">
+      <node ref="U6" pin="C6" pinfunction="PB03" pintype="bidirectional"/>
+    </net>
+    <net code="93" name="unconnected-(U6A-PB04-PadD7)">
+      <node ref="U6" pin="D7" pinfunction="PB04" pintype="bidirectional"/>
+    </net>
+    <net code="94" name="unconnected-(U6A-PB06-PadE7)">
+      <node ref="U6" pin="E7" pinfunction="PB06" pintype="bidirectional"/>
+    </net>
+    <net code="95" name="unconnected-(U6A-PB07-PadE6)">
+      <node ref="U6" pin="E6" pinfunction="PB07" pintype="bidirectional"/>
+    </net>
+    <net code="96" name="unconnected-(U6A-PB08-PadF5)">
+      <node ref="U6" pin="F5" pinfunction="PB08" pintype="bidirectional"/>
+    </net>
+    <net code="97" name="unconnected-(U6A-PB31-PadB6)">
+      <node ref="U6" pin="B6" pinfunction="PB31" pintype="bidirectional"/>
+    </net>
+    <net code="98" name="unconnected-(U8-CLK_OUTN-PadC10)">
+      <node ref="U8" pin="C10" pinfunction="CLK_OUTN" pintype="input"/>
+    </net>
+    <net code="99" name="unconnected-(U8-CLK_OUTP-PadB11)">
+      <node ref="U8" pin="B11" pinfunction="CLK_OUTP" pintype="input"/>
+    </net>
+    <net code="100" name="unconnected-(U8-CP_CALIB-PadG1)">
+      <node ref="U8" pin="G1" pinfunction="CP_CALIB" pintype="input"/>
+    </net>
+    <net code="101" name="unconnected-(U8-CP_RESPD-PadF1)">
+      <node ref="U8" pin="F1" pinfunction="CP_RESPD" pintype="input"/>
+    </net>
+    <net code="102" name="unconnected-(U8-CP_SEL_SAMPLE-PadH4)">
+      <node ref="U8" pin="H4" pinfunction="CP_SEL_SAMPLE" pintype="input"/>
+    </net>
+    <net code="103" name="unconnected-(U8-DOUT0-PadB9)">
+      <node ref="U8" pin="B9" pinfunction="DOUT0" pintype="output"/>
+    </net>
+    <net code="104" name="unconnected-(U8-DOUT1-PadC9)">
+      <node ref="U8" pin="C9" pinfunction="DOUT1" pintype="output"/>
+    </net>
+    <net code="105" name="unconnected-(U8-DOUTN-PadD10)">
+      <node ref="U8" pin="D10" pinfunction="DOUTN" pintype="input"/>
+    </net>
+    <net code="106" name="unconnected-(U8-DOUTP-PadC11)">
+      <node ref="U8" pin="C11" pinfunction="DOUTP" pintype="input"/>
+    </net>
+    <net code="107" name="unconnected-(U8-LVDS_CLK_INN-PadF10)">
+      <node ref="U8" pin="F10" pinfunction="LVDS_CLK_INN" pintype="input"/>
+    </net>
+    <net code="108" name="unconnected-(U8-LVDS_CLK_INP-PadE11)">
+      <node ref="U8" pin="E11" pinfunction="LVDS_CLK_INP" pintype="input"/>
+    </net>
+    <net code="109" name="unconnected-(U8-MBSINOUT1-PadH1)">
+      <node ref="U8" pin="H1" pinfunction="MBSINOUT1" pintype="input"/>
+    </net>
+    <net code="110" name="unconnected-(U8-MBSINOUT1-PadH2)">
+      <node ref="U8" pin="H2" pinfunction="MBSINOUT1" pintype="input"/>
+    </net>
+    <net code="111" name="unconnected-(U8-MBSINOUT2-PadH3)">
+      <node ref="U8" pin="H3" pinfunction="MBSINOUT2" pintype="input"/>
+    </net>
+    <net code="112" name="unconnected-(U8-SYNCN-PadE10)">
+      <node ref="U8" pin="E10" pinfunction="SYNCN" pintype="input"/>
+    </net>
+    <net code="113" name="unconnected-(U8-SYNCP-PadD11)">
+      <node ref="U8" pin="D11" pinfunction="SYNCP" pintype="input"/>
+    </net>
+  </nets>
+</export>
