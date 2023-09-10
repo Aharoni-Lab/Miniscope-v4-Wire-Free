@@ -10791,7 +10791,7 @@
     (property "Reference" "U4" (at 473.71 334.01 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "MAX13030EETE+BGA" (at 473.71 336.55 0)
+    (property "Value" "MAX13030EEBE+BGA" (at 473.71 336.55 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Package_BGA:BGA-16_1.92x1.92mm_Layout4x4_P0.5mm" (at 473.71 317.5 0)
