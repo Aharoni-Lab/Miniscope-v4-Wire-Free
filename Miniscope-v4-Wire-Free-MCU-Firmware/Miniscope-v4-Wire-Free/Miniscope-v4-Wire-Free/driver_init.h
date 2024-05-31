@@ -27,8 +27,6 @@ extern "C" {
 
 #include <hal_camera_async.h>
 
-#include <hal_usart_async.h>
-
 #include <hal_mci_sync.h>
 
 #include <hal_delay.h>
@@ -41,7 +39,6 @@ extern struct adc_sync_descriptor ADC_0;
 
 extern struct camera_async_descriptor CAMERA_0;
 extern uint32_t                       frame_buf[];
-extern struct usart_async_descriptor  USART_0;
 
 extern struct mci_sync_desc IO_BUS;
 
@@ -55,10 +52,6 @@ void ADC_0_init(void);
 void CAMERA_0_PORT_init(void);
 void CAMERA_0_CLOCK_init(void);
 void CAMERA_0_init(void);
-
-void USART_0_PORT_init(void);
-void USART_0_CLOCK_init(void);
-void USART_0_init(void);
 
 void IO_BUS_PORT_init(void);
 void IO_BUS_CLOCK_init(void);

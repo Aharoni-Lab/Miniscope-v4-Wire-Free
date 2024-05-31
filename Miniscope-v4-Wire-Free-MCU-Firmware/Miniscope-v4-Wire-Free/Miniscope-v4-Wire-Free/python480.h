@@ -19,7 +19,7 @@ void python480Init()
 	// Sets up initial register values in the PYTHON 480
 	EnableClockMngmnt1();
 	//Maybe a small pause here for things to stabilize
-	delay_ms(10);
+	delay_ms(100);
 	EnableClockMngmnt2();
 	RequiredUploads();
 	SoftPowerUp();
