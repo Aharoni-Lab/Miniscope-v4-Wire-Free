@@ -206,7 +206,7 @@ static void checkBattVoltage_cb(const struct timer_task *const timer_task)
 	// Raise issue if voltage is under 3.4V
 	// 3.4V = 158
 	// 3.3V = 148
-	if (adcValue < 140) {
+	if (adcValue < 0) {   //140
 		// Low voltage problem
 		deviceState |= DEVICE_STATE_LOW_VOLTAGE;
 		deviceState |= DEVICE_STATE_STOP_RECORDING;
@@ -269,13 +269,13 @@ static void frameValid_cb(void)
 {
 	bool pinState = gpio_get_pin_level(FrameValid);
 	
-	//if (gpio_get_pin_level(LED_STATUS) == 1) {
-		//setStatusLED(0);
+	if (gpio_get_pin_level(LED_STATUS) == 1) {
+		setStatusLED(0);
 		//
-	//}
-	//else {
-		//setStatusLED(1);
-	//}
+	}
+	else {
+		setStatusLED(1);
+	}
 	
 	if (pinState == true) {
 		// beginning of new frame acquisition
@@ -727,11 +727,11 @@ int main(void)
 	setStatusLED(0);
 	//delay_ms(1000);
 	// Wait for SD Card and then load config from it
-	while (SD_MMC_OK != sd_mmc_check(0)) {}
-		if (loadSDCardHeader() == MS_SUCCESS)
-			deviceState |= DEVICE_STATE_CONFIG_LOADED;
-		else
-			deviceState |= DEVICE_STATE_ERROR;
+	//while (SD_MMC_OK != sd_mmc_check(0)) {}
+	//	if (loadSDCardHeader() == MS_SUCCESS)
+	//		deviceState |= DEVICE_STATE_CONFIG_LOADED;
+	//	else
+	//		deviceState |= DEVICE_STATE_ERROR;
 			
 	//delay_ms(5000);
 	//setStatusLED(0);
@@ -749,9 +749,9 @@ int main(void)
 	// TODO: Work on minimizing power draw
 	// Trigger pin gets init'ed as output low and shouldn't need to be adjusted
 	gpio_set_pin_level(RESET_CMOS, 0); // Make sure N_RESET of the PYTHON480 is low for a bit before going high. Shouldn't be needed
-	delay_ms(100);
+	delay_ms(1000);
 	gpio_set_pin_level(RESET_CMOS, 1);
-	delay_us(100); // minimum delay is 10us
+	delay_us(1000); // minimum delay is 10us
 	chip_id = spi_BB_Read(0x00); // can use this to make sure MCU can talk to Python480
 	ewlvalue = getPropFromHeader(HEADER_EWL_POS);
 	batteryvalue = getPropFromHeader(HEADER_BATT_CUTOFF_POS);
@@ -772,6 +772,7 @@ int main(void)
 	
 	python480Init();
 	Enable_Subsample();
+	chip_id = spi_BB_Read(0x00);
 	
 	
 	// Setup rest of Miniscope
