@@ -39,7 +39,7 @@
  *
  * \acme_license_stop
  *
- * Project: Miniscope-v4-Wire-Free
+ * Project: Miniscope-v4-wire-free
  * Target:  ATSAMD51J20A 
  *
  **/
