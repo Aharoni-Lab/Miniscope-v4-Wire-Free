@@ -3614,7 +3614,7 @@
     (property "Sheetname" "")
     (path "/1e4cc655-f586-4389-9c86-816d74953a4b")
     (attr smd)
-    (fp_text reference "R21" (at 0 0) (layer "F.Fab")
+    (fp_text reference "R21" (at 0 0) (layer "F.Fab") hide
       (effects (font (size 1 1) (thickness 0.1)))
       (tstamp c7a99b8c-cd0e-4ac5-9cde-f4f95cfbb04a)
     )
@@ -3622,7 +3622,7 @@
       (effects (font (size 1.2 1.2) (thickness 0.12)))
       (tstamp 632b7f38-7734-44e9-be5e-ed65afeaa39e)
     )
-    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.SilkS")
+    (fp_text user "${REFERENCE}" (at 0 0) (layer "F.SilkS") hide
       (effects (font (size 0.5 0.5) (thickness 0.05)))
       (tstamp 8e26e7cc-8543-48f4-8b34-2540306c4031)
     )
@@ -5184,7 +5184,7 @@
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp be7ea132-8e6c-4553-8dd3-ff7e13cacf3d)
     )
-    (fp_text user "*" (at 0 0 90) (layer "B.SilkS")
+    (fp_text user "*" (at 0 0 90) (layer "B.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp 4cfa9d89-7b2a-4650-b01c-137d6a6af6ec)
     )
@@ -6232,7 +6232,7 @@
       (effects (font (size 1.2 1.2) (thickness 0.12)) (justify mirror))
       (tstamp 2babe3ed-5e91-4a84-ada6-629c99ca8e90)
     )
-    (fp_text user "${REFERENCE}" (at 0 0 90) (layer "B.SilkS")
+    (fp_text user "${REFERENCE}" (at 0 0 90) (layer "B.SilkS") hide
       (effects (font (size 0.5 0.5) (thickness 0.05)) (justify mirror))
       (tstamp 5c24614f-85c1-4318-8beb-b380d04d4ca5)
     )
@@ -6298,10 +6298,10 @@
   (gr_arc (start 97.75 69.75) (mid 97.96967 69.21967) (end 98.5 69) (layer "Edge.Cuts") (width 0.05) (tstamp c58a3cbc-2069-4445-a8f9-88fb101e5511))
   (gr_line (start 103.6 60) (end 98.5 60) (layer "Edge.Cuts") (width 0.05) (tstamp d61a0121-7ccf-4657-9620-97fa5c3658c6))
   (gr_line (start 106.1 62) (end 106.1 67) (layer "Edge.Cuts") (width 0.05) (tstamp fdba3e1f-5092-41dd-9735-f04f73aed26b))
-  (gr_text "V4WF \nv0.1" (at 99.0198 67.8116) (layer "B.SilkS") (tstamp 00000000-0000-0000-0000-000060af1e1b)
+  (gr_text "V4WF \nv1.0" (at 99.0198 67.8116) (layer "B.SilkS") (tstamp 00000000-0000-0000-0000-000060af1e1b)
     (effects (font (size 0.6 0.6) (thickness 0.08)) (justify mirror))
   )
-  (gr_text "V4WF \nv0.1" (at 100.175 66.6336) (layer "F.SilkS") (tstamp 39239ded-57be-4b46-aa08-7f5991bf5585)
+  (gr_text "V4WF \nv1.0" (at 100.175 66.6336) (layer "F.SilkS") (tstamp 39239ded-57be-4b46-aa08-7f5991bf5585)
     (effects (font (size 0.6 0.6) (thickness 0.08)))
   )
 

@@ -133,11 +133,15 @@ main.d main.o: .././main.c ../atmel_start.h ../driver_init.h \
  ../hal/include/hpl_missing_features.h ../hal/include/hal_ext_irq.h \
  ../hal/include/hpl_ext_irq.h ../hal/include/hal_camera_async.h \
  ../hal/include/hpl_camera_async.h ../hal/include/hpl_irq.h \
- ../hal/utils/include/utils.h ../hal/include/hal_mci_sync.h \
- ../hal/include/hpl_mci_sync.h ../hal/include/hal_pwm.h \
- ../hal/include/hpl_pwm.h ../hpl/tc/hpl_tc_base.h \
- ../hal/include/hpl_timer.h ../hal/include/hal_timer.h \
- ../hal/utils/include/utils_list.h ../sd_mmc_start.h \
+ ../hal/utils/include/utils.h ../hal/include/hal_usart_async.h \
+ ../hal/include/hal_io.h ../hal/include/hpl_usart_async.h \
+ ../hal/include/hpl_usart.h ../hal/utils/include/utils_ringbuffer.h \
+ ../hal/utils/include/compiler.h ../hal/utils/include/utils_assert.h \
+ ../hal/include/hal_mci_sync.h ../hal/include/hpl_mci_sync.h \
+ ../hal/include/hal_pwm.h ../hal/include/hpl_pwm.h \
+ ../hpl/tc/hpl_tc_base.h ../hal/include/hpl_timer.h \
+ ../hal/include/hal_timer.h ../hal/utils/include/utils_list.h \
+ ../sd_mmc_start.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\_ansi.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\newlib.h \
@@ -511,6 +515,20 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAMD51_DFP\1.2.139\samd51a
 ../hal/include/hpl_irq.h:
 
 ../hal/utils/include/utils.h:
+
+../hal/include/hal_usart_async.h:
+
+../hal/include/hal_io.h:
+
+../hal/include/hpl_usart_async.h:
+
+../hal/include/hpl_usart.h:
+
+../hal/utils/include/utils_ringbuffer.h:
+
+../hal/utils/include/compiler.h:
+
+../hal/utils/include/utils_assert.h:
 
 ../hal/include/hal_mci_sync.h:
 
