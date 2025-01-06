@@ -1,0 +1,9 @@
+### Footprint positions - created on 2025-01-06T01:23:04-0800 ###
+### Printed by KiCad version 8.0.7
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val         Package                                  PosX       PosY       Rot  Side
+C16       4.7nF_100V  C_0603_1608Metric_L                   99.1590   -66.1002    0.0000  bottom
+D1        LXZ1-PR01   LED_LXZ1_PR01_L                      103.8000   -64.5000   90.0000  bottom
+U2        HV892       SON11P65_400X400X80L40X30T315X255L    99.5654   -62.8744    0.0000  bottom
+## End

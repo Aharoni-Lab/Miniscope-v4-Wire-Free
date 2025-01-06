@@ -1,0 +1,25 @@
+### Footprint positions - created on 2025-01-06T01:23:04-0800 ###
+### Printed by KiCad version 8.0.7
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val                        Package                            PosX       PosY       Rot  Side
+C12       2.2uF                      C_0201_0603Metric_L             99.0828   -62.6712    0.0000  top
+D3        LTST-C191KEKT              LED_SC80X160X65L40L             99.5400   -63.5602    0.0000  top
+J3        Conn_01x04                 FH19C-4S-0.5SH(10)             103.0000   -64.5000   90.0000  top
+J12       DNP                        Conn_1x1_700_Circular_Pad       97.0000   -68.9450    0.0000  top
+J21       DNP                        Conn_1x1_700_Circular_Pad       97.0000   -60.0550   90.0000  top
+J22       DNP                        Conn_1x1_700_Circular_Pad       97.0000   -61.3250   90.0000  top
+J23       DNP                        Conn_1x1_700_Circular_Pad       97.0000   -62.5950   90.0000  top
+J24       DNP                        Conn_1x1_700_Circular_Pad       97.0000   -63.8650   90.0000  top
+J25       DNP                        Conn_1x1_700_Circular_Pad       97.0000   -65.1350   90.0000  top
+J26       DNP                        Conn_1x1_700_Circular_Pad       97.0000   -66.4050   90.0000  top
+J27       DNP                        Conn_1x1_700_Circular_Pad       97.0000   -67.6750   90.0000  top
+Mount     Conn_1x1_700_Circular_Pad  Conn_1x1_700_Circular_Pad      103.6000   -61.0000    0.0000  top
+Mount     Conn_1x1_700_Circular_Pad  Conn_1x1_700_Circular_Pad      103.6000   -68.0000    0.0000  top
+R7        2.2k                       R_0201_0603Metric_ERJ_L        101.4240   -62.6712  180.0000  top
+R8        2.2k                       R_0201_0603Metric_ERJ_L        100.2258   -62.6712  180.0000  top
+R15       37.4k                      R_0201_0603Metric_ERJ_L        101.4196   -63.9158    0.0000  top
+R18       1k8                        R_0201_0603Metric_ERJ_L        101.4196   -63.3000  180.0000  top
+SW1       TL3780AF330QG              SMD-Switch-3mmx2mm              99.9210   -61.1218  180.0000  top
+U5        TSOP57438TT1               SON_4_P300_395X395X90L55X35L   100.0480   -66.5320  180.0000  top
+## End
